@@ -114,20 +114,17 @@ fun drawerColors(
  * @param colors The colors to apply to the drawer
  * @param layoutPadding The padding to be applied to the whole layout
  * @param drawerPadding The padding to apply to the drawer itself
- * @param headerIconSize The side of the header icon
- * @param headerIconPadding The padding of the header icon
  * @param headerIconMargin The margin of the header icon
  * @param headerIconTint The tint of the header icon
  * @param headerIcon The header icon itself
  * @param maxWidth The width of the drawer at opened state
  * @param minWidth The width of the drawer at closed state
- * @param snapThreshold The threshold when to snap to open (=1) or closed (=0)
  * @param scrimAlphaTarget The alpha value of scrim to apply when the drawer is opened
  * @param drawerContent The content to put inside the drawer, preferably [DrawerItem]'s
  * @param content The content to put besides the drawer
  */
 @Composable
-fun DrawerLayoutCompact(
+fun DrawerLayout(
     modifier: Modifier = Modifier,
     shape: Shape = RoundedCornerShape(
         topEnd = DrawerDefaults.cornerRadius,

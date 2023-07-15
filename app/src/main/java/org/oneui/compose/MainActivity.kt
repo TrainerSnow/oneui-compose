@@ -15,7 +15,7 @@ import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.drawer.DrawerDivider
 import org.oneui.compose.layout.drawer.DrawerItem
-import org.oneui.compose.layout.drawer.DrawerLayoutCompact
+import org.oneui.compose.layout.drawer.DrawerLayout
 import org.oneui.compose.layout.toolbar.CollapsingToolbarCollapsedState
 import org.oneui.compose.layout.toolbar.CollapsingToolbarLayout
 import org.oneui.compose.layout.toolbar.rememberCollapsingToolbarState
@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             OneUITheme {
-                DrawerLayoutCompact(
+                DrawerLayout(
                     drawerContent = {
                         DrawerItem(
                             icon = {
