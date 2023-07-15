@@ -14,6 +14,7 @@ import org.oneui.compose.theme.dimensions.IDynamicDimensions
 internal class RobotoTypographyTheme private constructor(
     override val button: TextStyle,
     override val drawerItemLabel: TextStyle,
+    override val drawerItemLabelSelected: TextStyle,
     override val drawerItemEndLabel: TextStyle,
     override val appbarTitleCollapsed: TextStyle,
     override val appbarTitleExtended: TextStyle,
@@ -74,6 +75,12 @@ internal class RobotoTypographyTheme private constructor(
                     color = colorTheme.drawerItemLabelColor,
                     fontFamily = robotoFamily,
                     fontWeight = FontWeight.Normal
+                ),
+                drawerItemLabelSelected = TextStyle(
+                    fontSize = 18.sp,
+                    color = colorTheme.drawerItemLabelColor,
+                    fontFamily = robotoFamily,
+                    fontWeight = FontWeight.Bold
                 ),
                 drawerItemEndLabel = TextStyle(
                     fontSize = 13.sp,

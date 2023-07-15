@@ -1,5 +1,6 @@
 package org.oneui.compose.layout.drawer
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -94,6 +95,7 @@ fun DrawerItem(
     icon: @Composable () -> Unit,
     label: String,
     labelEnd: String? = null,
+    selected: Boolean = false,
     onClick: (() -> Unit)? = null,
     colors: DrawerItemColors = drawerItemColors(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -101,7 +103,7 @@ fun DrawerItem(
     padding: PaddingValues = DrawerItemDefaults.padding,
     labelMaxLines: Int = DrawerItemDefaults.labelMaxLines,
     labelEndMaxLines: Int = DrawerItemDefaults.labelEndMaxLines,
-    textStyleLabel: TextStyle = OneUITheme.types.drawerItemLabel,
+    textStyleLabel: TextStyle = with(OneUITheme.types) { if (selected) drawerItemLabelSelected else drawerItemLabel },
     textStyleLabelEnd: TextStyle = OneUITheme.types.drawerItemEndLabel,
     iconTextSpacing: Dp = DrawerItemDefaults.iconTextSpacing,
     shape: Shape = DrawerItemDefaults.shape
@@ -119,6 +121,9 @@ fun DrawerItem(
             enabled = true,
             role = Role.Button,
             onClick = { onClick?.let { it() } }
+        )
+        .background(
+            color = if (selected) colors.ripple else Color.Transparent //When selected, we add ripple color as background
         )
         .padding(margin),
 ) {
