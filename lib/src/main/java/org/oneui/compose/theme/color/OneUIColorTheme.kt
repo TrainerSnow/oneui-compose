@@ -188,8 +188,8 @@ interface OneUIColorTheme {
         fun getTheme(
             dark: Boolean = false
         ): OneUIColorTheme =
-            if (dark) DarkSeslColorTheme.Instance
-            else LightSeslColorTheme.Instance
+            if (dark) DarkColorTheme.Instance
+            else LightColorTheme.Instance
 
     }
 }

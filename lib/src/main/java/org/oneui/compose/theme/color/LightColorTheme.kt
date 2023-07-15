@@ -2,7 +2,7 @@ package org.oneui.compose.theme.color
 
 import androidx.compose.ui.graphics.Color
 
-internal class LightSeslColorTheme : OneUIColorTheme {
+internal class LightColorTheme : OneUIColorTheme {
 
     override val seslPrimaryDarkColor = Color(0xff0072de)
     override val black = Color(0xff000000)
@@ -186,7 +186,7 @@ internal class LightSeslColorTheme : OneUIColorTheme {
 
     companion object {
 
-        val Instance = LightSeslColorTheme()
+        val Instance = LightColorTheme()
 
     }
 }
