@@ -20,12 +20,6 @@ D
 app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
 F
 app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
-e
-5app/src/main/java/org/oneui/compose/ui/theme/Color.kt,b/c/bcac49cea95e3b4742b33ffe7211fd012e6ee593
-e
-5app/src/main/java/org/oneui/compose/ui/theme/Theme.kt,f/6/f66a6914059b96b441963e5e46b2d9030ac4cb78
-d
-4app/src/main/java/org/oneui/compose/ui/theme/Type.kt,4/d/4d1068a7a0fe56023918b30783d97b70cac48d39
 p
 @app/src/main/java/org/oneui/compose/ui/widgets/ButtonShowcase.kt,f/f/ff4c9ba1c96304ca8b047a2a68f901662c5be23e
 u
