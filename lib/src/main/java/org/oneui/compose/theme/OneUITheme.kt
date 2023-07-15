@@ -14,7 +14,7 @@ import org.oneui.compose.theme.type.OneUITypographyTheme
 import org.oneui.compose.theme.type.RobotoTypographyTheme
 
 @Composable
-fun SeslTheme(
+fun OneUITheme(
     colorTheme: OneUIColorTheme = OneUIColorTheme.getTheme(isSystemInDarkTheme()),
     dynamicDimensions: IDynamicDimensions = DynamicDimensionsImpl(
         context = LocalContext.current

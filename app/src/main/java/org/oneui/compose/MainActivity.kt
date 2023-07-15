@@ -19,14 +19,14 @@ import org.oneui.compose.layout.drawer.DrawerLayoutCompact
 import org.oneui.compose.layout.toolbar.CollapsingToolbarCollapsedState
 import org.oneui.compose.layout.toolbar.CollapsingToolbarLayout
 import org.oneui.compose.layout.toolbar.rememberCollapsingToolbarState
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.widgets.buttons.OUIIconButton
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SeslTheme {
+            OneUITheme {
                 DrawerLayoutCompact(
                     drawerContent = {
                         DrawerItem(
