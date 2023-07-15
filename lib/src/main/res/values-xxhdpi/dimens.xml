@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="sesl_preference_switch_screen_divider_width" format="float" type="dimen">1.0
+    </dimen>
+
+</resources>

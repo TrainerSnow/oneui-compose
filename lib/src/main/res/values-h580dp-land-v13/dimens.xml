@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="sesl_switchbar_label_text_size" format="float" type="dimen">21.0</dimen>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sesl_picker_color_spectrum_width" format="float" type="dimen">194.0</dimen>
+    <dimen name="sesl_picker_color_selected_hex_section_margin" format="float" type="dimen">18.0
+    </dimen>
+    <dimen name="sesl_picker_color_selected_rgb_section_margin" format="float" type="dimen">18.0
+    </dimen>
+    <dimen name="sesl_picker_color_content_width" format="float" type="dimen">600.0</dimen>
+    <dimen name="sesl_picker_color_swatches_height" format="float" type="dimen">193.0</dimen>
+    <dimen name="sesl_picker_color_swatches_width" format="float" type="dimen">197.0</dimen>
+</resources>

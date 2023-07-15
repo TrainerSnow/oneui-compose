@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="sesl_switchbar_margin_horizontal" format="float" type="dimen">24.0</dimen>
+
+</resources>

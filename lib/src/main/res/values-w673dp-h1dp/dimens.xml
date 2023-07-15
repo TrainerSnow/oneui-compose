@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="sesl_dialog_min_width_major" format="float" type="dimen">0.55</item>
+    <item name="sesl_dialog_min_width_minor" format="float" type="dimen">1.0</item>
+
+</resources>
