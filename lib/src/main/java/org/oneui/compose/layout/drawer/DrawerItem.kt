@@ -1,5 +1,6 @@
 package org.oneui.compose.layout.drawer
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -25,6 +26,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.theme.color.OneUIColorTheme
 
 /**
  * Stores default values for the button specs
@@ -79,13 +81,7 @@ fun drawerItemColors(
  * @param onClick The callback called when the tem is clicked
  * @param colors The colors to apply to the item
  * @param interactionSource The used [MutableInteractionSource]
- * @param margin The margin to apply to the item
- * @param padding The padding to apply to the item
- * @param labelMaxLines The maximum lines the title can consist of
- * @param labelEndMaxLines The maximum lines the ending title can consist of
  * @param textStyleLabel The [TextStyle] for the title
- * @param textStyleLabelEnd The [TextStyle] for the ending title
- * @param iconTextSpacing The spacing between the icon and title
  * @param shape The overall shape of the item
  */
 @Composable
@@ -94,16 +90,11 @@ fun DrawerItem(
     icon: @Composable () -> Unit,
     label: String,
     labelEnd: String? = null,
+    selected: Boolean = false,
     onClick: (() -> Unit)? = null,
     colors: DrawerItemColors = drawerItemColors(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    margin: PaddingValues = DrawerItemDefaults.margin,
-    padding: PaddingValues = DrawerItemDefaults.padding,
-    labelMaxLines: Int = DrawerItemDefaults.labelMaxLines,
-    labelEndMaxLines: Int = DrawerItemDefaults.labelEndMaxLines,
-    textStyleLabel: TextStyle = OneUITheme.types.drawerItemLabel,
-    textStyleLabelEnd: TextStyle = OneUITheme.types.drawerItemEndLabel,
-    iconTextSpacing: Dp = DrawerItemDefaults.iconTextSpacing,
+    textStyleLabel: TextStyle = with(OneUITheme.types) { if (selected) drawerItemLabelSelected else drawerItemLabel },
     shape: Shape = DrawerItemDefaults.shape
 ) = Box(
     modifier = modifier
@@ -120,26 +111,29 @@ fun DrawerItem(
             role = Role.Button,
             onClick = { onClick?.let { it() } }
         )
-        .padding(margin),
+        .background(
+            color = if (selected) colors.ripple else Color.Transparent //When selected, we add ripple color as background
+        )
+        .padding(DrawerItemDefaults.margin),
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(padding),
+            .padding(DrawerItemDefaults.padding),
         verticalAlignment = Alignment.CenterVertically
     ) {
         icon()
 
         Spacer(
             modifier = Modifier
-                .width(iconTextSpacing)
+                .width(DrawerItemDefaults.iconTextSpacing)
         )
 
         BasicText(
             text = label,
             style = textStyleLabel,
             overflow = TextOverflow.Ellipsis,
-            maxLines = labelMaxLines
+            maxLines = DrawerItemDefaults.labelMaxLines
         )
 
         Spacer(
@@ -150,9 +144,9 @@ fun DrawerItem(
         labelEnd?.let { labelEnd ->
             BasicText(
                 text = labelEnd,
-                style = textStyleLabelEnd,
+                style = OneUITheme.types.drawerItemEndLabel,
                 overflow = TextOverflow.Ellipsis,
-                maxLines = labelEndMaxLines
+                maxLines = DrawerItemDefaults.labelEndMaxLines
             )
         }
     }

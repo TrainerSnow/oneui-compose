@@ -9,6 +9,8 @@ interface OneUITypographyTheme {
 
     val drawerItemLabel: TextStyle
 
+    val drawerItemLabelSelected: TextStyle
+
     val drawerItemEndLabel: TextStyle
 
     val appbarTitleCollapsed: TextStyle
