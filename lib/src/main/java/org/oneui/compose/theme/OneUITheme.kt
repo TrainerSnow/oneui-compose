@@ -11,7 +11,7 @@ import org.oneui.compose.theme.locals.LocalColors
 import org.oneui.compose.theme.locals.LocalDynamicDimensions
 import org.oneui.compose.theme.locals.LocalTypography
 import org.oneui.compose.theme.type.OneUITypographyTheme
-import org.oneui.compose.theme.type.RobotoSeslTypographyTheme
+import org.oneui.compose.theme.type.RobotoTypographyTheme
 
 @Composable
 fun SeslTheme(
@@ -19,7 +19,7 @@ fun SeslTheme(
     dynamicDimensions: IDynamicDimensions = DynamicDimensionsImpl(
         context = LocalContext.current
     ),
-    typeTheme: OneUITypographyTheme = RobotoSeslTypographyTheme.create(
+    typeTheme: OneUITypographyTheme = RobotoTypographyTheme.create(
         colorTheme,
         dynamicDimensions
     ),

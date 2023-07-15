@@ -11,7 +11,7 @@ import org.oneui.compose.theme.color.OneUIColorTheme
 import org.oneui.compose.theme.dimensions.IDynamicDimensions
 
 
-internal class RobotoSeslTypographyTheme private constructor(
+internal class RobotoTypographyTheme private constructor(
     override val button: TextStyle,
     override val drawerItemLabel: TextStyle,
     override val drawerItemEndLabel: TextStyle,
@@ -62,7 +62,7 @@ internal class RobotoSeslTypographyTheme private constructor(
             colorTheme: OneUIColorTheme,
             dimens: IDynamicDimensions
         ): OneUITypographyTheme = colorTheme.seslBtnDefaultTextColor.let {
-            RobotoSeslTypographyTheme(
+            RobotoTypographyTheme(
                 button = TextStyle(
                     color = it,
                     fontSize = 15.sp,
