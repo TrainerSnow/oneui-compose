@@ -20,7 +20,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 /**
  * Stores the colors that are needed to define a button
@@ -53,12 +53,12 @@ data class ButtonColors(
  */
 @Composable
 fun defaultButtonColors(
-    ripple: Color = SeslTheme.colors.seslRippleColor,
-    background: Color = SeslTheme.colors.buttonDefaultBackground,
+    ripple: Color = OneUITheme.colors.seslRippleColor,
+    background: Color = OneUITheme.colors.buttonDefaultBackground,
     backgroundDisabled: Color = background.copy(
         alpha = ButtonDefaults.disabledAlpha
     ),
-    text: Color = SeslTheme.colors.buttonDefaultText
+    text: Color = OneUITheme.colors.buttonDefaultText
 ): ButtonColors = ButtonColors(
     ripple = ripple,
     background = background,
@@ -71,12 +71,12 @@ fun defaultButtonColors(
  */
 @Composable
 fun coloredButtonColors(
-    ripple: Color = SeslTheme.colors.seslRippleColor,
-    background: Color = SeslTheme.colors.buttonColoredBackground,
+    ripple: Color = OneUITheme.colors.seslRippleColor,
+    background: Color = OneUITheme.colors.buttonColoredBackground,
     backgroundDisabled: Color = background.copy(
         alpha = ButtonDefaults.disabledAlpha
     ),
-    text: Color = SeslTheme.colors.buttonColoredText
+    text: Color = OneUITheme.colors.buttonColoredText
 ): ButtonColors = ButtonColors(
     ripple = ripple,
     background = background,
@@ -89,10 +89,10 @@ fun coloredButtonColors(
  */
 @Composable
 fun transparentButtonColors(
-    ripple: Color = SeslTheme.colors.seslRippleColor,
-    background: Color = SeslTheme.colors.buttonTransparentBackground,
-    backgroundDisabled: Color = SeslTheme.colors.buttonTransparentBackground,
-    text: Color = SeslTheme.colors.buttonTransparentText
+    ripple: Color = OneUITheme.colors.seslRippleColor,
+    background: Color = OneUITheme.colors.buttonTransparentBackground,
+    backgroundDisabled: Color = OneUITheme.colors.buttonTransparentBackground,
+    text: Color = OneUITheme.colors.buttonTransparentText
 ): ButtonColors = ButtonColors(
     ripple = ripple,
     background = background,
@@ -158,7 +158,7 @@ fun ColoredButton(
     maxLines: Int = ButtonDefaults.maxLines,
     enabled: Boolean = true,
     shape: Shape = ButtonDefaults.shape,
-    textStyle: TextStyle = SeslTheme.types.button,
+    textStyle: TextStyle = OneUITheme.types.button,
     onClick: (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: ButtonColors = coloredButtonColors(),
@@ -203,7 +203,7 @@ fun TransparentButton(
     maxLines: Int = ButtonDefaults.maxLines,
     enabled: Boolean = true,
     shape: Shape = ButtonDefaults.shape,
-    textStyle: TextStyle = SeslTheme.types.button,
+    textStyle: TextStyle = OneUITheme.types.button,
     onClick: (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: ButtonColors = transparentButtonColors()
@@ -248,7 +248,7 @@ fun Button(
     maxLines: Int = ButtonDefaults.maxLines,
     enabled: Boolean = true,
     shape: Shape = ButtonDefaults.shape,
-    textStyle: TextStyle = SeslTheme.types.button,
+    textStyle: TextStyle = OneUITheme.types.button,
     onClick: (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: ButtonColors = defaultButtonColors()

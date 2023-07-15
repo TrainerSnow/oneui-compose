@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 /**
  * Composable for a oneui-style color spectrum. This allows the user to select one color
@@ -39,7 +39,7 @@ fun ColorSpectrum(
     selectedColor: Color,
     onSelectedColorChange: (hue: Float, saturation: Float) -> Unit,
 ) {
-    val cursorRadius = SeslTheme.dimensions.colorPickerSpectrumCursorRadius
+    val cursorRadius = OneUITheme.dimensions.colorPickerSpectrumCursorRadius
 
     var cursorPos by remember {
         mutableStateOf(Offset.Zero)
@@ -168,7 +168,7 @@ data class ColorSpectrumColors(
  */
 @Composable
 fun colorSpectrumColors(
-    cursorOutline: Color = SeslTheme.colors.white,
+    cursorOutline: Color = OneUITheme.colors.white,
     hueColors: List<Color> = ColorSpectrumDefaults.hueColors
 ): ColorSpectrumColors = ColorSpectrumColors(
     cursorOutline = cursorOutline,

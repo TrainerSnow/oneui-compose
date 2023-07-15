@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import org.oneui.compose.R
 import org.oneui.compose.base.Icon
 import org.oneui.compose.dialog.AlertDialog
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.widgets.UnderlinedEditText
 
 
@@ -55,8 +55,8 @@ fun EditTextPreference(
         summary = {
             Text(
                 text = value,
-                style = SeslTheme.types.preferenceSummary.copy(
-                    color = SeslTheme.colors.seslPrimaryColor
+                style = OneUITheme.types.preferenceSummary.copy(
+                    color = OneUITheme.colors.seslPrimaryColor
                 )
             )
         },

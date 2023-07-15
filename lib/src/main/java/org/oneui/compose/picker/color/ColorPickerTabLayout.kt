@@ -18,7 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.R
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 @Composable
 fun ColorPickerTabLayout(
@@ -28,7 +28,7 @@ fun ColorPickerTabLayout(
     colors: ColorPickerTabLayoutColors = colorPickerTabLayoutColors()
 ) {
     val margin = PaddingValues(
-        horizontal = SeslTheme.dimensions.colorPickerTabLayoutMarginHorizontal
+        horizontal = OneUITheme.dimensions.colorPickerTabLayoutMarginHorizontal
     )
     Row(
         modifier = modifier
@@ -77,7 +77,7 @@ internal fun ColorPickerTab(
         .clip(ColorPickerTabLayoutDefaults.tabShape)
     else Modifier
 
-    val style = with(SeslTheme.types) { if (selected) colorPickerTabSelected else colorPickerTab }
+    val style = with(OneUITheme.types) { if (selected) colorPickerTabSelected else colorPickerTab }
 
     Text(
         modifier = modifier
@@ -111,7 +111,7 @@ data class ColorPickerTabLayoutColors(
 
 @Composable
 fun colorPickerTabLayoutColors(
-    tabBackground: Color = SeslTheme.colors.colorPickerTabBackground
+    tabBackground: Color = OneUITheme.colors.colorPickerTabBackground
 ): ColorPickerTabLayoutColors = ColorPickerTabLayoutColors(
     tabBackground = tabBackground
 )

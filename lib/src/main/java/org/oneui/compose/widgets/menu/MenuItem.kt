@@ -23,7 +23,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.base.IconView
 import org.oneui.compose.base.iconColors
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -47,7 +47,7 @@ fun SelectableMenuItem(
     selected: Boolean = false,
     enabled: Boolean = true,
     onSelect: (() -> Unit)? = null,
-    labelStyle: TextStyle = with(SeslTheme.types) {
+    labelStyle: TextStyle = with(OneUITheme.types) {
         if (!enabled) menuLabelDisabled else if (selected) menuLabelSelected else menuLabel
     },
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -109,7 +109,7 @@ fun MenuItem(
     label: String,
     enabled: Boolean = true,
     onClick: (() -> Unit)? = null,
-    labelStyle: TextStyle = with(SeslTheme.types) {
+    labelStyle: TextStyle = with(OneUITheme.types) {
         if (!enabled) menuLabelDisabled else menuLabel
     },
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -172,7 +172,7 @@ data class MenuItemColors(
  */
 @Composable
 fun menuItemColors(
-    ripple: Color = SeslTheme.colors.seslRippleColor
+    ripple: Color = OneUITheme.colors.seslRippleColor
 ): MenuItemColors = MenuItemColors(
     ripple = ripple
 )

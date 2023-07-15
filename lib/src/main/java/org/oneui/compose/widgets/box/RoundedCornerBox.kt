@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 /**
  * Contains the colors that define a [RoundedCornerBox]
@@ -43,8 +43,8 @@ data class RoundedCornerBoxColors(
  */
 @Composable
 fun roundedCornerBoxColors(
-    background: Color = SeslTheme.colors.roundedCornerBoxBackground,
-    ripple: Color = SeslTheme.colors.seslRippleColor
+    background: Color = OneUITheme.colors.roundedCornerBoxBackground,
+    ripple: Color = OneUITheme.colors.seslRippleColor
 ): RoundedCornerBoxColors = RoundedCornerBoxColors(
     background = background,
     ripple = ripple

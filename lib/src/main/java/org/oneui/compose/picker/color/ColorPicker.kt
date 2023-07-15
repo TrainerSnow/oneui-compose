@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.R
 import org.oneui.compose.dialog.BaseDialog
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.debugBorder
 import org.oneui.compose.util.hsl
 
@@ -39,19 +39,19 @@ fun ColorPicker(
         mutableStateOf(ColorPickerTabSelection.Swatches)
     }
 
-    val width = SeslTheme.dimensions.colorPickerContentWidth
+    val width = OneUITheme.dimensions.colorPickerContentWidth
 
-    val swatchHeight = SeslTheme.dimensions.colorPickerSwatchHeight
-    val swatchWidth = SeslTheme.dimensions.colorPickerSwatchWidth
+    val swatchHeight = OneUITheme.dimensions.colorPickerSwatchHeight
+    val swatchWidth = OneUITheme.dimensions.colorPickerSwatchWidth
     val swatchMargin = PaddingValues(
-        top = SeslTheme.dimensions.colorPickerSwatchMarginTop,
-        bottom = SeslTheme.dimensions.colorPickerSwatchMarginTop
+        top = OneUITheme.dimensions.colorPickerSwatchMarginTop,
+        bottom = OneUITheme.dimensions.colorPickerSwatchMarginTop
     )
 
-    val specHeight = SeslTheme.dimensions.colorPickerSpectrumHeight
-    val specWidth = SeslTheme.dimensions.colorPickerSpectrumWidth
+    val specHeight = OneUITheme.dimensions.colorPickerSpectrumHeight
+    val specWidth = OneUITheme.dimensions.colorPickerSpectrumWidth
     val specMargin = PaddingValues(
-        top = SeslTheme.dimensions.colorPickerSwatchMarginTop
+        top = OneUITheme.dimensions.colorPickerSwatchMarginTop
     )
 
     Column(
@@ -139,7 +139,7 @@ fun ColorPickerDialog(
     BaseDialog(
         onDismissRequest = onDismissRequest,
         padding = PaddingValues(0.dp),
-        width = SeslTheme.dimensions.colorPickerContentWidth
+        width = OneUITheme.dimensions.colorPickerContentWidth
     ) {
         ColorPicker(
             selectedColor = selectedColor,

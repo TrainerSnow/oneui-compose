@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.base.Icon
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.widgets.buttons.Switch
 import kotlinx.coroutines.launch
 
@@ -92,7 +92,7 @@ fun SwitchPreferenceScreen(
                 modifier = modifier
                     .height(SwitchPreferenceScreenDefaults.dividerHeight),
                 color = colors.switchDivider,
-                strokeWidth = SeslTheme.dimensions.preferenceSwitchScreenDividerWidth
+                strokeWidth = OneUITheme.dimensions.preferenceSwitchScreenDividerWidth
             )
             Switch(
                 modifier = modifier
@@ -164,7 +164,7 @@ data class SwitchPreferenceScreenColors(
  */
 @Composable
 fun switchPreferenceScreenColors(
-    switchDivider: Color = SeslTheme.colors.seslSwitchDividerColor
+    switchDivider: Color = OneUITheme.colors.seslSwitchDividerColor
 ): SwitchPreferenceScreenColors = SwitchPreferenceScreenColors(
     switchDivider = switchDivider
 )

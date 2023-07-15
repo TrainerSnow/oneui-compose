@@ -22,7 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.R
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.widgets.buttons.Switch
 
 
@@ -71,12 +71,12 @@ fun SwitchBar(
                 onClick = { onSwitchedChange?.let { it(!switched) } }
             )
             .padding(
-                horizontal = SeslTheme.dimensions.switchBarMarginHorizontal
+                horizontal = OneUITheme.dimensions.switchBarMarginHorizontal
             ),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        ProvideTextStyle(with(SeslTheme.types) { if (switched) switchBarLabel else switchBarLabelOff }) {
+        ProvideTextStyle(with(OneUITheme.types) { if (switched) switchBarLabel else switchBarLabelOff }) {
             Text(
                 text = label
             )
@@ -128,9 +128,9 @@ data class SwitchBarColors(
  */
 @Composable
 fun switchBarColors(
-    ripple: Color = SeslTheme.colors.seslRippleColor,
-    background: Color = SeslTheme.colors.seslSwitchbarOnBackgroundColor,
-    backgroundOff: Color = SeslTheme.colors.seslSwitchbarOffBackgroundColor
+    ripple: Color = OneUITheme.colors.seslRippleColor,
+    background: Color = OneUITheme.colors.seslSwitchbarOnBackgroundColor,
+    backgroundOff: Color = OneUITheme.colors.seslSwitchbarOffBackgroundColor
 ): SwitchBarColors = SwitchBarColors(
     ripple = ripple,
     background = background,

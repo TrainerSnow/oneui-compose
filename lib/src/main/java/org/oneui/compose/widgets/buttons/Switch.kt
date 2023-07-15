@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.mapRange
 import org.oneui.compose.widgets.buttons.ActualSwitchColors.Companion.forConfig
 import kotlinx.coroutines.delay
@@ -315,19 +315,19 @@ data class ActualSwitchColors(
  */
 @Composable
 fun switchColors(
-    thumb: Color = SeslTheme.colors.seslSwitchThumbOnColor,
-    thumbOff: Color = SeslTheme.colors.seslSwitchThumbOffColor,
-    thumbDisabled: Color = SeslTheme.colors.seslSwitchThumbOnDisabledColor,
-    thumbOffDisabled: Color = SeslTheme.colors.seslSwitchThumbOffDisabledColor,
-    track: Color = SeslTheme.colors.seslPrimaryColor,
-    trackOff: Color = SeslTheme.colors.seslSwitchTrackOffColor,
-    trackDisabled: Color = SeslTheme.colors.seslPrimaryColor.copy(alpha = 0.4F),
-    trackOffDisabled: Color = SeslTheme.colors.seslSwitchTrackOffDisabledColor,
-    stroke: Color = SeslTheme.colors.seslPrimaryColor,
-    strokeOff: Color = SeslTheme.colors.seslSwitchThumbOffStrokeColor,
-    strokeDisabled: Color = SeslTheme.colors.seslPrimaryColor.copy(alpha = 0.4F),
-    strokeOffDisabled: Color = SeslTheme.colors.seslSwitchThumbOffDisabledStrokeColor,
-    ripple: Color = SeslTheme.colors.seslRippleColor
+    thumb: Color = OneUITheme.colors.seslSwitchThumbOnColor,
+    thumbOff: Color = OneUITheme.colors.seslSwitchThumbOffColor,
+    thumbDisabled: Color = OneUITheme.colors.seslSwitchThumbOnDisabledColor,
+    thumbOffDisabled: Color = OneUITheme.colors.seslSwitchThumbOffDisabledColor,
+    track: Color = OneUITheme.colors.seslPrimaryColor,
+    trackOff: Color = OneUITheme.colors.seslSwitchTrackOffColor,
+    trackDisabled: Color = OneUITheme.colors.seslPrimaryColor.copy(alpha = 0.4F),
+    trackOffDisabled: Color = OneUITheme.colors.seslSwitchTrackOffDisabledColor,
+    stroke: Color = OneUITheme.colors.seslPrimaryColor,
+    strokeOff: Color = OneUITheme.colors.seslSwitchThumbOffStrokeColor,
+    strokeDisabled: Color = OneUITheme.colors.seslPrimaryColor.copy(alpha = 0.4F),
+    strokeOffDisabled: Color = OneUITheme.colors.seslSwitchThumbOffDisabledStrokeColor,
+    ripple: Color = OneUITheme.colors.seslRippleColor
 ): SwitchColors = SwitchColors(
     thumb,
     thumbOff,

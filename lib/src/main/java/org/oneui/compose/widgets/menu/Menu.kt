@@ -29,7 +29,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -163,8 +163,8 @@ data class MenuColors(
  */
 @Composable
 fun menuColors(
-    background: Color = SeslTheme.colors.seslPopupMenuBlurBackground,
-    stroke: Color = SeslTheme.colors.seslMenuPopupBackgroundStrokeColor
+    background: Color = OneUITheme.colors.seslPopupMenuBlurBackground,
+    stroke: Color = OneUITheme.colors.seslMenuPopupBackgroundStrokeColor
 ): MenuColors = MenuColors(
     background = background,
     stroke = stroke

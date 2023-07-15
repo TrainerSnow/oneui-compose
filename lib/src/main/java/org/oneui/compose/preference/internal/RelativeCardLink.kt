@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.preference.RelativeCard
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -49,7 +49,7 @@ fun RelativeCardLink(
             )
             .padding(RelativeCardLinkDefaults.padding)
     ) {
-        ProvideTextStyle(SeslTheme.types.relativeCardLink) {
+        ProvideTextStyle(OneUITheme.types.relativeCardLink) {
             text()
         }
     }
@@ -92,7 +92,7 @@ data class RelativeCardLinkColors(
  */
 @Composable
 fun relativeCardLinkColors(
-    ripple: Color = SeslTheme.colors.seslRippleColor
+    ripple: Color = OneUITheme.colors.seslRippleColor
 ): RelativeCardLinkColors = RelativeCardLinkColors(
     ripple = ripple
 )

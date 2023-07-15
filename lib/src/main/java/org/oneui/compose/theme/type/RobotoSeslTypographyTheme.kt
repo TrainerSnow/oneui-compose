@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import org.oneui.compose.theme.color.ISeslColorTheme
+import org.oneui.compose.theme.color.OneUIColorTheme
 import org.oneui.compose.theme.dimensions.IDynamicDimensions
 
 
@@ -48,7 +48,7 @@ internal class RobotoSeslTypographyTheme private constructor(
     override val colorPickerSeekbarProgressLabel: TextStyle,
     override val colorPickerTab: TextStyle,
     override val colorPickerTabSelected: TextStyle
-) : ISeslTypographyTheme {
+) : OneUITypographyTheme {
 
     companion object {
 
@@ -59,9 +59,9 @@ internal class RobotoSeslTypographyTheme private constructor(
         )
 
         fun create(
-            colorTheme: ISeslColorTheme,
+            colorTheme: OneUIColorTheme,
             dimens: IDynamicDimensions
-        ): ISeslTypographyTheme = colorTheme.seslBtnDefaultTextColor.let {
+        ): OneUITypographyTheme = colorTheme.seslBtnDefaultTextColor.let {
             RobotoSeslTypographyTheme(
                 button = TextStyle(
                     color = it,

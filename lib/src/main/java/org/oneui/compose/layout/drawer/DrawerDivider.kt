@@ -12,7 +12,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 object DrawerDividerDefaults {
 
@@ -33,7 +33,7 @@ data class DrawerDividerColors(
 
 @Composable
 fun drawerDividerColors(
-    dotColor: Color = SeslTheme.colors.drawerDividerColor
+    dotColor: Color = OneUITheme.colors.drawerDividerColor
 ): DrawerDividerColors = DrawerDividerColors(
     dotColor = dotColor
 )

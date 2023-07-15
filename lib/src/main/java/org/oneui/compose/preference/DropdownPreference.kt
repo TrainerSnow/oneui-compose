@@ -10,7 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import org.oneui.compose.base.Icon
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.widgets.menu.PopupMenu
 import org.oneui.compose.widgets.menu.SelectableMenuItem
 
@@ -60,8 +60,8 @@ fun <T> DropdownPreference(
             summary = {
                 Text(
                     text = nameFor(item),
-                    style = SeslTheme.types.preferenceSummary.copy(
-                        color = SeslTheme.colors.seslPrimaryColor
+                    style = OneUITheme.types.preferenceSummary.copy(
+                        color = OneUITheme.colors.seslPrimaryColor
                     )
                 )
             },

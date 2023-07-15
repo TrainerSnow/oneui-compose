@@ -16,7 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 @Composable
 fun TipsCardPreferenceButton(
@@ -42,7 +42,7 @@ fun TipsCardPreferenceButton(
             )
             .padding(TipsCardPreferenceButtonDefaults.padding)
     ) {
-        ProvideTextStyle(SeslTheme.types.tipsCardPreferenceButtonLabel) {
+        ProvideTextStyle(OneUITheme.types.tipsCardPreferenceButtonLabel) {
             label()
         }
     }
@@ -71,7 +71,7 @@ data class TipsCardPreferenceButtonColors(
 
 @Composable
 fun tipsCardPreferenceButtonColors(
-    ripple: Color = SeslTheme.colors.seslRippleColor,
+    ripple: Color = OneUITheme.colors.seslRippleColor,
     background: Color = Color.Transparent
 ): TipsCardPreferenceButtonColors = TipsCardPreferenceButtonColors(
     ripple = ripple,

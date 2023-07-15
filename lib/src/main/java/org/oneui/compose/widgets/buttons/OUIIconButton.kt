@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.base.iconColors
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 object OUIIconButtonDefaults {
 
@@ -40,8 +40,8 @@ data class OUIIconButtonColors(
 
 @Composable
 fun ouiIconButtonColors(
-    tint: Color = SeslTheme.colors.seslPrimaryTextColor,
-    ripple: Color = SeslTheme.colors.seslRippleColor
+    tint: Color = OneUITheme.colors.seslPrimaryTextColor,
+    ripple: Color = OneUITheme.colors.seslRippleColor
 ): OUIIconButtonColors = OUIIconButtonColors(
     tint = tint,
     ripple = ripple

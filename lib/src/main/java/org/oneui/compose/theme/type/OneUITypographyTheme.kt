@@ -3,7 +3,7 @@ package org.oneui.compose.theme.type
 import androidx.compose.ui.text.TextStyle
 
 
-interface ISeslTypographyTheme {
+interface OneUITypographyTheme {
 
     val button: TextStyle
 

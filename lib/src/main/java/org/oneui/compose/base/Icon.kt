@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 sealed class Icon {
 
@@ -75,7 +75,7 @@ data class IconColors(
  */
 @Composable
 fun iconColors(
-    tint: Color = SeslTheme.colors.seslPrimaryTextColor
+    tint: Color = OneUITheme.colors.seslPrimaryTextColor
 ): IconColors = IconColors(
     tint = tint
 )

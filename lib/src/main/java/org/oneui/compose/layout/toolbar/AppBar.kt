@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 /**
  * Contains the colors that define a [OUIAppBar]
@@ -53,8 +53,8 @@ fun OUIAppBar(
     modifier: Modifier = Modifier,
     title: @Composable () -> Unit,
     titleTextAlpha: Float = 1F,
-    titleTextStyle: TextStyle = SeslTheme.types.appbarTitleCollapsed.copy(
-        color = SeslTheme.types.appbarTitleCollapsed.color.copy(
+    titleTextStyle: TextStyle = OneUITheme.types.appbarTitleCollapsed.copy(
+        color = OneUITheme.types.appbarTitleCollapsed.color.copy(
             alpha = titleTextAlpha
         )
     ),

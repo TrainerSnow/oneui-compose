@@ -20,7 +20,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -319,7 +319,7 @@ data class ColorSwatchesColors(
  */
 @Composable
 fun colorSwatchesColors(
-    cellStrokeColor: Color = SeslTheme.colors.colorPickerStroke
+    cellStrokeColor: Color = OneUITheme.colors.colorPickerStroke
 ): ColorSwatchesColors = ColorSwatchesColors(
     cellStrokeColor = cellStrokeColor
 )

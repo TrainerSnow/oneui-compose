@@ -26,7 +26,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.allIn
 
 @Composable
@@ -46,7 +46,7 @@ fun EditText(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onTextLayout: (TextLayoutResult) -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    style: TextStyle = SeslTheme.types.editTextText,
+    style: TextStyle = OneUITheme.types.editTextText,
     maxCharacters: Long? = null,
     characters: CharArray? = null,
     decorationBox: @Composable (innerTextField: @Composable () -> Unit) -> Unit =
@@ -62,7 +62,7 @@ fun EditText(
         if (showHint) {
             Text(
                 text = hint,
-                style = SeslTheme.types.editTextHint
+                style = OneUITheme.types.editTextHint
             )
         }
         BasicTextField(
@@ -185,7 +185,7 @@ fun NumberEditText(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onTextLayout: (TextLayoutResult) -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    style: TextStyle = SeslTheme.types.editTextText,
+    style: TextStyle = OneUITheme.types.editTextText,
     maxCharacters: Long? = null,
     characters: CharArray? = null,
     maxValue: Int = Int.MAX_VALUE,
@@ -253,9 +253,9 @@ data class EditTextColors(
 
 @Composable
 fun editTextColors(
-    cursor: Color = SeslTheme.colors.seslPrimaryColor,
-    underlineFocused: Color = SeslTheme.colors.seslEditTextColor,
-    underline: Color = SeslTheme.colors.seslEditTextHintColor
+    cursor: Color = OneUITheme.colors.seslPrimaryColor,
+    underlineFocused: Color = OneUITheme.colors.seslEditTextColor,
+    underline: Color = OneUITheme.colors.seslEditTextHintColor
 ): EditTextColors = EditTextColors(
     cursor = cursor,
     underlineFocused = underlineFocused,

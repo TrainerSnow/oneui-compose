@@ -52,7 +52,7 @@ import androidx.compose.ui.input.pointer.PointerIcon.Companion.Text
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 
@@ -187,7 +187,7 @@ fun <T> RadioButton(
                 .width(labelSpacing)
         )
         label?.let {
-            ProvideTextStyle(value = SeslTheme.types.radioLabel) {
+            ProvideTextStyle(value = OneUITheme.types.radioLabel) {
                 it()
             }
         }
@@ -341,15 +341,15 @@ data class RadioButtonColors(
  */
 @Composable
 fun radioButtonColors(
-    color: Color = SeslTheme.colors.seslPrimaryColor,
-    unselectedColor: Color = SeslTheme.colors.seslControlNormalColor,
+    color: Color = OneUITheme.colors.seslPrimaryColor,
+    unselectedColor: Color = OneUITheme.colors.seslControlNormalColor,
     disabledColor: Color = color.copy(
         alpha = RadioButtonDefaults.disabledAlphaValue
     ),
     disabledUnselectedColor: Color = unselectedColor.copy(
         alpha = RadioButtonDefaults.disabledAlphaValue
     ),
-    ripple: Color = SeslTheme.colors.seslRippleColor
+    ripple: Color = OneUITheme.colors.seslRippleColor
 ): RadioButtonColors = RadioButtonColors(
     color,
     unselectedColor,

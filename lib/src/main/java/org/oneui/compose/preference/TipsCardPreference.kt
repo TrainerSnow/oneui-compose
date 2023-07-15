@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.preference.internal.TipsCardPreferenceButton
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.widgets.box.RoundedCornerBox
 import org.oneui.compose.widgets.box.roundedCornerBoxColors
 
@@ -43,7 +43,7 @@ fun TipsCardPreference(
                 modifier = Modifier
                     .padding(TipsCardPreferenceDefaults.titleBoxMargin)
             ) {
-                ProvideTextStyle(SeslTheme.types.tipsCardPreferenceTitle) {
+                ProvideTextStyle(OneUITheme.types.tipsCardPreferenceTitle) {
                     title()
                 }
                 Spacer(
@@ -60,7 +60,7 @@ fun TipsCardPreference(
                 modifier = Modifier
                     .padding(TipsCardPreferenceDefaults.summaryMargin)
             ) {
-                ProvideTextStyle(SeslTheme.types.tipsCardPreferenceSummary) {
+                ProvideTextStyle(OneUITheme.types.tipsCardPreferenceSummary) {
                     summary?.let { it() }
                 }
             }
@@ -125,7 +125,7 @@ data class TipsCardPreferenceColors(
 
 @Composable
 fun tipsCardPreferenceColors(
-    background: Color = SeslTheme.colors.tipsCardPreference
+    background: Color = OneUITheme.colors.tipsCardPreference
 ): TipsCardPreferenceColors = TipsCardPreferenceColors(
     background = background
 )

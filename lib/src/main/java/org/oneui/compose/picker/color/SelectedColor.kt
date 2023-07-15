@@ -30,7 +30,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.R
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.fromHexString
 import org.oneui.compose.util.hexString
 import org.oneui.compose.widgets.EditText
@@ -57,7 +57,7 @@ fun SelectedColorSection(
     Box(
         modifier = modifier
             .padding(
-                top = SeslTheme.dimensions.colorPickerSelectedMarginTop,
+                top = OneUITheme.dimensions.colorPickerSelectedMarginTop,
                 start = SelectedColorSectionDefaults.marginStart
             )
             .height(SelectedColorSectionDefaults.height)
@@ -76,7 +76,7 @@ fun SelectedColorSection(
             )
             Spacer(
                 modifier = Modifier
-                    .width(SeslTheme.dimensions.colorPickerHexSectionSpacing)
+                    .width(OneUITheme.dimensions.colorPickerHexSectionSpacing)
             )
             HexSection(
                 modifier = Modifier
@@ -167,7 +167,7 @@ internal fun HexSection(
             modifier = Modifier
                 .height(SelectedColorSectionDefaults.hexSectionTitleHeight),
             text = stringResource(R.string.sesl_picker_color_hex),
-            style = SeslTheme.types.colorPickerHexSectionTitle
+            style = OneUITheme.types.colorPickerHexSectionTitle
         )
         EditText(
             modifier = Modifier
@@ -184,7 +184,7 @@ internal fun HexSection(
                 } catch (_: Exception) { //Ignored
                 }
             },
-            style = SeslTheme.types.colorPickerHexSectionEdit,
+            style = OneUITheme.types.colorPickerHexSectionEdit,
             singleLine = true,
             maxCharacters = 6,
             characters = "abcdefABCDEF0123456789".toCharArray()
@@ -209,7 +209,7 @@ internal fun RgbSection(
     ) {
         Spacer(
             modifier = Modifier
-                .width(SeslTheme.dimensions.colorPickerRgbSectionsSpacing)
+                .width(OneUITheme.dimensions.colorPickerRgbSectionsSpacing)
         )
         RgbSectionUnit(
             modifier = Modifier
@@ -227,7 +227,7 @@ internal fun RgbSection(
 
         Spacer(
             modifier = Modifier
-                .width(SeslTheme.dimensions.colorPickerRgbSectionsSpacing)
+                .width(OneUITheme.dimensions.colorPickerRgbSectionsSpacing)
         )
         RgbSectionUnit(
             modifier = Modifier
@@ -245,7 +245,7 @@ internal fun RgbSection(
 
         Spacer(
             modifier = Modifier
-                .width(SeslTheme.dimensions.colorPickerRgbSectionsSpacing)
+                .width(OneUITheme.dimensions.colorPickerRgbSectionsSpacing)
         )
         RgbSectionUnit(
             modifier = Modifier
@@ -283,7 +283,7 @@ internal fun RgbSectionUnit(
             modifier = Modifier
                 .height(SelectedColorSectionDefaults.rgbSectionTitleHeight),
             text = title,
-            style = SeslTheme.types.colorPickerRgbSectionTitle
+            style = OneUITheme.types.colorPickerRgbSectionTitle
         )
         EditText(
             modifier = Modifier
@@ -305,7 +305,7 @@ internal fun RgbSectionUnit(
                     )
                 )
             },
-            style = SeslTheme.types.colorPickerHexSectionEdit,
+            style = OneUITheme.types.colorPickerHexSectionEdit,
             singleLine = true,
             maxCharacters = 3,
             keyboardOptions = KeyboardOptions.Default.copy(
@@ -357,7 +357,7 @@ data class SelectedColorSectionColors(
  */
 @Composable
 fun selectedColorSectionColors(
-    selectedSectionOutline: Color = SeslTheme.colors.colorPickerStroke
+    selectedSectionOutline: Color = OneUITheme.colors.colorPickerStroke
 ): SelectedColorSectionColors = SelectedColorSectionColors(
     selectedSectionOutline = selectedSectionOutline
 )

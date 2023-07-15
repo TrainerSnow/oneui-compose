@@ -29,7 +29,7 @@ import org.oneui.compose.layout.internal.SlidingDrawerOpenedState
 import org.oneui.compose.layout.internal.SlidingDrawerState
 import org.oneui.compose.layout.internal.SlidingOutDrawerLayout
 import org.oneui.compose.layout.internal.modifier.overlay
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.mapRange
 import org.oneui.compose.widgets.buttons.OUIIconButton
 import org.oneui.compose.widgets.buttons.ouiIconButtonColors
@@ -92,9 +92,9 @@ data class DrawerColors(
  */
 @Composable
 fun drawerColors(
-    scrim: Color = SeslTheme.colors.drawerScrim,
-    drawerBackground: Color = SeslTheme.colors.drawerBackground,
-    background: Color = SeslTheme.colors.drawerLayoutBackground
+    scrim: Color = OneUITheme.colors.drawerScrim,
+    drawerBackground: Color = OneUITheme.colors.drawerBackground,
+    background: Color = OneUITheme.colors.drawerLayoutBackground
 ) = DrawerColors(
     scrim = scrim,
     drawerBackground = drawerBackground,
@@ -137,7 +137,7 @@ fun DrawerLayoutCompact(
     layoutPadding: PaddingValues = DrawerDefaults.layoutPadding,
     drawerPadding: PaddingValues = DrawerDefaults.drawerPadding,
     headerIconMargin: PaddingValues = DrawerDefaults.headerIconMargin,
-    headerIconTint: Color = SeslTheme.colors.drawerHeaderIconTint,
+    headerIconTint: Color = OneUITheme.colors.drawerHeaderIconTint,
     headerIcon: Icon? = null,
     maxWidth: Dp = DrawerDefaults.maxWidthCompact,
     minWidth: Dp = DrawerDefaults.minWidthCompact,

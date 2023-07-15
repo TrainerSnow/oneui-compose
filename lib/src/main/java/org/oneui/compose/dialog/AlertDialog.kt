@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -42,7 +42,7 @@ fun AlertDialog(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-            ProvideTextStyle(SeslTheme.types.dialogTitle) {
+            ProvideTextStyle(OneUITheme.types.dialogTitle) {
                 title?.let { it() }
             }
             if (title != null && body != null) {
@@ -51,7 +51,7 @@ fun AlertDialog(
                         .height(AlertDialogDefaults.titleBodySpacing)
                 )
             }
-            ProvideTextStyle(SeslTheme.types.dialogBody) {
+            ProvideTextStyle(OneUITheme.types.dialogBody) {
                 body?.let { it() }
             }
             if (buttonBar != null) {

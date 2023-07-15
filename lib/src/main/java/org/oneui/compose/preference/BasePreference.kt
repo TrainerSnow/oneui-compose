@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -76,10 +76,10 @@ fun BasePreference(
             modifier = Modifier
                 .weight(1F)
         ) {
-            ProvideTextStyle(SeslTheme.types.preferenceTitle) {
+            ProvideTextStyle(OneUITheme.types.preferenceTitle) {
                 title(this)
             }
-            ProvideTextStyle(SeslTheme.types.preferenceSummary) {
+            ProvideTextStyle(OneUITheme.types.preferenceSummary) {
                 summary?.let {
                     it(this)
                 }
@@ -137,7 +137,7 @@ data class BasePreferenceColors(
  */
 @Composable
 fun basePreferenceColors(
-    ripple: Color = SeslTheme.colors.seslListRippleColor
+    ripple: Color = OneUITheme.colors.seslListRippleColor
 ): BasePreferenceColors = BasePreferenceColors(
     ripple = ripple
 )

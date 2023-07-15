@@ -16,7 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.preference.internal.RelativeCardLink
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -45,7 +45,7 @@ fun RelativeCard(
             .padding(RelativeCardDefaults.padding)
     ) {
         Column {
-            ProvideTextStyle(SeslTheme.types.relativeCardTitle) {
+            ProvideTextStyle(OneUITheme.types.relativeCardTitle) {
                 title()
             }
             Spacer(
@@ -96,7 +96,7 @@ data class RelativeCardColors(
  */
 @Composable
 fun relativeCardColors(
-    background: Color = SeslTheme.colors.relativeCardBackground
+    background: Color = OneUITheme.colors.relativeCardBackground
 ): RelativeCardColors = RelativeCardColors(
     background = background
 )

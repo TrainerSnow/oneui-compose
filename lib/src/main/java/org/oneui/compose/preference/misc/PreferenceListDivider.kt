@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -77,7 +77,7 @@ data class PreferenceListDividerColors(
  */
 @Composable
 fun preferenceListDividerColors(
-    stroke: Color = SeslTheme.colors.seslListDividerColor
+    stroke: Color = OneUITheme.colors.seslListDividerColor
 ): PreferenceListDividerColors = PreferenceListDividerColors(
     stroke = stroke
 )

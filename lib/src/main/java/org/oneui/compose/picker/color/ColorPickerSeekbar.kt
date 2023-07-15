@@ -42,7 +42,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.R
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.debugBorder
 import org.oneui.compose.util.mapRange
 import org.oneui.compose.widgets.NumberEditText
@@ -71,9 +71,9 @@ fun ColorPickerSeekbar(
     colors: ColorPickerSeekbarColors = colorPickerSeekbarColors()
 ) {
     val margin = PaddingValues(
-        bottom = SeslTheme.dimensions.colorPickerSeekbarMarginBottom,
-        start = SeslTheme.dimensions.colorPickerSeekbarMarginHorizontal,
-        end = SeslTheme.dimensions.colorPickerSeekbarMarginHorizontal
+        bottom = OneUITheme.dimensions.colorPickerSeekbarMarginBottom,
+        start = OneUITheme.dimensions.colorPickerSeekbarMarginHorizontal,
+        end = OneUITheme.dimensions.colorPickerSeekbarMarginHorizontal
     )
 
     Box(
@@ -92,7 +92,7 @@ fun ColorPickerSeekbar(
                     .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement
-                    .spacedBy(SeslTheme.dimensions.colorPickerSeekbarLabelSpacing)
+                    .spacedBy(OneUITheme.dimensions.colorPickerSeekbarLabelSpacing)
             ) {
                 SliderSection(
                     modifier = Modifier
@@ -235,7 +235,7 @@ private fun TitleSection(
     ) {
         Text(
             text = title,
-            style = SeslTheme.types.coloPickerSeekbarTitle
+            style = OneUITheme.types.coloPickerSeekbarTitle
         )
     }
 }
@@ -260,7 +260,7 @@ private fun LabelSection(
                 .fillMaxSize(),
             value = value,
             onValueChange = onValueChange,
-            style = SeslTheme.types.colorPickerSeekbarProgressEdit.copy(
+            style = OneUITheme.types.colorPickerSeekbarProgressEdit.copy(
                 fontSize = with(LocalDensity.current) { 14.dp.toSp() }
             ),
             maxCharacters = 3L,
@@ -269,7 +269,7 @@ private fun LabelSection(
         )
     }
     Text(
-        style = SeslTheme.types.colorPickerSeekbarProgressLabel.copy(
+        style = OneUITheme.types.colorPickerSeekbarProgressLabel.copy(
             fontSize = with(LocalDensity.current) { 14.dp.toSp() }
         ),
         text = "%"
@@ -350,9 +350,9 @@ data class ColorPickerSeekbarColors(
  */
 @Composable
 fun colorPickerSeekbarColors(
-    thumbColor: Color = SeslTheme.colors.colorPickerSeekbarThumb,
-    thumbOutline: Color = SeslTheme.colors.colorPickerSeekbarThumbStroke,
-    ripple: Color = SeslTheme.colors.seslRippleColor
+    thumbColor: Color = OneUITheme.colors.colorPickerSeekbarThumb,
+    thumbOutline: Color = OneUITheme.colors.colorPickerSeekbarThumbStroke,
+    ripple: Color = OneUITheme.colors.seslRippleColor
 ): ColorPickerSeekbarColors = ColorPickerSeekbarColors(
     thumbColor = thumbColor,
     thumbOutline = thumbOutline,

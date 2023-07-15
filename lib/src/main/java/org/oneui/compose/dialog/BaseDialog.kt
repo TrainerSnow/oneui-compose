@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -45,7 +45,7 @@ fun BaseDialog(
     onDismissRequest: () -> Unit,
     colors: BaseDialogColors = baseDialogColors(),
     padding: PaddingValues = BaseDialogDefaults.padding,
-    width: Dp = (SeslTheme.dimensions.dialogMinWidth * LocalConfiguration.current.screenWidthDp).dp,
+    width: Dp = (OneUITheme.dimensions.dialogMinWidth * LocalConfiguration.current.screenWidthDp).dp,
     content: @Composable () -> Unit
 ) {
     Dialog(
@@ -103,7 +103,7 @@ data class BaseDialogColors(
  */
 @Composable
 fun baseDialogColors(
-    background: Color = SeslTheme.colors.seslDialogWindowBackgroundColorMaterial
+    background: Color = OneUITheme.colors.seslDialogWindowBackgroundColorMaterial
 ): BaseDialogColors = BaseDialogColors(
     background = background
 )

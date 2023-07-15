@@ -24,7 +24,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 /**
  * Stores default values for the button specs
@@ -64,7 +64,7 @@ data class DrawerItemColors(
  */
 @Composable
 fun drawerItemColors(
-    ripple: Color = SeslTheme.colors.seslRippleColor
+    ripple: Color = OneUITheme.colors.seslRippleColor
 ): DrawerItemColors = DrawerItemColors(
     ripple = ripple
 )
@@ -101,8 +101,8 @@ fun DrawerItem(
     padding: PaddingValues = DrawerItemDefaults.padding,
     labelMaxLines: Int = DrawerItemDefaults.labelMaxLines,
     labelEndMaxLines: Int = DrawerItemDefaults.labelEndMaxLines,
-    textStyleLabel: TextStyle = SeslTheme.types.drawerItemLabel,
-    textStyleLabelEnd: TextStyle = SeslTheme.types.drawerItemEndLabel,
+    textStyleLabel: TextStyle = OneUITheme.types.drawerItemLabel,
+    textStyleLabelEnd: TextStyle = OneUITheme.types.drawerItemEndLabel,
     iconTextSpacing: Dp = DrawerItemDefaults.iconTextSpacing,
     shape: Shape = DrawerItemDefaults.shape
 ) = Box(

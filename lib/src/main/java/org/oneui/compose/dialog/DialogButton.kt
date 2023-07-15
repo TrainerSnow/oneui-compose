@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 
 /**
@@ -69,9 +69,9 @@ fun DialogButton(
     ) {
 
         ProvideTextStyle(
-            if (threeButton) SeslTheme.types.dialogButtonLabelThreeButtons
+            if (threeButton) OneUITheme.types.dialogButtonLabelThreeButtons
             else
-                SeslTheme.types.dialogButtonLabel
+                OneUITheme.types.dialogButtonLabel
         ) {
             label()
         }
@@ -158,7 +158,7 @@ data class DialogButtonColors(
  */
 @Composable
 fun dialogButtonColors(
-    ripple: Color = SeslTheme.colors.seslRippleColor
+    ripple: Color = OneUITheme.colors.seslRippleColor
 ): DialogButtonColors = DialogButtonColors(
     ripple = ripple
 )

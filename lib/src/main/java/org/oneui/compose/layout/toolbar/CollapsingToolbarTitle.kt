@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 /**
  * The title- and subtitle section that gets visible when swiping down on a CllapsingToolbarlayout.
@@ -27,8 +27,8 @@ fun CollapsingToolbarTitle(
     modifier: Modifier = Modifier,
     title: @Composable () -> Unit,
     subtitle: (@Composable () -> Unit)? = null,
-    titleStyle: TextStyle = SeslTheme.types.appbarTitleExtended,
-    subtitleStyle: TextStyle = SeslTheme.types.appbarSubtitle,
+    titleStyle: TextStyle = OneUITheme.types.appbarTitleExtended,
+    subtitleStyle: TextStyle = OneUITheme.types.appbarSubtitle,
     textAlpha: Float = 1F
 ) {
     Box(

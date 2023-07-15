@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 /**
  * Contains default values for a [TextSeparator]
@@ -36,7 +36,7 @@ object TextSeparatorDefaults {
 fun TextSeparator(
     modifier: Modifier = Modifier,
     text: String,
-    textStyle: TextStyle = SeslTheme.types.textSeparator,
+    textStyle: TextStyle = OneUITheme.types.textSeparator,
     padding: PaddingValues = TextSeparatorDefaults.padding
 ) {
     Text(

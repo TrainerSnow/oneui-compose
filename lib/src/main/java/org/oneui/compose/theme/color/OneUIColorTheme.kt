@@ -2,7 +2,7 @@ package org.oneui.compose.theme.color
 
 import androidx.compose.ui.graphics.Color
 
-interface ISeslColorTheme {
+interface OneUIColorTheme {
 
     val black: Color
     val white: Color
@@ -187,7 +187,7 @@ interface ISeslColorTheme {
 
         fun getTheme(
             dark: Boolean = false
-        ): ISeslColorTheme =
+        ): OneUIColorTheme =
             if (dark) DarkSeslColorTheme.Instance
             else LightSeslColorTheme.Instance
 

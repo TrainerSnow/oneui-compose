@@ -23,7 +23,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.SeslTheme
+import org.oneui.compose.theme.OneUITheme
 
 @Composable
 fun HorizontalSeekbar(
@@ -528,11 +528,11 @@ data class SeekBarColors(
 
 @Composable
 fun seekBarColors(
-    color: Color = SeslTheme.colors.seslSeekbarControlColorActivated,
-    ripple: Color = SeslTheme.colors.seslRippleColor,
-    trackColor: Color = SeslTheme.colors.seslSeekbarOverlapColorDefault,
-    warningColor: Color = SeslTheme.colors.seslSeekbarOverlapColorActivated,
-    trackWarningColor: Color = SeslTheme.colors.seslSeekbarOverlapColorActivatedTrack
+    color: Color = OneUITheme.colors.seslSeekbarControlColorActivated,
+    ripple: Color = OneUITheme.colors.seslRippleColor,
+    trackColor: Color = OneUITheme.colors.seslSeekbarOverlapColorDefault,
+    warningColor: Color = OneUITheme.colors.seslSeekbarOverlapColorActivated,
+    trackWarningColor: Color = OneUITheme.colors.seslSeekbarOverlapColorActivatedTrack
 ): SeekBarColors = SeekBarColors(
     color = color,
     ripple = ripple,
