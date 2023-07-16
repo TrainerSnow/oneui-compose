@@ -57,7 +57,12 @@ fun ExampleApp(
             NavDestinations.Widgets -> {
                 WidgetsScreen(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxSize(),
+                    onNavigateBack = {
+                        scope.launch {
+                            drawerState.openAnimate()
+                        }
+                    }
                 )
             }
 
@@ -65,7 +70,12 @@ fun ExampleApp(
             NavDestinations.Preferences -> {
                 PreferencesScreen(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxSize(),
+                    onNavigateBack = {
+                        scope.launch {
+                            drawerState.openAnimate()
+                        }
+                    }
                 )
             }
         }

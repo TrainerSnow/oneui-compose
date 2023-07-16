@@ -4,6 +4,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -13,6 +16,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import org.oneui.compose.base.Icon
+import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.toolbar.CollapsingToolbarLayout
 import org.oneui.compose.widgets.EditText
 import org.oneui.compose.widgets.SwitchBar
@@ -27,11 +32,21 @@ import org.oneui.compose.widgets.text.TextSeparator
 
 @Composable
 fun WidgetsScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNavigateBack: () -> Unit
 ) {
     CollapsingToolbarLayout(
         modifier = modifier,
-        toolbarTitle = "Widgets"
+        toolbarTitle = "Widgets",
+        appbarNavAction = {
+            IconButton(
+                onClick = onNavigateBack
+            ) {
+                IconView(
+                    icon = Icon.Vector(Icons.Outlined.Menu)
+                )
+            }
+        }
     ) {
         var state by remember {
             mutableStateOf(WidgetsState())

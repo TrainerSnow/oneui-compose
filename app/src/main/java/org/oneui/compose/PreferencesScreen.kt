@@ -4,6 +4,9 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Menu
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -15,6 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
+import org.oneui.compose.base.Icon
+import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.toolbar.CollapsingToolbarLayout
 import org.oneui.compose.preference.CheckboxPreference
 import org.oneui.compose.preference.DropdownPreference
@@ -33,7 +38,8 @@ import org.oneui.compose.widgets.text.TextSeparator
 
 @Composable
 fun PreferencesScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNavigateBack: () -> Unit
 ) {
     var state by remember {
         mutableStateOf(PreferenceState())
@@ -47,7 +53,16 @@ fun PreferencesScreen(
 
     CollapsingToolbarLayout(
         modifier = modifier,
-        toolbarTitle = "Preferences"
+        toolbarTitle = "Preferences",
+        appbarNavAction = {
+            IconButton(
+                onClick = onNavigateBack
+            ) {
+                IconView(
+                    icon = Icon.Vector(Icons.Outlined.Menu)
+                )
+            }
+        }
     ) {
         TipsCardPreference(
             title = { Text("TipsCardPreference") },
