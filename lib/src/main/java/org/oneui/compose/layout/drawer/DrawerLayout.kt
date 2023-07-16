@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import org.oneui.compose.base.Icon
 import org.oneui.compose.layout.internal.SlidingDrawerOpenedState
 import org.oneui.compose.layout.internal.SlidingDrawerState
@@ -31,9 +32,8 @@ import org.oneui.compose.layout.internal.SlidingOutDrawerLayout
 import org.oneui.compose.layout.internal.modifier.overlay
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.mapRange
-import org.oneui.compose.widgets.buttons.OUIIconButton
-import org.oneui.compose.widgets.buttons.ouiIconButtonColors
-import kotlinx.coroutines.launch
+import org.oneui.compose.widgets.buttons.IconButton
+import org.oneui.compose.widgets.buttons.iconButtonColors
 
 /**
  * Stores default values for the button specs
@@ -207,12 +207,12 @@ fun DrawerLayout(
                                 .fillMaxWidth(),
                             horizontalArrangement = Arrangement.End
                         ) {
-                            OUIIconButton(
+                            IconButton(
                                 modifier = Modifier
                                     .padding(headerIconMargin),
                                 icon = headerIcon,
                                 onClick = onHeaderIconClick,
-                                colors = ouiIconButtonColors(
+                                colors = iconButtonColors(
                                     tint = headerIconTint
                                 )
                             )
