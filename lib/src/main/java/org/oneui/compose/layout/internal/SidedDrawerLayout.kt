@@ -121,6 +121,17 @@ data class SlidingDrawerState(
 
 }
 
+@Composable
+fun rememberSlidingDrawerState(
+    initial: SlidingDrawerOpenedState = SlidingDrawerOpenedState.CLOSED,
+    velocityThreshold: Float = with(LocalDensity.current) { 100.dp.toPx() }
+) = remember {
+    SlidingDrawerState(
+        initial = initial,
+        velocityThreshold = velocityThreshold
+    )
+}
+
 /**
  * Composable for a Drawerlayout that doesnt overlay the main content but slides it out of the screen.
  *

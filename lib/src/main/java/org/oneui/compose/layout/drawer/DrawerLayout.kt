@@ -26,10 +26,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import org.oneui.compose.base.Icon
-import org.oneui.compose.layout.internal.SlidingDrawerOpenedState
 import org.oneui.compose.layout.internal.SlidingDrawerState
 import org.oneui.compose.layout.internal.SlidingOutDrawerLayout
 import org.oneui.compose.layout.internal.modifier.overlay
+import org.oneui.compose.layout.internal.rememberSlidingDrawerState
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.mapRange
 import org.oneui.compose.widgets.buttons.IconButton
@@ -131,6 +131,7 @@ fun DrawerLayout(
         bottomEnd = DrawerDefaults.cornerRadius
     ),
     colors: DrawerColors = drawerColors(),
+    state: SlidingDrawerState = rememberSlidingDrawerState(),
     layoutPadding: PaddingValues = DrawerDefaults.layoutPadding,
     drawerPadding: PaddingValues = DrawerDefaults.drawerPadding,
     headerIconMargin: PaddingValues = DrawerDefaults.headerIconMargin,
@@ -144,22 +145,15 @@ fun DrawerLayout(
     content: @Composable () -> Unit
 ) {
     val scope = rememberCoroutineScope()
-    val density = LocalDensity.current
 
-    val drawerState = remember {
-        SlidingDrawerState(
-            SlidingDrawerOpenedState.CLOSED,
-            velocityThreshold = with(density) { 100.dp.toPx() }
-        )
-    }
     val leftmost = with(LocalDensity.current) { minWidth.toPx() }
     val rightmost = with(LocalDensity.current) { maxWidth.toPx() }
 
-    val offset = drawerState.pixelProgress.coerceIn(
+    val offset = state.pixelProgress.coerceIn(
         leftmost,
         rightmost
     ).let {
-        if(it.isNaN()) 0F else it
+        if (it.isNaN()) 0F else it
     }
     val progress = offset / rightmost
 
@@ -225,7 +219,7 @@ fun DrawerLayout(
             contentOverlay = { },
             maxWidth = maxWidth,
             minWidth = minWidth,
-            state = drawerState
+            state = state
         ) {
             Box(
                 modifier = Modifier
@@ -241,10 +235,10 @@ fun DrawerLayout(
                     .clickable(
                         indication = null,
                         interactionSource = remember { MutableInteractionSource() },
-                        enabled = drawerState.isOpened
+                        enabled = state.isOpened
                     ) {
                         scope.launch {
-                            drawerState.closeAnimate()
+                            state.closeAnimate()
                         }
                     }
             ) {
