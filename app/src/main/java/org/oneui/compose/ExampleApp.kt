@@ -7,12 +7,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import kotlinx.coroutines.launch
 import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.drawer.DrawerItem
 import org.oneui.compose.layout.drawer.DrawerLayout
+import org.oneui.compose.layout.internal.rememberSlidingDrawerState
 import org.oneui.compose.nav.NavDestinations
 import org.oneui.compose.ui.WidgetsScreen
 
@@ -23,9 +26,12 @@ fun ExampleApp(
     var selectedDestination by remember {
         mutableStateOf(NavDestinations.Widgets)
     }
+    val drawerState = rememberSlidingDrawerState()
+    val scope = rememberCoroutineScope()
 
     DrawerLayout(
         modifier = modifier,
+        state = drawerState,
         drawerContent = {
             NavDestinations.values().toList().forEach {
                 DrawerItem(
@@ -36,7 +42,12 @@ fun ExampleApp(
                     },
                     label = it.title,
                     selected = it == selectedDestination,
-                    onClick = { selectedDestination = it }
+                    onClick = {
+                        scope.launch {
+                            drawerState.closeAnimate()
+                            selectedDestination = it
+                        }
+                    }
                 )
             }
         },
