@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.layout.internal.modifier.NestedScrollConnection
 import org.oneui.compose.util.mapRange
-import org.oneui.compose.widgets.buttons.OUIIconButton
+import org.oneui.compose.widgets.buttons.IconButton
 
 object CollapsingToolbarLayoutDefaults {
 
@@ -157,7 +157,7 @@ fun rememberCollapsingToolbarState(
  * TODO: When the initial state is Expanded, the offset variable is defaulted to 0, so it takes a moment until it snaps to Expanded.
  * TODO: The swipe velocity is too high
  * TODO: The layout change is higher than the swipe gesture on the screen
- * TODO: When the [appbarActions] are [OUIIconButton]'s, the spacing between them is too big. In normal OUI, the hitboxes overlap, here they act as margin.
+ * TODO: When the [appbarActions] are [IconButton]'s, the spacing between them is too big. In normal OUI, the hitboxes overlap, here they act as margin.
  *
  * @param modifier The modifier to be applied to the container
  * @param state The [CollapsingToolbarState] for controlling the layout

@@ -19,18 +19,18 @@ import org.oneui.compose.base.IconView
 import org.oneui.compose.base.iconColors
 import org.oneui.compose.theme.OneUITheme
 
-object OUIIconButtonDefaults {
+object IconButtonDefaults {
 
     val rippleRadius = 640.dp
 
     val padding = PaddingValues(
-        horizontal = 6.dp,
+        horizontal = 12.dp,
         vertical = 12.dp
     )
 
 }
 
-data class OUIIconButtonColors(
+data class IconButtonColors(
 
     val tint: Color,
 
@@ -39,20 +39,20 @@ data class OUIIconButtonColors(
 )
 
 @Composable
-fun ouiIconButtonColors(
+fun iconButtonColors(
     tint: Color = OneUITheme.colors.seslPrimaryTextColor,
     ripple: Color = OneUITheme.colors.seslRippleColor
-): OUIIconButtonColors = OUIIconButtonColors(
+): IconButtonColors = IconButtonColors(
     tint = tint,
     ripple = ripple
 )
 
 @Composable
-fun OUIIconButton(
+fun IconButton(
     modifier: Modifier = Modifier,
-    rippleRadius: Dp = OUIIconButtonDefaults.rippleRadius,
-    padding: PaddingValues = OUIIconButtonDefaults.padding,
-    colors: OUIIconButtonColors = ouiIconButtonColors(),
+    rippleRadius: Dp = IconButtonDefaults.rippleRadius,
+    padding: PaddingValues = IconButtonDefaults.padding,
+    colors: IconButtonColors = iconButtonColors(),
     onClick: (() -> Unit)? = null,
     icon: Icon,
     contentDescription: String? = null,
