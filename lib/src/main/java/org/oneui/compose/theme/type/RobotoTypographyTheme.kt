@@ -48,7 +48,9 @@ internal class RobotoTypographyTheme private constructor(
     override val colorPickerSeekbarProgressEdit: TextStyle,
     override val colorPickerSeekbarProgressLabel: TextStyle,
     override val colorPickerTab: TextStyle,
-    override val colorPickerTabSelected: TextStyle
+    override val colorPickerTabSelected: TextStyle,
+    override val tabItem: TextStyle,
+    override val tabItemSelected: TextStyle
 ) : OneUITypographyTheme {
 
     companion object {
@@ -272,6 +274,17 @@ internal class RobotoTypographyTheme private constructor(
                     textAlign = TextAlign.Center,
                     fontFamily = robotoFamily,
                     fontWeight = FontWeight.Bold
+                ),
+                tabItem = TextStyle(
+                    color = colorTheme.tabsItemText,
+                    fontSize = 15.sp,
+                    fontFamily = robotoFamily
+                ),
+                tabItemSelected = TextStyle(
+                    color = colorTheme.tabsItemTextSelected,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 15.sp,
+                    fontFamily = robotoFamily
                 )
             )
         }

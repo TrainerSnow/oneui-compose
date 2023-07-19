@@ -78,4 +78,8 @@ interface OneUITypographyTheme {
     val colorPickerTab: TextStyle
 
     val colorPickerTabSelected: TextStyle
+
+    val tabItem: TextStyle
+
+    val tabItemSelected: TextStyle
 }

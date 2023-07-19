@@ -183,6 +183,10 @@ interface OneUIColorTheme {
     val colorPickerSeekbarChecks: Color
     val colorPickerTabBackground: Color
 
+    val tabsItemIndicator: Color
+    val tabsItemText: Color
+    val tabsItemTextSelected: Color
+
     companion object {
 
         fun getTheme(
