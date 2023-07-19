@@ -1,6 +1,7 @@
 package org.oneui.compose.navigation
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -59,6 +60,9 @@ fun Tabs(
 /**
  * Composable for a one-ui style [TabItem], to be used in a [Tabs] row.
  * Note: For proper usage, every [TabItem] should have a weight of 1, to be applied via [Modifier.weight()]
+ *
+ * TODO: The ripple animation used is the normal ripple animation, in ONEUI it's a custom made one. Should be adapted to.
+ * TODO: While one tab is selected, another one can be pressed. This should behave in such a way, that pressing an unselected tab will unselect the currently selected tab.
  *
  * @param modifier The [Modifier] to be applied to the container
  * @param text The text to be shown on the tab
@@ -138,8 +142,58 @@ fun TabItem(
 
 
 /**
+ * Composable for a one-ui style [SubTabItem], to be used in a [Tabs] row. Unlike [TabItem], this is smaller and meant for secondary navigation.
+ * Note: For proper usage, every [SubTabItem] should have a weight of 1, to be applied via [Modifier.weight()]
+ *
+ * TODO: The ripple animation used is the normal ripple animation, in ONEUI it's a custom made one. Should be adapted to.
+ * TODO: While one subtab is selected, another one can be pressed. This should behave in such a way, that pressing an unselected tab will unselect the currently selected tab.
+ *
+ * @param modifier The [Modifier] to be applied to the container
+ * @param text The text to be shown on the tab
+ * @param selected Whether this tab is selected or not
+ * @param interactionSource The [MutableInteractionSource]
+ * @param colors The [TabsColors] to apply
+ * @param onClick The callback invoked when the [TabItem] is clicked
+ */
+@Composable
+fun SubTabItem(
+    modifier: Modifier = Modifier,
+    text: String,
+    selected: Boolean,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    colors: TabsColors = tabsColors(),
+    onClick: () -> Unit
+) {
+    Box(
+        modifier = modifier
+            .clip(TabsDefaults.itemSubShape)
+            .clickable(
+                interactionSource = interactionSource,
+                indication = rememberRipple(
+                    color = colors.itemSubRipple
+                ),
+                role = Role.Tab,
+                onClick = onClick
+            )
+            .background(
+                color = if (selected) colors.itemSubIndicator else Color.Transparent
+            )
+            .padding(TabsDefaults.itemSubPadding),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = text,
+            style = with(OneUITheme.types) { if (selected) tabItemSelected else tabItem }
+        )
+    }
+}
+
+
+/**
  * Composable for a custom tab item, that could contain e.g. an Icon to open an additional menu
  * Note: For proper usage, every [TabItem] should have a weight of 1, to be applied via [Modifier.weight()]
+ *
+ * TODO: The ripple animation used is the normal ripple animation, in ONEUI it's a custom made one. Should be adapted to.
  *
  * @param modifier The [Modifier] to apply to the container
  * @param interactionSource The [MutableInteractionSource]
@@ -181,7 +235,11 @@ data class TabsColors(
 
     val itemRipple: Color,
 
-    val itemIndicator: Color
+    val itemIndicator: Color,
+
+    val itemSubIndicator: Color,
+
+    val itemSubRipple: Color
 
 )
 
@@ -195,10 +253,14 @@ data class TabsColors(
 @Composable
 fun tabsColors(
     itemRipple: Color = OneUITheme.colors.seslRippleColor,
-    itemIndicator: Color = OneUITheme.colors.tabsItemIndicator
+    itemIndicator: Color = OneUITheme.colors.tabsItemIndicator,
+    itemSubIndicator: Color = OneUITheme.colors.tabsItemSubIndicator,
+    itemSubRipple: Color = OneUITheme.colors.tabsItemSubRipple
 ): TabsColors = TabsColors(
     itemRipple = itemRipple,
-    itemIndicator = itemIndicator
+    itemIndicator = itemIndicator,
+    itemSubIndicator = itemSubIndicator,
+    itemSubRipple = itemSubRipple
 )
 
 /**
@@ -214,11 +276,19 @@ object TabsDefaults {
         size = 26.dp
     )
 
+    val itemSubShape = RoundedCornerShape(
+        size = 23.dp
+    )
+
     val itemPadding = PaddingValues(
         start = 10.dp,
         end = 10.dp,
         top = 14.dp,
         bottom = 14.dp - itemIndicatorSpacing - itemIndicatorHeight
+    )
+
+    val itemSubPadding = PaddingValues(
+        all = 8.dp
     )
 
     val customButtonHeight = 43.dp

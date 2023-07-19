@@ -186,6 +186,8 @@ interface OneUIColorTheme {
     val tabsItemIndicator: Color
     val tabsItemText: Color
     val tabsItemTextSelected: Color
+    val tabsItemSubIndicator: Color
+    val tabsItemSubRipple: Color
 
     companion object {
 
