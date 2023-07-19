@@ -18,6 +18,7 @@ import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.toolbar.CollapsingToolbarLayout
 import org.oneui.compose.navigation.CustomTabItem
+import org.oneui.compose.navigation.SubTabItem
 import org.oneui.compose.navigation.TabItem
 import org.oneui.compose.navigation.Tabs
 import org.oneui.compose.widgets.box.RoundedCornerBox
@@ -80,6 +81,43 @@ fun NavScreen(
                         ) {
                             IconView(
                                 icon = Icon.Vector(Icons.Outlined.Menu)
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
+        val subTabs = (1..3).map { "Tab $it" }
+        var selectedSubTab by remember {
+            mutableStateOf(subTabs.first())
+        }
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize(),
+            contentAlignment = Alignment.TopCenter
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+            ) {
+                TextSeparator(text = "Sub Tabs")
+                RoundedCornerBox(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Tabs(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    ) {
+                        subTabs.forEach {
+                            SubTabItem(
+                                modifier = Modifier
+                                    .weight(1F),
+                                text = it,
+                                selected = it == selectedSubTab,
+                                onClick = { selectedSubTab = it }
                             )
                         }
                     }
