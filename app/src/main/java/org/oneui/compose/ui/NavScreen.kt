@@ -5,12 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.AccountCircle
-import androidx.compose.material.icons.outlined.Create
-import androidx.compose.material.icons.outlined.LocationOn
-import androidx.compose.material.icons.outlined.Menu
-import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -45,7 +39,7 @@ fun NavScreen(
                 onClick = onNavigateBack
             ) {
                 IconView(
-                    icon = Icon.Vector(Icons.Outlined.Menu)
+                    icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_drawer)
                 )
             }
         }
@@ -88,7 +82,7 @@ fun NavScreen(
                             onClick = { }
                         ) {
                             IconView(
-                                icon = Icon.Vector(Icons.Outlined.Menu)
+                                icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_drawer)
                             )
                         }
                     }
@@ -134,7 +128,12 @@ fun NavScreen(
         }
 
         val navItems = (1..4).map { "Item $it" }
-        val icons = with(Icons.Outlined) { listOf(Share, AccountCircle, Create, LocationOn) }
+        val icons = listOf(
+            dev.oneuiproject.oneui.R.drawable.ic_oui_share_outline,
+            dev.oneuiproject.oneui.R.drawable.ic_oui_delete_outline,
+            dev.oneuiproject.oneui.R.drawable.ic_oui_edit_outline,
+            dev.oneuiproject.oneui.R.drawable.ic_oui_location_outline,
+        )
         var selectedNavItem by remember {
             mutableStateOf(navItems.first())
         }
@@ -164,7 +163,7 @@ fun NavScreen(
                                     .weight(1F),
                                 label = it,
                                 onClick = { selectedNavItem = it },
-                                icon = Icon.Vector(icons[navItems.indexOf(it)])
+                                icon = Icon.Resource(icons[navItems.indexOf(it)])
                             )
                         }
                     }

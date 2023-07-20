@@ -4,8 +4,6 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -59,7 +57,7 @@ fun PreferencesScreen(
                 onClick = onNavigateBack
             ) {
                 IconView(
-                    icon = Icon.Vector(Icons.Outlined.Menu)
+                    icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_drawer)
                 )
             }
         }

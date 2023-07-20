@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -43,7 +41,7 @@ fun WidgetsScreen(
                 onClick = onNavigateBack
             ) {
                 IconView(
-                    icon = Icon.Vector(Icons.Outlined.Menu)
+                    icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_drawer)
                 )
             }
         }
