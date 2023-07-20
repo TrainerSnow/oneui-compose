@@ -28,7 +28,7 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 | Expanding Seekbar                      |   ✅   |   ❌    |
 | Split Seekbar                          |   ❌   |   ❌    |
 | Danger Seekbar                         |   ✅   |   ❌    |
-| Haptic Seekbar                         |   ✅   |   ❌    |
+| Haptic Seekbar                         |   ❌   |   ❌    |
 | Progress Bar (circular, determinate)   |   ❌   |   ❌    |
 | Progress Bar (circular, indeterminate) |   ❌   |   ❌    |
 | Progress Bar (normal, determinate)     |   ❌   |   ❌    |
