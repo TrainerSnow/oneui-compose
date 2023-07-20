@@ -10,7 +10,7 @@ has done a big part of this work, making a great contribution towards this proje
 ## Work in Progress
 This library is still, as of July 17 2023, WIP and unfinished. The following table can give a glimpse at the current progress.
 
-- **Alpha**: Component is available with loose colors and dimensions. Certain errors in UX are prevalent and yet to be fixed. These components do not yet comply with the lower mentioned structure.
+- **Alpha**: Component is available with loose colors and dimensions. Certain errors in UX are prevalent and yet to be fixed. These components do not yet comply with the lower mentioned structure. Issues should be annotated at the core composable using one "TODO" comment per issue 
 - **Stable**: Component is available with exact colors and dimensions (as exact as possible). 
 
 | Component                              | Alpha | Stable |
