@@ -188,6 +188,11 @@ internal class DarkColorTheme : OneUIColorTheme {
     override val tabsItemSubIndicator = Color(0x1affffff)
     override val tabsItemSubRipple = Color(0x33ffffff)
 
+    override val bnbBackground = Color(0xff010101)
+    override val bnbIcon = Color(0xffcccccc)
+    override val bnbRipple = Color(0x33ffffff)
+    override val bnbLabel = Color(0xffa9a9a9)
+
 
     companion object {
 

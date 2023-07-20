@@ -188,6 +188,11 @@ internal class LightColorTheme : OneUIColorTheme {
     override val tabsItemSubIndicator = Color(0x0d000000)
     override val tabsItemSubRipple = Color(0x29000000)
 
+    override val bnbBackground = Color(0xfff6f6f6)
+    override val bnbIcon = Color(0xff454545)
+    override val bnbRipple = Color(0x1a000000)
+    override val bnbLabel = Color(0xff636363)
+
 
     companion object {
 

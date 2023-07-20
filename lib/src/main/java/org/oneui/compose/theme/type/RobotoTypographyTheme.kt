@@ -50,7 +50,8 @@ internal class RobotoTypographyTheme private constructor(
     override val colorPickerTab: TextStyle,
     override val colorPickerTabSelected: TextStyle,
     override val tabItem: TextStyle,
-    override val tabItemSelected: TextStyle
+    override val tabItemSelected: TextStyle,
+    override val bnbLabel: TextStyle
 ) : OneUITypographyTheme {
 
     companion object {
@@ -284,6 +285,11 @@ internal class RobotoTypographyTheme private constructor(
                     color = colorTheme.tabsItemTextSelected,
                     fontWeight = FontWeight.Bold,
                     fontSize = 15.sp,
+                    fontFamily = robotoFamily
+                ),
+                bnbLabel = TextStyle(
+                    color = colorTheme.bnbLabel,
+                    fontSize = 12.sp,
                     fontFamily = robotoFamily
                 )
             )

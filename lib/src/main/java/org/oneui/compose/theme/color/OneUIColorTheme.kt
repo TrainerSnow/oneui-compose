@@ -189,6 +189,11 @@ interface OneUIColorTheme {
     val tabsItemSubIndicator: Color
     val tabsItemSubRipple: Color
 
+    val bnbBackground: Color
+    val bnbIcon: Color
+    val bnbRipple: Color
+    val bnbLabel: Color
+
     companion object {
 
         fun getTheme(
