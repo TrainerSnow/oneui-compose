@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <stroke
-        android:width="@dimen/sesl_color_picker_color_swatch_view_cursor_stroke_size_old"
-        android:color="@color/sesl_color_picker_swatch_cursor_color_for_white" />
-    <corners android:radius="@dimen/sesl_color_picker_color_swatch_view_cursor_stroke_radius" />
-</shape>
