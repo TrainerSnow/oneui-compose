@@ -46,7 +46,7 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 | Date Picker Dialog                     |   ❌   |   ❌    |
 | Time Picker Dialog                     |   ❌   |   ❌    |
 | Start End Time Picker Dialog           |   ❌   |   ❌    |
-| Color Picker                           |   ❌   |   ❌    |
+| Color Picker                           |   🟡   |   ❌    |
 
 ## Composable structure
 Implementation of smaller components, such as Buttons, Checkboxes etc. will have uniformed implementation.
@@ -99,6 +99,10 @@ The `Theme` composable takes parameters for all of these objects, so they can be
 
 To only have a part of the app customized, you can provide custom values using the according [CompositionLocal](https://developer.android.com/jetpack/compose/compositionlocal)
 
+## Design Library
+
+This library is **only** a design library, meaning only visuals, no implementation is provided. Meaning for example, the technical implementation for the preference 
+components of storing a users preferences must be implemented by each app itself. This may change in the future, although currently this is no big priority.
 
 
 
