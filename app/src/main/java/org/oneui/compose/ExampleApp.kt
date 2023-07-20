@@ -1,8 +1,6 @@
 package org.oneui.compose
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -52,7 +50,7 @@ fun ExampleApp(
                 )
             }
         },
-        headerIcon = Icon.Vector(Icons.Outlined.Settings)
+        headerIcon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_settings_outline),
     ) {
         when (selectedDestination) {
             NavDestinations.Widgets -> {

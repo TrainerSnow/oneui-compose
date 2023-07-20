@@ -52,6 +52,7 @@ android {
 
 dependencies {
 
+    implementation(libs.oneui.icons)
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)

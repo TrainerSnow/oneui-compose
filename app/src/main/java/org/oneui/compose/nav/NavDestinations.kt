@@ -1,10 +1,5 @@
 package org.oneui.compose.nav
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Create
-import androidx.compose.material.icons.outlined.List
-import androidx.compose.material.icons.outlined.MoreVert
-import androidx.compose.material.icons.outlined.Settings
 import org.oneui.compose.base.Icon
 
 enum class NavDestinations(
@@ -14,22 +9,22 @@ enum class NavDestinations(
 
     Widgets(
         title = "Widgets",
-        icon = Icon.Vector(Icons.Outlined.List)
+        icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_game_launcher)
     ),
 
     SeekBar(
         title = "Seekbar",
-        icon = Icon.Vector(Icons.Outlined.Create)
+        icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_color_adjustment)
     ),
 
     Preferences(
         title = "Preferences",
-        icon = Icon.Vector(Icons.Outlined.Settings)
+        icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_settings_outline)
     ),
 
     Navigation(
         title = "Navigation",
-        icon = Icon.Vector(Icons.Outlined.MoreVert)
+        icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_navigationbar)
     )
 
 }
