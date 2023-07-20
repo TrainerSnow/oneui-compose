@@ -34,10 +34,9 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 | Progress Bar (normal, determinate)     |   ❌   |   ❌    |
 | Progress Bar (normal, indeterminate)   |   ❌   |   ❌    |
 | Swipe Refresh Layout                   |   ❌   |   ❌    |
-| Navigation Bar                         |   ❌   |   ❌    |
-| Navigation Bar Text                    |   ❌   |   ❌    |
-| Navigation Bar Tabs                    |   ❌   |   ❌    |
-| Navigation Bar Subtabs                 |   ❌   |   ❌    |
+| Navigation Bar                         |   ✅   |   ❌    |
+| Navigation Bar Tabs                    |   ✅   |   ❌    |
+| Navigation Bar Subtabs                 |   ✅   |   ❌    |
 | App Picker View                        |   ❌   |   ❌    |
 | Index Scroll                           |   ❌   |   ❌    |
 | Number Picker                          |   ❌   |   ❌    |

@@ -182,6 +182,16 @@ internal class LightColorTheme : OneUIColorTheme {
     override val colorPickerSeekbarThumb = Color(0xfffafafa)
     override val colorPickerSeekbarChecks = Color(0x80373737)
     override val colorPickerTabBackground = Color(0x0d000000)
+    override val tabsItemIndicator = Color(0xff252525)
+    override val tabsItemText = Color(0xff8c8c8c)
+    override val tabsItemTextSelected = Color(0xff010101)
+    override val tabsItemSubIndicator = Color(0x0d000000)
+    override val tabsItemSubRipple = Color(0x29000000)
+
+    override val bnbBackground = Color(0xfff6f6f6)
+    override val bnbIcon = Color(0xff454545)
+    override val bnbRipple = Color(0x1a000000)
+    override val bnbLabel = Color(0xff636363)
 
 
     companion object {
