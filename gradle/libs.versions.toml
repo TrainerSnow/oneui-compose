@@ -11,6 +11,7 @@ compose-bom = "2023.06.01"
 compose_util = "1.4.3"
 compose_foundation = "1.6.0-alpha01"
 windowsizeclass = "1.1.1"
+oneui-icons = "1.1.0"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -30,6 +31,7 @@ ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 material3 = { group = "androidx.compose.material3", name = "material3" }
 material3-windowsizeclass = { group = "androidx.compose.material3", name = "material3-window-size-class", version.ref = "windowsizeclass" }
+oneui-icons = {group = "io.github.oneuiproject", name = "icons", version.ref = "oneui-icons" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

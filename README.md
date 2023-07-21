@@ -10,7 +10,7 @@ has done a big part of this work, making a great contribution towards this proje
 ## Work in Progress
 This library is still, as of July 17 2023, WIP and unfinished. The following table can give a glimpse at the current progress.
 
-- **Alpha**: Component is available with loose colors and dimensions. Certain errors in UX are prevalent and yet to be fixed. These components do not yet comply with the lower mentioned structure.
+- **Alpha**: Component is available with loose colors and dimensions. Certain errors in UX are prevalent and yet to be fixed. These components do not yet comply with the lower mentioned structure. Issues should be annotated at the core composable using one "TODO" comment per issue 
 - **Stable**: Component is available with exact colors and dimensions (as exact as possible). 
 
 | Component                              | Alpha | Stable |
@@ -28,7 +28,7 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 | Expanding Seekbar                      |   ✅   |   ❌    |
 | Split Seekbar                          |   ❌   |   ❌    |
 | Danger Seekbar                         |   ✅   |   ❌    |
-| Haptic Seekbar                         |   ✅   |   ❌    |
+| Haptic Seekbar                         |   ❌   |   ❌    |
 | Progress Bar (circular, determinate)   |   ❌   |   ❌    |
 | Progress Bar (circular, indeterminate) |   ❌   |   ❌    |
 | Progress Bar (normal, determinate)     |   ❌   |   ❌    |
@@ -46,7 +46,7 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 | Date Picker Dialog                     |   ❌   |   ❌    |
 | Time Picker Dialog                     |   ❌   |   ❌    |
 | Start End Time Picker Dialog           |   ❌   |   ❌    |
-| Color Picker                           |   ❌   |   ❌    |
+| Color Picker                           |   🟡   |   ❌    |
 
 ## Composable structure
 Implementation of smaller components, such as Buttons, Checkboxes etc. will have uniformed implementation.
@@ -99,6 +99,10 @@ The `Theme` composable takes parameters for all of these objects, so they can be
 
 To only have a part of the app customized, you can provide custom values using the according [CompositionLocal](https://developer.android.com/jetpack/compose/compositionlocal)
 
+## Design Library
+
+This library is **only** a design library, meaning only visuals, no implementation is provided. Meaning for example, the technical implementation for the preference 
+components of storing a users preferences must be implemented by each app itself. This may change in the future, although currently this is no big priority.
 
 
 
