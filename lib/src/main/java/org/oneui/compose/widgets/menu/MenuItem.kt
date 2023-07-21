@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -79,8 +77,8 @@ fun SelectableMenuItem(
                 .width(MenuItemDefaults.iconSpacing)
         )
         IconView(
-            icon = org.oneui.compose.base.Icon.Vector(
-                Icons.Outlined.Check
+            icon = org.oneui.compose.base.Icon.Resource(
+                dev.oneuiproject.oneui.R.drawable.ic_oui_selected
             ),
             colors = iconColors(
                 tint = if (selected) labelStyle.color else Color.Transparent
