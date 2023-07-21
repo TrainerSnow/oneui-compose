@@ -60,4 +60,5 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
     implementation(libs.material3)
     implementation(libs.material3.windowsizeclass)
+    implementation(libs.oneui.icons)
 }
