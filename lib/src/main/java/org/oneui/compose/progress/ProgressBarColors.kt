@@ -18,7 +18,7 @@ data class ProgressBarColors(
 fun progressBarColors(
     neutral: Color = OneUITheme.colors.seslProgressControlColorBackground,
     progress: Color = OneUITheme.colors.seslLoadingProgressColor2,
-    secondaryProgress: Color = OneUITheme.colors.seslLoadingProgressColor2
+    secondaryProgress: Color = OneUITheme.colors.seslLoadingProgressColor1
 ): ProgressBarColors = ProgressBarColors(
     neutral = neutral,
     progress = progress,
