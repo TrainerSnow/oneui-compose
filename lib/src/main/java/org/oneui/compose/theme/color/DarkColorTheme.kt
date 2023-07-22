@@ -193,6 +193,8 @@ internal class DarkColorTheme : OneUIColorTheme {
     override val bnbRipple = Color(0x33ffffff)
     override val bnbLabel = Color(0xffa9a9a9)
 
+    override val searchButton = Color(0xfffafafa)
+
 
     companion object {
 

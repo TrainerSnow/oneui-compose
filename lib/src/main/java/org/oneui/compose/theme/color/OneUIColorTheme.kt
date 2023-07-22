@@ -194,6 +194,8 @@ interface OneUIColorTheme {
     val bnbRipple: Color
     val bnbLabel: Color
 
+    val searchButton: Color
+
     companion object {
 
         fun getTheme(

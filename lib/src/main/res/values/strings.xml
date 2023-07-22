@@ -17,4 +17,6 @@
     <string name="sesl_picker_seekbar_saturation">Saturation</string>
     <string name="sesl_picker_seekbar_opacity">Opacity</string>
 
+    <string name="sesl_search_view_hint">Search</string>
+
 </resources>

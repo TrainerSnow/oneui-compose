@@ -47,6 +47,7 @@ fun EditText(
     onTextLayout: (TextLayoutResult) -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     style: TextStyle = OneUITheme.types.editTextText,
+    hintStyle: TextStyle = OneUITheme.types.editTextHint,
     maxCharacters: Long? = null,
     characters: CharArray? = null,
     decorationBox: @Composable (innerTextField: @Composable () -> Unit) -> Unit =
@@ -62,7 +63,7 @@ fun EditText(
         if (showHint) {
             Text(
                 text = hint,
-                style = OneUITheme.types.editTextHint
+                style = hintStyle
             )
         }
         BasicTextField(
@@ -186,6 +187,7 @@ fun NumberEditText(
     onTextLayout: (TextLayoutResult) -> Unit = {},
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     style: TextStyle = OneUITheme.types.editTextText,
+    hintStyle: TextStyle = OneUITheme.types.editTextHint,
     maxCharacters: Long? = null,
     characters: CharArray? = null,
     maxValue: Int = Int.MAX_VALUE,
@@ -225,6 +227,7 @@ fun NumberEditText(
         onTextLayout,
         interactionSource,
         style,
+        hintStyle,
         maxCharacters,
         characters,
         decorationBox

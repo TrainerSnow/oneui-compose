@@ -193,6 +193,8 @@ internal class LightColorTheme : OneUIColorTheme {
     override val bnbRipple = Color(0x1a000000)
     override val bnbLabel = Color(0xff636363)
 
+    override val searchButton = Color(0xff010101)
+
 
     companion object {
 

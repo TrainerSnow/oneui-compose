@@ -51,7 +51,9 @@ internal class RobotoTypographyTheme private constructor(
     override val colorPickerTabSelected: TextStyle,
     override val tabItem: TextStyle,
     override val tabItemSelected: TextStyle,
-    override val bnbLabel: TextStyle
+    override val bnbLabel: TextStyle,
+    override val searchEdit: TextStyle,
+    override val searchHint: TextStyle
 ) : OneUITypographyTheme {
 
     companion object {
@@ -291,6 +293,18 @@ internal class RobotoTypographyTheme private constructor(
                     color = colorTheme.bnbLabel,
                     fontSize = 12.sp,
                     fontFamily = robotoFamily
+                ),
+                searchEdit = TextStyle(
+                    color = colorTheme.seslEditTextColor,
+                    fontSize = 21.sp,
+                    fontFamily = robotoFamily,
+                    fontWeight = FontWeight.Bold
+                ),
+                searchHint = TextStyle(
+                    color = colorTheme.seslEditTextHintColor,
+                    fontSize = 21.sp,
+                    fontFamily = robotoFamily,
+                    fontWeight = FontWeight.Bold
                 )
             )
         }
