@@ -2,6 +2,7 @@ package org.oneui.compose.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.IconButton
@@ -18,6 +19,7 @@ import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.toolbar.CollapsingToolbarLayout
 import org.oneui.compose.widgets.EditText
+import org.oneui.compose.widgets.SearchView
 import org.oneui.compose.widgets.SwitchBar
 import org.oneui.compose.widgets.box.RoundedCornerBox
 import org.oneui.compose.widgets.buttons.Button
@@ -174,6 +176,26 @@ fun WidgetsScreen(
                     }
                 )
             }
+
+            TextSeparator(text = "SearchView")
+            RoundedCornerBox(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                padding = PaddingValues(
+                    vertical = 12.dp
+                )
+            ) {
+                SearchView(
+                    query = state.searchQuery,
+                    onQueryChange = {
+                        state = state.copy(
+                            searchQuery = it
+                        )
+                    },
+                    onBackClick = { },
+                    onVoiceClick = { }
+                )
+            }
         }
     }
 }
@@ -188,6 +210,8 @@ data class WidgetsState(
 
     val radioButtonSelected: String = "",
 
-    val editTextValue: String = ""
+    val editTextValue: String = "",
+
+    val searchQuery: String = ""
 
 )
