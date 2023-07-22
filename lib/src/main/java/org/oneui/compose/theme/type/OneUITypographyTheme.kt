@@ -84,4 +84,8 @@ interface OneUITypographyTheme {
     val tabItemSelected: TextStyle
 
     val bnbLabel: TextStyle
+
+    val searchEdit: TextStyle
+
+    val searchHint: TextStyle
 }
