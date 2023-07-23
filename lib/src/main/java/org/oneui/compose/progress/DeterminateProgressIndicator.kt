@@ -21,14 +21,14 @@ import androidx.compose.ui.unit.dp
 import org.oneui.compose.util.OneUIPreview
 
 /**
- * Composable for a oneui-style horizontal progressbar, to display actual, quantifiable progress.
+ * Composable for a oneui-style horizontal progress indicator, to display actual, quantifiable progress.
  *
  * @param modifier The [Modifier] to apply to the container
  * @param progress The progress, in range [0.0; 1.0]
- * @param colors The [ProgressBarColors] to apply
+ * @param colors The [ProgressIndicatorColors] to apply
  */
 @Composable
-fun DeterminateProgressBar(
+fun DeterminateProgressIndicator(
     modifier: Modifier = Modifier,
     @FloatRange(
         from = 0.0,
@@ -37,12 +37,12 @@ fun DeterminateProgressBar(
         fromInclusive = true
     )
     progress: Float,
-    colors: ProgressBarColors = progressBarColors()
+    colors: ProgressIndicatorColors = progressIndicatorColors()
 ) {
     val actProgress by animateFloatAsState(
         targetValue = progress,
         animationSpec = tween(),
-        label = "DeterminateProgressBar.Progress"
+        label = "DeterminateProgressIndicator.Progress"
     )
 
     Canvas(
@@ -52,11 +52,11 @@ fun DeterminateProgressBar(
     ) {
         drawTrack(
             color = colors.neutral,
-            strokeWidth = DeterminateProgressBarDefaults.height.toPx()
+            strokeWidth = DeterminateProgressIndicatorDefaults.height.toPx()
         )
         drawProgress(
             color = colors.progress,
-            strokeWidth = DeterminateProgressBarDefaults.height.toPx(),
+            strokeWidth = DeterminateProgressIndicatorDefaults.height.toPx(),
             progress = actProgress
         )
     }
@@ -104,9 +104,9 @@ private fun DrawScope.drawProgress(
 }
 
 /**
- * Contains default values for a [DeterminateProgressBar]
+ * Contains default values for a [DeterminateProgressIndicator]
  */
-object DeterminateProgressBarDefaults {
+object DeterminateProgressIndicatorDefaults {
 
     val height = 4.dp
 
@@ -114,18 +114,18 @@ object DeterminateProgressBarDefaults {
 
 
 /**
- * Normal preview for a [DeterminateProgressBar]
+ * Normal preview for a [DeterminateProgressIndicator]
  */
 @Preview
 @Composable
-fun DeterminateProgressBarPreview() =
-    OneUIPreview(title = "DeterminateProgressBar") {
+fun DeterminateProgressIndicatorPreview() =
+    OneUIPreview(title = "DeterminateProgressIndicator") {
         Row(
             horizontalArrangement = Arrangement
                 .spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            DeterminateProgressBar(
+            DeterminateProgressIndicator(
                 progress = 0.4F
             )
         }

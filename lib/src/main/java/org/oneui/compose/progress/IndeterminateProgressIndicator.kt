@@ -15,32 +15,32 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.progress.IndeterminateProgressBarDefaults.toConf
+import org.oneui.compose.progress.IndeterminateProgressIndicatorDefaults.toConf
 import org.oneui.compose.util.OneUIPreview
 
 /**
- * Composable for a oneui-style progress bar, horizontal and inteterminate.
+ * Composable for a oneui-style progress indicator, horizontal and inteterminate.
  *
  * @param modifier The [Modifier] to be applied to the container
- * @param colors The [ProgressBarColors] to apply
+ * @param colors The [ProgressIndicatorColors] to apply
  */
 @Composable
-fun IndeterminateProgressBar(
+fun IndeterminateProgressIndicator(
     modifier: Modifier = Modifier,
-    colors: ProgressBarColors = progressBarColors()
+    colors: ProgressIndicatorColors = progressIndicatorColors()
 ) {
     val transition = rememberInfiniteTransition(
-        label = "IndeterminateProgressBar"
+        label = "IndeterminateProgressIndicator"
     )
 
     val l1s by transition.animateFloat(
         targetValue = 1F,
-        label = "IndeterminateProgressBar.L1S",
+        label = "IndeterminateProgressIndicator.L1S",
         animationSpec = infiniteRepeatable(
             animation = KeyframesSpec(
                 KeyframesSpec.KeyframesSpecConfig<Float>().apply {
-                    durationMillis = IndeterminateProgressBarDefaults.animDuration
-                    toConf(IndeterminateProgressBarDefaults.l1s)
+                    durationMillis = IndeterminateProgressIndicatorDefaults.animDuration
+                    toConf(IndeterminateProgressIndicatorDefaults.l1s)
                 }
             )
         ),
@@ -48,12 +48,12 @@ fun IndeterminateProgressBar(
     )
     val l1e by transition.animateFloat(
         targetValue = 1F,
-        label = "IndeterminateProgressBar.L1E",
+        label = "IndeterminateProgressIndicator.L1E",
         animationSpec = infiniteRepeatable(
             animation = KeyframesSpec(
                 KeyframesSpec.KeyframesSpecConfig<Float>().apply {
-                    durationMillis = IndeterminateProgressBarDefaults.animDuration
-                    toConf(IndeterminateProgressBarDefaults.l1e)
+                    durationMillis = IndeterminateProgressIndicatorDefaults.animDuration
+                    toConf(IndeterminateProgressIndicatorDefaults.l1e)
                 }
             )
         ),
@@ -62,12 +62,12 @@ fun IndeterminateProgressBar(
 
     val l2s by transition.animateFloat(
         targetValue = 1F,
-        label = "IndeterminateProgressBar.L2S",
+        label = "IndeterminateProgressIndicator.L2S",
         animationSpec = infiniteRepeatable(
             KeyframesSpec(
                 KeyframesSpec.KeyframesSpecConfig<Float>().apply {
-                    durationMillis = IndeterminateProgressBarDefaults.animDuration
-                    toConf(IndeterminateProgressBarDefaults.l2s)
+                    durationMillis = IndeterminateProgressIndicatorDefaults.animDuration
+                    toConf(IndeterminateProgressIndicatorDefaults.l2s)
                 }
             )
         ),
@@ -75,12 +75,12 @@ fun IndeterminateProgressBar(
     )
     val l2e by transition.animateFloat(
         targetValue = 1F,
-        label = "IndeterminateProgressBar.L2E",
+        label = "IndeterminateProgressIndicator.L2E",
         animationSpec = infiniteRepeatable(
             animation = KeyframesSpec(
                 KeyframesSpec.KeyframesSpecConfig<Float>().apply {
-                    durationMillis = IndeterminateProgressBarDefaults.animDuration
-                    toConf(IndeterminateProgressBarDefaults.l2e)
+                    durationMillis = IndeterminateProgressIndicatorDefaults.animDuration
+                    toConf(IndeterminateProgressIndicatorDefaults.l2e)
                 }
             )
         ),
@@ -89,12 +89,12 @@ fun IndeterminateProgressBar(
 
     val l3s by transition.animateFloat(
         targetValue = 1F,
-        label = "IndeterminateProgressBar.L3S",
+        label = "IndeterminateProgressIndicator.L3S",
         animationSpec = infiniteRepeatable(
             animation = KeyframesSpec(
                 KeyframesSpec.KeyframesSpecConfig<Float>().apply {
-                    durationMillis = IndeterminateProgressBarDefaults.animDuration
-                    toConf(IndeterminateProgressBarDefaults.l3s)
+                    durationMillis = IndeterminateProgressIndicatorDefaults.animDuration
+                    toConf(IndeterminateProgressIndicatorDefaults.l3s)
                 }
             )
         ),
@@ -102,12 +102,12 @@ fun IndeterminateProgressBar(
     )
     val l3e by transition.animateFloat(
         targetValue = 1F,
-        label = "IndeterminateProgressBar.L3E",
+        label = "IndeterminateProgressIndicator.L3E",
         animationSpec = infiniteRepeatable(
             animation = KeyframesSpec(
                 KeyframesSpec.KeyframesSpecConfig<Float>().apply {
-                    durationMillis = IndeterminateProgressBarDefaults.animDuration
-                    toConf(IndeterminateProgressBarDefaults.l3e)
+                    durationMillis = IndeterminateProgressIndicatorDefaults.animDuration
+                    toConf(IndeterminateProgressIndicatorDefaults.l3e)
                 }
             )
         ),
@@ -119,24 +119,24 @@ fun IndeterminateProgressBar(
     ) {
         drawTrack(
             color = colors.neutral,
-            strokeWidth = IndeterminateProgressBarDefaults.height.toPx()
+            strokeWidth = IndeterminateProgressIndicatorDefaults.height.toPx()
         )
 
         drawProgressBit(
             color = colors.progress,
-            strokeWidth = IndeterminateProgressBarDefaults.height.toPx(),
+            strokeWidth = IndeterminateProgressIndicatorDefaults.height.toPx(),
             start = l1s * size.width,
             end = l1e * size.width
         )
         drawProgressBit(
             color = colors.progress,
-            strokeWidth = IndeterminateProgressBarDefaults.height.toPx(),
+            strokeWidth = IndeterminateProgressIndicatorDefaults.height.toPx(),
             start = l2s * size.width,
             end = l2e * size.width
         )
         drawProgressBit(
             color = colors.progress,
-            strokeWidth = IndeterminateProgressBarDefaults.height.toPx(),
+            strokeWidth = IndeterminateProgressIndicatorDefaults.height.toPx(),
             start = l3s * size.width,
             end = l3e * size.width
         )
@@ -187,12 +187,12 @@ private fun DrawScope.drawProgressBit(
 
 
 /**
- * Contains default values for a [IndeterminateProgressBar]
+ * Contains default values for a [IndeterminateProgressIndicator]
  *
  * Map values are labeled by convention: "l<number of line><e for end, start for start>". They contain keyframes,
  * manually scraped from the original oneui animation
  */
-object IndeterminateProgressBarDefaults {
+object IndeterminateProgressIndicatorDefaults {
 
     val height = 2.dp
 
@@ -252,11 +252,11 @@ object IndeterminateProgressBarDefaults {
 }
 
 /**
- * Normal preview for a [IndeterminateProgressBar]
+ * Normal preview for a [IndeterminateProgressIndicator]
  */
 @Preview
 @Composable
-fun IndeterminateProgressBarPreview() =
-    OneUIPreview(title = "IndeterminateProgressBar") {
-        IndeterminateProgressBar()
+fun IndeterminateProgressIndicatorPreview() =
+    OneUIPreview(title = "IndeterminateProgressIndicatpr") {
+        IndeterminateProgressIndicator()
     }

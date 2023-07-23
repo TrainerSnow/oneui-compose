@@ -7,7 +7,7 @@ import androidx.compose.ui.unit.dp
  * Different sizes of the circular progress bars
  *
  */
-enum class CircularProgressBarSize(
+enum class CircularProgressIndicatorSize(
     val size: Dp,
     val strokeSize: Dp = ((2F / 11F) * size.value).dp
 ) {

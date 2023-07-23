@@ -13,11 +13,11 @@ import dev.oneuiproject.oneui.R
 import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.toolbar.CollapsingToolbarLayout
-import org.oneui.compose.progress.CircularDeterminateProgressBar
-import org.oneui.compose.progress.CircularIndeterminateProgressBar
-import org.oneui.compose.progress.CircularProgressBarSize
-import org.oneui.compose.progress.DeterminateProgressBar
-import org.oneui.compose.progress.IndeterminateProgressBar
+import org.oneui.compose.progress.CircularDeterminateProgressIndicator
+import org.oneui.compose.progress.CircularIndeterminateProgressIndicator
+import org.oneui.compose.progress.CircularProgressIndicatorSize
+import org.oneui.compose.progress.DeterminateProgressIndicator
+import org.oneui.compose.progress.IndeterminateProgressIndicator
 import org.oneui.compose.widgets.box.RoundedCornerBox
 import org.oneui.compose.widgets.text.TextSeparator
 
@@ -56,13 +56,13 @@ fun ProgressIndicatorScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    CircularProgressBarSize.values().forEach { size ->
-                        CircularIndeterminateProgressBar(
+                    CircularProgressIndicatorSize.values().forEach { size ->
+                        CircularIndeterminateProgressIndicator(
                             size = size
                         )
                     }
                 }
-                IndeterminateProgressBar(
+                IndeterminateProgressIndicator(
                     modifier = Modifier
                         .fillMaxWidth()
                 )
@@ -86,14 +86,14 @@ fun ProgressIndicatorScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    CircularProgressBarSize.values().forEach { size ->
-                        CircularDeterminateProgressBar(
+                    CircularProgressIndicatorSize.values().forEach { size ->
+                        CircularDeterminateProgressIndicator(
                             size = size,
                             progress = 0.4F
                         )
                     }
                 }
-                DeterminateProgressBar(
+                DeterminateProgressIndicator(
                     modifier = Modifier
                         .fillMaxWidth(),
                     progress = 0.4F

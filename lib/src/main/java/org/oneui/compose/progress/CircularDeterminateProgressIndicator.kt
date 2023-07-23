@@ -23,15 +23,15 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 /**
- * Composable for a oneui-style circular progressbar, to display actual, quantifiable progress.
+ * Composable for a oneui-style circular progress indicator, to display actual, quantifiable progress.
  *
- * @param size The [CircularProgressBarSize]
+ * @param size The [CircularProgressIndicatorSize]
  * @param progress The progress, in range [0.0; 1.0]
- * @param colors The [ProgressBarColors] to apply
+ * @param colors The [ProgressIndicatorColors] to apply
  */
 @Composable
-fun CircularDeterminateProgressBar(
-    size: CircularProgressBarSize,
+fun CircularDeterminateProgressIndicator(
+    size: CircularProgressIndicatorSize,
     @FloatRange(
         from = 0.0,
         to = 1.0,
@@ -39,12 +39,12 @@ fun CircularDeterminateProgressBar(
         fromInclusive = true
     )
     progress: Float,
-    colors: ProgressBarColors = progressBarColors()
+    colors: ProgressIndicatorColors = progressIndicatorColors()
 ) {
     val animatedProgress by animateFloatAsState(
         targetValue = progress,
         animationSpec = tween(),
-        label = "CircularDeterminateProgressBar"
+        label = "CircularDeterminateProgressIndicator"
     )
 
     Canvas(
@@ -153,19 +153,19 @@ private fun DrawScope.drawProgressTips(
 }
 
 /**
- * Normal preview for a [CircularDeterminateProgressBar]
+ * Normal preview for a [CircularDeterminateProgressIndicator]
  */
 @Preview
 @Composable
-fun CircularDeterminateProgressBarPreview() =
-    OneUIPreview(title = "CircularDeterminateProgressBar") {
+fun CircularDeterminateProgressIndicatorPreview() =
+    OneUIPreview(title = "CircularDeterminateProgressIndicator") {
         Row(
             horizontalArrangement = Arrangement
                 .spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            CircularProgressBarSize.values().forEach {
-                CircularDeterminateProgressBar(
+            CircularProgressIndicatorSize.values().forEach {
+                CircularDeterminateProgressIndicator(
                     size = it,
                     progress = 0.8F
                 )

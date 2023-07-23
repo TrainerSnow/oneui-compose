@@ -24,77 +24,77 @@ import androidx.compose.ui.unit.dp
 import org.oneui.compose.util.OneUIPreview
 
 /**
- * Composable for a oneui-style circular progressbar, to display uncertain progress that can take
+ * Composable for a oneui-style circular progress indicator, to display uncertain progress that can take
  *     unknown amount of time
  *
- * @param size The [CircularProgressBarSize]
- * @param colors The [ProgressBarColors] to apply
+ * @param size The [CircularProgressIndicatorSize]
+ * @param colors The [ProgressIndicatorColors] to apply
  */
 @Composable
-fun CircularIndeterminateProgressBar(
-    size: CircularProgressBarSize = CircularProgressBarSize.Medium,
-    colors: ProgressBarColors = progressBarColors()
+fun CircularIndeterminateProgressIndicator(
+    size: CircularProgressIndicatorSize = CircularProgressIndicatorSize.Medium,
+    colors: ProgressIndicatorColors = progressIndicatorColors()
 ) {
     val rotationEasing = CubicBezierEasing(0F, 0F, 0F, 0F)
     val transition = rememberInfiniteTransition(
-        label = "CircularIndeterminateProgressBar"
+        label = "CircularIndeterminateProgressIndicator"
     )
     val rotation by transition.animateFloat(
         initialValue = 0F,
         targetValue = 360F,
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = CircularIndeterminateProgressBarDefaults.animDurationTotal,
+                durationMillis = CircularIndeterminateProgressIndicatorDefaults.animDurationTotal,
                 easing = rotationEasing
             ),
             repeatMode = RepeatMode.Restart
         ),
-        label = "CircularIndeterminateProgressBar.Rotation"
+        label = "CircularIndeterminateProgressIndicator.Rotation"
     )
     val c1y by transition.animateFloat(
-        initialValue = CircularIndeterminateProgressBarDefaults.c1.y,
-        targetValue = CircularIndeterminateProgressBarDefaults.c1to.y,
+        initialValue = CircularIndeterminateProgressIndicatorDefaults.c1.y,
+        targetValue = CircularIndeterminateProgressIndicatorDefaults.c1to.y,
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = CircularIndeterminateProgressBarDefaults.animDurationTotal / 2
+                durationMillis = CircularIndeterminateProgressIndicatorDefaults.animDurationTotal / 2
             ),
             repeatMode = RepeatMode.Reverse
         ),
-        label = "CircularIndeterminateProgressBar.C1Y"
+        label = "CircularIndeterminateProgressIndicator.C1Y"
     )
     val c2x by transition.animateFloat(
-        initialValue = CircularIndeterminateProgressBarDefaults.c2.x,
-        targetValue = CircularIndeterminateProgressBarDefaults.c2to.x,
+        initialValue = CircularIndeterminateProgressIndicatorDefaults.c2.x,
+        targetValue = CircularIndeterminateProgressIndicatorDefaults.c2to.x,
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = CircularIndeterminateProgressBarDefaults.animDurationTotal / 2
+                durationMillis = CircularIndeterminateProgressIndicatorDefaults.animDurationTotal / 2
             ),
             repeatMode = RepeatMode.Reverse
         ),
-        label = "CircularIndeterminateProgressBar.C2X"
+        label = "CircularIndeterminateProgressIndicator.C2X"
     )
     val c3y by transition.animateFloat(
-        initialValue = CircularIndeterminateProgressBarDefaults.c3.y,
-        targetValue = CircularIndeterminateProgressBarDefaults.c3to.y,
+        initialValue = CircularIndeterminateProgressIndicatorDefaults.c3.y,
+        targetValue = CircularIndeterminateProgressIndicatorDefaults.c3to.y,
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = CircularIndeterminateProgressBarDefaults.animDurationTotal / 2
+                durationMillis = CircularIndeterminateProgressIndicatorDefaults.animDurationTotal / 2
             ),
             repeatMode = RepeatMode.Reverse
         ),
-        label = "CircularIndeterminateProgressBar.C3Y"
+        label = "CircularIndeterminateProgressIndicator.C3Y"
     )
     val c4x by transition.animateFloat(
-        initialValue = CircularIndeterminateProgressBarDefaults.c4.x,
-        targetValue = CircularIndeterminateProgressBarDefaults.c4to.x,
+        initialValue = CircularIndeterminateProgressIndicatorDefaults.c4.x,
+        targetValue = CircularIndeterminateProgressIndicatorDefaults.c4to.x,
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = CircularIndeterminateProgressBarDefaults.animDurationTotal / 2,
+                durationMillis = CircularIndeterminateProgressIndicatorDefaults.animDurationTotal / 2,
                 easing = FastOutSlowInEasing
             ),
             repeatMode = RepeatMode.Reverse
         ),
-        label = "CircularIndeterminateProgressBar.C4X"
+        label = "CircularIndeterminateProgressIndicator.C4X"
     )
 
 
@@ -106,25 +106,25 @@ fun CircularIndeterminateProgressBar(
             degrees = rotation
         ) {
             circle(
-                pos = CircularIndeterminateProgressBarDefaults.c1.copy(
+                pos = CircularIndeterminateProgressIndicatorDefaults.c1.copy(
                     y = c1y
                 ),
                 color = colors.progress
             )
             circle(
-                pos = CircularIndeterminateProgressBarDefaults.c2.copy(
+                pos = CircularIndeterminateProgressIndicatorDefaults.c2.copy(
                     x = c2x
                 ),
                 color = colors.progress
             )
             circle(
-                pos = CircularIndeterminateProgressBarDefaults.c3.copy(
+                pos = CircularIndeterminateProgressIndicatorDefaults.c3.copy(
                     y = c3y
                 ),
                 color = colors.progress
             )
             circle(
-                pos = CircularIndeterminateProgressBarDefaults.c4.copy(
+                pos = CircularIndeterminateProgressIndicatorDefaults.c4.copy(
                     x = c4x
                 ),
                 color = colors.secondaryProgress
@@ -143,15 +143,15 @@ private fun DrawScope.circle(
             x = pos.x * size.width,
             y = pos.y * size.width
         ),
-        radius = CircularIndeterminateProgressBarDefaults.circleRadius * size.width
+        radius = CircularIndeterminateProgressIndicatorDefaults.circleRadius * size.width
     )
 }
 
 /**
- * Contains default values for a [CircularIndeterminateProgressBar]
+ * Contains default values for a [CircularIndeterminateProgressIndicator]
  * For easier implementation, the sizes/positions are mostly stated in percent of maximum size.
  */
-object CircularIndeterminateProgressBarDefaults {
+object CircularIndeterminateProgressIndicatorDefaults {
 
     val c1 = Offset(
         x = (48F / 96F),
@@ -195,19 +195,19 @@ object CircularIndeterminateProgressBarDefaults {
 }
 
 /**
- * Normal preview for a [CircularIndeterminateProgressBar]
+ * Normal preview for a [CircularIndeterminateProgressIndicator]
  */
 @Preview
 @Composable
-fun CircularIndeterminateProgressBarPreview() =
-    OneUIPreview(title = "CircularIndeterminateProgressBar") {
+fun CircularIndeterminateProgressIndicatorPreview() =
+    OneUIPreview(title = "CircularIndeterminateProgressIndicator") {
         Row(
             horizontalArrangement = Arrangement
                 .spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            CircularProgressBarSize.values().forEach {
-                CircularIndeterminateProgressBar(
+            CircularProgressIndicatorSize.values().forEach {
+                CircularIndeterminateProgressIndicator(
                     size = it
                 )
             }
