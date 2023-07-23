@@ -31,7 +31,7 @@ import kotlin.math.sin
  */
 @Composable
 fun CircularDeterminateProgressIndicator(
-    size: CircularProgressIndicatorSize,
+    size: CircularProgressIndicatorSize = CircularProgressIndicatorSize.Medium,
     @FloatRange(
         from = 0.0,
         to = 1.0,
