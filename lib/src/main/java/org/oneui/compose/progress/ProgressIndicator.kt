@@ -7,6 +7,13 @@ import org.oneui.compose.progress.internal.CircularIndeterminateProgressIndicato
 import org.oneui.compose.progress.internal.DeterminateProgressIndicator
 import org.oneui.compose.progress.internal.IndeterminateProgressIndicator
 
+/**
+ * Composable for a oneui-style progress indicator, defined by [type]
+ *
+ * @param modifier The [Modifier] to, potentially, apply to the container
+ * @param type The [ProgressIndicatorType], defining the visuals of the indicator
+ * @param colors The [ProgressIndicatorColors] to apply
+ */
 @Composable
 fun ProgressIndicator(
     modifier: Modifier = Modifier,

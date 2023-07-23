@@ -4,6 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import org.oneui.compose.theme.OneUITheme
 
+/**
+ * Contains the colors used for a [ProgressIndicator]
+ */
 data class ProgressIndicatorColors(
 
     val neutral: Color,
@@ -14,6 +17,13 @@ data class ProgressIndicatorColors(
 
 )
 
+/**
+ * Constructs the default progress indicator colors
+ *
+ * @param neutral The neutral colors, used for track and background
+ * @param progress The progress color, used to show the progress level
+ * @param secondaryProgress The secondary progress, used as an accent color
+ */
 @Composable
 fun progressIndicatorColors(
     neutral: Color = OneUITheme.colors.seslProgressControlColorBackground,
