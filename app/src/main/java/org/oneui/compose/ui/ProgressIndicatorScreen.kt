@@ -13,11 +13,9 @@ import dev.oneuiproject.oneui.R
 import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.toolbar.CollapsingToolbarLayout
-import org.oneui.compose.progress.CircularDeterminateProgressIndicator
-import org.oneui.compose.progress.CircularIndeterminateProgressIndicator
 import org.oneui.compose.progress.CircularProgressIndicatorSize
-import org.oneui.compose.progress.DeterminateProgressIndicator
-import org.oneui.compose.progress.IndeterminateProgressIndicator
+import org.oneui.compose.progress.ProgressIndicator
+import org.oneui.compose.progress.ProgressIndicatorType
 import org.oneui.compose.widgets.box.RoundedCornerBox
 import org.oneui.compose.widgets.text.TextSeparator
 
@@ -57,14 +55,17 @@ fun ProgressIndicatorScreen(
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
                     CircularProgressIndicatorSize.values().forEach { size ->
-                        CircularIndeterminateProgressIndicator(
-                            size = size
+                        ProgressIndicator(
+                            type = ProgressIndicatorType.CircularIndeterminate(
+                                size = size
+                            )
                         )
                     }
                 }
-                IndeterminateProgressIndicator(
+                ProgressIndicator(
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .fillMaxWidth(),
+                    type = ProgressIndicatorType.HorizontalIndeterminate
                 )
             }
         }
@@ -87,16 +88,20 @@ fun ProgressIndicatorScreen(
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
                     CircularProgressIndicatorSize.values().forEach { size ->
-                        CircularDeterminateProgressIndicator(
-                            size = size,
-                            progress = 0.4F
+                        ProgressIndicator(
+                            type = ProgressIndicatorType.CircularDeterminate(
+                                size = size,
+                                progress = 0.4F
+                            )
                         )
                     }
                 }
-                DeterminateProgressIndicator(
+                ProgressIndicator(
                     modifier = Modifier
                         .fillMaxWidth(),
-                    progress = 0.4F
+                    type = ProgressIndicatorType.HorizontalDeterminate(
+                        progress = 0.4F
+                    )
                 )
             }
         }

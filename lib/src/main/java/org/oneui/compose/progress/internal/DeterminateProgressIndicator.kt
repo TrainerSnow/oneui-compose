@@ -1,4 +1,4 @@
-package org.oneui.compose.progress
+package org.oneui.compose.progress.internal
 
 import androidx.annotation.FloatRange
 import androidx.compose.animation.core.animateFloatAsState
@@ -18,6 +18,8 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.oneui.compose.progress.ProgressIndicatorColors
+import org.oneui.compose.progress.progressIndicatorColors
 import org.oneui.compose.util.OneUIPreview
 
 /**
@@ -28,7 +30,7 @@ import org.oneui.compose.util.OneUIPreview
  * @param colors The [ProgressIndicatorColors] to apply
  */
 @Composable
-fun DeterminateProgressIndicator(
+internal fun DeterminateProgressIndicator(
     modifier: Modifier = Modifier,
     @FloatRange(
         from = 0.0,
@@ -118,7 +120,7 @@ object DeterminateProgressIndicatorDefaults {
  */
 @Preview
 @Composable
-fun DeterminateProgressIndicatorPreview() =
+private fun DeterminateProgressIndicatorPreview() =
     OneUIPreview(title = "DeterminateProgressIndicator") {
         Row(
             horizontalArrangement = Arrangement

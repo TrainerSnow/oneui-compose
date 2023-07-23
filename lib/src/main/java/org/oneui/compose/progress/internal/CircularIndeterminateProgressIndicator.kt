@@ -1,4 +1,4 @@
-package org.oneui.compose.progress
+package org.oneui.compose.progress.internal
 
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -21,6 +21,9 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.oneui.compose.progress.CircularProgressIndicatorSize
+import org.oneui.compose.progress.ProgressIndicatorColors
+import org.oneui.compose.progress.progressIndicatorColors
 import org.oneui.compose.util.OneUIPreview
 
 /**
@@ -31,7 +34,7 @@ import org.oneui.compose.util.OneUIPreview
  * @param colors The [ProgressIndicatorColors] to apply
  */
 @Composable
-fun CircularIndeterminateProgressIndicator(
+internal fun CircularIndeterminateProgressIndicator(
     size: CircularProgressIndicatorSize = CircularProgressIndicatorSize.Medium,
     colors: ProgressIndicatorColors = progressIndicatorColors()
 ) {
@@ -151,7 +154,7 @@ private fun DrawScope.circle(
  * Contains default values for a [CircularIndeterminateProgressIndicator]
  * For easier implementation, the sizes/positions are mostly stated in percent of maximum size.
  */
-object CircularIndeterminateProgressIndicatorDefaults {
+internal object CircularIndeterminateProgressIndicatorDefaults {
 
     val c1 = Offset(
         x = (48F / 96F),
@@ -199,7 +202,7 @@ object CircularIndeterminateProgressIndicatorDefaults {
  */
 @Preview
 @Composable
-fun CircularIndeterminateProgressIndicatorPreview() =
+private fun CircularIndeterminateProgressIndicatorPreview() =
     OneUIPreview(title = "CircularIndeterminateProgressIndicator") {
         Row(
             horizontalArrangement = Arrangement

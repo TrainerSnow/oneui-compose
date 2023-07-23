@@ -1,4 +1,4 @@
-package org.oneui.compose.progress
+package org.oneui.compose.progress.internal
 
 import androidx.compose.animation.core.KeyframesSpec
 import androidx.compose.animation.core.animateFloat
@@ -15,7 +15,9 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.progress.IndeterminateProgressIndicatorDefaults.toConf
+import org.oneui.compose.progress.ProgressIndicatorColors
+import org.oneui.compose.progress.internal.IndeterminateProgressIndicatorDefaults.toConf
+import org.oneui.compose.progress.progressIndicatorColors
 import org.oneui.compose.util.OneUIPreview
 
 /**
@@ -25,7 +27,7 @@ import org.oneui.compose.util.OneUIPreview
  * @param colors The [ProgressIndicatorColors] to apply
  */
 @Composable
-fun IndeterminateProgressIndicator(
+internal fun IndeterminateProgressIndicator(
     modifier: Modifier = Modifier,
     colors: ProgressIndicatorColors = progressIndicatorColors()
 ) {
@@ -192,7 +194,7 @@ private fun DrawScope.drawProgressBit(
  * Map values are labeled by convention: "l<number of line><e for end, start for start>". They contain keyframes,
  * manually scraped from the original oneui animation
  */
-object IndeterminateProgressIndicatorDefaults {
+internal object IndeterminateProgressIndicatorDefaults {
 
     val height = 2.dp
 
@@ -256,7 +258,7 @@ object IndeterminateProgressIndicatorDefaults {
  */
 @Preview
 @Composable
-fun IndeterminateProgressIndicatorPreview() =
+private fun IndeterminateProgressIndicatorPreview() =
     OneUIPreview(title = "IndeterminateProgressIndicatpr") {
         IndeterminateProgressIndicator()
     }

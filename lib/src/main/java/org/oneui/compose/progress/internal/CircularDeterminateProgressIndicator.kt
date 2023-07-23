@@ -1,4 +1,4 @@
-package org.oneui.compose.progress
+package org.oneui.compose.progress.internal
 
 import androidx.annotation.FloatRange
 import androidx.compose.animation.core.animateFloatAsState
@@ -18,6 +18,9 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.oneui.compose.progress.CircularProgressIndicatorSize
+import org.oneui.compose.progress.ProgressIndicatorColors
+import org.oneui.compose.progress.progressIndicatorColors
 import org.oneui.compose.util.OneUIPreview
 import kotlin.math.cos
 import kotlin.math.sin
@@ -30,7 +33,7 @@ import kotlin.math.sin
  * @param colors The [ProgressIndicatorColors] to apply
  */
 @Composable
-fun CircularDeterminateProgressIndicator(
+internal fun CircularDeterminateProgressIndicator(
     size: CircularProgressIndicatorSize = CircularProgressIndicatorSize.Medium,
     @FloatRange(
         from = 0.0,
@@ -157,7 +160,7 @@ private fun DrawScope.drawProgressTips(
  */
 @Preview
 @Composable
-fun CircularDeterminateProgressIndicatorPreview() =
+private fun CircularDeterminateProgressIndicatorPreview() =
     OneUIPreview(title = "CircularDeterminateProgressIndicator") {
         Row(
             horizontalArrangement = Arrangement
