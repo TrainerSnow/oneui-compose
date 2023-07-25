@@ -154,14 +154,10 @@ fun rememberCollapsingToolbarState(
  * Composable for a oneui-style Collapsing toolbar layout
  *
  * TODO: Add preview picture
- * TODO: When the initial state is Expanded, the offset variable is defaulted to 0, so it takes a moment until it snaps to Expanded.
- * TODO: The swipe velocity is too high
- * TODO: The layout change is higher than the swipe gesture on the screen
  * TODO: When the [appbarActions] are [IconButton]'s, the spacing between them is too big. In normal OUI, the hitboxes overlap, here they act as margin.
  *
  * @param modifier The modifier to be applied to the container
  * @param state The [CollapsingToolbarState] for controlling the layout
- * @param snapThreshold The threshold at which to snap to the next state
  * @param toolbarTitle The title
  * @param toolbarSubtitle The subtitle
  * @param toolbarHeight The height of the toolbar when expanded
@@ -178,7 +174,7 @@ fun CollapsingToolbarLayout(
         CollapsingToolbarCollapsedState.EXTENDED,
         velocityThreshold
     ),
-    snapThreshold: Float = CollapsingToolbarLayoutDefaults.snapThreshold,
+    expandable: Boolean = true,
     toolbarTitle: String,
     toolbarSubtitle: String? = null,
     toolbarHeight: Dp = 280.dp,
@@ -186,17 +182,19 @@ fun CollapsingToolbarLayout(
     appbarNavAction: (@Composable () -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
+    val density = LocalDensity.current
+
     state.setAnchors(
         mapOf(
-            CollapsingToolbarCollapsedState.COLLAPSED to 0F ,
-            CollapsingToolbarCollapsedState.EXTENDED to toolbarHeight.value
+            CollapsingToolbarCollapsedState.COLLAPSED to 0F,
+            CollapsingToolbarCollapsedState.EXTENDED to with(density) { toolbarHeight.toPx() }
         )
     )
 
-    val offset = state.pixelProgress.let {
-        if(it.isNaN()) 0F else it
+    val offsetDp = state.pixelProgress.let {
+        if (it.isNaN()) 0F.dp else with(density) { it.toDp() }
     }
-    val progress = offset / toolbarHeight.value
+    val progress = offsetDp / toolbarHeight
 
     val appbarAlpha = if (progress > 0.5) 0F else 1 - progress * 2
     val toolbarAlpha = if (progress < 0.5) 0F else mapRange(
@@ -208,21 +206,26 @@ fun CollapsingToolbarLayout(
     )
 
     val scrollstate = rememberScrollState()
+
+    val mod = if (expandable) Modifier
+        .anchoredDraggable(
+            state = state.draggableState,
+            orientation = Orientation.Vertical,
+            enabled = false
+        )
+        .nestedScroll(
+            state.draggableState.NestedScrollConnection
+        ) else Modifier
+
     Column(
         modifier = modifier
             .fillMaxSize()
-            .anchoredDraggable(
-                state = state.draggableState,
-                orientation = Orientation.Vertical
-            )
-            .nestedScroll(
-                state.draggableState.NestedScrollConnection
-            )
+            .then(mod)
     ) {
         CollapsingToolbarTitle(
             modifier = Modifier
                 .height(
-                    height = offset.dp
+                    height = offsetDp
                 ),
             title = {
                 Text(
