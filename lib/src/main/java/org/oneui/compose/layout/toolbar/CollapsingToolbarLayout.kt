@@ -158,7 +158,6 @@ fun rememberCollapsingToolbarState(
  *
  * @param modifier The modifier to be applied to the container
  * @param state The [CollapsingToolbarState] for controlling the layout
- * @param snapThreshold The threshold at which to snap to the next state
  * @param toolbarTitle The title
  * @param toolbarSubtitle The subtitle
  * @param toolbarHeight The height of the toolbar when expanded
@@ -175,7 +174,7 @@ fun CollapsingToolbarLayout(
         CollapsingToolbarCollapsedState.EXTENDED,
         velocityThreshold
     ),
-    snapThreshold: Float = CollapsingToolbarLayoutDefaults.snapThreshold,
+    expandable: Boolean = true,
     toolbarTitle: String,
     toolbarSubtitle: String? = null,
     toolbarHeight: Dp = 280.dp,
@@ -207,17 +206,21 @@ fun CollapsingToolbarLayout(
     )
 
     val scrollstate = rememberScrollState()
+
+    val mod = if (expandable) Modifier
+        .anchoredDraggable(
+            state = state.draggableState,
+            orientation = Orientation.Vertical,
+            enabled = false
+        )
+        .nestedScroll(
+            state.draggableState.NestedScrollConnection
+        ) else Modifier
+
     Column(
         modifier = modifier
             .fillMaxSize()
-            .anchoredDraggable(
-                state = state.draggableState,
-                orientation = Orientation.Vertical,
-                enabled = false
-            )
-            .nestedScroll(
-                state.draggableState.NestedScrollConnection
-            )
+            .then(mod)
     ) {
         CollapsingToolbarTitle(
             modifier = Modifier
