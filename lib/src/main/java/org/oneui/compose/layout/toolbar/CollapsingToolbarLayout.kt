@@ -154,8 +154,6 @@ fun rememberCollapsingToolbarState(
  * Composable for a oneui-style Collapsing toolbar layout
  *
  * TODO: Add preview picture
- * TODO: The swipe velocity is too high
- * TODO: The layout change is higher than the swipe gesture on the screen
  * TODO: When the [appbarActions] are [IconButton]'s, the spacing between them is too big. In normal OUI, the hitboxes overlap, here they act as margin.
  *
  * @param modifier The modifier to be applied to the container
@@ -185,17 +183,19 @@ fun CollapsingToolbarLayout(
     appbarNavAction: (@Composable () -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
+    val density = LocalDensity.current
+
     state.setAnchors(
         mapOf(
-            CollapsingToolbarCollapsedState.COLLAPSED to 0F ,
-            CollapsingToolbarCollapsedState.EXTENDED to toolbarHeight.value
+            CollapsingToolbarCollapsedState.COLLAPSED to 0F,
+            CollapsingToolbarCollapsedState.EXTENDED to with(density) { toolbarHeight.toPx() }
         )
     )
 
-    val offset = state.pixelProgress.let {
-        if(it.isNaN()) 0F else it
+    val offsetDp = state.pixelProgress.let {
+        if (it.isNaN()) 0F.dp else with(density) { it.toDp() }
     }
-    val progress = offset / toolbarHeight.value
+    val progress = offsetDp / toolbarHeight
 
     val appbarAlpha = if (progress > 0.5) 0F else 1 - progress * 2
     val toolbarAlpha = if (progress < 0.5) 0F else mapRange(
@@ -212,7 +212,8 @@ fun CollapsingToolbarLayout(
             .fillMaxSize()
             .anchoredDraggable(
                 state = state.draggableState,
-                orientation = Orientation.Vertical
+                orientation = Orientation.Vertical,
+                enabled = false
             )
             .nestedScroll(
                 state.draggableState.NestedScrollConnection
@@ -221,7 +222,7 @@ fun CollapsingToolbarLayout(
         CollapsingToolbarTitle(
             modifier = Modifier
                 .height(
-                    height = offset.dp
+                    height = offsetDp
                 ),
             title = {
                 Text(
