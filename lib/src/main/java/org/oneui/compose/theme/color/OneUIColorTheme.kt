@@ -196,6 +196,9 @@ interface OneUIColorTheme {
 
     val searchButton: Color
 
+    val numberPickerTextColor: Color
+    val numberPickerScrollTextColor: Color
+
     companion object {
 
         fun getTheme(

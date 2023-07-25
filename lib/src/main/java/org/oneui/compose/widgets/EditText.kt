@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
@@ -56,8 +57,7 @@ fun EditText(
     val showHint = value.isEmpty()
 
     Box(
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier = modifier,
         contentAlignment = Alignment.BottomStart
     ) {
         if (showHint) {
@@ -74,8 +74,69 @@ fun EditText(
                             .allIn(characters.toList()))
                 if (!nonValid) onValueChange(it)
             },
-            modifier = modifier
-                .fillMaxWidth(),
+            modifier = modifier,
+            enabled,
+            readOnly,
+            textStyle = style,
+            keyboardOptions,
+            keyboardActions,
+            singleLine,
+            maxLines,
+            minLines,
+            visualTransformation,
+            onTextLayout,
+            interactionSource,
+            cursorBrush = SolidColor(colors.cursor),
+            decorationBox
+        )
+    }
+}
+
+@Composable
+fun EditText(
+    modifier: Modifier = Modifier,
+    value: TextFieldValue = TextFieldValue(),
+    hint: String = "",
+    onValueChange: (TextFieldValue) -> Unit,
+    colors: EditTextColors = editTextColors(),
+    enabled: Boolean = true,
+    readOnly: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    singleLine: Boolean = false,
+    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
+    minLines: Int = 1,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    style: TextStyle = OneUITheme.types.editTextText,
+    hintStyle: TextStyle = OneUITheme.types.editTextHint,
+    maxCharacters: Long? = null,
+    characters: CharArray? = null,
+    decorationBox: @Composable (innerTextField: @Composable () -> Unit) -> Unit =
+        @Composable { innerTextField -> innerTextField() }
+) {
+    val showHint = value.text.isEmpty()
+
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.BottomStart
+    ) {
+        if (showHint) {
+            Text(
+                text = hint,
+                style = hintStyle
+            )
+        }
+        BasicTextField(
+            value,
+            onValueChange = {
+                val nonValid = (maxCharacters != null && it.text.length > maxCharacters) ||
+                        (characters != null && !it.text.toCharArray().toList()
+                            .allIn(characters.toList()))
+                if (!nonValid) onValueChange(it)
+            },
+            modifier = modifier,
             enabled,
             readOnly,
             textStyle = style,

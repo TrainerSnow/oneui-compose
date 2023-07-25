@@ -31,6 +31,7 @@ import org.oneui.compose.layout.internal.SlidingOutDrawerLayout
 import org.oneui.compose.layout.internal.modifier.overlay
 import org.oneui.compose.layout.internal.rememberSlidingDrawerState
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.theme.locals.ProvideBackgroundColor
 import org.oneui.compose.util.mapRange
 import org.oneui.compose.widgets.buttons.IconButton
 import org.oneui.compose.widgets.buttons.iconButtonColors
@@ -213,7 +214,9 @@ fun DrawerLayout(
                         }
                     }
 
-                    drawerContent(this@Column)
+                    ProvideBackgroundColor(colors.drawerBackground) {
+                        drawerContent(this@Column)
+                    }
                 }
             },
             contentOverlay = { },
@@ -242,7 +245,9 @@ fun DrawerLayout(
                         }
                     }
             ) {
-                content()
+                ProvideBackgroundColor(colors.background) {
+                    content()
+                }
             }
         }
     }

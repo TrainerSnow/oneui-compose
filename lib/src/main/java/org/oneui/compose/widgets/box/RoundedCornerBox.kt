@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.theme.locals.ProvideBackgroundColor
 
 /**
  * Contains the colors that define a [RoundedCornerBox]
@@ -115,6 +116,8 @@ fun RoundedCornerBox(
             .padding(padding),
         contentAlignment = contentAlignment
     ) {
-        content()
+        ProvideBackgroundColor(colors.background) {
+            content()
+        }
     }
 }

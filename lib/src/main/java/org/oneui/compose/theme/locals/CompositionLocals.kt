@@ -1,9 +1,12 @@
 package org.oneui.compose.theme.locals
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
-import org.oneui.compose.theme.color.OneUIColorTheme
+import androidx.compose.ui.graphics.Color
 import org.oneui.compose.theme.color.LightColorTheme
+import org.oneui.compose.theme.color.OneUIColorTheme
 import org.oneui.compose.theme.dimensions.IDynamicDimensions
 import org.oneui.compose.theme.type.RobotoTypographyTheme
 
@@ -21,3 +24,19 @@ internal val LocalTypography = staticCompositionLocalOf {
         IDynamicDimensions.Default
     )
 }
+
+/**
+ * CompositionLocal which holds the current background color.
+ */
+val LocalBackgroundColor = staticCompositionLocalOf {
+    Color.Transparent
+}
+
+@Composable
+fun ProvideBackgroundColor(
+    color: Color,
+    content: @Composable () -> Unit
+) = CompositionLocalProvider(
+    LocalBackgroundColor provides color,
+    content = content
+)

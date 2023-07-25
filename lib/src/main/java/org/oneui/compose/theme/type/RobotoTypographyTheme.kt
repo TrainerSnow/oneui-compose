@@ -53,7 +53,8 @@ internal class RobotoTypographyTheme private constructor(
     override val tabItemSelected: TextStyle,
     override val bnbLabel: TextStyle,
     override val searchEdit: TextStyle,
-    override val searchHint: TextStyle
+    override val searchHint: TextStyle,
+    override val numberPicker: TextStyle
 ) : OneUITypographyTheme {
 
     companion object {
@@ -305,6 +306,10 @@ internal class RobotoTypographyTheme private constructor(
                     fontSize = 21.sp,
                     fontFamily = robotoFamily,
                     fontWeight = FontWeight.Bold
+                ),
+                numberPicker = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 40.sp
                 )
             )
         }

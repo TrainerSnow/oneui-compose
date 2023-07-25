@@ -24,6 +24,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.theme.locals.ProvideBackgroundColor
 
 
 /**
@@ -79,7 +80,9 @@ fun BaseDialog(
                     .wrapContentHeight()
                     .verticalScroll(rememberScrollState())
             ) {
-                content()
+                ProvideBackgroundColor(colors.background) {
+                    content()
+                }
             }
         }
     }

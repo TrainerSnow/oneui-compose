@@ -25,6 +25,11 @@ enum class NavDestinations(
     Navigation(
         title = "Navigation",
         icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_navigationbar)
+    ),
+
+    ProgressIndicator(
+        title = "Progress",
+        icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_time)
     )
 
 }

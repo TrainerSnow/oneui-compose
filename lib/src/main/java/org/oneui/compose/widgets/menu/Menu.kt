@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.theme.locals.ProvideBackgroundColor
 
 
 /**
@@ -116,7 +117,9 @@ fun PopupMenu(
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.Start
             ) {
-                content(this)
+                ProvideBackgroundColor(colors.background) {
+                    content(this)
+                }
             }
         }
     }

@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.theme.locals.ProvideBackgroundColor
 
 /**
  * Contains the colors that define a [OUIAppBar]
@@ -69,7 +70,9 @@ fun OUIAppBar(
         ),
     title = {
         ProvideTextStyle(titleTextStyle) {
-            title()
+            ProvideBackgroundColor(colors.background) {
+                title()
+            }
         }
     },
     navigationIcon = {

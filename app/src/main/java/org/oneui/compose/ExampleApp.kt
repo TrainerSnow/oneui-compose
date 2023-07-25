@@ -16,6 +16,7 @@ import org.oneui.compose.layout.drawer.DrawerLayout
 import org.oneui.compose.layout.internal.rememberSlidingDrawerState
 import org.oneui.compose.nav.NavDestinations
 import org.oneui.compose.ui.NavScreen
+import org.oneui.compose.ui.ProgressIndicatorScreen
 import org.oneui.compose.ui.WidgetsScreen
 
 @Composable
@@ -80,6 +81,18 @@ fun ExampleApp(
 
             NavDestinations.Navigation -> {
                 NavScreen(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    onNavigateBack = {
+                        scope.launch {
+                            drawerState.openAnimate()
+                        }
+                    }
+                )
+            }
+
+            NavDestinations.ProgressIndicator -> {
+                ProgressIndicatorScreen(
                     modifier = Modifier
                         .fillMaxSize(),
                     onNavigateBack = {
