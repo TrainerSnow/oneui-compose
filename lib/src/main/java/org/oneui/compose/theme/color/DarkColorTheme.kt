@@ -195,6 +195,9 @@ internal class DarkColorTheme : OneUIColorTheme {
 
     override val searchButton = Color(0xfffafafa)
 
+    override val numberPickerTextColor = Color(0xfffafafa)
+    override val numberPickerScrollTextColor = seslPrimaryDarkColor
+
 
     companion object {
 

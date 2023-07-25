@@ -88,4 +88,6 @@ interface OneUITypographyTheme {
     val searchEdit: TextStyle
 
     val searchHint: TextStyle
+
+    val numberPicker: TextStyle
 }
