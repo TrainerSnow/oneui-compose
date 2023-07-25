@@ -154,7 +154,6 @@ fun rememberCollapsingToolbarState(
  * Composable for a oneui-style Collapsing toolbar layout
  *
  * TODO: Add preview picture
- * TODO: When the initial state is Expanded, the offset variable is defaulted to 0, so it takes a moment until it snaps to Expanded.
  * TODO: The swipe velocity is too high
  * TODO: The layout change is higher than the swipe gesture on the screen
  * TODO: When the [appbarActions] are [IconButton]'s, the spacing between them is too big. In normal OUI, the hitboxes overlap, here they act as margin.
