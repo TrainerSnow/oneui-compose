@@ -1,4 +1,4 @@
-package org.oneui.compose.picker.number
+package org.oneui.compose.picker
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
