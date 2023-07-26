@@ -46,7 +46,7 @@ import org.oneui.compose.util.isEven
 @Composable
 fun RepeatingItemScroll(
     modifier: Modifier = Modifier,
-    state: ItemScrollState,
+    state: RepeatingItemScrollState,
     onIndexChange: (Int) -> Unit,
     item: @Composable (index: Int) -> Unit,
     activeItem: @Composable (index: Int) -> Unit
@@ -138,26 +138,26 @@ fun RepeatingItemScroll(
 }
 
 
-internal data class RepeatingItemScrollState(
-    override val itemAmount: Int,
-    override val initialIndex: Int = 0,
-    override val visibleItemsCount: Int
-) : ItemScrollState {
+data class RepeatingItemScrollState(
+    val itemAmount: Int,
+    val initialIndex: Int = 0,
+    val visibleItemsCount: Int
+) {
     init {
         assert(!visibleItemsCount.isEven) { "visibleItemsCount must be an odd number!" }
     }
 
-    override val listSize = Int.MAX_VALUE
+    val listSize = Int.MAX_VALUE
 
-    override val listState: LazyListState = LazyListState(
+    val listState: LazyListState = LazyListState(
         firstVisibleItemIndex = listSize / 2 + (itemAmount - (listSize / 2 % itemAmount)) + initialIndex - visibleItemsCount / 2
     )
 
-    override var currentIndex by mutableIntStateOf(initialIndex)
+    var currentIndex by mutableIntStateOf(initialIndex)
 
-    override val isScrolling: Boolean
+    val isScrolling: Boolean
         get() = listState.isScrollInProgress
 
-    override suspend fun scrollToItem(index: Int) =
+    suspend fun scrollToItem(index: Int) =
         listState.scrollToItem(index - visibleItemsCount / 2 + listSize / 2 + (itemAmount - (listSize / 2 % itemAmount)))
 }

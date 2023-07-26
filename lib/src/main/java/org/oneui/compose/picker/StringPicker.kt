@@ -3,6 +3,7 @@ package org.oneui.compose.picker
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,7 +15,8 @@ import kotlinx.coroutines.launch
 import org.oneui.compose.picker.scroll.ItemScroll
 import org.oneui.compose.picker.scroll.ItemScrollEditText
 import org.oneui.compose.picker.scroll.RepeatingItemScroll
-import org.oneui.compose.picker.scroll.rememberItemScrollState
+import org.oneui.compose.picker.scroll.RepeatingItemScrollState
+import org.oneui.compose.picker.scroll.SimpleItemScrollState
 import org.oneui.compose.theme.OneUITheme
 
 
@@ -28,6 +30,7 @@ import org.oneui.compose.theme.OneUITheme
  * @param infiniteScroll Whether the scrolling list should repeat when the last element of [values] is reached, or stop
  * @param textStyle The [TextStyle] to apply to each text
  */
+
 @Composable
 fun StringPicker(
     modifier: Modifier = Modifier,
@@ -39,48 +42,52 @@ fun StringPicker(
     textStyle: TextStyle = OneUITheme.types.numberPicker
 ) {
     val scope = rememberCoroutineScope()
-    val state = rememberItemScrollState(
-        itemAmount = values.size,
-        initialIndex = values.indexOf(startValue)
-    )
-
-    val style = textStyle.copy(
-        color = with(colors) {
-            if (state.isScrolling) textScrolling
-            else text
-        }
-    )
-
-    val item = @Composable { index: Int ->
-        Text(
-            text = values[index],
-            style = style,
-            textAlign = TextAlign.Center
-        )
-    }
-
-    val activeItem = @Composable { index: Int ->
-        ItemScrollEditText(
-            value = values[index],
-            onValueChange = {
-                onValueChange(it)
-                state.currentIndex = values.indexOf(it)
-                scope.launch {
-                    state.scrollToItem(values.indexOf(it))
-                }
-            },
-            style = style,
-            predicate = {
-                it in values
-            },
-            keyboardOptions = KeyboardOptions.Default.copy(
-                keyboardType = KeyboardType.Number,
-                imeAction = ImeAction.Done
-            )
-        )
-    }
 
     if (infiniteScroll) {
+        val state = remember {
+            RepeatingItemScrollState(
+                itemAmount = values.size,
+                initialIndex = values.indexOf(startValue),
+                visibleItemsCount = 3
+            )
+        }
+
+        val style = textStyle.copy(
+            color = with(colors) {
+                if (state.isScrolling) textScrolling
+                else text
+            }
+        )
+
+        val item = @Composable { index: Int ->
+            Text(
+                text = values[index],
+                style = style,
+                textAlign = TextAlign.Center
+            )
+        }
+
+        val activeItem = @Composable { index: Int ->
+            ItemScrollEditText(
+                value = values[index],
+                onValueChange = {
+                    onValueChange(it)
+                    state.currentIndex = values.indexOf(it)
+                    scope.launch {
+                        state.scrollToItem(values.indexOf(it))
+                    }
+                },
+                style = style,
+                predicate = {
+                    it in values
+                },
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    keyboardType = KeyboardType.Number,
+                    imeAction = ImeAction.Done
+                )
+            )
+        }
+
         RepeatingItemScroll(
             modifier = modifier,
             state = state,
@@ -92,6 +99,50 @@ fun StringPicker(
             activeItem = activeItem
         )
     } else {
+        val state = remember {
+            SimpleItemScrollState(
+                itemAmount = values.size,
+                initialIndex = values.indexOf(startValue),
+                visibleItemsCount = 3
+            )
+        }
+
+        val style = textStyle.copy(
+            color = with(colors) {
+                if (state.isScrolling) textScrolling
+                else text
+            }
+        )
+
+        val item = @Composable { index: Int ->
+            Text(
+                text = values[index],
+                style = style,
+                textAlign = TextAlign.Center
+            )
+        }
+
+        val activeItem = @Composable { index: Int ->
+            ItemScrollEditText(
+                value = values[index],
+                onValueChange = {
+                    onValueChange(it)
+                    state.currentIndex = values.indexOf(it)
+                    scope.launch {
+                        state.scrollToItem(values.indexOf(it))
+                    }
+                },
+                style = style,
+                predicate = {
+                    it in values
+                },
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    keyboardType = KeyboardType.Number,
+                    imeAction = ImeAction.Done
+                )
+            )
+        }
+
         ItemScroll(
             modifier = modifier,
             state = state,
@@ -108,6 +159,7 @@ fun StringPicker(
 /**
  * Contains the colors used for a [NumberPicker]
  */
+
 data class StringPickerColors(
 
     val textScrolling: Color,
@@ -122,6 +174,7 @@ data class StringPickerColors(
  * @param textScrolling The color of the text while scrolling
  * @param text The color of the text while not scrolling
  */
+
 @Composable
 fun stringPickerColors(
     textScrolling: Color = OneUITheme.colors.numberPickerScrollTextColor,
