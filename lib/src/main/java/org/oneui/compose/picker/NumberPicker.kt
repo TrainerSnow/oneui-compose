@@ -3,6 +3,7 @@ package org.oneui.compose.picker
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,12 +15,15 @@ import kotlinx.coroutines.launch
 import org.oneui.compose.picker.scroll.ItemScroll
 import org.oneui.compose.picker.scroll.ItemScrollEditText
 import org.oneui.compose.picker.scroll.RepeatingItemScroll
-import org.oneui.compose.picker.scroll.rememberItemScrollState
+import org.oneui.compose.picker.scroll.RepeatingItemScrollState
+import org.oneui.compose.picker.scroll.SimpleItemScrollState
 import org.oneui.compose.theme.OneUITheme
 
 
 /**
  * A oneui-style number picker to select an integer number.
+ *
+ * TODO: There is a lot of repeating in this composable. Should be redone. Same for StringPicker
  *
  * @param modifier The [Modifier] to apply to the container
  * @param values The possible values to show on the [RepeatingItemScroll]
@@ -39,50 +43,54 @@ fun NumberPicker(
     textStyle: TextStyle = OneUITheme.types.numberPicker
 ) {
     val scope = rememberCoroutineScope()
-    val state = rememberItemScrollState(
-        itemAmount = values.size,
-        initialIndex = values.indexOf(startValue)
-    )
-
-    val style = textStyle.copy(
-        color = with(colors) {
-            if (state.isScrolling) textScrolling
-            else text
-        }
-    )
-
-    val item = @Composable { index: Int ->
-        Text(
-            text = values[index].toString(),
-            style = style,
-            textAlign = TextAlign.Center
-        )
-    }
-
-    val activeItem = @Composable { index: Int ->
-        ItemScrollEditText(
-            value = values[index].toString(),
-            onValueChange = {
-                val num = it.toInt()
-                onValueChange(num)
-                state.currentIndex = values.indexOf(num)
-                scope.launch {
-                    state.scrollToItem(values.indexOf(num))
-                }
-            },
-            style = style,
-            predicate = {
-                val num = it.toIntOrNull() ?: false
-                num in values
-            },
-            keyboardOptions = KeyboardOptions.Default.copy(
-                keyboardType = KeyboardType.Number,
-                imeAction = ImeAction.Done
-            )
-        )
-    }
 
     if (infiniteScroll) {
+        val state = remember {
+            RepeatingItemScrollState(
+                itemAmount = values.size,
+                initialIndex = values.indexOf(startValue),
+                visibleItemsCount = 3
+            )
+        }
+
+        val style = textStyle.copy(
+            color = with(colors) {
+                if (state.isScrolling) textScrolling
+                else text
+            }
+        )
+
+        val item = @Composable { index: Int ->
+            Text(
+                text = values[index].toString(),
+                style = style,
+                textAlign = TextAlign.Center
+            )
+        }
+
+        val activeItem = @Composable { index: Int ->
+            ItemScrollEditText(
+                value = values[index].toString(),
+                onValueChange = {
+                    val num = it.toInt()
+                    onValueChange(num)
+                    state.currentIndex = values.indexOf(num)
+                    scope.launch {
+                        state.scrollToItem(values.indexOf(num))
+                    }
+                },
+                style = style,
+                predicate = {
+                    val num = it.toIntOrNull() ?: false
+                    num in values
+                },
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    keyboardType = KeyboardType.Number,
+                    imeAction = ImeAction.Done
+                )
+            )
+        }
+
         RepeatingItemScroll(
             modifier = modifier,
             state = state,
@@ -94,6 +102,52 @@ fun NumberPicker(
             activeItem = activeItem
         )
     } else {
+        val state = remember {
+            SimpleItemScrollState(
+                itemAmount = values.size,
+                initialIndex = values.indexOf(startValue),
+                visibleItemsCount = 3
+            )
+        }
+
+        val style = textStyle.copy(
+            color = with(colors) {
+                if (state.isScrolling) textScrolling
+                else text
+            }
+        )
+
+        val item = @Composable { index: Int ->
+            Text(
+                text = values[index].toString(),
+                style = style,
+                textAlign = TextAlign.Center
+            )
+        }
+
+        val activeItem = @Composable { index: Int ->
+            ItemScrollEditText(
+                value = values[index].toString(),
+                onValueChange = {
+                    val num = it.toInt()
+                    onValueChange(num)
+                    state.currentIndex = values.indexOf(num)
+                    scope.launch {
+                        state.scrollToItem(values.indexOf(num))
+                    }
+                },
+                style = style,
+                predicate = {
+                    val num = it.toIntOrNull() ?: false
+                    num in values
+                },
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    keyboardType = KeyboardType.Number,
+                    imeAction = ImeAction.Done
+                )
+            )
+        }
+
         ItemScroll(
             modifier = modifier,
             state = state,
