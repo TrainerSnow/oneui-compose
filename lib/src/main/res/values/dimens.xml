@@ -22,11 +22,14 @@
     </dimen>
     <dimen name="sesl_picker_color_seekbar_margin_bottom" format="float" type="dimen">3.0</dimen>
     <dimen name="sesl_picker_color_seekbar_label_spacing" format="float" type="dimen">16.0</dimen>
-    <dimen name="sesl_picker_color_tab_layout_margin_horizontal" format="float" type="dimen">3.0</dimen>
+    <dimen name="sesl_picker_color_tab_layout_margin_horizontal" format="float" type="dimen">3.0
+    </dimen>
     <dimen name="sesl_picker_color_content_width" format="float" type="dimen">320.0</dimen>
     <dimen name="sesl_picker_color_swatches_margin_top" format="float" type="dimen">15.0</dimen>
     <dimen name="sesl_picker_color_swatches_margin_bottom" format="float" type="dimen">28.0</dimen>
     <dimen name="sesl_picker_color_swatches_height" format="float" type="dimen">280.0</dimen>
     <dimen name="sesl_picker_color_swatches_width" format="float" type="dimen">272.0</dimen>
     <dimen name="sesl_picker_color_spectrum_margin_top" format="float" type="dimen">16.0</dimen>
+
+    <dimen name="sesl_picker_time_text" format="float" type="dimen">21.0</dimen>
 </resources>

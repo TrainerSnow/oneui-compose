@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="sesl_picker_time_text" format="float" type="dimen">19.0</dimen>
+
+</resources>

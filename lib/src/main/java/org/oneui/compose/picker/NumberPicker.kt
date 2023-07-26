@@ -11,10 +11,9 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import kotlinx.coroutines.launch
-import org.oneui.compose.picker.scroll.ItemScroll
 import org.oneui.compose.picker.scroll.ItemScrollEditText
 import org.oneui.compose.picker.scroll.RepeatingItemScroll
-import org.oneui.compose.picker.scroll.rememberItemScrollState
+import org.oneui.compose.picker.scroll.RepeatingItemScrollState
 import org.oneui.compose.theme.OneUITheme
 
 
@@ -25,7 +24,6 @@ import org.oneui.compose.theme.OneUITheme
  * @param values The possible values to show on the [RepeatingItemScroll]
  * @param startValue The value to be selected at begin
  * @param onValueChange The callback invoked when the value is changed
- * @param infiniteScroll Whether the scrolling list should repeat when the last element of [values] is reached, or stop
  * @param textStyle The [TextStyle] to apply to each text
  */
 @Composable
@@ -34,14 +32,14 @@ fun NumberPicker(
     values: List<Int>,
     startValue: Int = values.first(),
     onValueChange: (Int) -> Unit,
-    infiniteScroll: Boolean = true,
     colors: NumberPickerColors = numberPickerColors(),
     textStyle: TextStyle = OneUITheme.types.numberPicker
 ) {
     val scope = rememberCoroutineScope()
-    val state = rememberItemScrollState(
+    val state = RepeatingItemScrollState(
         itemAmount = values.size,
-        initialIndex = values.indexOf(startValue)
+        initialIndex = values.indexOf(startValue),
+        visibleItemsCount = 3
     )
 
     val style = textStyle.copy(
@@ -82,7 +80,6 @@ fun NumberPicker(
         )
     }
 
-    if (infiniteScroll) {
         RepeatingItemScroll(
             modifier = modifier,
             state = state,
@@ -93,18 +90,16 @@ fun NumberPicker(
             item = item,
             activeItem = activeItem
         )
-    } else {
-        ItemScroll(
-            modifier = modifier,
-            state = state,
-            onIndexChange = { index ->
-                onValueChange(values[index])
-                state.currentIndex = index
-            },
-            item = item,
-            activeItem = activeItem
-        )
-    }
+    /*ItemScroll(
+        modifier = modifier,
+        state = state,
+        onIndexChange = { index ->
+            onValueChange(values[index])
+            state.currentIndex = index
+        },
+        item = item,
+        activeItem = activeItem
+    )*/
 }
 
 /**

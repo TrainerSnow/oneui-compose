@@ -119,19 +119,19 @@ fun ProgressIndicatorScreen(
             }
         }
 
-        val nums = (1..2).toList()
-        var selected by remember {
-            mutableIntStateOf(nums.first())
-        }
-        TextSeparator(text = "Determinate")
-        RoundedCornerBox(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            NumberPicker(
-                values = nums,
-                onValueChange = { selected = it }
+        /*TextSeparator(text = "TimePicker")
+        TimePicker(
+            config = timePickerConfig(
+                timeFormat = TimeFormat.Military
             )
+        )*/
+        var value by remember {
+            mutableIntStateOf(1)
         }
+        TextSeparator(text = "NumberPicker ($value)")
+        NumberPicker(
+            values = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19),
+            onValueChange = { value = it }
+        )
     }
 }

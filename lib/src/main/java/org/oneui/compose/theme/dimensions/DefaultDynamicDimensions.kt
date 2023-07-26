@@ -49,4 +49,6 @@ class DefaultDynamicDimensions : IDynamicDimensions {
     override val colorPickerSwatchHeight = 280.dp
 
     override val colorPickerSwatchWidth = 272.dp
+
+    override val timePickerText = 21.dp
 }
