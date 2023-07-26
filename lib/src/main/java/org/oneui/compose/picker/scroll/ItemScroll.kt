@@ -25,7 +25,6 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.oneui.compose.theme.locals.LocalBackgroundColor
 import org.oneui.compose.util.isEven
@@ -174,16 +173,4 @@ fun rememberItemScrollState(
         itemAmount = itemAmount,
         visibleItemsCount = visibleItemsCount
     )
-}
-
-object ItemScrollDefaults {
-
-    val textSpacing = 20.dp
-
-    val fontSize = 40.sp
-
-    const val overlayAlphaScroll = 0.6F
-
-    const val overlayAlpha = 0.9F
-
 }
