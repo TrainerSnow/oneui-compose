@@ -90,4 +90,6 @@ interface OneUITypographyTheme {
     val searchHint: TextStyle
 
     val numberPicker: TextStyle
+
+    val stringPicker: TextStyle
 }

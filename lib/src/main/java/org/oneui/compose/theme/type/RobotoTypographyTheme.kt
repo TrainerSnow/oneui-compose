@@ -54,7 +54,8 @@ internal class RobotoTypographyTheme private constructor(
     override val bnbLabel: TextStyle,
     override val searchEdit: TextStyle,
     override val searchHint: TextStyle,
-    override val numberPicker: TextStyle
+    override val numberPicker: TextStyle,
+    override val stringPicker: TextStyle
 ) : OneUITypographyTheme {
 
     companion object {
@@ -308,6 +309,10 @@ internal class RobotoTypographyTheme private constructor(
                     fontWeight = FontWeight.Bold
                 ),
                 numberPicker = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 40.sp
+                ),
+                stringPicker = TextStyle(
                     fontFamily = robotoFamily,
                     fontSize = 40.sp
                 )

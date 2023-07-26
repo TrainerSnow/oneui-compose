@@ -198,6 +198,8 @@ interface OneUIColorTheme {
 
     val numberPickerTextColor: Color
     val numberPickerScrollTextColor: Color
+    val stringPickerTextColor: Color
+    val stringPickerScrollTextColor: Color
 
     companion object {
 
