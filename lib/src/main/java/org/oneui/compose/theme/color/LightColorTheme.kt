@@ -197,6 +197,8 @@ internal class LightColorTheme : OneUIColorTheme {
 
     override val numberPickerTextColor = Color(0xff252525)
     override val numberPickerScrollTextColor = seslPrimaryDarkColor
+    override val stringPickerTextColor = Color(0xff252525)
+    override val stringPickerScrollTextColor = seslPrimaryDarkColor
 
 
     companion object {
