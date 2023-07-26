@@ -1,4 +1,4 @@
-package org.oneui.compose.picker
+package org.oneui.compose.picker.scroll
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
