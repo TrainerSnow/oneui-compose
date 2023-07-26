@@ -1,4 +1,4 @@
-package org.oneui.compose.picker
+package org.oneui.compose.picker.scroll
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.IntrinsicSize
