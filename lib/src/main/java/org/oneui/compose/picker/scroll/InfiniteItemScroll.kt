@@ -36,7 +36,7 @@ import org.oneui.compose.util.isEven
  * TODO: Scrolling is not smooth, somehow the items lick in shortly before going to the next position. May be debug-mode related
  *
  * @param modifier The [Modifier] to be applied to the container
- * @param state The [ItemScrollState] to control the component
+ * @param state The [InfiniteItemScrollState] to control the component
  * @param onIndexChange The callback invoked when the index of the selected item changes. This is also called when the composable is still scrolling.
  * @param item The composable used to display an index that is currently not selected
  * @param activeItem The composable used to display the index that is currently selected
@@ -44,9 +44,9 @@ import org.oneui.compose.util.isEven
 @SuppressLint("AutoboxingStateValueProperty")
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ItemScroll(
+fun InfiniteItemScroll(
     modifier: Modifier = Modifier,
-    state: ItemScrollState,
+    state: InfiniteItemScrollState,
     onIndexChange: (Int) -> Unit,
     item: @Composable (index: Int) -> Unit,
     activeItem: @Composable (index: Int) -> Unit
@@ -138,7 +138,7 @@ fun ItemScroll(
 }
 
 
-data class ItemScrollState(
+data class InfiniteItemScrollState(
     val itemAmount: Int,
     val initialIndex: Int = 0,
     val visibleItemsCount: Int
@@ -163,12 +163,12 @@ data class ItemScrollState(
 }
 
 @Composable
-fun rememberItemScrollState(
+fun rememberInfiniteItemScrollState(
     initialIndex: Int = 0,
     itemAmount: Int,
     visibleItemsCount: Int = 3
 ) = remember {
-    ItemScrollState(
+    InfiniteItemScrollState(
         initialIndex = initialIndex,
         itemAmount = itemAmount,
         visibleItemsCount = visibleItemsCount

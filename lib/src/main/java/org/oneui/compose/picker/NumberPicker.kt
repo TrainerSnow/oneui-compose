@@ -11,8 +11,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import kotlinx.coroutines.launch
-import org.oneui.compose.picker.scroll.ItemScroll
-import org.oneui.compose.picker.scroll.rememberItemScrollState
+import org.oneui.compose.picker.scroll.InfiniteItemScroll
+import org.oneui.compose.picker.scroll.rememberInfiniteItemScrollState
 import org.oneui.compose.theme.OneUITheme
 
 
@@ -20,7 +20,7 @@ import org.oneui.compose.theme.OneUITheme
  * A oneui-style number picker to select an integer number.
  *
  * @param modifier The [Modifier] to apply to the container
- * @param values The possible values to show on the [ItemScroll]
+ * @param values The possible values to show on the [InfiniteItemScroll]
  * @param onValueChange The callback invoked when the value is changed
  * @param textStyle The [TextStyle] to apply to each text
  * @param state  The [ItemScrollState] to control the component
@@ -35,7 +35,7 @@ fun NumberPicker(
     textStyle: TextStyle = OneUITheme.types.numberPicker
 ) {
     val scope = rememberCoroutineScope()
-    val state = rememberItemScrollState(
+    val state = rememberInfiniteItemScrollState(
         itemAmount = values.size,
         initialIndex = values.indexOf(startValue)
     )
@@ -47,7 +47,7 @@ fun NumberPicker(
         }
     )
 
-    ItemScroll(
+    InfiniteItemScroll(
         modifier = modifier,
         state = state,
         onIndexChange = { index ->
