@@ -2,12 +2,8 @@ package org.oneui.compose.picker.scroll
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -24,12 +20,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -140,35 +134,6 @@ fun ItemScroll(
                 .height(itemHeightDp * state.visibleItemsCount),
             color = overlayColor,
             windowHeight = itemHeightDp + ItemScrollDefaults.textSpacing / 2
-        )
-    }
-}
-
-@Composable
-private fun ItemScrollOverlay(
-    modifier: Modifier = Modifier,
-    color: Color,
-    windowHeight: Dp
-) {
-    Column(
-        modifier = modifier
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1F)
-                .background(color)
-        )
-        Spacer(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(windowHeight)
-        )
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1F)
-                .background(color)
         )
     }
 }
