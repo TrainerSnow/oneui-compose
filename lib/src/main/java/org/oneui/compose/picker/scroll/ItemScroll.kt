@@ -49,7 +49,7 @@ import org.oneui.compose.util.isEven
 @Composable
 fun ItemScroll(
     modifier: Modifier = Modifier,
-    state: ItemScrollState,
+    state: SimpleItemScrollState,
     onIndexChange: (Int) -> Unit,
     item: @Composable (index: Int) -> Unit,
     activeItem: @Composable (index: Int) -> Unit
@@ -144,26 +144,26 @@ fun ItemScroll(
 }
 
 
-internal data class SimpleItemScrollState(
-    override val itemAmount: Int,
-    override val initialIndex: Int = 0,
-    override val visibleItemsCount: Int
-) : ItemScrollState {
+data class SimpleItemScrollState(
+    val itemAmount: Int,
+    val initialIndex: Int = 0,
+    val visibleItemsCount: Int
+) {
     init {
         assert(!visibleItemsCount.isEven) { "visibleItemsCount must be an odd number!" }
     }
 
-    override val listSize = itemAmount
+    val listSize = itemAmount
 
-    override val listState: LazyListState = LazyListState(
+    val listState: LazyListState = LazyListState(
         firstVisibleItemIndex = 0
     )
 
-    override var currentIndex by mutableIntStateOf(initialIndex)
+    var currentIndex by mutableIntStateOf(initialIndex)
 
-    override val isScrolling: Boolean
+    val isScrolling: Boolean
         get() = listState.isScrollInProgress
 
-    override suspend fun scrollToItem(index: Int) =
+    suspend fun scrollToItem(index: Int) =
         listState.scrollToItem(index)
 }
