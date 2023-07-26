@@ -39,7 +39,7 @@ import org.oneui.compose.util.isEven
  * TODO: Setting the first index doesn't currently work
  *
  * @param modifier The [Modifier] to be applied to the container
- * @param state The [InfiniteItemScrollState] to control the component
+ * @param state The [RepeatingItemScrollState] to control the component
  * @param onIndexChange The callback invoked when the index of the selected item changes. This is also called when the composable is still scrolling.
  * @param item The composable used to display an index that is currently not selected
  * @param activeItem The composable used to display the index that is currently selected
@@ -144,39 +144,26 @@ fun ItemScroll(
 }
 
 
-data class ItemScrollState(
-    val itemAmount: Int,
-    val initialIndex: Int = 0,
-    val visibleItemsCount: Int
-) {
+internal data class SimpleItemScrollState(
+    override val itemAmount: Int,
+    override val initialIndex: Int = 0,
+    override val visibleItemsCount: Int
+) : ItemScrollState {
     init {
         assert(!visibleItemsCount.isEven) { "visibleItemsCount must be an odd number!" }
     }
 
-    val listSize = itemAmount
+    override val listSize = itemAmount
 
-    val listState: LazyListState = LazyListState(
+    override val listState: LazyListState = LazyListState(
         firstVisibleItemIndex = 0
     )
 
-    var currentIndex by mutableIntStateOf(initialIndex)
+    override var currentIndex by mutableIntStateOf(initialIndex)
 
-    val isScrolling: Boolean
+    override val isScrolling: Boolean
         get() = listState.isScrollInProgress
 
-    suspend fun scrollToItem(index: Int) =
+    override suspend fun scrollToItem(index: Int) =
         listState.scrollToItem(index)
-}
-
-@Composable
-fun rememberItemScrollState(
-    initialIndex: Int = 0,
-    itemAmount: Int,
-    visibleItemsCount: Int = 3
-) = remember {
-    ItemScrollState(
-        initialIndex = initialIndex,
-        itemAmount = itemAmount,
-        visibleItemsCount = visibleItemsCount
-    )
 }

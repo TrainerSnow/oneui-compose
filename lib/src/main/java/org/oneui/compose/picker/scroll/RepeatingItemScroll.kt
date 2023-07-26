@@ -36,7 +36,7 @@ import org.oneui.compose.util.isEven
  * TODO: Scrolling is not smooth, somehow the items lick in shortly before going to the next position. May be debug-mode related
  *
  * @param modifier The [Modifier] to be applied to the container
- * @param state The [InfiniteItemScrollState] to control the component
+ * @param state The [RepeatingItemScrollState] to control the component
  * @param onIndexChange The callback invoked when the index of the selected item changes. This is also called when the composable is still scrolling.
  * @param item The composable used to display an index that is currently not selected
  * @param activeItem The composable used to display the index that is currently selected
@@ -44,9 +44,9 @@ import org.oneui.compose.util.isEven
 @SuppressLint("AutoboxingStateValueProperty")
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun InfiniteItemScroll(
+fun RepeatingItemScroll(
     modifier: Modifier = Modifier,
-    state: InfiniteItemScrollState,
+    state: ItemScrollState,
     onIndexChange: (Int) -> Unit,
     item: @Composable (index: Int) -> Unit,
     activeItem: @Composable (index: Int) -> Unit
@@ -138,39 +138,26 @@ fun InfiniteItemScroll(
 }
 
 
-data class InfiniteItemScrollState(
-    val itemAmount: Int,
-    val initialIndex: Int = 0,
-    val visibleItemsCount: Int
-) {
+internal data class RepeatingItemScrollState(
+    override val itemAmount: Int,
+    override val initialIndex: Int = 0,
+    override val visibleItemsCount: Int
+) : ItemScrollState {
     init {
         assert(!visibleItemsCount.isEven) { "visibleItemsCount must be an odd number!" }
     }
 
-    val listSize = Int.MAX_VALUE
+    override val listSize = Int.MAX_VALUE
 
-    val listState: LazyListState = LazyListState(
+    override val listState: LazyListState = LazyListState(
         firstVisibleItemIndex = listSize / 2 + (itemAmount - (listSize / 2 % itemAmount)) + initialIndex - visibleItemsCount / 2
     )
 
-    var currentIndex by mutableIntStateOf(initialIndex)
+    override var currentIndex by mutableIntStateOf(initialIndex)
 
-    val isScrolling: Boolean
+    override val isScrolling: Boolean
         get() = listState.isScrollInProgress
 
-    suspend fun scrollToItem(index: Int) =
+    override suspend fun scrollToItem(index: Int) =
         listState.scrollToItem(index - visibleItemsCount / 2 + listSize / 2 + (itemAmount - (listSize / 2 % itemAmount)))
-}
-
-@Composable
-fun rememberInfiniteItemScrollState(
-    initialIndex: Int = 0,
-    itemAmount: Int,
-    visibleItemsCount: Int = 3
-) = remember {
-    InfiniteItemScrollState(
-        initialIndex = initialIndex,
-        itemAmount = itemAmount,
-        visibleItemsCount = visibleItemsCount
-    )
 }
