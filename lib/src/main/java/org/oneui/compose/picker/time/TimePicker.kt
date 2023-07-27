@@ -7,16 +7,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import org.oneui.compose.picker.NumberPicker
 import org.oneui.compose.picker.StringPicker
 import org.oneui.compose.theme.OneUITheme
-import org.oneui.compose.util.TimeFormat
+import org.oneui.compose.util.AmPm
+import org.oneui.compose.util.Time
 import org.oneui.compose.util.TimeFormatUtil
 import org.oneui.compose.util.steppedRangeTo
 import java.time.LocalTime
@@ -25,17 +24,12 @@ import java.util.Locale
 @Composable
 fun TimePicker(
     modifier: Modifier = Modifier,
-    config: TimePickerConfig = timePickerConfig()
+    config: TimePickerConfig = timePickerConfig(),
+    state: TimePickerState
 ) {
     assert(60 % config.minuteStep == 0)
 
-    var time by remember {
-        mutableStateOf(LocalTime.now())
-    }
-
-    val density = LocalDensity.current
-
-    val textSize = with(density) { OneUITheme.dimensions.timePickerText.toSp() }
+    val textStyle = OneUITheme.types.timePicker
 
     Row(
         modifier = modifier,
@@ -54,16 +48,21 @@ fun TimePicker(
             NumberPicker(
                 modifier = Modifier
                     .weight(TimePickerDefaults.hourWeight),
-                textStyle = OneUITheme.types.numberPicker.copy(
-                    fontSize = textSize
-                ),
-                values = config.timeFormat.hourRange,
+                textStyle = textStyle,
+                values = config.hourRange.toList(),
+                startValue = Time.of(state.time)
+                    .run { if (config.militaryFormat) asMilitary.hour else asHalfDay.hour },
+                fillUpWithZeros = config.militaryFormat,
                 onValueChange = { hour ->
-                    /*time = TimeUtil.timeFor(
+                    val recent = Time.of(state.time)
+                    state.time = if (config.militaryFormat) Time.Military(
                         hour = hour,
-                        minute = time.minute,
-                        amPm = if (config.timeFormat == TimeFormat.Military) null else time.amPm()
-                    )*/
+                        minute = recent.asMilitary.minute
+                    ).asLocalTime else Time.HalfDay(
+                        hour = hour,
+                        minute = recent.asHalfDay.minute,
+                        amPm = recent.asHalfDay.amPm
+                    ).asLocalTime
                 }
             )
 
@@ -71,47 +70,50 @@ fun TimePicker(
                 modifier = Modifier
                     .weight(TimePickerDefaults.dividerWeight),
                 text = config.hourMinSeparator,
-                style = OneUITheme.types.numberPicker.copy(
-                    fontSize = textSize
-                )
+                style = textStyle
             )
 
             NumberPicker(
                 modifier = Modifier
                     .weight(TimePickerDefaults.minuteWeight),
-                textStyle = OneUITheme.types.numberPicker.copy(
-                    fontSize = textSize
-                ),
+                textStyle = textStyle,
                 values = (0).steppedRangeTo(
                     other = 59,
                     step = config.minuteStep
                 ),
+                startValue = state.time.minute,
+                fillUpWithZeros = config.militaryFormat,
                 onValueChange = { minute ->
-                    /*time = TimeUtil.timeFor(
-                        hour = time.hour,
+                    val recent = Time.of(state.time)
+                    state.time = if (config.militaryFormat) Time.Military(
+                        hour = recent.asMilitary.hour,
+                        minute = minute
+                    ).asLocalTime else Time.HalfDay(
+                        hour = recent.asHalfDay.hour,
                         minute = minute,
-                        amPm = if (config.timeFormat == TimeFormat.Military) null else time.amPm()
-                    )*/
+                        amPm = recent.asHalfDay.amPm
+                    ).asLocalTime
                 }
             )
         }
 
-        if (config.timeFormat == TimeFormat.AmPm) {
+        if (!config.militaryFormat) {
             StringPicker(
                 modifier = Modifier
                     .weight(TimePickerDefaults.amPmWeight),
-                textStyle = OneUITheme.types.numberPicker.copy(
-                    fontSize = textSize
-                ),
+                textStyle = textStyle,
                 values = TimeFormatUtil.getAmPmStrings().toList(),
                 startValue = TimeFormatUtil.getAmPmStrings().first,
                 onValueChange = { ampm ->
-                    /*time = TimeUtil.timeFor(
-                        hour = time.hour,
-                        minute = time.minute,
+                    val recent = Time.of(state.time)
+
+                    state.time = Time.HalfDay(
+                        hour = recent.asHalfDay.hour,
+                        minute = recent.asHalfDay.minute,
                         amPm = AmPm.fromLocalizedString(ampm)
-                    )*/
-                }
+                    ).asLocalTime
+                },
+                infiniteScroll = false
             )
         }
 
@@ -120,6 +122,14 @@ fun TimePicker(
                 .weight(TimePickerDefaults.spacingEndWeight)
         )
     }
+}
+
+data class TimePickerState(
+    val initial: LocalTime
+) {
+
+    var time by mutableStateOf(initial)
+
 }
 
 
@@ -139,7 +149,9 @@ object TimePickerDefaults {
 
 data class TimePickerConfig internal constructor(
 
-    val timeFormat: TimeFormat,
+    val militaryFormat: Boolean,
+
+    internal val hourRange: IntRange,
 
     val minuteStep: Int,
 
@@ -156,16 +168,17 @@ data class TimePickerConfig internal constructor(
  */
 @Composable
 fun timePickerConfig(
-    timeFormat: TimeFormat = if (DateFormat.is24HourFormat(LocalContext.current)) TimeFormat.Military else TimeFormat.AmPm,
+    militaryTime: Boolean = DateFormat.is24HourFormat(LocalContext.current),
     minuteStep: Int = 1,
     hourMinSeparator: String = TimeFormatUtil.findHourMinuteSeparator(
         pattern = DateFormat.getBestDateTimePattern(
             Locale.getDefault(),
-            if (timeFormat == TimeFormat.Military) "Hm" else "hm"
+            if (militaryTime) "Hm" else "hm"
         )
     )
 ): TimePickerConfig = TimePickerConfig(
-    timeFormat = timeFormat,
+    militaryFormat = militaryTime,
+    hourRange = if (militaryTime) (0..23) else (1..12),
     minuteStep = minuteStep,
     hourMinSeparator = hourMinSeparator
 )
