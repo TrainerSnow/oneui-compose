@@ -1,6 +1,7 @@
 package org.oneui.compose.picker.time
 
 import android.text.format.DateFormat
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.Text
@@ -11,6 +12,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import org.oneui.compose.picker.NumberPicker
 import org.oneui.compose.picker.StringPicker
 import org.oneui.compose.theme.OneUITheme
@@ -45,76 +47,90 @@ fun TimePicker(
                 .weight(TimePickerDefaults.hourMinuteWeight),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            NumberPicker(
+            Box(
                 modifier = Modifier
                     .weight(TimePickerDefaults.hourWeight),
-                textStyle = textStyle,
-                values = config.hourRange.toList(),
-                startValue = Time.of(state.time)
-                    .run { if (config.militaryFormat) asMilitary.hour else asHalfDay.hour },
-                fillUpWithZeros = config.militaryFormat,
-                onValueChange = { hour ->
-                    val recent = Time.of(state.time)
-                    state.time = if (config.militaryFormat) Time.Military(
-                        hour = hour,
-                        minute = recent.asMilitary.minute
-                    ).asLocalTime else Time.HalfDay(
-                        hour = hour,
-                        minute = recent.asHalfDay.minute,
-                        amPm = recent.asHalfDay.amPm
-                    ).asLocalTime
-                }
-            )
+                contentAlignment = Alignment.Center
+            ) {
+                NumberPicker(
+                    textStyle = textStyle,
+                    values = config.hourRange.toList(),
+                    startValue = Time.of(state.time)
+                        .run { if (config.militaryFormat) asMilitary.hour else asHalfDay.hour },
+                    fillUpWithZeros = config.militaryFormat,
+                    onValueChange = { hour ->
+                        val recent = Time.of(state.time)
+                        state.time = if (config.militaryFormat) Time.Military(
+                            hour = hour,
+                            minute = recent.asMilitary.minute
+                        ).asLocalTime else Time.HalfDay(
+                            hour = hour,
+                            minute = recent.asHalfDay.minute,
+                            amPm = recent.asHalfDay.amPm
+                        ).asLocalTime
+                    }
+                )
+            }
 
             Text(
                 modifier = Modifier
                     .weight(TimePickerDefaults.dividerWeight),
                 text = config.hourMinSeparator,
-                style = textStyle
+                style = textStyle.copy(
+                    textAlign = TextAlign.Center
+                )
             )
 
-            NumberPicker(
+            Box(
                 modifier = Modifier
                     .weight(TimePickerDefaults.minuteWeight),
-                textStyle = textStyle,
-                values = (0).steppedRangeTo(
-                    other = 59,
-                    step = config.minuteStep
-                ),
-                startValue = state.time.minute,
-                fillUpWithZeros = config.militaryFormat,
-                onValueChange = { minute ->
-                    val recent = Time.of(state.time)
-                    state.time = if (config.militaryFormat) Time.Military(
-                        hour = recent.asMilitary.hour,
-                        minute = minute
-                    ).asLocalTime else Time.HalfDay(
-                        hour = recent.asHalfDay.hour,
-                        minute = minute,
-                        amPm = recent.asHalfDay.amPm
-                    ).asLocalTime
-                }
-            )
+                contentAlignment = Alignment.Center
+            ) {
+                NumberPicker(
+                    textStyle = textStyle,
+                    values = (0).steppedRangeTo(
+                        other = 59,
+                        step = config.minuteStep
+                    ),
+                    startValue = state.time.minute,
+                    fillUpWithZeros = config.militaryFormat,
+                    onValueChange = { minute ->
+                        val recent = Time.of(state.time)
+                        state.time = if (config.militaryFormat) Time.Military(
+                            hour = recent.asMilitary.hour,
+                            minute = minute
+                        ).asLocalTime else Time.HalfDay(
+                            hour = recent.asHalfDay.hour,
+                            minute = minute,
+                            amPm = recent.asHalfDay.amPm
+                        ).asLocalTime
+                    }
+                )
+            }
         }
 
         if (!config.militaryFormat) {
-            StringPicker(
+            Box(
                 modifier = Modifier
                     .weight(TimePickerDefaults.amPmWeight),
-                textStyle = textStyle,
-                values = TimeFormatUtil.getAmPmStrings().toList(),
-                startValue = TimeFormatUtil.getAmPmStrings().first,
-                onValueChange = { ampm ->
-                    val recent = Time.of(state.time)
+                contentAlignment = Alignment.Center
+            ) {
+                StringPicker(
+                    textStyle = textStyle,
+                    values = TimeFormatUtil.getAmPmStrings().toList(),
+                    startValue = TimeFormatUtil.getAmPmStrings().first,
+                    onValueChange = { ampm ->
+                        val recent = Time.of(state.time)
 
-                    state.time = Time.HalfDay(
-                        hour = recent.asHalfDay.hour,
-                        minute = recent.asHalfDay.minute,
-                        amPm = AmPm.fromLocalizedString(ampm)
-                    ).asLocalTime
-                },
-                infiniteScroll = false
-            )
+                        state.time = Time.HalfDay(
+                            hour = recent.asHalfDay.hour,
+                            minute = recent.asHalfDay.minute,
+                            amPm = AmPm.fromLocalizedString(ampm)
+                        ).asLocalTime
+                    },
+                    infiniteScroll = false
+                )
+            }
         }
 
         Spacer(
