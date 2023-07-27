@@ -92,4 +92,6 @@ interface OneUITypographyTheme {
     val numberPicker: TextStyle
 
     val stringPicker: TextStyle
+
+    val timePicker: TextStyle
 }
