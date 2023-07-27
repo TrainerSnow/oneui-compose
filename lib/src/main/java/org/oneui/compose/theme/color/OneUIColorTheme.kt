@@ -202,6 +202,9 @@ interface OneUIColorTheme {
     val stringPickerScrollTextColor: Color
 
     val datePickerHeaderText: Color
+    val datePickerSunday: Color
+    val datePickerSaturday: Color
+    val datePickerNormalDay: Color
 
     companion object {
 

@@ -220,4 +220,22 @@ class DynamicDimensionsImpl(
             tv.float
         }
         .dp
+
+    override val datePickerHeaderWeekSpacing = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_date_header_week_spacing, tv, true)
+            tv.float
+        }
+        .dp
+
+    override val datePickerWeekHeight = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_date_week_height, tv, true)
+            tv.float
+        }
+        .dp
 }

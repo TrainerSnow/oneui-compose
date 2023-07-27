@@ -28,7 +28,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.R
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.DateUtil
 import org.oneui.compose.util.OneUIPreview
+import java.time.DayOfWeek
+import java.time.format.TextStyle
+import java.util.Locale
 
 
 @Composable
@@ -82,6 +86,32 @@ internal fun DatePickerHeader(
 }
 
 @Composable
+internal fun DatePickerWeek(
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        val days = DateUtil.getDayOfWeekInOrder(Locale.getDefault())
+
+        days.forEach { day ->
+            Text(
+                text = day.getDisplayName(TextStyle.SHORT, Locale.getDefault()),
+                style = with(OneUITheme.types) {
+                    when (day) {
+                        DayOfWeek.SATURDAY -> datePickerSaturday
+                        DayOfWeek.SUNDAY -> datePickerSunday
+                        else -> datePickerNormalDay
+                    }
+                }
+            )
+        }
+    }
+}
+
+@Composable
 private fun DatePickerIconButton(
     modifier: Modifier = Modifier,
     painter: Painter,
@@ -118,6 +148,8 @@ object DatePickerDefaults {
         horizontal = 8.dp
     )
 
+    val width = 328.dp
+
 }
 
 data class DatePickerColors(
@@ -135,7 +167,7 @@ fun datePickerColors(
 
 @Preview
 @Composable
-fun DatePickerHeaderPreview() = OneUIPreview(title = "DatePickerHeaderPreview") {
+fun DatePickerHeaderPreview() = OneUIPreview(title = "DatePickerHeader") {
     DatePickerHeader(
         modifier = Modifier
             .height(OneUITheme.dimensions.datePickerHeaderHeight)
@@ -145,4 +177,14 @@ fun DatePickerHeaderPreview() = OneUIPreview(title = "DatePickerHeaderPreview") 
     ) {
         Text(text = "July 2023")
     }
+}
+
+@Preview
+@Composable
+fun DatePickerWeekPreview() = OneUIPreview(title = "DatePickerWeek") {
+    DatePickerWeek(
+        modifier = Modifier
+            .height(OneUITheme.dimensions.datePickerWeekHeight)
+            .fillMaxWidth(),
+    )
 }

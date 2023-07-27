@@ -53,4 +53,8 @@ class DefaultDynamicDimensions : IDynamicDimensions {
     override val timePickerText = 21.dp
 
     override val datePickerHeaderHeight = 36.dp
+
+    override val datePickerHeaderWeekSpacing = 10.dp
+
+    override val datePickerWeekHeight = 32.dp
 }

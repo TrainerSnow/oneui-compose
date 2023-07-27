@@ -22,4 +22,6 @@
     <dimen name="sesl_picker_color_spectrum_margin_top" format="float" type="dimen">10.0</dimen>
 
     <dimen name="sesl_picker_date_header_height" format="float" type="dimen">28</dimen>
+    <dimen name="sesl_picker_date_header_week_spacing" format="float" type="dimen">2</dimen>
+    <dimen name="sesl_picker_date_week_height" format="float" type="dimen">24</dimen>
 </resources>

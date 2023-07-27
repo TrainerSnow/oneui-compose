@@ -110,6 +110,10 @@ interface IDynamicDimensions {
 
     val datePickerHeaderHeight: Dp
 
+    val datePickerHeaderWeekSpacing: Dp
+
+    val datePickerWeekHeight: Dp
+
     companion object {
 
         val Default = DefaultDynamicDimensions()
