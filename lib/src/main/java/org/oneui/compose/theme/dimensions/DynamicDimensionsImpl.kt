@@ -211,4 +211,13 @@ class DynamicDimensionsImpl(
             tv.float
         }
         .dp
+
+    override val datePickerHeaderHeight = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_date_header_height, tv, true)
+            tv.float
+        }
+        .dp
 }

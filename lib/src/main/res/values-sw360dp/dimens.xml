@@ -7,4 +7,6 @@
     </dimen>
     <dimen name="sesl_picker_color_swatches_height" format="float" type="dimen">280.0</dimen>
     <dimen name="sesl_picker_color_swatches_width" format="float" type="dimen">295.0</dimen>
+
+    <dimen name="sesl_picker_date_header_height" format="float" type="dimen">36</dimen>
 </resources>

@@ -32,4 +32,6 @@
     <dimen name="sesl_picker_color_spectrum_margin_top" format="float" type="dimen">16.0</dimen>
 
     <dimen name="sesl_picker_time_text" format="float" type="dimen">21.0</dimen>
+
+    <dimen name="sesl_picker_date_header_height" format="float" type="dimen">36</dimen>
 </resources>

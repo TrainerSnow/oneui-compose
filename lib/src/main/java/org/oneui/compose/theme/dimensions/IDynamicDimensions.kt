@@ -108,6 +108,8 @@ interface IDynamicDimensions {
 
     val timePickerText: Dp
 
+    val datePickerHeaderHeight: Dp
+
     companion object {
 
         val Default = DefaultDynamicDimensions()
