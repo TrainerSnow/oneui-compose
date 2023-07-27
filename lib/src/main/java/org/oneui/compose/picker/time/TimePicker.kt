@@ -162,7 +162,7 @@ data class TimePickerConfig internal constructor(
 /**
  * Constructs the default [TimePickerConfig]
  *
- * @param timeFormat The [TimeFormat]: 24-hour format (12.00, 13.00, etc...) or AM/PM
+ * @param militaryTime Whether 'Military Time' (00:00) or 'Half-Day' (12:00 AM) should be used)
  * @param minuteStep The step at which the minute field should be incremented
  * @param hourMinSeparator The separator to separate the hour and minute selection
  */
