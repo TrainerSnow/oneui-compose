@@ -23,6 +23,13 @@ import org.oneui.compose.util.steppedRangeTo
 import java.time.LocalTime
 import java.util.Locale
 
+/**
+ * Composable for a oneui-style [TimePicker], that lets the user select a time of the day from midnight to midnight.
+ *
+ * @param modifier The [Modifier] to be applied to the container
+ * @param config The [TimePickerConfig] to configure important settings
+ * @param state The [TimePickerState] to receive updates about the user selection
+ */
 @Composable
 fun TimePicker(
     modifier: Modifier = Modifier,
