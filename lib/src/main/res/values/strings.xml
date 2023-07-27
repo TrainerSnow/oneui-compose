@@ -19,4 +19,8 @@
 
     <string name="sesl_search_view_hint">Search</string>
 
+    <string name="sesl_dialog_picker_time_title">Search</string>
+    <string name="sesl_dialog_picker_time_positive">Done</string>
+    <string name="sesl_dialog_picker_time_negative">@string/sesl_dialog_button_negative</string>
+
 </resources>
