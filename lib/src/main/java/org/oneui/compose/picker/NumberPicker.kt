@@ -30,6 +30,7 @@ import org.oneui.compose.theme.OneUITheme
  * @param startValue The value to be selected at begin
  * @param onValueChange The callback invoked when the value is changed
  * @param infiniteScroll Whether the scrolling list should repeat when the last element of [values] is reached, or stop
+ * @param fillUpWithZeros Whether single digit values such as 1, 3, or 5 should be changed to 01, 03 etc. depending on the length of the biggest number in [values]
  * @param textStyle The [TextStyle] to apply to each text
  */
 @Composable
@@ -39,10 +40,31 @@ fun NumberPicker(
     startValue: Int = values.first(),
     onValueChange: (Int) -> Unit,
     infiniteScroll: Boolean = true,
+    fillUpWithZeros: Boolean = false,
     colors: NumberPickerColors = numberPickerColors(),
     textStyle: TextStyle = OneUITheme.types.numberPicker
 ) {
     val scope = rememberCoroutineScope()
+
+    val lengthOfMax = values.max().toString().length
+    fun String.addZerosUntil(length: Int): String {
+        if (!fillUpWithZeros) return this
+        var str = this
+        while (str.length < length) {
+            str = "0$str"
+        }
+
+        return str
+    }
+
+    fun String.stripZeros(): String {
+        if (this.isEmpty()) return this
+        var str = this
+        while (str[0] == '0') {
+            str = str.substring(startIndex = 1)
+        }
+        return str
+    }
 
     if (infiniteScroll) {
         val state = remember {
@@ -62,7 +84,7 @@ fun NumberPicker(
 
         val item = @Composable { index: Int ->
             Text(
-                text = values[index].toString(),
+                text = values[index].toString().addZerosUntil(lengthOfMax),
                 style = style,
                 textAlign = TextAlign.Center
             )
@@ -70,9 +92,9 @@ fun NumberPicker(
 
         val activeItem = @Composable { index: Int ->
             ItemScrollEditText(
-                value = values[index].toString(),
+                value = values[index].toString().addZerosUntil(lengthOfMax),
                 onValueChange = {
-                    val num = it.toInt()
+                    val num = it.stripZeros().toInt()
                     onValueChange(num)
                     state.currentIndex = values.indexOf(num)
                     scope.launch {
@@ -119,7 +141,7 @@ fun NumberPicker(
 
         val item = @Composable { index: Int ->
             Text(
-                text = values[index].toString(),
+                text = values[index].toString().addZerosUntil(lengthOfMax),
                 style = style,
                 textAlign = TextAlign.Center
             )
@@ -127,9 +149,9 @@ fun NumberPicker(
 
         val activeItem = @Composable { index: Int ->
             ItemScrollEditText(
-                value = values[index].toString(),
+                value = values[index].toString().addZerosUntil(lengthOfMax),
                 onValueChange = {
-                    val num = it.toInt()
+                    val num = it.stripZeros().toInt()
                     onValueChange(num)
                     state.currentIndex = values.indexOf(num)
                     scope.launch {
