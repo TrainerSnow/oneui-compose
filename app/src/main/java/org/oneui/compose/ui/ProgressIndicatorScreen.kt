@@ -6,10 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
@@ -20,7 +16,6 @@ import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.toolbar.CollapsingToolbarCollapsedState
 import org.oneui.compose.layout.toolbar.CollapsingToolbarLayout
 import org.oneui.compose.layout.toolbar.rememberCollapsingToolbarState
-import org.oneui.compose.picker.NumberPicker
 import org.oneui.compose.progress.CircularProgressIndicatorSize
 import org.oneui.compose.progress.ProgressIndicator
 import org.oneui.compose.progress.ProgressIndicatorType
@@ -117,21 +112,6 @@ fun ProgressIndicatorScreen(
                     )
                 )
             }
-        }
-
-        val nums = (1..2).toList()
-        var selected by remember {
-            mutableIntStateOf(nums.first())
-        }
-        TextSeparator(text = "Determinate")
-        RoundedCornerBox(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            NumberPicker(
-                values = nums,
-                onValueChange = { selected = it }
-            )
         }
     }
 }

@@ -106,6 +106,8 @@ interface IDynamicDimensions {
 
     val colorPickerSwatchWidth: Dp
 
+    val timePickerText: Dp
+
     companion object {
 
         val Default = DefaultDynamicDimensions()

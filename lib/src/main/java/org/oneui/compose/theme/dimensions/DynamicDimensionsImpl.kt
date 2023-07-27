@@ -202,4 +202,13 @@ class DynamicDimensionsImpl(
             tv.float
         }
         .dp
+
+    override val timePickerText = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_time_text, tv, true)
+            tv.float
+        }
+        .dp
 }
