@@ -147,6 +147,18 @@ fun DatePicker(
                     .height(OneUITheme.dimensions.datePickerCalendarHeight),
                 startDate = startDate,
                 endDate = endDate,
+                onDayClick = {
+                    val isInCurrentMonth = it.month == currentDisplayedDate.month
+                    if (isInCurrentMonth) {
+                        state.date = it
+                    } else {
+                        val isNextMonth = it.month == currentDisplayedDate.month.plus(1L)
+                        scope.launch {
+                            if (isNextMonth) pagerState.animateScrollToNext()
+                            else pagerState.animateScrollToPrevious()
+                        }
+                    }
+                },
                 pagerState = pagerState,
                 currentDate = state.date,
                 colors = colors
@@ -243,6 +255,7 @@ fun DatePickerCalendar(
     startDate: LocalDate,
     endDate: LocalDate,
     currentDate: LocalDate = LocalDate.now(),
+    onDayClick: (LocalDate) -> Unit,
     pagerState: PagerState,
     colors: DatePickerColors = datePickerColors()
 ) {
@@ -266,7 +279,7 @@ fun DatePickerCalendar(
             year = year,
             monthOfYear = month,
             selectedDayOfMonth = selectedDay ?: -1,
-            onDayClick = { },
+            onDayClick = onDayClick,
             colors = colors,
             isDayInRange = {
                 (it.isEqual(startDate) || it.isAfter(startDate) && (it.isEqual(endDate) || it.isBefore(
