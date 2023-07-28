@@ -56,6 +56,15 @@ import java.time.temporal.ChronoField
 import java.util.Locale
 
 
+/**
+ * Composable for a oneui-date picker that allows the user to select a [LocalDate]
+ *
+ * @param modifier The [Modifier] to appply to the container
+ * @param startDate The first possible month to show (day property is ignored)
+ * @param endDate The last possible month to show (day property is ignored)
+ * @param state The [DatePickerState] to receive updates about the users selection
+ * @param colors The [DatePickerColors] to apply
+ */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun DatePicker(
@@ -406,6 +415,20 @@ data class DatePickerState(
 
     var date by mutableStateOf(initial)
 
+}
+
+/**
+ * Remembers a [DatePickerState]
+ *
+ * @param initial The initially selected value to show on the [DatePicker]
+ */
+@Composable
+fun rememberDatePickerState(
+    initial: LocalDate = LocalDate.now()
+) = remember {
+    DatePickerState(
+        initial = initial
+    )
 }
 
 object DatePickerDefaults {
