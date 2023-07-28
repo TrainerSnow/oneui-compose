@@ -1,26 +1,115 @@
 package org.oneui.compose.theme.color
 
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 interface OneUIColorTheme {
 
-    val black: Color
-    val white: Color
+    val seslActionBarBackgroundColor: Color
+    val seslActionBarTextColorMenu: Color
+    val seslActionBarTextColorSubtitle: Color
+    val seslActionBarTextColorTitle: Color
+    val seslActionBarToastTextColor: Color
+    val seslBackgroundColor: Color
+    val seslBackgroundFloating: Color
+    val seslBtnBackgroundColor: Color
+    val seslBtnDefaultTextColor: Color
+    val seslControlNormalColor: Color
+    val seslDescriptionTextColor: Color
+    val seslDialogBodyTextColor: Color
+    val seslDialogButtonRedText: Color
+    val seslDialogButtonTextColor: Color
+    val seslDialogListTextColor: Color
+    val seslDialogScrollbarHandleTintColorMtrl: Color
+    val seslDialogTitleTextColor: Color
+    val seslDropdownScrollbarHandleColor: Color
+    val seslEdgeEffectDeviceDefault: Color
+    val seslEditTextColor: Color
+    val seslEditTextColorDisabled: Color
+    val seslEditTextHintColor: Color
+    val seslEditTextTintColor: Color
+    val seslEditTextTintColorDisabled: Color
+    val seslEditTextTintColorUnfocused: Color
+    val seslFunctionalGreen: Color
+    val seslFunctionalOrange: Color
+    val seslFunctionalRed: Color
+    val seslHighlightedTextColor: Color
+    val seslListDividerColor: Color
+    val seslListGoToTopArrowBottom: Color
+    val seslListGoToTopArrowTop: Color
+    val seslListGoToTopInnerRound: Color
+    val seslListGoToTopOuterRound: Color
+    val seslListGoToTopRipple: Color
+    val seslListRippleColor: Color
+    val seslPopupMenuDividerColor: Color
+    val seslPopupMenuItemTextColorChecked: Color
+    val seslPopupMenuItemTextColorDisabled: Color
+    val seslPrimaryColor: Color
+    val seslPrimaryDarkColor: Color
+    val seslPrimaryTextColor: Color
+    val seslSecondaryTextColor: Color
+    val seslProgressControlColorActivated: Color
+    val seslProgressControlColorNormal: Color
+    val seslProgressDialogBackgroundColor: Color
+    val seslProgressDialogCircleTextColor: Color
+    val seslRippleColor: Color
+    val seslRoundAndBgcolor: Color
+    val seslScrollbarHandleTintColor: Color
+    val seslSearchViewBackgroundHintTextColor: Color
+    val seslSearchViewBackgroundIconColor: Color
+    val seslSearchViewBackgroundTextColor: Color
+    val seslSeekbarDisableColorActivated: Color
+    val seslSeekbarOverlapColorActivated: Color
+    val seslSeekbarOverlapColorDefault: Color
+    val seslSpinnerDropdownItemTextColorDisabled: Color
+    val seslSpinnerDropdownItemTextColorNormal: Color
+    val seslSpinnerIconColorDefault: Color
+    val seslSpinnerIconColorDisabled: Color
+    val seslSpinnerItemTextColorDisabled: Color
+    val seslSpinnerItemTextColorNormal: Color
+    val seslStatusBarColor: Color
+    val seslSwitchDividerColor: Color
+    val seslSwitchbarOffBackgroundColor: Color
+    val seslSwitchbarOffTextColor: Color
+    val seslSwitchbarOnBackgroundColor: Color
+    val seslTooltipBackground: Color
+    val seslTooltipForeground: Color
+    val seslFragmentBgcolor: Color
+    val seslFragmentFgcolor: Color
+    val seslIndexBarBackgroundTintColor: Color
+    val seslIndexBarTextColor: Color
+    val seslDatePickerButtonTintColor: Color
+    val seslDatePickerHeaderTextColor: Color
+    val seslDatePickerNormalDayNumberTextColor: Color
+    val seslDatePickerNormalTextColor: Color
+    val seslDatePickerSaturdayTextColor: Color
+    val seslDatePickerSaturdayWeekTextColor: Color
+    val seslDatePickerSelectedDayNumberTextColor: Color
+    val seslDatePickerSundayNumberTextColor: Color
+    val seslDatePickerSundayTextColor: Color
+    val seslColorPickerSelectedColorItemTextColor: Color
+    val seslColorPickerStrokeColor: Color
+    val seslColorPickerTabSelectedBackground: Color
+    val seslColorPickerTabSelected: Color
+    val seslColorPickerUsedColorItemEmptySlotColor: Color
+    val seslColorPickerUsedColorTextColor: Color
+    val seslSwipeRefreshBackground: Color
+    val foregroundMaterial: Color
+    val backgroundMaterial: Color
+    val backgroundFloatingMaterial: Color
+    val primaryMaterial: Color
+    val primaryDarkMaterial: Color
+    val accentMaterial: Color
+    val switchThumbNormalMaterial: Color
+    val primaryTextDefaultMaterial: Color
+    val secondaryTextDefaultMaterial: Color
+    val seslDialogDividerColorMaterial: Color
+    val seslDialogSubTextColorMaterial: Color
+    val seslDialogWindowBackgroundColorMaterial: Color
     val abcDecorViewStatusGuard: Color
-    val materialBlueGrey800: Color
-    val materialBlueGrey900: Color
-    val materialBlueGrey950: Color
-    val materialDeepTeal200: Color
-    val materialDeepTeal500: Color
-    val materialGrey100: Color
-    val materialGrey300: Color
-    val materialGrey50: Color
-    val materialGrey600: Color
-    val materialGrey800: Color
-    val materialGrey850: Color
-    val materialGrey900: Color
     val seslActionBarRippleColor: Color
     val seslBlack: Color
+    val seslWhite: Color
     val seslContextMenuTitleTextColor: Color
     val seslControlActivatedColor: Color
     val seslDialogShowButtonBackgroundColor: Color
@@ -67,156 +156,51 @@ interface OneUIColorTheme {
     val seslSwitchTrackOffDisabledColor: Color
     val seslThumbControlColorActivated: Color
     val seslThumbTintColorDisabled: Color
-    val seslWhite: Color
-    val accentMaterial: Color
-    val backgroundFloatingMaterial: Color
-    val backgroundMaterial: Color
-    val foregroundMaterial: Color
-    val primaryDarkMaterial: Color
-    val primaryMaterial: Color
-    val primaryTextDefaultMaterial: Color
-    val secondaryTextDefaultMaterial: Color
-    val seslActionBarBackgroundColor: Color
-    val seslActionBarTextColorMenu: Color
-    val seslActionBarTextColorSubtitle: Color
-    val seslActionBarTextColorTitle: Color
-    val seslActionBarToastTextColor: Color
-    val seslBackgroundColor: Color
-    val seslBackgroundFloating: Color
-    val seslBtnBackgroundColor: Color
-    val seslBtnDefaultTextColor: Color
-    val seslControlNormalColor: Color
-    val seslDescriptionTextColor: Color
-    val seslDialogBodyTextColor: Color
-    val seslDialogButtonRedText: Color
-    val seslDialogButtonTextColor: Color
-    val seslDialogDividerColorMaterial: Color
-    val seslDialogListTextColor: Color
-    val seslDialogScrollbarHandleTintColorMtrl: Color
-    val seslDialogSubTextColorMaterial: Color
-    val seslDialogTitleTextColor: Color
-    val seslDialogWindowBackgroundColorMaterial: Color
-    val seslDropdownScrollbarHandleColor: Color
-    val seslEdgeEffectDeviceDefault: Color
-    val seslEditTextColorDisabled: Color
-    val seslEditTextColor: Color
-    val seslEditTextHintColor: Color
-    val seslEditTextTintColorDisabled: Color
-    val seslEditTextTintColor: Color
-    val seslEditTextTintColorUnfocused: Color
-    val seslFunctionalGreen: Color
-    val seslFunctionalOrange: Color
-    val seslFunctionalRed: Color
-    val seslHighlightedTextColor: Color
-    val seslListDividerColor: Color
-    val seslListGoToTopArrowBottom: Color
-    val seslListGoToTopArrowTop: Color
-    val seslListGoToTopInnerRound: Color
-    val seslListGoToTopOuterRound: Color
-    val seslListGoToTopRipple: Color
-    val seslListRippleColor: Color
-    val seslPopupMenuDividerColor: Color
-    val seslPopupMenuItemTextColorChecked: Color
-    val seslPopupMenuItemTextColorDisabled: Color
-    val seslPrimaryColor: Color
-    val seslPrimaryDarkColor: Color
-    val seslPrimaryTextColor: Color
-    val seslProgressControlColorActivated: Color
-    val seslProgressControlColorNormal: Color
-    val seslProgressDialogBackgroundColor: Color
-    val seslProgressDialogCircleTextColor: Color
-    val seslRippleColor: Color
-    val seslRoundAndBgcolor: Color
-    val seslScrollbarHandleTintColor: Color
-    val seslSearchViewBackgroundHintTextColor: Color
-    val seslSearchViewBackgroundIconColor: Color
-    val seslSearchViewBackgroundTextColor: Color
-    val seslSecondaryTextColor: Color
-    val seslSeekbarDisableColorActivated: Color
-    val seslSeekbarOverlapColorActivated: Color
-    val seslSeekbarOverlapColorActivatedTrack: Color
-    val seslSeekbarOverlapColorDefault: Color
-    val seslSpinnerDropdownItemTextColorDisabled: Color
-    val seslSpinnerDropdownItemTextColorNormal: Color
-    val seslSpinnerIconColorDefault: Color
-    val seslSpinnerIconColorDisabled: Color
-    val seslSpinnerItemTextColorDisabled: Color
-    val seslSpinnerItemTextColorNormal: Color
-    val seslStatusBarColor: Color
-    val seslSwitchDividerColor: Color
-    val seslSwitchbarOffBackgroundColor: Color
-    val seslSwitchbarOffTextColor: Color
-    val seslSwitchbarOnTextColor: Color
-    val seslSwitchbarOnBackgroundColor: Color
-    val seslTooltipBackground: Color
-    val seslTooltipForeground: Color
-    val switchThumbNormalMaterial: Color
-    val buttonColoredTextColor: Color
-
-    val buttonColoredBackground: Color
-    val buttonColoredText: Color
-    val buttonDefaultBackground: Color
-    val buttonDefaultText: Color
-    val buttonTransparentBackground: Color
-    val buttonTransparentText: Color
-
-    val drawerLayoutBackground: Color
-    val drawerBackground: Color
-    val drawerScrim: Color
-    val drawerItemLabelColor: Color
-    val drawerItemLabelEndColor: Color
-    val drawerHeaderIconTint: Color
-    val drawerDividerColor: Color
-
-    val roundedCornerBoxBackground: Color
-
-    val textSeparatorText: Color
-
-    val tipsCardPreference: Color
-
-    val relativeCardTitleText: Color
-    val relativeCardBackground: Color
-
-    val colorPickerStroke: Color
-    val colorPickerSeekbarThumbStroke: Color
-    val colorPickerSeekbarThumb: Color
-    val colorPickerSeekbarChecks: Color
-    val colorPickerTabBackground: Color
-
-    val tabsItemIndicator: Color
-    val tabsItemText: Color
-    val tabsItemTextSelected: Color
-    val tabsItemSubIndicator: Color
-    val tabsItemSubRipple: Color
-
-    val bnbBackground: Color
-    val bnbIcon: Color
-    val bnbRipple: Color
-    val bnbLabel: Color
-
-    val searchButton: Color
-
-    val numberPickerTextColor: Color
-    val numberPickerScrollTextColor: Color
-    val stringPickerTextColor: Color
-    val stringPickerScrollTextColor: Color
-
-    val datePickerHeaderText: Color
-    val datePickerSunday: Color
-    val datePickerSaturday: Color
-    val datePickerNormalDay: Color
-    val datePickerDayNumberNormal: Color
-    val datePickerDayNumberSunday: Color
-    val datePickerDayNumberSaturday: Color
-    val datePickerSelectedDay: Color
+    val seslAppPickerListActionIconTintColor: Color
+    val notificationTemplateIconBg: Color
+    val notificationTemplateIconLowBg: Color
+    val notificationActionColorFilter: Color
+    val notificationIconBgColor: Color
+    val seslIndexScrollPreviewTextColor: Color
+    val seslNumberPickerTextColor: Color
+    val seslNumberPickerTextHighlightColor: Color
+    val seslDatePickerWeekdayNumberTextColor: Color
+    val seslColorPickerCursorStrokeColor: Color
+    val seslColorPickerDivider: Color
+    val seslColorPickerPercentTextColor: Color
+    val seslColorPickerSeekbarCursorBackgroundColor: Color
+    val seslColorPickerSeekbarCursorStrokeColor: Color
+    val seslColorPickerShadow: Color
+    val seslColorPickerStrokeColorSpectrumview: Color
+    val seslColorPickerStrokeColorSwatchview: Color
+    val seslColorPickerSwatchCursorColor: Color
+    val seslColorPickerSwatchCursorColorForWhite: Color
+    val seslColorPickerTabUnselected: Color
+    val seslColorPickerTransparent: Color
+    val preferenceFallbackAccentColor: Color
+    val seslSwipeRefreshColor1: Color
+    val seslSwipeRefreshColor2: Color
+    val materialGrey900: Color
+    val materialGrey850: Color
+    val materialGrey800: Color
+    val materialGrey600: Color
+    val materialGrey300: Color
+    val materialGrey100: Color
+    val materialGrey50: Color
+    val materialDeepTeal200: Color
+    val materialDeepTeal500: Color
+    val materialBlueGrey800: Color
+    val materialBlueGrey900: Color
+    val materialBlueGrey950: Color
 
     companion object {
 
+        @Composable
         fun getTheme(
             dark: Boolean = false
         ): OneUIColorTheme =
-            if (dark) DarkColorTheme.Instance
-            else LightColorTheme.Instance
+            if (dark) DarkColorTheme
+            else LightColorTheme
 
     }
 }
