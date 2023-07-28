@@ -108,6 +108,18 @@ interface IDynamicDimensions {
 
     val timePickerText: Dp
 
+    val datePickerHeaderHeight: Dp
+
+    val datePickerHeaderWeekSpacing: Dp
+
+    val datePickerWeekHeight: Dp
+
+    val datePickerWeekCalendarSpacing: Dp
+
+    val datePickerCalendarHeight: Dp
+
+    val datePickerCalendarDaySelectedCircleRadius: Dp
+
     companion object {
 
         val Default = DefaultDynamicDimensions()

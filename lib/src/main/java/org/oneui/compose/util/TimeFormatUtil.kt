@@ -1,5 +1,10 @@
 package org.oneui.compose.util
 
+import android.text.format.DateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
+
 /**
  * Contains utility fields/functions to aid in formatting time or date
  */
@@ -39,5 +44,17 @@ object TimeFormatUtil {
                 second = component2()
             )
         }
+
+    /**
+     * Formats the [date] to show full month and then full year
+     *
+     * @return The formatted date as a string
+     */
+    fun formatMonthYear(date: LocalDate): String = DateTimeFormatter.ofPattern(
+        DateFormat.getBestDateTimePattern(
+            Locale.getDefault(),
+            "MMMM yyyy"
+        )
+    ).format(date)
 
 }

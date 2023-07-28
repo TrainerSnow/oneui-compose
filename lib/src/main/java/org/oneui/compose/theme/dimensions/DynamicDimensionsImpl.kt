@@ -211,4 +211,58 @@ class DynamicDimensionsImpl(
             tv.float
         }
         .dp
+
+    override val datePickerHeaderHeight = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_date_header_height, tv, true)
+            tv.float
+        }
+        .dp
+
+    override val datePickerHeaderWeekSpacing = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_date_header_week_spacing, tv, true)
+            tv.float
+        }
+        .dp
+
+    override val datePickerWeekHeight = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_date_week_height, tv, true)
+            tv.float
+        }
+        .dp
+
+    override val datePickerWeekCalendarSpacing = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_date_week_calendar_spacing, tv, true)
+            tv.float
+        }
+        .dp
+
+    override val datePickerCalendarHeight = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_date_calendar_height, tv, true)
+            tv.float
+        }
+        .dp
+
+    override val datePickerCalendarDaySelectedCircleRadius = context
+        .resources
+        .let {
+            val tv = TypedValue()
+            it.getValue(R.dimen.sesl_picker_date_calendar_day_selected_circle_radius, tv, true)
+            tv.float
+        }
+        .dp
 }

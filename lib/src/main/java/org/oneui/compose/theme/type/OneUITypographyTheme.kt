@@ -94,4 +94,12 @@ interface OneUITypographyTheme {
     val stringPicker: TextStyle
 
     val timePicker: TextStyle
+
+    val datePickerHeader: TextStyle
+    val datePickerSunday: TextStyle
+    val datePickerSaturday: TextStyle
+    val datePickerNormalDay: TextStyle
+    val datePickerNumberSaturday: TextStyle
+    val datePickerNumberSunday: TextStyle
+    val datePickerNumberNormalDay: TextStyle
 }
