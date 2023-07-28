@@ -93,6 +93,11 @@ fun DatePicker(
         pageCount = { totalYearDif * 12 + totalMonthDif }
     )
 
+    //Date that is displayed at top of DatePicker, and shows only month and year
+    val currentDisplayedDate = startDate
+        .plusMonths(pagerState.settledPage.toLong() % (pagerState.settledPage / 12L))
+        .plusYears(pagerState.settledPage / 12L)
+
     Column(
         modifier = modifier
             .fillMaxWidth(),
@@ -112,7 +117,7 @@ fun DatePicker(
                     pagerState.animateScrollToNext()
                 }
             }
-        ) { Text(text = TimeFormatUtil.formatMonthYear(state.date)) }
+        ) { Text(text = TimeFormatUtil.formatMonthYear(currentDisplayedDate)) }
 
         Column(
             modifier = Modifier
@@ -148,6 +153,9 @@ fun DatePicker(
                 startDate = startDate,
                 pagerState = pagerState,
                 currentDate = state.date,
+                onDisplayedMonthChange = {
+                    /*currentDisplayedMonth = it*/
+                },
                 colors = colors
             )
         }
@@ -242,6 +250,7 @@ fun DatePickerCalendar(
     startDate: LocalDate,
     currentDate: LocalDate = LocalDate.now(),
     pagerState: PagerState,
+    onDisplayedMonthChange: (LocalDate) -> Unit,
     colors: DatePickerColors = datePickerColors()
 ) {
 
@@ -250,6 +259,7 @@ fun DatePickerCalendar(
         state = pagerState
     ) { index ->
         val date = startDate.plusMonths(index.toLong())
+        onDisplayedMonthChange(date)
 
         val year = date[ChronoField.YEAR]
         val month = date[ChronoField.MONTH_OF_YEAR]
