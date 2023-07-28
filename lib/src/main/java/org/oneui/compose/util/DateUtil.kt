@@ -72,8 +72,24 @@ object DateUtil {
 
 }
 
-fun getDayPositionInWeek(dayOfWeek: DayOfWeek, locale: Locale): Int {
-    val firstDayOfWeek = WeekFields.of(locale).firstDayOfWeek
-    val daysToAdd = (dayOfWeek.value - firstDayOfWeek.value + 7) % 7
-    return daysToAdd + 1
+/**
+ * Calculates the difference between two dates
+ *
+ * @param other The date to calculate the difference to, later in time
+ * @return A [DateDif]
+ */
+fun LocalDate.difTo(other: LocalDate): DateDif {
+    val p = this.until(other) //Plus 1 day because param is exclusive
+
+    return DateDif(
+        years = p.years,
+        months = p.months,
+        days = p.days
+    )
 }
+
+data class DateDif(
+    val years: Int,
+    val months: Int,
+    val days: Int
+)

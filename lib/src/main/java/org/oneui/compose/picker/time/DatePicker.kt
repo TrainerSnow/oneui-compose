@@ -48,6 +48,7 @@ import org.oneui.compose.util.OneUIPreview
 import org.oneui.compose.util.TimeFormatUtil
 import org.oneui.compose.util.animateScrollToNext
 import org.oneui.compose.util.animateScrollToPrevious
+import org.oneui.compose.util.difTo
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.Month
@@ -69,7 +70,7 @@ import java.util.Locale
 @Composable
 fun DatePicker(
     modifier: Modifier = Modifier,
-    startDate: LocalDate = LocalDate.of(1900, Month.JANUARY, 1),
+    startDate: LocalDate = LocalDate.of(2020, Month.JANUARY, 1),
     endDate: LocalDate = LocalDate.of(2100, Month.DECEMBER, 31),
     state: DatePickerState,
     colors: DatePickerColors = datePickerColors()
@@ -77,35 +78,20 @@ fun DatePicker(
     val scope = rememberCoroutineScope()
 
     //Difs from start to end
-    val totalYearDif =
-        if (startDate[ChronoField.MONTH_OF_YEAR] <= endDate[ChronoField.MONTH_OF_YEAR])
-            (endDate[ChronoField.YEAR] - startDate[ChronoField.YEAR])
-        else (endDate[ChronoField.YEAR] - startDate[ChronoField.YEAR]) - 1
-    val totalMonthDif =
-        if (startDate[ChronoField.MONTH_OF_YEAR] <= endDate[ChronoField.MONTH_OF_YEAR])
-            endDate[ChronoField.MONTH_OF_YEAR] - startDate[ChronoField.MONTH_OF_YEAR]
-        else 12 - (startDate[ChronoField.MONTH_OF_YEAR] - endDate[ChronoField.MONTH_OF_YEAR])
+    val totalDif = startDate.difTo(endDate)
 
     //Difs from start to current
-    val currentYearDif =
-        if (startDate[ChronoField.MONTH_OF_YEAR] <= state.date[ChronoField.MONTH_OF_YEAR])
-            (state.date[ChronoField.YEAR] - startDate[ChronoField.YEAR])
-        else (state.date[ChronoField.YEAR] - startDate[ChronoField.YEAR]) - 1
-    val currentMonthDif =
-        if (startDate[ChronoField.MONTH_OF_YEAR] <= state.date[ChronoField.MONTH_OF_YEAR])
-            state.date[ChronoField.MONTH_OF_YEAR] - startDate[ChronoField.MONTH_OF_YEAR]
-        else 12 - (startDate[ChronoField.MONTH_OF_YEAR] - state.date[ChronoField.MONTH_OF_YEAR])
+    val currentDif = startDate.difTo(state.date)
 
 
     val pagerState = rememberPagerState(
-        initialPage = currentYearDif * 12 + currentMonthDif,
-        pageCount = { totalYearDif * 12 + totalMonthDif }
+        initialPage = currentDif.years * 12 + currentDif.months,
+        pageCount = { totalDif.years * 12 + totalDif.months }
     )
 
     //Date that is displayed at top of DatePicker, and shows only month and year
     val currentDisplayedDate = startDate
-        .plusMonths(pagerState.settledPage.toLong() % (pagerState.settledPage / 12L))
-        .plusYears(pagerState.settledPage / 12L)
+        .plusMonths(pagerState.settledPage.toLong())
 
     Column(
         modifier = modifier
@@ -160,11 +146,9 @@ fun DatePicker(
                     .fillMaxWidth()
                     .height(OneUITheme.dimensions.datePickerCalendarHeight),
                 startDate = startDate,
+                endDate = endDate,
                 pagerState = pagerState,
                 currentDate = state.date,
-                onDisplayedMonthChange = {
-                    /*currentDisplayedMonth = it*/
-                },
                 colors = colors
             )
         }
@@ -257,9 +241,9 @@ internal fun DatePickerWeek(
 fun DatePickerCalendar(
     modifier: Modifier = Modifier,
     startDate: LocalDate,
+    endDate: LocalDate,
     currentDate: LocalDate = LocalDate.now(),
     pagerState: PagerState,
-    onDisplayedMonthChange: (LocalDate) -> Unit,
     colors: DatePickerColors = datePickerColors()
 ) {
 
@@ -268,7 +252,6 @@ fun DatePickerCalendar(
         state = pagerState
     ) { index ->
         val date = startDate.plusMonths(index.toLong())
-        onDisplayedMonthChange(date)
 
         val year = date[ChronoField.YEAR]
         val month = date[ChronoField.MONTH_OF_YEAR]
@@ -284,7 +267,12 @@ fun DatePickerCalendar(
             monthOfYear = month,
             selectedDayOfMonth = selectedDay ?: -1,
             onDayClick = { },
-            colors = colors
+            colors = colors,
+            isDayInRange = {
+                (it.isEqual(startDate) || it.isAfter(startDate) && (it.isEqual(endDate) || it.isBefore(
+                    endDate
+                )))
+            }
         )
 
 
@@ -301,6 +289,7 @@ internal fun SimpleMonthCalendar(
     monthOfYear: Int,
     selectedDayOfMonth: Int,
     onDayClick: (LocalDate) -> Unit,
+    isDayInRange: (LocalDate) -> Boolean,
     colors: DatePickerColors
 ) {
     val weeks = remember {
@@ -317,7 +306,7 @@ internal fun SimpleMonthCalendar(
                     .fillMaxWidth()
                     .height(OneUITheme.dimensions.datePickerWeekHeight)
             ) {
-                dates.forEach { date ->
+                for (date in dates) {
                     val isSelected =
                         date[ChronoField.MONTH_OF_YEAR] == monthOfYear && date[ChronoField.DAY_OF_MONTH] == selectedDayOfMonth
                     val radius = OneUITheme.dimensions.datePickerCalendarDaySelectedCircleRadius
@@ -361,15 +350,17 @@ internal fun SimpleMonthCalendar(
                         val color = if (isSelected) colors.selectedDayNumberText
                         else style.color.copy(alpha = alpha)
 
-                        Text(
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            text = date[ChronoField.DAY_OF_MONTH].toString(),
-                            //Apply alpha when date is not part of month, or special color when selected
-                            style = style.copy(
-                                color = color
+                        if (isDayInRange(date)) {
+                            Text(
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                text = date[ChronoField.DAY_OF_MONTH].toString(),
+                                //Apply alpha when date is not part of month, or special color when selected
+                                style = style.copy(
+                                    color = color
+                                )
                             )
-                        )
+                        }
                     }
                 }
             }
