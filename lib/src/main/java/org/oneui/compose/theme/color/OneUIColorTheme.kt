@@ -205,6 +205,10 @@ interface OneUIColorTheme {
     val datePickerSunday: Color
     val datePickerSaturday: Color
     val datePickerNormalDay: Color
+    val datePickerDayNumberNormal: Color
+    val datePickerDayNumberSunday: Color
+    val datePickerDayNumberSaturday: Color
+    val datePickerSelectedDay: Color
 
     companion object {
 

@@ -24,4 +24,9 @@
     <dimen name="sesl_picker_date_header_height" format="float" type="dimen">28</dimen>
     <dimen name="sesl_picker_date_header_week_spacing" format="float" type="dimen">2</dimen>
     <dimen name="sesl_picker_date_week_height" format="float" type="dimen">24</dimen>
+    <dimen name="sesl_picker_date_week_calendar_spacing" format="float" type="dimen">0</dimen>
+    <dimen name="sesl_picker_date_calendar_height" format="float" type="dimen">150</dimen>
+    <dimen name="sesl_picker_date_calendar_day_selected_circle_radius" format="float" type="dimen">
+        11
+    </dimen>
 </resources>

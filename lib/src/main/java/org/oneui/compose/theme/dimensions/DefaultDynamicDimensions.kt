@@ -57,4 +57,10 @@ class DefaultDynamicDimensions : IDynamicDimensions {
     override val datePickerHeaderWeekSpacing = 10.dp
 
     override val datePickerWeekHeight = 32.dp
+
+    override val datePickerWeekCalendarSpacing = 7.dp
+
+    override val datePickerCalendarHeight = 192.dp
+
+    override val datePickerCalendarDaySelectedCircleRadius = 14.dp
 }

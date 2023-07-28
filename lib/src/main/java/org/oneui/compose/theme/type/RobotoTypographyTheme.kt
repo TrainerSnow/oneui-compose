@@ -60,7 +60,10 @@ internal class RobotoTypographyTheme private constructor(
     override val datePickerHeader: TextStyle,
     override val datePickerSunday: TextStyle,
     override val datePickerSaturday: TextStyle,
-    override val datePickerNormalDay: TextStyle
+    override val datePickerNormalDay: TextStyle,
+    override val datePickerNumberSaturday: TextStyle,
+    override val datePickerNumberSunday: TextStyle,
+    override val datePickerNumberNormalDay: TextStyle
 ) : OneUITypographyTheme {
 
     companion object {
@@ -349,6 +352,24 @@ internal class RobotoTypographyTheme private constructor(
                     color = colorTheme.datePickerNormalDay,
                     textAlign = TextAlign.Center
                 ),
+                datePickerNumberSunday = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 13.sp,
+                    color = colorTheme.datePickerDayNumberSunday,
+                    textAlign = TextAlign.Center
+                ),
+                datePickerNumberSaturday = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 13.sp,
+                    color = colorTheme.datePickerDayNumberSaturday,
+                    textAlign = TextAlign.Center
+                ),
+                datePickerNumberNormalDay = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 13.sp,
+                    color = colorTheme.datePickerDayNumberNormal,
+                    textAlign = TextAlign.Center
+                )
             )
         }
     }

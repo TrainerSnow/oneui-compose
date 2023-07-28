@@ -204,6 +204,10 @@ internal class LightColorTheme : OneUIColorTheme {
     override val datePickerNormalDay = Color(0xff909090)
     override val datePickerSunday = Color(0xffdb332a)
     override val datePickerSaturday = Color(0xff0082be)
+    override val datePickerDayNumberNormal = Color(0xff4d4d4d)
+    override val datePickerDayNumberSunday = Color(0xffdb332a)
+    override val datePickerDayNumberSaturday = Color(0xff0082be)
+    override val datePickerSelectedDay = Color(0xfffcfcfc)
 
 
     companion object {
