@@ -46,7 +46,8 @@ import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.DateUtil
 import org.oneui.compose.util.OneUIPreview
 import org.oneui.compose.util.TimeFormatUtil
-import org.oneui.compose.util.scrollToPrevious
+import org.oneui.compose.util.animateScrollToNext
+import org.oneui.compose.util.animateScrollToPrevious
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.Month
@@ -103,12 +104,12 @@ fun DatePicker(
                 .fillMaxWidth(),
             onPrevClick = {
                 scope.launch {
-                    pagerState.scrollToPrevious()
+                    pagerState.animateScrollToPrevious()
                 }
             },
             onNextClick = {
                 scope.launch {
-                    pagerState.scrollToPrevious()
+                    pagerState.animateScrollToNext()
                 }
             }
         ) { Text(text = TimeFormatUtil.formatMonthYear(state.date)) }
