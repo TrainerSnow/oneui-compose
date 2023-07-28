@@ -46,7 +46,7 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 | Date Picker Dialog                     |   ✅   |   ❌    |
 | Time Picker Dialog                     |   ✅   |   ❌    |
 | Start End Time Picker Dialog           |   ❌   |   ❌    |
-| Color Picker                           |  🟡   |   ❌    |
+| Color Picker                           |   🟡   |   ❌    |
 
 ## Composable structure
 Implementation of smaller components, such as Buttons, Checkboxes etc. will have uniformed implementation.
