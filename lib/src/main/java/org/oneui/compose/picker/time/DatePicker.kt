@@ -70,8 +70,8 @@ import java.util.Locale
 @Composable
 fun DatePicker(
     modifier: Modifier = Modifier,
-    startDate: LocalDate = LocalDate.of(2020, Month.JANUARY, 1),
-    endDate: LocalDate = LocalDate.of(2100, Month.DECEMBER, 31),
+    startDate: LocalDate = DatePickerDefaults.startDate,
+    endDate: LocalDate = DatePickerDefaults.endDate,
     state: DatePickerState,
     colors: DatePickerColors = datePickerColors()
 ) {
@@ -449,6 +449,9 @@ object DatePickerDefaults {
     const val monthNumberDisabledAlphaDark = 120F / 255F
 
     const val prevNextButtonDisabledAlpha = 0.4F
+
+    val startDate = LocalDate.of(1900, Month.JANUARY, 1)
+    val endDate = LocalDate.of(2100, Month.DECEMBER, 31)
 
 }
 
