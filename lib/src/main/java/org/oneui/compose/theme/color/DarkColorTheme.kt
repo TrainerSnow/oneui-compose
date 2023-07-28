@@ -200,6 +200,15 @@ internal class DarkColorTheme : OneUIColorTheme {
     override val stringPickerTextColor = Color(0xfffafafa)
     override val stringPickerScrollTextColor = seslPrimaryDarkColor
 
+    override val datePickerHeaderText = Color(0xffcccccc)
+    override val datePickerNormalDay = Color(0xff999999)
+    override val datePickerSunday = Color(0xfff76f68)
+    override val datePickerSaturday = Color(0xff999999)
+    override val datePickerDayNumberNormal = Color(0xffcccccc)
+    override val datePickerDayNumberSunday = Color(0xfff76f68)
+    override val datePickerDayNumberSaturday = Color(0xff0082be)
+    override val datePickerSelectedDay = Color(0xff252525)
+
 
     companion object {
 

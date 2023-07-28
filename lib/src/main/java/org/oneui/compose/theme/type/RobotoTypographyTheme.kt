@@ -56,7 +56,14 @@ internal class RobotoTypographyTheme private constructor(
     override val searchHint: TextStyle,
     override val numberPicker: TextStyle,
     override val stringPicker: TextStyle,
-    override val timePicker: TextStyle
+    override val timePicker: TextStyle,
+    override val datePickerHeader: TextStyle,
+    override val datePickerSunday: TextStyle,
+    override val datePickerSaturday: TextStyle,
+    override val datePickerNormalDay: TextStyle,
+    override val datePickerNumberSaturday: TextStyle,
+    override val datePickerNumberSunday: TextStyle,
+    override val datePickerNumberNormalDay: TextStyle
 ) : OneUITypographyTheme {
 
     companion object {
@@ -321,6 +328,47 @@ internal class RobotoTypographyTheme private constructor(
                     fontFamily = robotoFamily,
                     fontSize = 25.sp,
                     fontWeight = FontWeight.Bold
+                ),
+                datePickerHeader = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 16.sp,
+                    color = colorTheme.datePickerHeaderText
+                ),
+                datePickerSunday = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 12.sp,
+                    color = colorTheme.datePickerSunday,
+                    textAlign = TextAlign.Center
+                ),
+                datePickerSaturday = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 12.sp,
+                    color = colorTheme.datePickerSaturday,
+                    textAlign = TextAlign.Center
+                ),
+                datePickerNormalDay = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 12.sp,
+                    color = colorTheme.datePickerNormalDay,
+                    textAlign = TextAlign.Center
+                ),
+                datePickerNumberSunday = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 13.sp,
+                    color = colorTheme.datePickerDayNumberSunday,
+                    textAlign = TextAlign.Center
+                ),
+                datePickerNumberSaturday = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 13.sp,
+                    color = colorTheme.datePickerDayNumberSaturday,
+                    textAlign = TextAlign.Center
+                ),
+                datePickerNumberNormalDay = TextStyle(
+                    fontFamily = robotoFamily,
+                    fontSize = 13.sp,
+                    color = colorTheme.datePickerDayNumberNormal,
+                    textAlign = TextAlign.Center
                 )
             )
         }

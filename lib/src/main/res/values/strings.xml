@@ -22,5 +22,7 @@
     <string name="sesl_dialog_picker_time_title">Search</string>
     <string name="sesl_dialog_picker_time_positive">Done</string>
     <string name="sesl_dialog_picker_time_negative">@string/sesl_dialog_button_negative</string>
+    <string name="sesl_dialog_picker_date_positive">@string/sesl_dialog_button_positive</string>
+    <string name="sesl_dialog_picker_date_negative">@string/sesl_dialog_button_negative</string>
 
 </resources>

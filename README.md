@@ -29,24 +29,24 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 | Split Seekbar                          |   ❌   |   ❌    |
 | Danger Seekbar                         |   ✅   |   ❌    |
 | Haptic Seekbar                         |   ❌   |   ❌    |
-| Progress Bar (circular, determinate)   |   ❌   |   ❌    |
-| Progress Bar (circular, indeterminate) |   ❌   |   ❌    |
-| Progress Bar (normal, determinate)     |   ❌   |   ❌    |
-| Progress Bar (normal, indeterminate)   |   ❌   |   ❌    |
+| Progress Bar (circular, determinate)   |   ✅   |   ❌    |
+| Progress Bar (circular, indeterminate) |   ✅   |   ❌    |
+| Progress Bar (normal, determinate)     |   ✅   |   ❌    |
+| Progress Bar (normal, indeterminate)   |   ✅   |   ❌    |
 | Swipe Refresh Layout                   |   ❌   |   ❌    |
 | Navigation Bar                         |   ✅   |   ❌    |
 | Navigation Bar Tabs                    |   ✅   |   ❌    |
 | Navigation Bar Subtabs                 |   ✅   |   ❌    |
 | App Picker View                        |   ❌   |   ❌    |
 | Index Scroll                           |   ❌   |   ❌    |
-| Number Picker                          |   ❌   |   ❌    |
-| Time Picker                            |   ❌   |   ❌    |
-| Date Picker                            |   ❌   |   ❌    |
+| Number Picker                          |   ✅   |   ❌    |
+| Time Picker                            |   ✅   |   ❌    |
+| Date Picker                            |   ✅   |   ❌    |
 | Spinning Date Picker                   |   ❌   |   ❌    |
-| Date Picker Dialog                     |   ❌   |   ❌    |
-| Time Picker Dialog                     |   ❌   |   ❌    |
+| Date Picker Dialog                     |   ✅   |   ❌    |
+| Time Picker Dialog                     |   ✅   |   ❌    |
 | Start End Time Picker Dialog           |   ❌   |   ❌    |
-| Color Picker                           |   🟡   |   ❌    |
+| Color Picker                           |  🟡   |   ❌    |
 
 ## Composable structure
 Implementation of smaller components, such as Buttons, Checkboxes etc. will have uniformed implementation.

@@ -7,4 +7,13 @@
     </dimen>
     <dimen name="sesl_picker_color_swatches_height" format="float" type="dimen">280.0</dimen>
     <dimen name="sesl_picker_color_swatches_width" format="float" type="dimen">295.0</dimen>
+
+    <dimen name="sesl_picker_date_header_height" format="float" type="dimen">36</dimen>
+    <dimen name="sesl_picker_date_header_week_spacing" format="float" type="dimen">10</dimen>
+    <dimen name="sesl_picker_date_week_height" format="float" type="dimen">32</dimen>
+    <dimen name="sesl_picker_date_week_calendar_spacing" format="float" type="dimen">8</dimen>
+    <dimen name="sesl_picker_date_calendar_height" format="float" type="dimen">192</dimen>
+    <dimen name="sesl_picker_date_calendar_day_selected_circle_radius" format="float" type="dimen">
+        14
+    </dimen>
 </resources>
