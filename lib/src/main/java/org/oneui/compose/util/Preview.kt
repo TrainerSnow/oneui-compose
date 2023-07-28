@@ -2,12 +2,14 @@ package org.oneui.compose.util
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.theme.color.OneUIColorTheme
 import org.oneui.compose.widgets.box.RoundedCornerBox
+import org.oneui.compose.widgets.box.RoundedCornerBoxDefaults
 import org.oneui.compose.widgets.text.TextSeparator
 
 
@@ -21,6 +23,7 @@ import org.oneui.compose.widgets.text.TextSeparator
 @Composable
 fun OneUIPreview(
     title: String,
+    padding: PaddingValues = RoundedCornerBoxDefaults.padding,
     content: @Composable () -> Unit
 ) {
     Column(
@@ -32,7 +35,9 @@ fun OneUIPreview(
             colorTheme = OneUIColorTheme.getTheme(false)
         ) {
             TextSeparator(text = title)
-            RoundedCornerBox {
+            RoundedCornerBox(
+                padding = padding
+            ) {
                 content()
             }
         }
@@ -40,7 +45,9 @@ fun OneUIPreview(
             colorTheme = OneUIColorTheme.getTheme(true)
         ) {
             TextSeparator(text = title)
-            RoundedCornerBox {
+            RoundedCornerBox(
+                padding = padding
+            ) {
                 content()
             }
         }
