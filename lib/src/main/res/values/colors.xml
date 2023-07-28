@@ -398,8 +398,6 @@
     <color name="primary_text_default_material_dark">#ffffffff</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
 
-    <eat-comment />
-
     <color name="material_grey_900">#ff212121</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_800">#ff424242</color>
