@@ -13,40 +13,40 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 - **Alpha**: Component is available with loose colors and dimensions. Certain errors in UX are prevalent and yet to be fixed. These components do not yet comply with the lower mentioned structure. Issues should be annotated at the core composable using one "TODO" comment per issue 
 - **Stable**: Component is available with exact colors and dimensions (as exact as possible). 
 
-| Component                              | Alpha | Stable |
-|----------------------------------------|:-----:|:------:|
-| Buttons                                |Yes|No|
-| Preferences                            |Yes|No|
-| Checkbox                               |Yes|No|
-| Radio Button                           |Yes|No|
-| Spinners                               |Yes|No|
-| Menus                                  |Yes|No|
-| Searchview                             |Yes|No|
-| Drawer Layout                          |Yes|No|
-| Collapsing Toolbar Layout              |Yes|No|
-| Normal Seekbar                         |Yes|No|
-| Expanding Seekbar                      |Yes|No|
-| Split Seekbar                          |No|No|
-| Danger Seekbar                         |Yes|No|
-| Haptic Seekbar                         |No|No|
-| Progress Bar (circular, determinate)   |Yes|No|
-| Progress Bar (circular, indeterminate) |Yes|No|
-| Progress Bar (normal, determinate)     |Yes|No|
-| Progress Bar (normal, indeterminate)   |Yes|No|
-| Swipe Refresh Layout                   |No|No|
-| Navigation Bar                         |Yes|No|
-| Navigation Bar Tabs                    |Yes|No|
-| Navigation Bar Subtabs                 |Yes|No|
-| App Picker View                        |No|No|
-| Index Scroll                           |No|No|
-| Number Picker                          |Yes|No|
-| Time Picker                            |Yes|No|
-| Date Picker                            |Yes|No|
-| Spinning Date Picker                   |No|No|
-| Date Picker Dialog                     |Yes|No|
-| Time Picker Dialog                     |Yes|No|
-| Start End Time Picker Dialog           |No|No|
-| Color Picker                           |Partly|No|
+| Component                              | Alpha  | Stable |
+|----------------------------------------|:------:|:------:|
+| Buttons                                |  Yes   |   No   |
+| Preferences                            |  Yes   |   No   |
+| Checkbox                               |  Yes   |   No   |
+| Radio Button                           |  Yes   |   No   |
+| Spinners                               |  Yes   |   No   |
+| Menus                                  |  Yes   |   No   |
+| Searchview                             |  Yes   |   No   |
+| Drawer Layout                          |  Yes   |   No   |
+| Collapsing Toolbar Layout              |  Yes   |   No   |
+| Normal Seekbar                         |  Yes   |   No   |
+| Expanding Seekbar                      |  Yes   |   No   |
+| Split Seekbar                          |   No   |   No   |
+| Danger Seekbar                         |  Yes   |   No   |
+| Haptic Seekbar                         |   No   |   No   |
+| Progress Bar (circular, determinate)   |  Yes   |   No   |
+| Progress Bar (circular, indeterminate) |  Yes   |   No   |
+| Progress Bar (normal, determinate)     |  Yes   |   No   |
+| Progress Bar (normal, indeterminate)   |  Yes   |   No   |
+| Swipe Refresh Layout                   |  Yes   |   No   |
+| Navigation Bar                         |  Yes   |   No   |
+| Navigation Bar Tabs                    |  Yes   |   No   |
+| Navigation Bar Subtabs                 |  Yes   |   No   |
+| App Picker View                        |   No   |   No   |
+| Index Scroll                           |   No   |   No   |
+| Number Picker                          |  Yes   |   No   |
+| Time Picker                            |  Yes   |   No   |
+| Date Picker                            |  Yes   |   No   |
+| Spinning Date Picker                   |   No   |   No   |
+| Date Picker Dialog                     |  Yes   |   No   |
+| Time Picker Dialog                     |  Yes   |   No   |
+| Start End Time Picker Dialog           |   No   |   No   |
+| Color Picker                           | Partly |   No   |
 
 ## Composable structure
 Implementation of smaller components, such as Buttons, Checkboxes etc. will have uniformed implementation.
