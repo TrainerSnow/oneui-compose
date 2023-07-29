@@ -28,24 +28,20 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 | Expanding Seekbar                      |Yes|No|
 | Split Seekbar                          |No|No|
 | Danger Seekbar                         |Yes|No|
-| Haptic Seekbar                         |No|No|
 | Progress Bar (circular, determinate)   |Yes|No|
 | Progress Bar (circular, indeterminate) |Yes|No|
 | Progress Bar (normal, determinate)     |Yes|No|
 | Progress Bar (normal, indeterminate)   |Yes|No|
-| Swipe Refresh Layout                   |No|No|
+| Swipe Refresh Layout                   |Yes|No|
 | Navigation Bar                         |Yes|No|
 | Navigation Bar Tabs                    |Yes|No|
 | Navigation Bar Subtabs                 |Yes|No|
-| App Picker View                        |No|No|
-| Index Scroll                           |No|No|
 | Number Picker                          |Yes|No|
 | Time Picker                            |Yes|No|
 | Date Picker                            |Yes|No|
 | Spinning Date Picker                   |No|No|
 | Date Picker Dialog                     |Yes|No|
 | Time Picker Dialog                     |Yes|No|
-| Start End Time Picker Dialog           |No|No|
 | Color Picker                           |Partly|No|
 
 ## Composable structure
