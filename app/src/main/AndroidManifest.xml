@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OneUICompose"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="theming-meta"
+            android:value="theming_data_app" />
+
         <activity
             android:name="org.oneui.compose.MainActivity"
             android:exported="true"

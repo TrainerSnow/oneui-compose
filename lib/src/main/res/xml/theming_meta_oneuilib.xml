@@ -1,0 +1,1219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ThemeMetaData
+    FormatVersion="1.3"
+    GuideVersion="1.7">
+    <AppMetaData
+        BuildType="None"
+        Name="SESL"
+        TargetApi="19"
+        TargetPackageName="SESL"
+        VersionCode="1"
+        VersionName="">
+        <Property
+            Comment="Common Primary color"
+            DefaultValue="#ff0074d4"
+            DestAttribName="sesl_primary_color_light,sesl_primary_color_dark"
+            POption="FixedOpacity|Mandatory"
+            UID="999-A"
+            ValueRef="1-A"
+            ValueType="Color" />
+        <Property
+            Comment="Font: Main text color"
+            DefaultValue="#ff252525"
+            DestAttribName="sesl_primary_text_color_light,sesl_primary_text_color_dark"
+            POption="Mandatory"
+            UID="999-X-24-A"
+            ValueRef="24-A"
+            ValueType="TextColor" />
+        <Property
+            Comment="Font: Sub text color"
+            DefaultValue="#ff979797"
+            DestAttribName="sesl_secondary_text_color_light,sesl_secondary_text_color_dark"
+            POption="Mandatory"
+            UID="999-X-24-B"
+            ValueRef="24-B"
+            ValueType="TextColor" />
+        <Property
+            Comment="Font: Point text color (=primay dark color)"
+            DefaultValue="#ff0074d4"
+            DestAttribName="sesl_primary_dark_color_light,sesl_primary_dark_color_dark"
+            POption="Mandatory"
+            UID="999-X-24-E"
+            ValueRef="24-E"
+            ValueType="TextColor" />
+        <Property
+            Comment="Linked color(Action bar background) : Common &gt; Color &gt; Primary color. Change BgColor of App Bar Background"
+            DefaultValue="#fff2f2f2"
+            DestAttribName="sesl_action_bar_background_color_light, sesl_action_bar_background_color_dark, sesl_round_and_bgcolor_dark, sesl_round_and_bgcolor_light"
+            UID="999-1-1"
+            ValueRef="1-1-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Change Text Color Of Action Bar"
+            DefaultValue="#ff252525"
+            DestAttribName="sesl_action_bar_text_color_title_light,sesl_action_bar_text_color_title_dark"
+            POption="Mandatory"
+            UID="999-1-3"
+            ValueRef="1-1-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Sub Text Color Of Action Bar"
+            DefaultValue="#b3252525"
+            DestAttribName="sesl_action_bar_text_color_subtitle_light,sesl_action_bar_text_color_subtitle_dark,sesl_extended_appbar_subtitle_dark,sesl_extended_appbar_subtitle_light"
+            UID="999-1-4"
+            ValueRef="1-1-4"
+            ValueType="TextColor" />
+        <Property
+            Comment="Point text color"
+            DefaultValue="#0074d4"
+            DestAttribName=""
+            POption="Mandatory|FixedOpacity"
+            UID="999-1-5"
+            ValueRef="1-1-5"
+            ValueType="TextColor" />
+        <Property
+            Comment=""
+            DefaultValue="#ff000000"
+            DestAttribName=""
+            UID="999-1-1-1"
+            ValueRef="1-1-1-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Change Text Color Of Action Bar"
+            DefaultValue="#fffafafa"
+            DestAttribName=""
+            UID="999-1-3-1"
+            ValueRef="1-1-3-1"
+            ValueType="TextColor" />
+        <Property
+            Comment="Sub Text Color Of Action Bar"
+            DefaultValue="#b3252525"
+            DestAttribName=""
+            UID="999-1-4-1"
+            ValueRef="999-1-4"
+            ValueType="TextColor" />
+        <Property
+            Comment="Common List Divider"
+            DefaultValue="#ffe6e6e6"
+            DestAttribName="sesl_list_divider_color_light,sesl_list_divider_color_dark"
+            POption="AlwaysOverriden"
+            UID="999-2"
+            ValueRef="1-2"
+            ValueType="Color" />
+        <Property
+            Comment="Vertical divider color"
+            DefaultValue="#ffe6e6e6"
+            DestAttribName="sesl_switch_divider_color_light,sesl_switch_divider_color_dark"
+            UID="999-2-1"
+            ValueRef="1-2-1"
+            ValueType="Color" />
+        <Property
+            Comment="Text: Main text color"
+            DefaultValue="#ff252525"
+            DestAttribName=""
+            UID="999-3-1"
+            ValueRef="1-3-1"
+            ValueType="TextColor" />
+        <Property
+            Comment="Text: Sub text color"
+            DefaultValue="#ff979797"
+            DestAttribName=""
+            UID="999-3-2"
+            ValueRef="1-3-2"
+            ValueType="TextColor" />
+        <Property
+            Comment="Common Radio Button On Color"
+            DefaultValue="#4297ff"
+            DestAttribName="sesl_control_activated_color_light,sesl_control_activated_color_light"
+            POption="AlwaysOverriden|FixedOpacity"
+            UID="999-4-1"
+            ValueRef="1-4-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Common Radio Button On Image"
+            DefaultValue=""
+            DestAttribName="sesl_btn_radio_to_on_024,sesl_btn_radio_to_on_026,sesl_list_choice_radio_to_on_024,sesl_list_choice_radio_to_on_026"
+            ImageSize="32X32"
+            UID="999-4-1-1"
+            ValueRef="1-4-1-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="Common Radio Button Off Color"
+            DefaultValue="#cc8f8f8f"
+            DestAttribName="sesl_control_normal_color_light,sesl_control_normal_color_light"
+            POption="AlwaysOverriden|FixedOpacity"
+            UID="999-4-2"
+            ValueRef="1-4-2"
+            ValueType="BgColor" />
+        <Property
+            Comment="Common Radio Button Off Image"
+            DefaultValue=""
+            DestAttribName="sesl_btn_radio_to_on_000,sesl_btn_radio_to_on_002,sesl_list_choice_radio_to_on_000,sesl_list_choice_radio_to_on_002"
+            ImageSize="32X32"
+            UID="999-4-2-1"
+            ValueRef="1-4-2-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="Common Radio Button Disable On Image"
+            DefaultValue=""
+            DestAttribName="sesl_btn_radio_to_on_025,sesl_list_choice_radio_to_on_025"
+            ImageSize="32X32"
+            UID="999-4-3"
+            ValueRef="1-4-3"
+            ValueType="BgImage" />
+        <Property
+            Comment="Common Radio Button Disable Off Image"
+            DefaultValue=""
+            DestAttribName="sesl_btn_radio_to_on_001,sesl_list_choice_radio_to_on_001"
+            ImageSize="32X32"
+            UID="999-4-4"
+            ValueRef="1-4-4"
+            ValueType="BgImage" />
+        <Property
+            Comment="Thumb: Common Switch Thumb On Bg Color"
+            DefaultValue="#fafafa"
+            DestAttribName="sesl_switch_thumb_on_color_light,sesl_switch_thumb_on_color_dark"
+            UID="999-5-1-1"
+            ValueRef="1-5-1-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Thumb: Common Switch Thumb On Stroke Color"
+            DefaultValue="#0074d4"
+            DestAttribName="sesl_switch_thumb_on_stroke_color_light,sesl_switch_thumb_on_stroke_color_dark"
+            UID="999-5-1-1-1"
+            ValueRef="1-5-1-1-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Track: Common Switch Track On Bg Color"
+            DefaultValue="#4297ff"
+            DestAttribName="sesl_switch_track_on_color_light,sesl_switch_track_on_color_dark"
+            UID="999-5-1-2"
+            ValueRef="1-5-1-2"
+            ValueType="BgColor" />
+        <Property
+            Comment="Thumb: Common Switch Thumb Off Bg Color"
+            DefaultValue="#fafafa"
+            DestAttribName="sesl_switch_thumb_off_color_light,sesl_switch_thumb_off_color_dark"
+            UID="999-5-2-1"
+            ValueRef="1-5-2-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Track: Common Switch Thumb Off Stroke Color"
+            DefaultValue="#a1a1a1"
+            DestAttribName="sesl_switch_thumb_off_stroke_color_light,sesl_switch_thumb_off_stroke_color_dark, sesl_switch_track_off_color_light,sesl_switch_track_off_color_dark, sesl_switch_track_off_color_dark,sesl_switch_track_off_color_light"
+            UID="999-5-2-1-1"
+            ValueRef="1-5-2-1-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Thumb: Common Switch Thumb Disabled On Bg Color"
+            DefaultValue="#fafafa"
+            DestAttribName="sesl_switch_thumb_on_disabled_color_light,sesl_switch_thumb_on_disabled_color_dark"
+            UID="999-5-3-1"
+            ValueRef="1-5-3-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Thumb: Common Switch Thumb Disabled On Stroke Color"
+            DefaultValue="#cbcbcb"
+            DestAttribName="sesl_switch_thumb_on_disabled_stroke_color_light,sesl_switch_thumb_on_disabled_stroke_color_dark"
+            UID="999-5-3-1-1"
+            ValueRef="1-5-3-1-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Track: Common Switch Track Disabled On Bg Color"
+            DefaultValue="#668f8f8f"
+            DestAttribName="sesl_switch_track_on_disabled_color_dark,sesl_switch_track_on_disabled_color_light"
+            UID="999-5-3-2"
+            ValueRef="1-5-3-2"
+            ValueType="BgColor" />
+        <Property
+            Comment="Track: Common Switch Thumb Disabled Off Bg Color"
+            DefaultValue="#fafafa"
+            DestAttribName="sesl_switch_thumb_off_disabled_color_light,sesl_switch_thumb_off_disabled_color_dark"
+            UID="999-5-7-1"
+            ValueRef="1-5-7-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Track: Common Switch Thumb Disabled Off Stroke Color"
+            DefaultValue="#cbcbcb"
+            DestAttribName="sesl_switch_thumb_off_disabled_stroke_color_light,sesl_switch_thumb_off_disabled_stroke_color_dark,sesl_switch_track_off_disabled_color_light,sesl_switch_track_off_disabled_color_dark,sesl_switch_track_off_disabled_color_light,sesl_switch_track_off_disabled_color_dark"
+            UID="999-5-7-1-1"
+            ValueRef="1-5-7-1-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Thumb: Common Switch Thumb On Image"
+            DefaultValue=""
+            DestAttribName="sesl_switch_thumb_on_light,sesl_switch_thumb_on_dark, sesl_switch_thumb_dark_on"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-5-4-1"
+            ValueRef="1-5-4-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="Track: Common Switch Track On Image (Nine Patch Only)"
+            DefaultValue=""
+            DestAttribName="sesl_switch_track_on, sesl_switch_track_dark_on"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-5-4-2"
+            ValueRef="1-5-4-2"
+            ValueType="BgImage" />
+        <Property
+            Comment="Thumb: Common Switch Thumb Off Image"
+            DefaultValue=""
+            DestAttribName="sesl_switch_thumb_off, sesl_switch_thumb_dark_off"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-5-5-1"
+            ValueRef="1-5-5-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="Track: Common Switch Track Off Image (Nine Patch Only)"
+            DefaultValue=""
+            DestAttribName="sesl_switch_track_off, sesl_switch_track_dark_off"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-5-5-2"
+            ValueRef="1-5-5-2"
+            ValueType="BgImage" />
+        <Property
+            Comment="Thumb: Common Switch Thumb Disabled On Image"
+            DefaultValue=""
+            DestAttribName="sesl_switch_thumb_disabled_on, sesl_switch_thumb_dark_disabled_on"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-5-6-1"
+            ValueRef="1-5-6-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="Track: Common Switch Track Disabled On Image (Nine Patch Only)"
+            DefaultValue=""
+            DestAttribName="sesl_switch_track_disabled_on, sesl_switch_track_dark_disabled_on"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-5-6-2"
+            ValueRef="1-5-6-2"
+            ValueType="BgImage" />
+        <Property
+            Comment="Thumb: Common Switch Thumb Disabled Off Image"
+            DefaultValue=""
+            DestAttribName="sesl_switch_thumb_disabled_off, sesl_switch_thumb_dark_disabled_off"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-5-8-1"
+            ValueRef="1-5-8-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="Track: Common Switch Track Disabled Off Image (Nine Patch Only)"
+            DefaultValue=""
+            DestAttribName="sesl_switch_track_disabled_off, sesl_switch_track_dark_disabled_off"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-5-8-2"
+            ValueRef="1-5-8-2"
+            ValueType="BgImage" />
+        <Property
+            Comment="CheckBox On Color"
+            DefaultValue="#4297ff"
+            DestAttribName=""
+            UID="999-6-1"
+            ValueRef="1-6-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="CheckBox On Image"
+            DefaultValue=""
+            DestAttribName="sesl_btn_check_to_on_024,sesl_btn_check_to_on_026,sesl_list_choice_check_to_on_024,sesl_list_choice_check_to_on_026"
+            ImageSize="32X32"
+            UID="999-6-1-1"
+            ValueRef="1-6-1-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="CheckBox Off Color"
+            DefaultValue="#cc8f8f8f"
+            DestAttribName=""
+            UID="999-6-2"
+            ValueRef="1-6-2"
+            ValueType="BgColor" />
+        <Property
+            Comment="CheckBox Off Image"
+            DefaultValue=""
+            DestAttribName="sesl_btn_check_to_on_000,sesl_btn_check_to_on_002,sesl_list_choice_check_to_on_000,sesl_list_choice_check_to_on_002"
+            ImageSize="32X32"
+            UID="999-6-2-1"
+            ValueRef="1-6-2-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="CheckBox Disable On Image"
+            DefaultValue=""
+            DestAttribName="sesl_btn_check_to_on_025,sesl_list_choice_check_to_on_025"
+            ImageSize="32X32"
+            UID="999-6-3"
+            ValueRef="1-6-3"
+            ValueType="BgImage" />
+        <Property
+            Comment="CheckBox Disable Off Image"
+            DefaultValue=""
+            DestAttribName="sesl_btn_check_to_on_001,sesl_list_choice_check_to_on_001"
+            ImageSize="32X32"
+            UID="999-6-4"
+            ValueRef="1-6-4"
+            ValueType="BgImage" />
+        <Property
+            Comment="Button - Background color"
+            DefaultValue="#0f000000"
+            DestAttribName="sesl_btn_background_color_light"
+            POption="AlwaysOverriden"
+            UID="999-7-1"
+            ValueRef="1-7-1"
+            ValueType="Color" />
+        <Property
+            Comment="Button - Background color(Dark)"
+            DefaultValue="#2bfafafa"
+            DestAttribName="sesl_btn_background_color_dark"
+            UID="999-7-1-D"
+            ValueRef="1-7-1-D"
+            ValueType="Color" />
+        <Property
+            Comment="Button - Text color"
+            DefaultValue="#252525"
+            DestAttribName="sesl_btn_default_text_color_light"
+            POption="AlwaysOverriden"
+            UID="999-7-2"
+            ValueRef="1-7-2"
+            ValueType="Color" />
+        <Property
+            Comment="Button - Text color(Dark)"
+            DefaultValue="#fafafa"
+            DestAttribName="sesl_btn_default_text_color_dark"
+            UID="999-7-2-D"
+            ValueRef="1-7-2-D"
+            ValueType="Color" />
+        <Property
+            Comment="Change BgColor Of Dialog Background"
+            DefaultValue="#fffafafa"
+            DestAttribName="sesl_dialog_window_background_color_material_light,sesl_dialog_window_background_color_material_dark"
+            UID="999-9-1"
+            ValueRef="1-9-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Change BgImage Of Dialog Background(Ninepatch Only)"
+            DefaultValue=""
+            DestAttribName="sesl_dialog_background"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-9-2"
+            ValueRef="1-9-2"
+            ValueType="BgImage" />
+        <Property
+            Comment="Linked color : Common &gt; Font &gt; System &gt; Primary text. Change Color Of Dialog Title Text Color"
+            DefaultValue="#ff252525"
+            DestAttribName="sesl_dialog_title_text_color_light,sesl_dialog_title_text_color_dark"
+            UID="999-9-3"
+            ValueRef="1-9-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Description text color: Change Color Of Dialog Body Text Color"
+            DefaultValue="#ff505050"
+            DestAttribName="sesl_dialog_body_text_color_light,sesl_dialog_body_text_color_dark"
+            UID="999-9-4"
+            ValueRef="1-9-4"
+            ValueType="TextColor" />
+        <Property
+            Comment="Main text color"
+            DefaultValue="#ff252525"
+            DestAttribName="sesl_select_dialog_list_item_text,sesl_select_dialog_list_item_dark"
+            UID="999-9-6"
+            ValueRef="1-9-6"
+            ValueType="TextColor" />
+        <Property
+            Comment="Linked color : Common &gt; Font &gt; System &gt; Secondary text. Common Dialog Sub Text Color"
+            DefaultValue="#ff979797"
+            DestAttribName="sesl_dialog_sub_text_color_material_light,sesl_dialog_sub_text_color_material_dark"
+            UID="999-9-7"
+            ValueRef="1-9-7"
+            ValueType="TextColor" />
+        <Property
+            Comment="Linked color : Common &gt; Action bar &amp; Content area &gt; List divider. Common Dialog Divider Color"
+            DefaultValue="#ffe6e6e6"
+            DestAttribName="sesl_dialog_divider_color_material_light,sesl_dialog_divider_color_material_dark"
+            UID="999-9-8"
+            ValueRef="1-9-8"
+            ValueType="Color" />
+        <Property
+            Comment="Dialog : Description text color: Common Dialog Divider Color"
+            DefaultValue="#ff252525"
+            DestAttribName=""
+            UID="999-9-9"
+            ValueRef="1-9-9"
+            ValueType="Color" />
+        <Property
+            Comment="Circle progress dialog background color: Common Dialog Circle progress color"
+            DefaultValue="#fafafa"
+            DestAttribName="sesl_progress_dialog_background_color_light, sesl_swipe_refresh_background_dark, sesl_swipe_refresh_background_light"
+            UID="999-9-11"
+            ValueRef="1-9-11"
+            ValueType="Color" />
+        <Property
+            Comment="Progress text color: Common Progress text color"
+            DefaultValue="#ff252525"
+            DestAttribName="sesl_progress_dialog_circle_text_color_light,sesl_progress_dialog_circle_text_color_dark"
+            UID="999-9-13"
+            ValueRef="1-9-13"
+            ValueType="Color" />
+        <Property
+            Comment="Common Button Text color"
+            DefaultValue="#ff010101"
+            DestAttribName="sesl_dialog_button_text_color_light,sesl_dialog_button_text_color_dark"
+            UID="999-9-15"
+            ValueRef="1-9-15"
+            ValueType="Color" />
+        <Property
+            Comment="Button Text color for delete or initialize"
+            DefaultValue="#ffdb332a"
+            DestAttribName=""
+            UID="999-9-16"
+            ValueRef="1-9-16"
+            ValueType="Color" />
+        <Property
+            Comment="More option list / Drop down list: Background color"
+            DefaultValue="#fcfcfc"
+            DestAttribName="sesl_menu_popup_background_color_light,sesl_menu_popup_background_color_dark"
+            POption="FixedOpacity;AlwaysOverriden"
+            UID="999-10-1"
+            ValueRef="1-10-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="More option list / Drop down list: Background image"
+            DefaultValue=""
+            DestAttribName="sesl_menu_popup_background_light,sesl_menu_popup_background_dark"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-10-1-1"
+            ValueRef="1-10-1-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="More option list / Drop down list: Background stroke color"
+            DefaultValue="#cccccc"
+            DestAttribName="sesl_menu_popup_background_stroke_color_light,sesl_menu_popup_background_stroke_color_dark"
+            UID="999-10-2"
+            ValueRef="1-10-2"
+            ValueType="BgColor" />
+        <Property
+            Comment="More option list / Drop down list: Text color"
+            DefaultValue="#ff000000"
+            DestAttribName="sesl_popup_menu_item_text_color_normal_light,sesl_popup_menu_item_text_color_normal_dark,sesl_spinner_dropdown_item_text_color_normal_light,sesl_spinner_dropdown_item_text_color_normal_dark,sesl_spinner_item_text_color_normal_light,sesl_spinner_item_text_color_normal_dark"
+            UID="999-10-3"
+            ValueRef="1-10-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="More option list / Drop down list: Title text color"
+            DefaultValue="#ff000000"
+            DestAttribName="sesl_context_menu_title_text_color_light,sesl_context_menu_title_text_color_dark"
+            UID="999-10-7"
+            ValueRef="1-10-7"
+            ValueType="TintColor" />
+        <Property
+            Comment="More option list / Drop down list: Selected mark icon image"
+            DefaultValue=""
+            DestAttribName="sesl_spinner_icon_check"
+            DestQualifiers="xxxhdpi"
+            ImageSize="20X20"
+            POption="FIXEDSIZE"
+            UID="999-10-10"
+            ValueRef="1-10-10"
+            ValueType="BgImage" />
+        <Property
+            Comment="More option list divider color"
+            DefaultValue="#80979797"
+            DestAttribName="sesl_popup_menu_divider_color_light,sesl_popup_menu_divider_color_dark"
+            Opacity="50"
+            UID="999-10-12"
+            ValueRef="1-10-12"
+            ValueType="Color" />
+        <Property
+            Comment="Action buttons: Button text color"
+            DefaultValue="#ff252525"
+            DestAttribName="sesl_action_bar_text_color_menu_light,sesl_action_bar_text_color_menu_dark"
+            POption="Mandatory"
+            UID="999-11-1"
+            ValueRef="1-11-1"
+            ValueType="TextColor" />
+        <Property
+            Comment="Action buttons: Back icon tint color"
+            DefaultValue="#ff252525"
+            DestAttribName=""
+            UID="999-11-3"
+            ValueRef="1-11-3"
+            ValueType="TintColor" />
+        <Property
+            Comment="Action buttons: Back icon image"
+            DefaultValue=""
+            DestAttribName="sesl_ic_ab_back, sesl_ic_ab_back_dark, sesl_ic_ab_back_light,sesl_ic_search_back"
+            DestQualifiers="xxxhdpi"
+            ImageSize="24X24"
+            NullifyProp="1-11-3"
+            POption="FIXEDSIZE"
+            UID="999-11-4"
+            ValueRef="1-11-4"
+            ValueType="Image" />
+        <Property
+            Comment="Tab: Background color"
+            DefaultValue="#fffafafa"
+            DestAttribName=""
+            POption="FixedOpacity;AlwaysOverriden"
+            UID="999-12-1"
+            ValueRef="1-12-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Tab: Unselected text color"
+            DefaultValue="#ff979797"
+            DestAttribName="sesl_tablayout_text_color_default_light, sesl_tablayout_text_color_default_dark"
+            POption="AlwaysOverriden"
+            UID="999-12-3"
+            ValueRef="1-12-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Tab: Selected text color"
+            DestAttribName="sesl_tablayout_selected_text_color"
+            POption="AlwaysOverriden"
+            UID="999-12-4"
+            ValueRef="1-12-4"
+            ValueType="TextColor" />
+        <Property
+            Comment="Tab: Selected dot line color"
+            DestAttribName="sesl_tablayout_selected_indicator_color"
+            UID="999-12-5"
+            ValueRef="1-12-5"
+            ValueType="BgColor" />
+        <Property
+            Comment="Tab: Selected image"
+            DefaultValue=""
+            DestAttribName="sesl_tablayout_maintab_indicator_opentheme_background"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-12-6"
+            ValueRef="1-12-6"
+            ValueType="BgImage" />
+        <Property
+            Comment="Sub Tab: Background color"
+            DefaultValue="#fffafafa"
+            DestAttribName=""
+            POption="FixedOpacity;AlwaysOverriden"
+            UID="999-13-1"
+            ValueRef="1-13-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Sub Tab: Unselected text color"
+            DefaultValue="#ff979797"
+            DestAttribName="sesl_tablayout_subtab_text_color_default_light, sesl_tablayout_subtab_text_color_default_dark"
+            POption="AlwaysOverriden"
+            UID="999-13-2"
+            ValueRef="1-13-2"
+            ValueType="TextColor" />
+        <Property
+            Comment="Sub Tab: Selected text color"
+            DefaultValue="#ff51b0d3"
+            DestAttribName="sesl_tablayout_subtab_text_color_selected_light, sesl_tablayout_subtab_text_color_selected_dark, sesl_color_picker_tab_selected_light, sesl_color_picker_tab_selected_dark"
+            POption="AlwaysOverriden"
+            UID="999-13-3"
+            ValueRef="1-13-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Sub Tab: Selected mark tint color"
+            DefaultValue="#ff51b0d3"
+            DestAttribName="sesl_tablayout_subtab_background_stroke_color_light, sesl_tablayout_subtab_background_stroke_color_dark"
+            Opacity="10"
+            UID="999-13-4"
+            ValueRef="1-13-4"
+            ValueType="BgColor" />
+        <Property
+            Comment="Tab: Selected image"
+            DefaultValue=""
+            DestAttribName="sesl_tablayout_subtab_indicator_background_light, sesl_tablayout_subtab_indicator_background_dark"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-13-5"
+            ValueRef="1-13-5"
+            ValueType="BgImage" />
+        <Property
+            Comment="Bottom bar: Background color"
+            DefaultValue="#fff2f2f2"
+            DestAttribName="sesl_bottom_navigation_background_light, sesl_bottom_navigation_background_dark"
+            UID="999-14-1"
+            ValueRef="1-1-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Bottom bar: Text color"
+            DefaultValue="#0074d4"
+            DestAttribName="sesl_bottom_navigation_text_text_dark,sesl_bottom_navigation_text_text_light"
+            UID="999-14-2"
+            ValueRef="1-12-4"
+            ValueType="TextColor" />
+        <Property
+            Comment="Bottom bar: Icon + Text color"
+            DefaultValue="#0074d4"
+            DestAttribName="sesl_bottom_navigation_icon_dark,sesl_bottom_navigation_text_dark,sesl_bottom_navigation_icon_light,sesl_bottom_navigation_text_light"
+            UID="999-14-3"
+            ValueRef="1-1-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Content area: Background color"
+            DefaultValue="#fffafafa"
+            DestAttribName="sesl_background_color_light,sesl_background_color_dark"
+            POption="FixedOpacity|AlwaysOverriden"
+            UID="999-18-1"
+            ValueRef="1-18-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Content area: Background image (port)"
+            DefaultValue=""
+            DestAttribName=""
+            DestQualifiers="xxxhdpi"
+            ImageSize="760X760"
+            POption="Compress"
+            UID="999-18-2"
+            ValueRef="1-18-2"
+            ValueType="BgImage" />
+        <Property
+            Comment="Sub header: Background Color"
+            DefaultValue="#ff000000"
+            DestAttribName=""
+            UID="999-19-1"
+            ValueRef="1-19-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Sub header: TextColor"
+            DefaultValue="#858585"
+            DestAttribName="sesl_list_subheader_text_color_light,sesl_list_subheader_text_color_dark"
+            UID="999-19-2"
+            ValueRef="1-19-2"
+            ValueType="TextColor" />
+        <Property
+            Comment="Progress bar: Bar background color"
+            DefaultValue="#4d0381fe"
+            DestAttribName="sesl_progress_control_color_normal_light"
+            Opacity="30"
+            UID="999-20-1"
+            ValueRef="1-20-1"
+            ValueType="Color" />
+        <Property
+            Comment="Progress bar: Bar progress color "
+            DefaultValue="#ff0381fe"
+            DestAttribName="sesl_progress_control_color_activated_light"
+            UID="999-20-2"
+            ValueRef="1-20-2"
+            ValueType="Color" />
+        <Property
+            Comment="Progress bar: (Dark) Bar background color"
+            DefaultValue="#4d0381fe"
+            DestAttribName="sesl_progress_control_color_normal_dark"
+            Opacity="30"
+            UID="999-20-1-D"
+            ValueRef="1-20-1-D"
+            ValueType="Color" />
+        <Property
+            Comment="Progress bar: (Dark) Bar progress color "
+            DefaultValue="#ff0381fe"
+            DestAttribName="sesl_progress_control_color_activated_dark"
+            UID="999-20-2-D"
+            ValueRef="1-20-2-D"
+            ValueType="Color" />
+        <Property
+            Comment="Seek bar: Bar background color"
+            DefaultValue="#4d0381fe"
+            DestAttribName="sesl_seekbar_control_color_default_dark;sesl_seekbar_control_color_default_light"
+            Opacity="30"
+            UID="999-22-1"
+            ValueRef="1-22-1"
+            ValueType="Color" />
+        <Property
+            Comment="Seek bar: Bar progress color"
+            DefaultValue="#ff0381fe"
+            DestAttribName="sesl_seekbar_control_color_activated_light,sesl_seekbar_control_color_activated_dark"
+            UID="999-22-2"
+            ValueRef="1-22-2"
+            ValueType="Color" />
+        <Property
+            Comment="Seek bar: Thumb disabled color"
+            DefaultValue="#d2d2d2"
+            DestAttribName="sesl_seekbar_disable_color_activated_light,sesl_seekbar_disable_color_activated_dark"
+            UID="999-22-4"
+            ValueRef="1-22-4"
+            ValueType="Color" />
+        <Property
+            Comment="Seek bar: Thumb normal color"
+            DefaultValue="#ff0381fe"
+            DestAttribName="sesl_thumb_control_color_activated_light,sesl_thumb_control_color_activated_dark"
+            UID="999-22-5"
+            ValueRef="1-22-5"
+            ValueType="Color" />
+        <Property
+            Comment="Text field: Line color unselected"
+            DefaultValue="#6e000000"
+            DestAttribName="sesl_edit_text_tint_color_unfocused_light,sesl_edit_text_tint_color_unfocused_dark"
+            UID="999-23-1"
+            ValueRef="1-23-1"
+            ValueType="Color" />
+        <Property
+            Comment="Text field: Line color disabled"
+            DefaultValue="#47000000"
+            DestAttribName="sesl_edit_text_tint_color_disabled_light,sesl_edit_text_tint_color_disabled_dark"
+            UID="999-23-1-1"
+            ValueRef="1-23-1-1"
+            ValueType="Color" />
+        <Property
+            Comment="Text field: Line color selected"
+            DefaultValue="#ff0074d4"
+            DestAttribName="sesl_edit_text_tint_color_light,sesl_edit_text_tint_color_dark"
+            UID="999-23-2"
+            ValueRef="1-23-2"
+            ValueType="Color" />
+        <Property
+            Comment="Text field: Cursor color"
+            DefaultValue="#ff0074d4"
+            DestAttribName=""
+            UID="999-23-3"
+            ValueRef="1-23-3"
+            ValueType="Color" />
+        <Property
+            Comment="Text field: Hint text color"
+            DefaultValue="#8c8c8c"
+            DestAttribName="sesl_edit_text_hint_color_light,sesl_edit_text_hint_color_dark,sesl_text_input_layout_hint_text_color"
+            UID="999-23-4"
+            ValueRef="1-23-4"
+            ValueType="Color" />
+        <Property
+            Comment="Text field: Hint text disabled text color"
+            DefaultValue="#8c8c8c"
+            DestAttribName=""
+            UID="999-23-4-1"
+            ValueRef="1-23-4-1"
+            ValueType="Color" />
+        <Property
+            Comment="Text field: Input text color"
+            DefaultValue="#ff252525"
+            DestAttribName="sesl_edit_text_color_light,sesl_edit_text_color_dark"
+            UID="999-23-5"
+            ValueRef="1-23-5"
+            ValueType="TextColor" />
+        <Property
+            Comment="Text field: Input text color disabled"
+            DefaultValue="#ffbebebe"
+            DestAttribName="sesl_edit_text_disabled_color_light,sesl_edit_text_disabled_color_dark"
+            UID="999-23-5-1"
+            ValueRef="1-23-5-1"
+            ValueType="TextColor" />
+        <Property
+            Comment="Text field: Error message"
+            DefaultValue="#fff4511e"
+            DestAttribName="sesl_error_color"
+            UID="999-23-8"
+            ValueRef="1-23-8"
+            ValueType="TextColor" />
+        <Property
+            Comment="Text field: Text selection area background color"
+            DefaultValue="#ffc4e9fc"
+            DestAttribName="sesl_highlighted_text_color_light,sesl_highlighted_text_color_dark"
+            POption="FixedOpacity|AlwaysOverriden"
+            UID="999-23-9"
+            ValueRef="1-100-1"
+            ValueType="Color" />
+        <Property
+            Comment="Spinner: List spinner icon tint color"
+            DefaultValue="#3b3b3b"
+            DestAttribName="sesl_spinner_icon_color_normal,sesl_spinner_icon_color_default_light,sesl_spinner_icon_color_default_dark"
+            UID="999-24-2"
+            ValueRef="1-24-2"
+            ValueType="TintColor" />
+        <Property
+            Comment="Badge: Icon tint color"
+            DefaultValue="#f56a0d"
+            DestAttribName="sesl_menu_badge_background_color_light,sesl_menu_badge_background_color_dark, sesl_badge_background_color"
+            UID="999-33-1"
+            ValueRef="1-33-1"
+            ValueType="TintColor" />
+        <Property
+            Comment="Badge: Icon image"
+            DestAttribName="sesl_noti_badge, sesl_dot_badge, sesl_tab_n_badge"
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-33-2"
+            ValueRef="1-33-2"
+            ValueType="BgImage" />
+        <Property
+            Comment="Badge: Text Color"
+            DefaultValue="#fffafafa"
+            DestAttribName="sesl_menu_badge_text_color_light,sesl_menu_badge_text_color_dark, sesl_badge_text_color"
+            UID="999-33-3"
+            ValueRef="1-33-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Scroll bar: for content bg"
+            DefaultValue="#ffdedede"
+            DestAttribName="sesl_scrollbar_handle_tint_color_light, sesl_scrollbar_handle_tint_color_dark, sesl_dropdown_scrollbar_handle_color_light, sesl_dropdown_scrollbar_handle_color_dark"
+            POption="AlwaysOverriden"
+            UID="999-36"
+            ValueRef="1-36"
+            ValueType="TintColor" />
+        <Property
+            Comment="Scroll bar: for dialog bg"
+            DefaultValue="#ffdedede"
+            DestAttribName="sesl_dialog_scrollbar_handle_tint_color_mtrl_light, sesl_dialog_scrollbar_handle_tint_color_mtrl_dark"
+            POption="AlwaysOverriden"
+            UID="999-37"
+            ValueRef="1-37"
+            ValueType="TintColor" />
+        <Property
+            Comment="Fast scroll default color"
+            DefaultValue=""
+            DestAttribName=""
+            UID="999-37-1"
+            ValueRef="1-37-1"
+            ValueType="Color" />
+        <Property
+            Comment="Fast scroll default color"
+            DefaultValue=""
+            DestAttribName="sesl_fast_scrollbar_bg_color"
+            UID="999-37-2"
+            ValueRef="1-37-2"
+            ValueType="Color" />
+        <Property
+            Comment="Change BgImage Of Sub App Bar"
+            DefaultValue="#26fafafa"
+            DestAttribName=""
+            POption="AlwaysOverriden"
+            UID="999-39-1"
+            ValueRef="1-39-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Change Text Color Of Sub App Bar"
+            DefaultValue="#ff252525"
+            DestAttribName=""
+            POption="AlwaysOverriden"
+            UID="999-39-2"
+            ValueRef="1-39-2"
+            ValueType="TextColor" />
+        <Property
+            Comment="Master On background color"
+            DefaultValue=""
+            DestAttribName="sesl_switchbar_on_background_color_light,sesl_switchbar_on_background_color_dark"
+            UID="999-40-1"
+            ValueRef="1-40-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Master Off background color"
+            DefaultValue=""
+            DestAttribName="sesl_switchbar_off_background_color_dark,sesl_switchbar_off_background_color_light"
+            UID="999-40-2"
+            ValueRef="1-40-2"
+            ValueType="BgColor" />
+        <Property
+            Comment="Master On text color"
+            DefaultValue=""
+            DestAttribName="sesl_switchbar_on_text_color_light,sesl_switchbar_on_text_color_dark"
+            UID="999-40-3"
+            ValueRef="1-40-3"
+            ValueType="BgColor" />
+        <Property
+            Comment="Master Off text color"
+            DefaultValue=""
+            DestAttribName="sesl_switchbar_off_text_color_light,sesl_switchbar_off_text_color_dark"
+            UID="999-40-4"
+            ValueRef="1-40-4"
+            ValueType="BgColor" />
+        <Property
+            Comment="Date/Time picker dialog: Background color"
+            DefaultValue="#fffafafa"
+            DestAttribName=""
+            UID="999-41-1"
+            ValueRef="1-41-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Date/Time picker dialog: Background image"
+            DefaultValue=""
+            DestAttribName=""
+            DestQualifiers="xxxhdpi"
+            POption="NinePatch"
+            UID="999-41-1-1"
+            ValueRef="1-41-1-1"
+            ValueType="BgImage" />
+        <Property
+            Comment="Date/Time picker dialog: Month(Title) text color"
+            DefaultValue="#ff454545"
+            DestAttribName="sesl_date_picker_header_text_color_light,sesl_date_picker_header_text_color_dark"
+            UID="999-41-3"
+            ValueRef="1-41-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Date picker dialog: Week text color (Mon~Sat)"
+            DefaultValue="#ff909090"
+            DestAttribName="sesl_date_picker_normal_text_color_light,sesl_date_picker_normal_text_color_dark"
+            Opacity="50"
+            UID="999-41-4"
+            ValueRef="1-41-4"
+            ValueType="TextColor" />
+        <Property
+            Comment="Date picker dialog: Day text color"
+            DefaultValue="#ff454545"
+            DestAttribName="sesl_date_picker_normal_day_number_text_color_light,sesl_date_picker_normal_day_number_text_color_dark"
+            UID="999-41-5"
+            ValueRef="1-41-5"
+            ValueType="TextColor" />
+        <Property
+            Comment="Date picker dialog: Left/right arrow icon tint Color"
+            DefaultValue="#ff8e8e8e"
+            DestAttribName="sesl_date_picker_button_tint_color_light,sesl_date_picker_button_tint_color_dark"
+            Opacity="50"
+            UID="999-41-8"
+            ValueRef="1-41-8"
+            ValueType="TintColor" />
+        <Property
+            Comment="Date picker dialog: Sunday text color"
+            DefaultValue="#ffc95151"
+            DestAttribName="sesl_date_picker_sunday_number_text_color_light,sesl_date_picker_sunday_number_text_color_dark"
+            UID="999-41-11"
+            ValueRef="1-41-11"
+            ValueType="TextColor" />
+        <Property
+            Comment="Date picker dialog: Sunday date text color"
+            DefaultValue="#ffd77e7e"
+            DestAttribName="sesl_date_picker_sunday_text_color_light,sesl_date_picker_sunday_text_color_dark"
+            Opacity="50"
+            UID="999-41-11-1"
+            ValueRef="1-41-11-1"
+            ValueType="TextColor" />
+        <Property
+            Comment="Date picker dialog: Saturday text color"
+            DefaultValue="#ff0082be"
+            DestAttribName="sesl_date_picker_saturday_text_color_light,sesl_date_picker_saturday_text_color_dark"
+            UID="999-41-12"
+            ValueRef="1-41-12"
+            ValueType="TextColor" />
+        <Property
+            Comment="Date picker dialog: Saturday date text color"
+            DefaultValue="#ff0082be"
+            DestAttribName="sesl_date_picker_saturday_week_text_color_light,sesl_date_picker_saturday_week_text_color_dark"
+            Opacity="50"
+            UID="999-41-12-1"
+            ValueRef="1-41-12-1"
+            ValueType="TextColor" />
+        <Property
+            Comment="Date picker dialog: Today circle color"
+            DefaultValue="#0074d4"
+            DestAttribName="sesl_simple_month_view_selected_day_color"
+            UID="999-41-13"
+            ValueRef="1-41-13"
+            ValueType="TextColor" />
+        <Property
+            Comment="Date picker dialog: Today text color"
+            DefaultValue="#fffafafa"
+            DestAttribName="sesl_date_picker_selected_day_number_text_color_light,sesl_date_picker_selected_day_number_text_color_dark"
+            UID="999-41-14"
+            ValueRef="1-41-14"
+            ValueType="TextColor" />
+        <Property
+            Comment="Time(Date) picker dialog: text color idle"
+            DefaultValue="#ff252525"
+            DestAttribName="sesl_number_picker_text_color_light,sesl_number_picker_text_color_dark"
+            UID="999-42-1"
+            ValueRef="1-42-1"
+            ValueType="TextColor" />
+        <Property
+            Comment="Time(Date) picker dialog: text dim color idle"
+            DefaultValue="#ff252525"
+            DestAttribName=""
+            UID="999-42-2"
+            ValueRef="1-42-2"
+            ValueType="TextColor" />
+        <Property
+            Comment="Time(Date) picker dialog: focus block color"
+            DefaultValue="#0d000000"
+            DestAttribName="sesl_number_picker_text_highlight_color_light,sesl_number_picker_text_highlight_color_dark"
+            UID="999-42-3"
+            ValueRef="1-42-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Time(Date) picker dialog: text color scrolling"
+            DefaultValue="#ff0072de"
+            DestAttribName="sesl_number_picker_text_color_scroll"
+            UID="999-42-1_1"
+            ValueRef="1-42-1_1"
+            ValueType="TextColor" />
+        <Property
+            Comment="Index text color"
+            DefaultValue="#686868"
+            DestAttribName="sesl_index_bar_text_color,sesl_index_bar_text_color_light,sesl_index_bar_text_color_dark"
+            POption="AlwaysOverriden"
+            UID="999-50-3"
+            ValueRef="1-50-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Indexbar background color"
+            DefaultValue="#e6e6e6"
+            DestAttribName="sesl_index_bar_background_tint_color,sesl_index_bar_background_tint_color_light,sesl_index_bar_background_tint_color_dark"
+            POption="AlwaysOverriden"
+            UID="999-50-7"
+            ValueRef="1-50-7"
+            ValueType="TintColor" />
+        <Property
+            Comment="index tip color"
+            DefaultValue=""
+            DestAttribName="sesl_scrollbar_index_tip_color"
+            UID="999-50-9"
+            ValueRef="1-50-9"
+            ValueType="Color" />
+        <Property
+            Comment="Ripple effect: App bar color"
+            DefaultValue="#33000000"
+            DestAttribName="sesl_ripple_color_light,sesl_ripple_color_dark"
+            UID="999-52-1"
+            ValueRef="1-52-1"
+            ValueType="Color" />
+        <Property
+            Comment="Ripple effect: Ripple effect for General list, Spinner list, Menu list, Dialog list and Drawer list"
+            DefaultValue="#1a000000"
+            DestAttribName="sesl_list_ripple_color_dark, sesl_list_ripple_color_light,sesl_list_go_to_top_ripple_dark,sesl_list_go_to_top_ripple_light"
+            POption="AlwaysOverriden"
+            UID="999-52-2"
+            ValueRef="1-52-2"
+            ValueType="Color" />
+        <Property
+            Comment="Color1: Progress circle color 1"
+            DefaultValue="#ff00d694"
+            DestAttribName="sesl_loading_progress_color1_light,sesl_loading_progress_color1_dark, sesl_swipe_refresh_color1_light,sesl_swipe_refresh_color1_dark"
+            UID="999-55-1"
+            ValueRef="1-A"
+            ValueType="Color" />
+        <Property
+            Comment="Progress circle color 2: Progress circle color 2"
+            DefaultValue="#ff0381fe"
+            DestAttribName="sesl_loading_progress_color2_light, sesl_loading_progress_color2_dark, sesl_swipe_refresh_color2_light,sesl_swipe_refresh_color2_dark"
+            Opacity="60"
+            UID="999-55-2"
+            ValueRef="1-A"
+            ValueType="Color" />
+        <Property
+            Comment="Search bar background color"
+            DefaultValue="#e4e4e4"
+            DestAttribName="sesl_search_textfield_color_light,sesl_search_textfield_color_dark"
+            UID="999-59-1"
+            ValueRef="1-59-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Input text color"
+            DefaultValue="#252525"
+            DestAttribName="sesl_search_view_background_text_color_light,sesl_search_view_background_text_color_dark"
+            UID="999-59-3"
+            ValueRef="1-59-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Hint text color"
+            DefaultValue="#80252525"
+            DestAttribName="sesl_search_view_background_hint_text_color_light,sesl_search_view_background_hint_text_color_dark"
+            UID="999-59-4"
+            ValueRef="1-59-4"
+            ValueType="TextColor" />
+        <Property
+            Comment="Search cancel icon tint color"
+            DefaultValue="#bfbfbf"
+            DestAttribName=""
+            UID="999-59-6-1"
+            ValueRef="1-59-6-1"
+            ValueType="TintColor" />
+        <Property
+            Comment="Hint text color(no BG)"
+            DefaultValue="#252525"
+            DestAttribName="sesl_search_view_hint_text_color_light,sesl_search_view_hint_text_color_dark"
+            UID="999-59-10"
+            ValueRef="999-1-4"
+            ValueType="TextColor" />
+        <Property
+            Comment="icon tint color(no BG)"
+            DefaultValue="#010101"
+            DestAttribName="sesl_search_view_icon_color_light,sesl_search_view_icon_color_dark"
+            UID="999-59-11"
+            ValueRef="999-11-1"
+            ValueType="TintColor" />
+        <Property
+            Comment="icon tint color"
+            DefaultValue="#010101"
+            DestAttribName="sesl_search_view_background_icon_color_light,sesl_search_view_background_icon_color_dark"
+            UID="999-59-11-1"
+            ValueRef="1-59-11-1"
+            ValueType="TintColor" />
+        <Property
+            Comment="Input text color(no BG)"
+            DefaultValue="#252525"
+            DestAttribName="sesl_search_view_text_color_light,sesl_search_view_text_color_dark"
+            POption="AlwaysOverriden"
+            UID="999-59-12"
+            ValueRef="999-1-3"
+            ValueType="TextColor" />
+        <Property
+            Comment="Round corner (All)"
+            DefaultValue="#fff2f2f2"
+            DestAttribName=""
+            UID="999-62"
+            ValueRef="1-1-1"
+            ValueType="Color" />
+        <Property
+            Comment="Go to top: button background color"
+            DefaultValue="#fff2f2f2"
+            DestAttribName="sesl_list_go_to_top_inner_round_light,sesl_list_go_to_top_inner_round_dark"
+            UID="999-67-1"
+            ValueRef="1-67-1"
+            ValueType="BgColor" />
+        <Property
+            Comment="Go to top: button background stroke color"
+            DefaultValue="#33252525"
+            DestAttribName="sesl_list_go_to_top_outer_round_light,sesl_list_go_to_top_outer_round_dark"
+            Opacity="20"
+            UID="999-67-2"
+            ValueRef="1-C"
+            ValueType="BgColor" />
+        <Property
+            Comment="Go to top: top icon tint color"
+            DefaultValue="#ffa9a9a9"
+            DestAttribName="sesl_list_go_to_top_arrow_top_light,sesl_list_go_to_top_arrow_top_dark"
+            Opacity="30"
+            UID="999-67-3"
+            ValueRef="1-C"
+            ValueType="TintColor" />
+        <Property
+            Comment="Go to top: bottom icon tint color"
+            DefaultValue="#ff797979"
+            DestAttribName="sesl_list_go_to_top_arrow_bottom_light,sesl_list_go_to_top_arrow_bottom_dark"
+            UID="999-67-4"
+            ValueRef="1-C"
+            ValueType="TintColor" />
+        <Property
+            Comment="Chunking outline stroke"
+            DefaultValue="#00d6d6d6"
+            DestAttribName="sesl_round_stroke_light"
+            Opacity="0"
+            POption="AlwaysOverriden"
+            UID="999-68"
+            ValueRef=""
+            ValueType="Color" />
+        <Property
+            Comment="Date picker period actived"
+            DefaultValue="#ff0072de"
+            DestAttribName="sesl_tablayout_subtab_sub_text_color_selected_light,sesl_tablayout_subtab_sub_text_color_selected_dark"
+            UID="999-70-1"
+            ValueRef="24-E"
+            ValueType="Color" />
+        <Property
+            Comment="Date picker period dimmed"
+            DefaultValue="#ff909090"
+            DestAttribName="sesl_tablayout_subtab_sub_text_color_default_light,sesl_tablayout_subtab_sub_text_color_default_dark"
+            UID="999-70-2"
+            ValueRef="1-4-2"
+            ValueType="Color" />
+        <Property
+            Comment="Action Button Color in AppPickerView"
+            DefaultValue="#9c9c9c"
+            DestAttribName="sesl_app_picker_list_action_icon_tint_color_light,sesl_app_picker_list_action_icon_tint_color_dark"
+            UID="999-99-1"
+            ValueRef="1-A"
+            ValueType="Color" />
+    </AppMetaData>
+</ThemeMetaData>
