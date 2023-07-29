@@ -62,13 +62,26 @@ fun ProgressIndicatorScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    CircularProgressIndicatorSize.values().forEach { size ->
-                        ProgressIndicator(
-                            type = ProgressIndicatorType.CircularIndeterminate(
-                                size = size
-                            )
+                    ProgressIndicator(
+                        type = ProgressIndicatorType.CircularIndeterminate(
+                            size = CircularProgressIndicatorSize.Companion.Small
                         )
-                    }
+                    )
+                    ProgressIndicator(
+                        type = ProgressIndicatorType.CircularIndeterminate(
+                            size = CircularProgressIndicatorSize.Companion.Medium
+                        )
+                    )
+                    ProgressIndicator(
+                        type = ProgressIndicatorType.CircularIndeterminate(
+                            size = CircularProgressIndicatorSize.Companion.Large
+                        )
+                    )
+                    ProgressIndicator(
+                        type = ProgressIndicatorType.CircularIndeterminate(
+                            size = CircularProgressIndicatorSize.Companion.XLarge
+                        )
+                    )
                 }
                 ProgressIndicator(
                     modifier = Modifier
@@ -95,14 +108,30 @@ fun ProgressIndicatorScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    CircularProgressIndicatorSize.values().forEach { size ->
-                        ProgressIndicator(
-                            type = ProgressIndicatorType.CircularDeterminate(
-                                size = size,
-                                progress = 0.4F
-                            )
+                    ProgressIndicator(
+                        type = ProgressIndicatorType.CircularDeterminate(
+                            size = CircularProgressIndicatorSize.Companion.Small,
+                            progress = 0.4F
                         )
-                    }
+                    )
+                    ProgressIndicator(
+                        type = ProgressIndicatorType.CircularDeterminate(
+                            size = CircularProgressIndicatorSize.Companion.Medium,
+                            progress = 0.4F
+                        )
+                    )
+                    ProgressIndicator(
+                        type = ProgressIndicatorType.CircularDeterminate(
+                            size = CircularProgressIndicatorSize.Companion.Large,
+                            progress = 0.4F
+                        )
+                    )
+                    ProgressIndicator(
+                        type = ProgressIndicatorType.CircularDeterminate(
+                            size = CircularProgressIndicatorSize.Companion.XLarge,
+                            progress = 0.4F
+                        )
+                    )
                 }
                 ProgressIndicator(
                     modifier = Modifier

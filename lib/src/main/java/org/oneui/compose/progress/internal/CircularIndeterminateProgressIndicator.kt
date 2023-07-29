@@ -35,7 +35,7 @@ import org.oneui.compose.util.OneUIPreview
  */
 @Composable
 internal fun CircularIndeterminateProgressIndicator(
-    size: CircularProgressIndicatorSize = CircularProgressIndicatorSize.Medium,
+    size: CircularProgressIndicatorSize = CircularProgressIndicatorSize.Companion.Medium,
     colors: ProgressIndicatorColors = progressIndicatorColors()
 ) {
     val rotationEasing = CubicBezierEasing(0F, 0F, 0F, 0F)
@@ -209,10 +209,17 @@ private fun CircularIndeterminateProgressIndicatorPreview() =
                 .spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            CircularProgressIndicatorSize.values().forEach {
-                CircularIndeterminateProgressIndicator(
-                    size = it
-                )
-            }
+            CircularIndeterminateProgressIndicator(
+                size = CircularProgressIndicatorSize.Companion.Small
+            )
+            CircularIndeterminateProgressIndicator(
+                size = CircularProgressIndicatorSize.Companion.Medium
+            )
+            CircularIndeterminateProgressIndicator(
+                size = CircularProgressIndicatorSize.Companion.Large
+            )
+            CircularIndeterminateProgressIndicator(
+                size = CircularProgressIndicatorSize.Companion.XLarge
+            )
         }
     }
