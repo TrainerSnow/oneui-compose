@@ -125,7 +125,7 @@ data class TipsCardPreferenceColors(
 
 @Composable
 fun tipsCardPreferenceColors(
-    background: Color = OneUITheme.colors.tipsCardPreference
+    background: Color = OneUITheme.colors.ouiTipsCardPreferenceBackground
 ): TipsCardPreferenceColors = TipsCardPreferenceColors(
     background = background
 )

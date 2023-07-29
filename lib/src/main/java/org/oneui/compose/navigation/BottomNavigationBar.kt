@@ -129,9 +129,9 @@ data class BottomNavigationBarColors(
  */
 @Composable
 fun bottomNavigationBarColors(
-    background: Color = OneUITheme.colors.bnbBackground,
-    ripple: Color = OneUITheme.colors.bnbRipple,
-    icon: Color = OneUITheme.colors.bnbIcon
+    background: Color = OneUITheme.colors.seslNavigationBarBackground,
+    ripple: Color = OneUITheme.colors.seslNavigationBarRipple,
+    icon: Color = OneUITheme.colors.seslNavigationBarIcon
 ): BottomNavigationBarColors = BottomNavigationBarColors(
     background = background,
     ripple = ripple,

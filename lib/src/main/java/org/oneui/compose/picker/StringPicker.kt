@@ -177,8 +177,8 @@ data class StringPickerColors(
 
 @Composable
 fun stringPickerColors(
-    textScrolling: Color = OneUITheme.colors.numberPickerScrollTextColor,
-    text: Color = OneUITheme.colors.numberPickerTextColor
+    textScrolling: Color = OneUITheme.colors.seslNumberPickerTextHighlightColor,
+    text: Color = OneUITheme.colors.seslNumberPickerTextColor
 ): StringPickerColors = StringPickerColors(
     textScrolling = textScrolling,
     text = text

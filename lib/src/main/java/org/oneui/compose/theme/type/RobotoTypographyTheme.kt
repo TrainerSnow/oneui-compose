@@ -87,19 +87,19 @@ internal class RobotoTypographyTheme private constructor(
                 ),
                 drawerItemLabel = TextStyle(
                     fontSize = 18.sp,
-                    color = colorTheme.drawerItemLabelColor,
+                    color = colorTheme.drawerItemLabel,
                     fontFamily = robotoFamily,
                     fontWeight = FontWeight.Normal
                 ),
                 drawerItemLabelSelected = TextStyle(
                     fontSize = 18.sp,
-                    color = colorTheme.drawerItemLabelColor,
+                    color = colorTheme.drawerItemLabelSelected,
                     fontFamily = robotoFamily,
                     fontWeight = FontWeight.Bold
                 ),
                 drawerItemEndLabel = TextStyle(
                     fontSize = 13.sp,
-                    color = colorTheme.drawerItemLabelEndColor,
+                    color = colorTheme.drawerItemEndLabel,
                     fontFamily = robotoFamily,
                     fontWeight = FontWeight.Normal
                 ),
@@ -124,7 +124,7 @@ internal class RobotoTypographyTheme private constructor(
                     fontSize = 13.sp,
                     fontFamily = robotoFamily,
                     fontWeight = FontWeight.Bold,
-                    color = colorTheme.textSeparatorText
+                    color = colorTheme.seslListSubheaderTextColor
                 ),
                 radioLabel = TextStyle(
                     fontFamily = robotoFamily,
@@ -223,7 +223,7 @@ internal class RobotoTypographyTheme private constructor(
                 ),
                 relativeCardTitle = TextStyle(
                     fontSize = 18.sp,
-                    color = colorTheme.relativeCardTitleText,
+                    color = colorTheme.seslPrimaryDarkColor,
                     fontFamily = robotoFamily
                 ),
                 relativeCardLink = TextStyle(
@@ -289,18 +289,18 @@ internal class RobotoTypographyTheme private constructor(
                     fontWeight = FontWeight.Bold
                 ),
                 tabItem = TextStyle(
-                    color = colorTheme.tabsItemText,
+                    color = colorTheme.seslTablayoutTextColorDefault,
                     fontSize = 15.sp,
                     fontFamily = robotoFamily
                 ),
                 tabItemSelected = TextStyle(
-                    color = colorTheme.tabsItemTextSelected,
+                    color = colorTheme.seslTablayoutTextColorSelected,
                     fontWeight = FontWeight.Bold,
                     fontSize = 15.sp,
                     fontFamily = robotoFamily
                 ),
                 bnbLabel = TextStyle(
-                    color = colorTheme.bnbLabel,
+                    color = colorTheme.seslNavigationBarText,
                     fontSize = 12.sp,
                     fontFamily = robotoFamily
                 ),
@@ -332,42 +332,42 @@ internal class RobotoTypographyTheme private constructor(
                 datePickerHeader = TextStyle(
                     fontFamily = robotoFamily,
                     fontSize = 16.sp,
-                    color = colorTheme.datePickerHeaderText
+                    color = colorTheme.seslDatePickerHeaderTextColor
                 ),
                 datePickerSunday = TextStyle(
                     fontFamily = robotoFamily,
                     fontSize = 12.sp,
-                    color = colorTheme.datePickerSunday,
+                    color = colorTheme.seslDatePickerSundayTextColor,
                     textAlign = TextAlign.Center
                 ),
                 datePickerSaturday = TextStyle(
                     fontFamily = robotoFamily,
                     fontSize = 12.sp,
-                    color = colorTheme.datePickerSaturday,
+                    color = colorTheme.seslDatePickerSaturdayTextColor,
                     textAlign = TextAlign.Center
                 ),
                 datePickerNormalDay = TextStyle(
                     fontFamily = robotoFamily,
                     fontSize = 12.sp,
-                    color = colorTheme.datePickerNormalDay,
+                    color = colorTheme.seslDatePickerNormalTextColor,
                     textAlign = TextAlign.Center
                 ),
                 datePickerNumberSunday = TextStyle(
                     fontFamily = robotoFamily,
                     fontSize = 13.sp,
-                    color = colorTheme.datePickerDayNumberSunday,
+                    color = colorTheme.seslDatePickerSundayNumberTextColor,
                     textAlign = TextAlign.Center
                 ),
                 datePickerNumberSaturday = TextStyle(
                     fontFamily = robotoFamily,
                     fontSize = 13.sp,
-                    color = colorTheme.datePickerDayNumberSaturday,
+                    color = colorTheme.seslDatePickerSaturdayWeekTextColor,
                     textAlign = TextAlign.Center
                 ),
                 datePickerNumberNormalDay = TextStyle(
                     fontFamily = robotoFamily,
                     fontSize = 13.sp,
-                    color = colorTheme.datePickerDayNumberNormal,
+                    color = colorTheme.seslDatePickerNormalDayNumberTextColor,
                     textAlign = TextAlign.Center
                 )
             )

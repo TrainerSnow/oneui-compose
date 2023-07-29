@@ -94,8 +94,8 @@ data class DrawerColors(
 @Composable
 fun drawerColors(
     scrim: Color = OneUITheme.colors.drawerScrim,
-    drawerBackground: Color = OneUITheme.colors.drawerBackground,
-    background: Color = OneUITheme.colors.drawerLayoutBackground
+    drawerBackground: Color = OneUITheme.colors.seslBackgroundColor,
+    background: Color = OneUITheme.colors.seslRoundAndBgcolor
 ) = DrawerColors(
     scrim = scrim,
     drawerBackground = drawerBackground,
@@ -136,7 +136,7 @@ fun DrawerLayout(
     layoutPadding: PaddingValues = DrawerDefaults.layoutPadding,
     drawerPadding: PaddingValues = DrawerDefaults.drawerPadding,
     headerIconMargin: PaddingValues = DrawerDefaults.headerIconMargin,
-    headerIconTint: Color = OneUITheme.colors.drawerHeaderIconTint,
+    headerIconTint: Color = OneUITheme.colors.drawerHeaderIcon,
     headerIcon: Icon? = null,
     maxWidth: Dp = DrawerDefaults.maxWidthCompact,
     minWidth: Dp = DrawerDefaults.minWidthCompact,

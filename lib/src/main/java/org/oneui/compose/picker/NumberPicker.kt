@@ -202,8 +202,8 @@ data class NumberPickerColors(
  */
 @Composable
 fun numberPickerColors(
-    textScrolling: Color = OneUITheme.colors.numberPickerScrollTextColor,
-    text: Color = OneUITheme.colors.numberPickerTextColor
+    textScrolling: Color = OneUITheme.colors.seslNumberPickerTextHighlightColor,
+    text: Color = OneUITheme.colors.seslNumberPickerTextColor
 ): NumberPickerColors = NumberPickerColors(
     textScrolling = textScrolling,
     text = text

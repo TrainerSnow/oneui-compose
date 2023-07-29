@@ -469,7 +469,7 @@ data class DatePickerColors(
 fun datePickerColors(
     ripple: Color = OneUITheme.colors.seslRippleColor,
     selectedDayCircleColor: Color = OneUITheme.colors.seslPrimaryDarkColor,
-    selectedDayNumberText: Color = OneUITheme.colors.datePickerSelectedDay
+    selectedDayNumberText: Color = OneUITheme.colors.seslDatePickerSelectedDayNumberTextColor
 ): DatePickerColors = DatePickerColors(
     ripple = ripple,
     selectedDayCircleColor = selectedDayCircleColor,

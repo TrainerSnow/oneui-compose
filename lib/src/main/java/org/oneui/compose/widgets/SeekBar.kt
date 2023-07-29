@@ -532,7 +532,7 @@ fun seekBarColors(
     ripple: Color = OneUITheme.colors.seslRippleColor,
     trackColor: Color = OneUITheme.colors.seslSeekbarOverlapColorDefault,
     warningColor: Color = OneUITheme.colors.seslSeekbarOverlapColorActivated,
-    trackWarningColor: Color = OneUITheme.colors.seslSeekbarOverlapColorActivatedTrack
+    trackWarningColor: Color = OneUITheme.colors.seslSeekbarOverlapColorActivated
 ): SeekBarColors = SeekBarColors(
     color = color,
     ripple = ripple,

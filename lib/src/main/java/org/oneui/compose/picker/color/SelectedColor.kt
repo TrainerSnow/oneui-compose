@@ -357,7 +357,7 @@ data class SelectedColorSectionColors(
  */
 @Composable
 fun selectedColorSectionColors(
-    selectedSectionOutline: Color = OneUITheme.colors.colorPickerStroke
+    selectedSectionOutline: Color = OneUITheme.colors.seslColorPickerStrokeColor
 ): SelectedColorSectionColors = SelectedColorSectionColors(
     selectedSectionOutline = selectedSectionOutline
 )

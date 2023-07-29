@@ -111,7 +111,7 @@ data class ColorPickerTabLayoutColors(
 
 @Composable
 fun colorPickerTabLayoutColors(
-    tabBackground: Color = OneUITheme.colors.colorPickerTabBackground
+    tabBackground: Color = OneUITheme.colors.seslColorPickerTabSelectedBackground
 ): ColorPickerTabLayoutColors = ColorPickerTabLayoutColors(
     tabBackground = tabBackground
 )

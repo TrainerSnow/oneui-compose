@@ -15,7 +15,11 @@ import org.oneui.compose.theme.type.RobotoTypographyTheme
 
 @Composable
 fun OneUITheme(
-    colorTheme: OneUIColorTheme = OneUIColorTheme.getTheme(isSystemInDarkTheme()),
+    dynamicColors: Boolean = false,
+    colorTheme: OneUIColorTheme = OneUIColorTheme.getTheme(
+        isSystemInDarkTheme(),
+        dynamicColors
+    ),
     dynamicDimensions: IDynamicDimensions = DynamicDimensionsImpl(
         context = LocalContext.current
     ),

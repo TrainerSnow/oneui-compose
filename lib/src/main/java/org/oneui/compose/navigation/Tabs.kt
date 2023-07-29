@@ -253,9 +253,9 @@ data class TabsColors(
 @Composable
 fun tabsColors(
     itemRipple: Color = OneUITheme.colors.seslRippleColor,
-    itemIndicator: Color = OneUITheme.colors.tabsItemIndicator,
-    itemSubIndicator: Color = OneUITheme.colors.tabsItemSubIndicator,
-    itemSubRipple: Color = OneUITheme.colors.tabsItemSubRipple
+    itemIndicator: Color = OneUITheme.colors.seslTablayoutMainTabIndicatorColor,
+    itemSubIndicator: Color = OneUITheme.colors.seslTablayoutSubtabIndicatorBackground,
+    itemSubRipple: Color = OneUITheme.colors.seslRippleColor
 ): TabsColors = TabsColors(
     itemRipple = itemRipple,
     itemIndicator = itemIndicator,

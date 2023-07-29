@@ -96,7 +96,7 @@ data class RelativeCardColors(
  */
 @Composable
 fun relativeCardColors(
-    background: Color = OneUITheme.colors.relativeCardBackground
+    background: Color = OneUITheme.colors.seslPreferenceRelativeCardBackground
 ): RelativeCardColors = RelativeCardColors(
     background = background
 )
