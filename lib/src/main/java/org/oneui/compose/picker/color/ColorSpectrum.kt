@@ -168,7 +168,7 @@ data class ColorSpectrumColors(
  */
 @Composable
 fun colorSpectrumColors(
-    cursorOutline: Color = OneUITheme.colors.white,
+    cursorOutline: Color = OneUITheme.colors.seslWhite,
     hueColors: List<Color> = ColorSpectrumDefaults.hueColors
 ): ColorSpectrumColors = ColorSpectrumColors(
     cursorOutline = cursorOutline,

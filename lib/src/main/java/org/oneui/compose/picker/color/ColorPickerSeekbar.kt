@@ -350,8 +350,8 @@ data class ColorPickerSeekbarColors(
  */
 @Composable
 fun colorPickerSeekbarColors(
-    thumbColor: Color = OneUITheme.colors.colorPickerSeekbarThumb,
-    thumbOutline: Color = OneUITheme.colors.colorPickerSeekbarThumbStroke,
+    thumbColor: Color = OneUITheme.colors.seslColorPickerSeekbarCursorBackgroundColor,
+    thumbOutline: Color = OneUITheme.colors.seslColorPickerSeekbarCursorStrokeColor,
     ripple: Color = OneUITheme.colors.seslRippleColor
 ): ColorPickerSeekbarColors = ColorPickerSeekbarColors(
     thumbColor = thumbColor,

@@ -58,7 +58,7 @@ fun defaultButtonColors(
     backgroundDisabled: Color = background.copy(
         alpha = ButtonDefaults.disabledAlpha
     ),
-    text: Color = OneUITheme.colors.buttonDefaultText
+    text: Color = OneUITheme.colors.seslPrimaryTextColor
 ): ButtonColors = ButtonColors(
     ripple = ripple,
     background = background,
@@ -72,11 +72,11 @@ fun defaultButtonColors(
 @Composable
 fun coloredButtonColors(
     ripple: Color = OneUITheme.colors.seslRippleColor,
-    background: Color = OneUITheme.colors.buttonColoredBackground,
+    background: Color = OneUITheme.colors.seslPrimaryColor,
     backgroundDisabled: Color = background.copy(
         alpha = ButtonDefaults.disabledAlpha
     ),
-    text: Color = OneUITheme.colors.buttonColoredText
+    text: Color = OneUITheme.colors.seslWhite
 ): ButtonColors = ButtonColors(
     ripple = ripple,
     background = background,
@@ -90,9 +90,9 @@ fun coloredButtonColors(
 @Composable
 fun transparentButtonColors(
     ripple: Color = OneUITheme.colors.seslRippleColor,
-    background: Color = OneUITheme.colors.buttonTransparentBackground,
-    backgroundDisabled: Color = OneUITheme.colors.buttonTransparentBackground,
-    text: Color = OneUITheme.colors.buttonTransparentText
+    background: Color = Color.Transparent,
+    backgroundDisabled: Color = Color.Transparent,
+    text: Color = OneUITheme.colors.seslPrimaryTextColor
 ): ButtonColors = ButtonColors(
     ripple = ripple,
     background = background,

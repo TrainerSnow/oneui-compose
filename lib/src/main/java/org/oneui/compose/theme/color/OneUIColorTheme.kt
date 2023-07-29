@@ -1,5 +1,6 @@
 package org.oneui.compose.theme.color
 
+import android.os.Build
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
@@ -192,15 +193,51 @@ interface OneUIColorTheme {
     val materialBlueGrey800: Color
     val materialBlueGrey900: Color
     val materialBlueGrey950: Color
+    val seslNavigationBarBackground: Color
+    val seslNavigationBarIcon: Color
+    val seslNavigationBarRipple: Color
+    val seslNavigationBarText: Color
+    val seslNavigationBarTextDisable: Color
+    val seslNavigationBarTextText: Color
+    val seslTablayoutMainTabIndicatorColor: Color
+    val seslTablayoutSubtabIndicatorBackground: Color
+    val seslTablayoutSubtabSubTextColorDefault: Color
+    val seslTablayoutSubtabSubTextColorDisabled: Color
+    val seslTablayoutSubtabSubTextColorSelected: Color
+    val seslTablayoutSubtabTextColorDefault: Color
+    val seslTablayoutSubtabTextColorDisabled: Color
+    val seslTablayoutSubtabTextColorSelected: Color
+    val seslTablayoutTextColorDefault: Color
+    val seslTablayoutTextColorDisabled: Color
+    val seslTablayoutTextColorSelected: Color
+    val seslTablayoutSubtabBackgroundStrokeColor: Color
+
+    val seslPreferenceRelativeCardBackground: Color
+    val ouiTipsCardPreferenceBackground: Color
+
+    /*
+    Colors that aren't found in the oui-libs colors.xml file, and therefore 'hardcoded'
+     */
+    val drawerScrim: Color
+    val drawerHeaderIcon: Color
+    val drawerItemLabel: Color
+    val drawerItemLabelSelected: Color
+    val drawerItemEndLabel: Color
+    val buttonDefaultBackground: Color
 
     companion object {
 
         @Composable
         fun getTheme(
-            dark: Boolean = false
-        ): OneUIColorTheme =
-            if (dark) DarkColorTheme
+            dark: Boolean = false,
+            dynamic: Boolean = false,
+        ): OneUIColorTheme {
+            val canDoDynamicColors = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+            return if(canDoDynamicColors && dynamic && dark) DynamicDarkColorTheme
+            else if(canDoDynamicColors && dynamic) DynamicLightColorTheme
+            else if(dark) DarkColorTheme
             else LightColorTheme
+        }
 
     }
 }

@@ -248,7 +248,7 @@ data class SearchViewButtonColors(
 @Composable
 fun searchViewButtonColors(
     ripple: Color = OneUITheme.colors.seslRippleColor,
-    icon: Color = OneUITheme.colors.searchButton
+    icon: Color = OneUITheme.colors.seslSearchViewIconColor
 ): SearchViewButtonColors = SearchViewButtonColors(
     ripple = ripple,
     icon = icon

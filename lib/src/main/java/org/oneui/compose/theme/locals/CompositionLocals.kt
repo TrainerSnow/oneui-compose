@@ -11,7 +11,7 @@ import org.oneui.compose.theme.dimensions.IDynamicDimensions
 import org.oneui.compose.theme.type.RobotoTypographyTheme
 
 internal val LocalColors: ProvidableCompositionLocal<OneUIColorTheme> =
-    staticCompositionLocalOf { LightColorTheme.Instance }
+    staticCompositionLocalOf { LightColorTheme }
 
 internal val LocalDynamicDimensions: ProvidableCompositionLocal<IDynamicDimensions> =
     staticCompositionLocalOf {
@@ -20,7 +20,7 @@ internal val LocalDynamicDimensions: ProvidableCompositionLocal<IDynamicDimensio
 
 internal val LocalTypography = staticCompositionLocalOf {
     RobotoTypographyTheme.create(
-        LightColorTheme.Instance,
+        LightColorTheme,
         IDynamicDimensions.Default
     )
 }

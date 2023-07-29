@@ -33,7 +33,7 @@ data class DrawerDividerColors(
 
 @Composable
 fun drawerDividerColors(
-    dotColor: Color = OneUITheme.colors.drawerDividerColor
+    dotColor: Color = OneUITheme.colors.seslPrimaryTextColor.copy(alpha = 0.5F)
 ): DrawerDividerColors = DrawerDividerColors(
     dotColor = dotColor
 )

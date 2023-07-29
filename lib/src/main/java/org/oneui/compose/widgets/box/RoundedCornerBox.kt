@@ -44,7 +44,7 @@ data class RoundedCornerBoxColors(
  */
 @Composable
 fun roundedCornerBoxColors(
-    background: Color = OneUITheme.colors.roundedCornerBoxBackground,
+    background: Color = OneUITheme.colors.seslBackgroundColor,
     ripple: Color = OneUITheme.colors.seslRippleColor
 ): RoundedCornerBoxColors = RoundedCornerBoxColors(
     background = background,

@@ -319,7 +319,7 @@ data class ColorSwatchesColors(
  */
 @Composable
 fun colorSwatchesColors(
-    cellStrokeColor: Color = OneUITheme.colors.colorPickerStroke
+    cellStrokeColor: Color = OneUITheme.colors.seslColorPickerSwatchCursorColor
 ): ColorSwatchesColors = ColorSwatchesColors(
     cellStrokeColor = cellStrokeColor
 )

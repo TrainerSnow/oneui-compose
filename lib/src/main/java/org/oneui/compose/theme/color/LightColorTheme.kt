@@ -1,332 +1,223 @@
 package org.oneui.compose.theme.color
 
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import org.oneui.compose.R
-import org.oneui.compose.util.color
 
-internal val LightColorTheme: OneUIColorTheme
-    @Composable get() = object : OneUIColorTheme {
-        override val seslActionBarBackgroundColor: Color =
-            color(R.color.sesl_action_bar_background_color_light)
-        override val seslActionBarTextColorMenu: Color =
-            color(R.color.sesl_action_bar_text_color_menu_light)
-        override val seslActionBarTextColorSubtitle: Color =
-            color(R.color.sesl_action_bar_text_color_subtitle_light)
-        override val seslActionBarTextColorTitle: Color =
-            color(R.color.sesl_action_bar_text_color_title_light)
-        override val seslActionBarToastTextColor: Color =
-            color(R.color.sesl_action_bar_toast_text_color_light)
-        override val seslBackgroundColor: Color = color(R.color.sesl_background_color_light)
-        override val seslBackgroundFloating: Color = color(R.color.sesl_background_floating_light)
-        override val seslBtnBackgroundColor: Color = color(R.color.sesl_btn_background_color_light)
-        override val seslBtnDefaultTextColor: Color =
-            color(R.color.sesl_btn_default_text_color_light)
-        override val seslControlNormalColor: Color = color(R.color.sesl_control_normal_color_light)
-        override val seslDescriptionTextColor: Color =
-            color(R.color.sesl_description_text_color_light)
-        override val seslDialogBodyTextColor: Color =
-            color(R.color.sesl_dialog_body_text_color_light)
-        override val seslDialogButtonRedText: Color =
-            color(R.color.sesl_dialog_button_red_text_light)
-        override val seslDialogButtonTextColor: Color =
-            color(R.color.sesl_dialog_button_text_color_light)
-        override val seslDialogListTextColor: Color =
-            color(R.color.sesl_dialog_list_text_color_light)
-        override val seslDialogScrollbarHandleTintColorMtrl: Color =
-            color(R.color.sesl_dialog_scrollbar_handle_tint_color_mtrl_light)
-        override val seslDialogTitleTextColor: Color =
-            color(R.color.sesl_dialog_title_text_color_light)
-        override val seslDropdownScrollbarHandleColor: Color =
-            color(R.color.sesl_dropdown_scrollbar_handle_color_light)
-        override val seslEdgeEffectDeviceDefault: Color =
-            color(R.color.sesl_edge_effect_device_default_light)
-        override val seslEditTextColor: Color = color(R.color.sesl_edit_text_color_light)
-        override val seslEditTextColorDisabled: Color =
-            color(R.color.sesl_edit_text_color_disabled_light)
-        override val seslEditTextHintColor: Color = color(R.color.sesl_edit_text_hint_color_light)
-        override val seslEditTextTintColor: Color = color(R.color.sesl_edit_text_tint_color_light)
-        override val seslEditTextTintColorDisabled: Color =
-            color(R.color.sesl_edit_text_tint_color_disabled_light)
-        override val seslEditTextTintColorUnfocused: Color =
-            color(R.color.sesl_edit_text_tint_color_unfocused_light)
-        override val seslFunctionalGreen: Color = color(R.color.sesl_functional_green_light)
-        override val seslFunctionalOrange: Color = color(R.color.sesl_functional_orange_light)
-        override val seslFunctionalRed: Color = color(R.color.sesl_functional_red_light)
-        override val seslHighlightedTextColor: Color =
-            color(R.color.sesl_highlighted_text_color_light)
-        override val seslListDividerColor: Color = color(R.color.sesl_list_divider_color_light)
-        override val seslListGoToTopArrowBottom: Color =
-            color(R.color.sesl_list_go_to_top_arrow_bottom_light)
-        override val seslListGoToTopArrowTop: Color =
-            color(R.color.sesl_list_go_to_top_arrow_top_light)
-        override val seslListGoToTopInnerRound: Color =
-            color(R.color.sesl_list_go_to_top_inner_round_light)
-        override val seslListGoToTopOuterRound: Color =
-            color(R.color.sesl_list_go_to_top_outer_round_light)
-        override val seslListGoToTopRipple: Color = color(R.color.sesl_list_go_to_top_ripple_light)
-        override val seslListRippleColor: Color = color(R.color.sesl_list_ripple_color_light)
-        override val seslPopupMenuDividerColor: Color =
-            color(R.color.sesl_popup_menu_divider_color_light)
-        override val seslPopupMenuItemTextColorChecked: Color =
-            color(R.color.sesl_popup_menu_item_text_color_checked_light)
-        override val seslPopupMenuItemTextColorDisabled: Color =
-            color(R.color.sesl_popup_menu_item_text_color_disabled_light)
-        override val seslPrimaryColor: Color = color(R.color.sesl_primary_color_light)
-        override val seslPrimaryDarkColor: Color = color(R.color.sesl_primary_dark_color_light)
-        override val seslPrimaryTextColor: Color = color(R.color.sesl_primary_text_color_light)
-        override val seslSecondaryTextColor: Color = color(R.color.sesl_secondary_text_color_light)
-        override val seslProgressControlColorActivated: Color =
-            color(R.color.sesl_progress_control_color_activated_light)
-        override val seslProgressControlColorNormal: Color =
-            color(R.color.sesl_progress_control_color_normal_light)
-        override val seslProgressDialogBackgroundColor: Color =
-            color(R.color.sesl_progress_dialog_background_color_light)
-        override val seslProgressDialogCircleTextColor: Color =
-            color(R.color.sesl_progress_dialog_circle_text_color_light)
-        override val seslRippleColor: Color = color(R.color.sesl_ripple_color_light)
-        override val seslRoundAndBgcolor: Color = color(R.color.sesl_round_and_bgcolor_light)
-        override val seslScrollbarHandleTintColor: Color =
-            color(R.color.sesl_scrollbar_handle_tint_color_light)
-        override val seslSearchViewBackgroundHintTextColor: Color =
-            color(R.color.sesl_search_view_background_hint_text_color_light)
-        override val seslSearchViewBackgroundIconColor: Color =
-            color(R.color.sesl_search_view_background_icon_color_light)
-        override val seslSearchViewBackgroundTextColor: Color =
-            color(R.color.sesl_search_view_background_text_color_light)
-        override val seslSeekbarDisableColorActivated: Color =
-            color(R.color.sesl_seekbar_disable_color_activated_light)
-        override val seslSeekbarOverlapColorActivated: Color =
-            color(R.color.sesl_seekbar_overlap_color_activated_light)
-        override val seslSeekbarOverlapColorDefault: Color =
-            color(R.color.sesl_seekbar_overlap_color_default_light)
-        override val seslSpinnerDropdownItemTextColorDisabled: Color =
-            color(R.color.sesl_spinner_dropdown_item_text_color_disabled_light)
-        override val seslSpinnerDropdownItemTextColorNormal: Color =
-            color(R.color.sesl_spinner_dropdown_item_text_color_normal_light)
-        override val seslSpinnerIconColorDefault: Color =
-            color(R.color.sesl_spinner_icon_color_default_light)
-        override val seslSpinnerIconColorDisabled: Color =
-            color(R.color.sesl_spinner_icon_color_disabled_light)
-        override val seslSpinnerItemTextColorDisabled: Color =
-            color(R.color.sesl_spinner_item_text_color_disabled_light)
-        override val seslSpinnerItemTextColorNormal: Color =
-            color(R.color.sesl_spinner_item_text_color_normal_light)
-        override val seslStatusBarColor: Color = color(R.color.sesl_status_bar_color_light)
-        override val seslSwitchDividerColor: Color = color(R.color.sesl_switch_divider_color_light)
-        override val seslSwitchbarOffBackgroundColor: Color =
-            color(R.color.sesl_switchbar_off_background_color_light)
-        override val seslSwitchbarOffTextColor: Color =
-            color(R.color.sesl_switchbar_off_text_color_light)
-        override val seslSwitchbarOnBackgroundColor: Color =
-            color(R.color.sesl_switchbar_on_background_color_light)
-        override val seslTooltipBackground: Color = color(R.color.sesl_tooltip_background_light)
-        override val seslTooltipForeground: Color = color(R.color.sesl_tooltip_foreground_light)
-        override val seslFragmentBgcolor: Color = color(R.color.sesl_fragment_bgcolor_light)
-        override val seslFragmentFgcolor: Color = color(R.color.sesl_fragment_fgcolor_light)
-        override val seslIndexBarBackgroundTintColor: Color =
-            color(R.color.sesl_index_bar_background_tint_color_light)
-        override val seslIndexBarTextColor: Color = color(R.color.sesl_index_bar_text_color_light)
-        override val seslDatePickerButtonTintColor: Color =
-            color(R.color.sesl_date_picker_button_tint_color_light)
-        override val seslDatePickerHeaderTextColor: Color =
-            color(R.color.sesl_date_picker_header_text_color_light)
-        override val seslDatePickerNormalDayNumberTextColor: Color =
-            color(R.color.sesl_date_picker_normal_day_number_text_color_light)
-        override val seslDatePickerNormalTextColor: Color =
-            color(R.color.sesl_date_picker_normal_text_color_light)
-        override val seslDatePickerSaturdayTextColor: Color =
-            color(R.color.sesl_date_picker_saturday_text_color_light)
-        override val seslDatePickerSaturdayWeekTextColor: Color =
-            color(R.color.sesl_date_picker_saturday_week_text_color_light)
-        override val seslDatePickerSelectedDayNumberTextColor: Color =
-            color(R.color.sesl_date_picker_selected_day_number_text_color_light)
-        override val seslDatePickerSundayNumberTextColor: Color =
-            color(R.color.sesl_date_picker_sunday_number_text_color_light)
-        override val seslDatePickerSundayTextColor: Color =
-            color(R.color.sesl_date_picker_sunday_text_color_light)
-        override val seslColorPickerSelectedColorItemTextColor: Color =
-            color(R.color.sesl_color_picker_selected_color_item_text_color_light)
-        override val seslColorPickerStrokeColor: Color =
-            color(R.color.sesl_color_picker_stroke_color_light)
-        override val seslColorPickerTabSelectedBackground: Color =
-            color(R.color.sesl_color_picker_tab_selected_background_light)
-        override val seslColorPickerTabSelected: Color =
-            color(R.color.sesl_color_picker_tab_selected_light)
-        override val seslColorPickerUsedColorItemEmptySlotColor: Color =
-            color(R.color.sesl_color_picker_used_color_item_empty_slot_color_light)
-        override val seslColorPickerUsedColorTextColor: Color =
-            color(R.color.sesl_color_picker_used_color_text_color_light)
-        override val seslSwipeRefreshBackground: Color =
-            color(R.color.sesl_swipe_refresh_background_light)
-        override val foregroundMaterial: Color = color(R.color.foreground_material_light)
-        override val backgroundMaterial: Color = color(R.color.background_material_light)
-        override val backgroundFloatingMaterial: Color =
-            color(R.color.background_floating_material_light)
-        override val primaryMaterial: Color = color(R.color.primary_material_light)
-        override val primaryDarkMaterial: Color = color(R.color.primary_dark_material_light)
-        override val accentMaterial: Color = color(R.color.accent_material_light)
-        override val switchThumbNormalMaterial: Color =
-            color(R.color.switch_thumb_normal_material_light)
-        override val primaryTextDefaultMaterial: Color =
-            color(R.color.primary_text_default_material_light)
-        override val secondaryTextDefaultMaterial: Color =
-            color(R.color.secondary_text_default_material_light)
-        override val seslDialogDividerColorMaterial: Color =
-            color(R.color.sesl_dialog_divider_color_material_light)
-        override val seslDialogSubTextColorMaterial: Color =
-            color(R.color.sesl_dialog_sub_text_color_material_light)
-        override val seslDialogWindowBackgroundColorMaterial: Color =
-            color(R.color.sesl_dialog_window_background_color_material_light)
-        override val abcDecorViewStatusGuard: Color =
-            color(R.color.abc_decor_view_status_guard_light)
-        override val seslActionBarRippleColor: Color =
-            color(R.color.sesl_action_bar_ripple_color_light)
-        override val seslBlack: Color = color(R.color.sesl_black_light)
-        override val seslWhite: Color = color(R.color.sesl_white_light)
-        override val seslContextMenuTitleTextColor: Color =
-            color(R.color.sesl_context_menu_title_text_color_light)
-        override val seslControlActivatedColor: Color =
-            color(R.color.sesl_control_activated_color_light)
-        override val seslDialogShowButtonBackgroundColor: Color =
-            color(R.color.sesl_dialog_show_button_background_color_light)
-        override val seslDialogTextBodyColor: Color =
-            color(R.color.sesl_dialog_text_body_color_light)
-        override val seslErrorColor: Color = color(R.color.sesl_error_color_light)
-        override val seslFastScrollbarBgColor: Color =
-            color(R.color.sesl_fast_scrollbar_bg_color_light)
-        override val seslInputMethodNavigationGuard: Color =
-            color(R.color.sesl_input_method_navigation_guard_light)
-        override val seslListSubheaderTextColor: Color =
-            color(R.color.sesl_list_subheader_text_color_light)
-        override val seslLoadingProgressColor1: Color =
-            color(R.color.sesl_loading_progress_color1_light)
-        override val seslLoadingProgressColor2: Color =
-            color(R.color.sesl_loading_progress_color2_light)
-        override val seslMenuBadgeBackgroundColor: Color =
-            color(R.color.sesl_menu_badge_background_color_light)
-        override val seslMenuBadgeTextColor: Color = color(R.color.sesl_menu_badge_text_color_light)
-        override val seslMenuPopupBackgroundColor: Color =
-            color(R.color.sesl_menu_popup_background_color_light)
-        override val seslMenuPopupBackgroundStrokeColor: Color =
-            color(R.color.sesl_menu_popup_background_stroke_color_light)
-        override val seslPopupMenuBlurBackground: Color =
-            color(R.color.sesl_popup_menu_blur_background_light)
-        override val seslPopupMenuItemTextColorNormal: Color =
-            color(R.color.sesl_popup_menu_item_text_color_normal_light)
-        override val seslProgressControlColorBackground: Color =
-            color(R.color.sesl_progress_control_color_background_light)
-        override val seslProgressDialogHorizontalTextColor: Color =
-            color(R.color.sesl_progress_dialog_horizontal_text_color_light)
-        override val seslScrollbarIndexTipColor: Color =
-            color(R.color.sesl_scrollbar_index_tip_color_light)
-        override val seslSearchResultSubtitleTextColor: Color =
-            color(R.color.sesl_search_result_subtitle_text_color_light)
-        override val seslSearchResultTitleTextColor: Color =
-            color(R.color.sesl_search_result_title_text_color_light)
-        override val seslSearchTextfieldColor: Color =
-            color(R.color.sesl_search_textfield_color_light)
-        override val seslSearchUrlTextDefault: Color =
-            color(R.color.sesl_search_url_text_default_light)
-        override val seslSearchUrlTextPressed: Color =
-            color(R.color.sesl_search_url_text_pressed_light)
-        override val seslSearchUrlTextSelected: Color =
-            color(R.color.sesl_search_url_text_selected_light)
-        override val seslSearchViewHintTextColor: Color =
-            color(R.color.sesl_search_view_hint_text_color_light)
-        override val seslSearchViewIconColor: Color =
-            color(R.color.sesl_search_view_icon_color_light)
-        override val seslSearchViewTextColor: Color =
-            color(R.color.sesl_search_view_text_color_light)
-        override val seslSeekbarControlColorActivated: Color =
-            color(R.color.sesl_seekbar_control_color_activated_light)
-        override val seslSeekbarControlColorDefault: Color =
-            color(R.color.sesl_seekbar_control_color_default_light)
-        override val seslSeekbarControlColorSecondary: Color =
-            color(R.color.sesl_seekbar_control_color_secondary_light)
-        override val seslShowButtonShapesColorDefault: Color =
-            color(R.color.sesl_show_button_shapes_color_default_light)
-        override val seslShowButtonShapesColorDisabled: Color =
-            color(R.color.sesl_show_button_shapes_color_disabled_light)
-        override val seslShowButtonShapesStrokeColorDefault: Color =
-            color(R.color.sesl_show_button_shapes_stroke_color_default_light)
-        override val seslShowButtonShapesStrokeColorDisabled: Color =
-            color(R.color.sesl_show_button_shapes_stroke_color_disabled_light)
-        override val seslSpinnerDropdownItemCheckmark: Color =
-            color(R.color.sesl_spinner_dropdown_item_checkmark_light)
-        override val seslSwitchThumbOffColor: Color =
-            color(R.color.sesl_switch_thumb_off_color_light)
-        override val seslSwitchThumbOffDisabledColor: Color =
-            color(R.color.sesl_switch_thumb_off_disabled_color_light)
-        override val seslSwitchThumbOffDisabledStrokeColor: Color =
-            color(R.color.sesl_switch_thumb_off_disabled_stroke_color_light)
-        override val seslSwitchThumbOffStrokeColor: Color =
-            color(R.color.sesl_switch_thumb_off_stroke_color_light)
-        override val seslSwitchThumbOnColor: Color = color(R.color.sesl_switch_thumb_on_color_light)
-        override val seslSwitchThumbOnDisabledColor: Color =
-            color(R.color.sesl_switch_thumb_on_disabled_color_light)
-        override val seslSwitchTrackOffColor: Color =
-            color(R.color.sesl_switch_track_off_color_light)
-        override val seslSwitchTrackOffDisabledColor: Color =
-            color(R.color.sesl_switch_track_off_disabled_color_light)
-        override val seslThumbControlColorActivated: Color =
-            color(R.color.sesl_thumb_control_color_activated_light)
-        override val seslThumbTintColorDisabled: Color =
-            color(R.color.sesl_thumb_tint_color_disabled_light)
-        override val seslAppPickerListActionIconTintColor: Color =
-            color(R.color.sesl_app_picker_list_action_icon_tint_color_light)
-        override val notificationTemplateIconBg: Color =
-            color(R.color.notification_template_icon_bg_light)
-        override val notificationTemplateIconLowBg: Color =
-            color(R.color.notification_template_icon_low_bg_light)
-        override val notificationActionColorFilter: Color =
-            color(R.color.notification_action_color_filter_light)
-        override val notificationIconBgColor: Color =
-            color(R.color.notification_icon_bg_color_light)
-        override val seslIndexScrollPreviewTextColor: Color =
-            color(R.color.sesl_index_scroll_preview_text_color_light)
-        override val seslNumberPickerTextColor: Color =
-            color(R.color.sesl_number_picker_text_color_light)
-        override val seslNumberPickerTextHighlightColor: Color =
-            color(R.color.sesl_number_picker_text_highlight_color_light)
-        override val seslDatePickerWeekdayNumberTextColor: Color =
-            color(R.color.sesl_date_picker_weekday_number_text_color_light)
-        override val seslColorPickerCursorStrokeColor: Color =
-            color(R.color.sesl_color_picker_cursor_stroke_color_light)
-        override val seslColorPickerDivider: Color = color(R.color.sesl_color_picker_divider_light)
-        override val seslColorPickerPercentTextColor: Color =
-            color(R.color.sesl_color_picker_percent_text_color_light)
-        override val seslColorPickerSeekbarCursorBackgroundColor: Color =
-            color(R.color.sesl_color_picker_seekbar_cursor_background_color_light)
-        override val seslColorPickerSeekbarCursorStrokeColor: Color =
-            color(R.color.sesl_color_picker_seekbar_cursor_stroke_color_light)
-        override val seslColorPickerShadow: Color = color(R.color.sesl_color_picker_shadow_light)
-        override val seslColorPickerStrokeColorSpectrumview: Color =
-            color(R.color.sesl_color_picker_stroke_color_spectrumview_light)
-        override val seslColorPickerStrokeColorSwatchview: Color =
-            color(R.color.sesl_color_picker_stroke_color_swatchview_light)
-        override val seslColorPickerSwatchCursorColor: Color =
-            color(R.color.sesl_color_picker_swatch_cursor_color_light)
-        override val seslColorPickerSwatchCursorColorForWhite: Color =
-            color(R.color.sesl_color_picker_swatch_cursor_color_for_white_light)
-        override val seslColorPickerTabUnselected: Color =
-            color(R.color.sesl_color_picker_tab_unselected_light)
-        override val seslColorPickerTransparent: Color =
-            color(R.color.sesl_color_picker_transparent_light)
-        override val preferenceFallbackAccentColor: Color =
-            color(R.color.preference_fallback_accent_color_light)
-        override val seslSwipeRefreshColor1: Color = color(R.color.sesl_swipe_refresh_color1_light)
-        override val seslSwipeRefreshColor2: Color = color(R.color.sesl_swipe_refresh_color2_light)
-        override val materialGrey900: Color = color(R.color.material_grey_900_light)
-        override val materialGrey850: Color = color(R.color.material_grey_850_light)
-        override val materialGrey800: Color = color(R.color.material_grey_800_light)
-        override val materialGrey600: Color = color(R.color.material_grey_600_light)
-        override val materialGrey300: Color = color(R.color.material_grey_300_light)
-        override val materialGrey100: Color = color(R.color.material_grey_100_light)
-        override val materialGrey50: Color = color(R.color.material_grey_50_light)
-        override val materialDeepTeal200: Color = color(R.color.material_deep_teal_200_light)
-        override val materialDeepTeal500: Color = color(R.color.material_deep_teal_500_light)
-        override val materialBlueGrey800: Color = color(R.color.material_blue_grey_800_light)
-        override val materialBlueGrey900: Color = color(R.color.material_blue_grey_900_light)
-        override val materialBlueGrey950: Color = color(R.color.material_blue_grey_950_light)
-    }
+/**
+ * A [OneUIColorTheme] that has all the fields hardcode, to the same values as in the colors.xml. This is needed to set a
+ *      default value to the composition local.
+ */
+internal val LightColorTheme = object : OneUIColorTheme {
+    override val seslActionBarBackgroundColor: Color = Color(0xfff6f6f6)
+    override val seslActionBarTextColorMenu: Color = Color(0xff010101)
+    override val seslActionBarTextColorSubtitle: Color = Color(0xff636363)
+    override val seslActionBarTextColorTitle: Color = Color(0xff010101)
+    override val seslActionBarToastTextColor: Color = Color(0xff252525)
+    override val seslBackgroundColor: Color = Color(0xfffcfcfc)
+    override val seslBackgroundFloating: Color = Color(0xfffafafa)
+    override val seslBtnBackgroundColor: Color = Color(0x14000000)
+    override val seslBtnDefaultTextColor: Color = Color(0xff010101)
+    override val seslControlNormalColor: Color = Color(0xcc8c8c8c)
+    override val seslDescriptionTextColor: Color = Color(0xff252525)
+    override val seslDialogBodyTextColor: Color = Color(0xff252525)
+    override val seslDialogButtonRedText: Color = Color(0xffdb332a)
+    override val seslDialogButtonTextColor: Color = Color(0xff010101)
+    override val seslDialogListTextColor: Color = Color(0xff252525)
+    override val seslDialogScrollbarHandleTintColorMtrl: Color = Color(0xffdedede)
+    override val seslDialogTitleTextColor: Color = Color(0xff010101)
+    override val seslDropdownScrollbarHandleColor: Color = Color(0xffdedede)
+    override val seslEdgeEffectDeviceDefault: Color = Color(0x0d000000)
+    override val seslEditTextColor: Color = Color(0xff010101)
+    override val seslEditTextColorDisabled: Color = Color(0xffbebebe)
+    override val seslEditTextHintColor: Color = Color(0xff8c8c8c)
+    override val seslEditTextTintColor: Color = Color(0xff252525)
+    override val seslEditTextTintColorDisabled: Color = Color(0xffbebebe)
+    override val seslEditTextTintColorUnfocused: Color = Color(0xff8c8c8c)
+    override val seslFunctionalGreen: Color = Color(0xff14a866)
+    override val seslFunctionalOrange: Color = Color(0xffef5e16)
+    override val seslFunctionalRed: Color = Color(0xffdb332a)
+    override val seslHighlightedTextColor: Color = Color(0xffc4e9fc)
+    override val seslListDividerColor: Color = Color(0x14000000)
+    override val seslListGoToTopArrowBottom: Color = Color(0xff797979)
+    override val seslListGoToTopArrowTop: Color = Color(0xffa9a9a9)
+    override val seslListGoToTopInnerRound: Color = Color(0xfff2f2f2)
+    override val seslListGoToTopOuterRound: Color = Color(0x33252525)
+    override val seslListGoToTopRipple: Color = Color(0x0d000000)
+    override val seslListRippleColor: Color = Color(0x0d000000)
+    override val seslPopupMenuDividerColor: Color = Color(0x80979797)
+    override val seslPopupMenuItemTextColorChecked: Color = Color(0xff0072de)
+    override val seslPopupMenuItemTextColorDisabled: Color = Color(0x66000000)
+    override val seslPrimaryColor: Color = Color(0xff0381fe)
+    override val seslPrimaryDarkColor: Color = Color(0xff0072de)
+    override val seslPrimaryTextColor: Color = Color(0xff010101)
+    override val seslSecondaryTextColor: Color = Color(0xff8c8c8c)
+    override val seslProgressControlColorActivated: Color = Color(0xff0381fe)
+    override val seslProgressControlColorNormal: Color = Color(0x66cacaca)
+    override val seslProgressDialogBackgroundColor: Color = Color(0xfffafafa)
+    override val seslProgressDialogCircleTextColor: Color = Color(0xff252525)
+    override val seslRippleColor: Color = Color(0x0d000000)
+    override val seslRoundAndBgcolor: Color = Color(0xfff6f6f6)
+    override val seslScrollbarHandleTintColor: Color = Color(0xffdedede)
+    override val seslSearchViewBackgroundHintTextColor: Color = Color(0xff636363)
+    override val seslSearchViewBackgroundIconColor: Color = Color(0xff010101)
+    override val seslSearchViewBackgroundTextColor: Color = Color(0xff252525)
+    override val seslSeekbarDisableColorActivated: Color = Color(0xffd2d2d2)
+    override val seslSeekbarOverlapColorActivated: Color = Color(0xffef5e16)
+    override val seslSeekbarOverlapColorDefault: Color = Color(0x66cacaca)
+    override val seslSpinnerDropdownItemTextColorDisabled: Color = Color(0x66000000)
+    override val seslSpinnerDropdownItemTextColorNormal: Color = Color(0xff000000)
+    override val seslSpinnerIconColorDefault: Color = Color(0xff3b3b3b)
+    override val seslSpinnerIconColorDisabled: Color = Color(0x663b3b3b)
+    override val seslSpinnerItemTextColorDisabled: Color = Color(0x66252525)
+    override val seslSpinnerItemTextColorNormal: Color = Color(0xff252525)
+    override val seslStatusBarColor: Color = Color(0xfffafafa)
+    override val seslSwitchDividerColor: Color = Color(0xffc4c4c4)
+    override val seslSwitchbarOffBackgroundColor: Color = Color(0xfffcfcfc)
+    override val seslSwitchbarOffTextColor: Color = Color(0xff252525)
+    override val seslSwitchbarOnBackgroundColor: Color = Color(0x0d000000)
+    override val seslTooltipBackground: Color = Color(0xfffcfcfc)
+    override val seslTooltipForeground: Color = Color(0xff252525)
+    override val seslFragmentBgcolor: Color = Color(0xfffcfcfc)
+    override val seslFragmentFgcolor: Color = Color(0xfff2f2f2)
+    override val seslIndexBarBackgroundTintColor: Color = Color(0x80e6e6e6)
+    override val seslIndexBarTextColor: Color = Color(0xff686868)
+    override val seslDatePickerButtonTintColor: Color = Color(0xff8e8e8e)
+    override val seslDatePickerHeaderTextColor: Color = Color(0xff4d4d4d)
+    override val seslDatePickerNormalDayNumberTextColor: Color = Color(0xff4d4d4d)
+    override val seslDatePickerNormalTextColor: Color = Color(0xff909090)
+    override val seslDatePickerSaturdayTextColor: Color = Color(0xff0082be)
+    override val seslDatePickerSaturdayWeekTextColor: Color = Color(0xff0082be)
+    override val seslDatePickerSelectedDayNumberTextColor: Color = Color(0xfffcfcfc)
+    override val seslDatePickerSundayNumberTextColor: Color = Color(0xffdb332a)
+    override val seslDatePickerSundayTextColor: Color = Color(0xffdb332a)
+    override val seslColorPickerSelectedColorItemTextColor: Color = Color(0xff5d5d5d)
+    override val seslColorPickerStrokeColor: Color = Color(0xffd4d4d4)
+    override val seslColorPickerTabSelectedBackground: Color = Color(0x0d000000)
+    override val seslColorPickerTabSelected: Color = Color(0xff252525)
+    override val seslColorPickerUsedColorItemEmptySlotColor: Color = Color(0xffe6e6e6)
+    override val seslColorPickerUsedColorTextColor: Color = Color(0xff979797)
+    override val seslSwipeRefreshBackground: Color = Color(0xfffafafa)
+    override val foregroundMaterial: Color = Color(0xff000000)
+    override val backgroundMaterial: Color = Color(0xfffafafa)
+    override val backgroundFloatingMaterial: Color = Color(0xffffffff)
+    override val primaryMaterial: Color = Color(0xfff5f5f5)
+    override val primaryDarkMaterial: Color = Color(0xff757575)
+    override val accentMaterial: Color = Color(0xff008577)
+    override val switchThumbNormalMaterial: Color = Color(0xfff1f1f1)
+    override val primaryTextDefaultMaterial: Color = Color(0xde000000)
+    override val secondaryTextDefaultMaterial: Color = Color(0x8a000000)
+    override val seslDialogDividerColorMaterial: Color = Color(0xffe6e6e6)
+    override val seslDialogSubTextColorMaterial: Color = Color(0xff3b3b3b)
+    override val seslDialogWindowBackgroundColorMaterial: Color = Color(0xfffcfcfc)
+    override val abcDecorViewStatusGuard: Color = Color(0xffffffff)
+    override val seslActionBarRippleColor: Color = Color(0x0d000000)
+    override val seslBlack: Color = Color(0xff252525)
+    override val seslWhite: Color = Color(0xfffafafa)
+    override val seslContextMenuTitleTextColor: Color = Color(0xff000000)
+    override val seslControlActivatedColor: Color = Color(0xff3e91ff)
+    override val seslDialogShowButtonBackgroundColor: Color = Color(0x47ffffff)
+    override val seslDialogTextBodyColor: Color = Color(0xff252525)
+    override val seslErrorColor: Color = Color(0xffdb332a)
+    override val seslFastScrollbarBgColor: Color = Color(0xe64d4d4d)
+    override val seslInputMethodNavigationGuard: Color = Color(0xff000000)
+    override val seslListSubheaderTextColor: Color = Color(0xff8c8c8c)
+    override val seslLoadingProgressColor1: Color = Color(0xff00d694)
+    override val seslLoadingProgressColor2: Color = Color(0xff0381fe)
+    override val seslMenuBadgeBackgroundColor: Color = Color(0xffef5e16)
+    override val seslMenuBadgeTextColor: Color = Color(0xfffafafa)
+    override val seslMenuPopupBackgroundColor: Color = Color(0xfffcfcfc)
+    override val seslMenuPopupBackgroundStrokeColor: Color = Color(0xfffcfcfc)
+    override val seslPopupMenuBlurBackground: Color = Color(0xe6fcfcfc)
+    override val seslPopupMenuItemTextColorNormal: Color = Color(0xff010101)
+    override val seslProgressControlColorBackground: Color = Color(0x66cacaca)
+    override val seslProgressDialogHorizontalTextColor: Color = Color(0xff545454)
+    override val seslScrollbarIndexTipColor: Color = Color(0xff4d4d4d)
+    override val seslSearchResultSubtitleTextColor: Color = Color(0x99252525)
+    override val seslSearchResultTitleTextColor: Color = Color(0xff252525)
+    override val seslSearchTextfieldColor: Color = Color(0x0d000000)
+    override val seslSearchUrlTextDefault: Color = Color(0xff7fa87f)
+    override val seslSearchUrlTextPressed: Color = Color(0xff000000)
+    override val seslSearchUrlTextSelected: Color = Color(0xff000000)
+    override val seslSearchViewHintTextColor: Color = Color(0xff636363)
+    override val seslSearchViewIconColor: Color = Color(0xff010101)
+    override val seslSearchViewTextColor: Color = Color(0xff252525)
+    override val seslSeekbarControlColorActivated: Color = Color(0xff0381fe)
+    override val seslSeekbarControlColorDefault: Color = Color(0x66cacaca)
+    override val seslSeekbarControlColorSecondary: Color = Color(0xff7ab9cb)
+    override val seslShowButtonShapesColorDefault: Color = Color(0x47ffffff)
+    override val seslShowButtonShapesColorDisabled: Color = Color(0x66ffffff)
+    override val seslShowButtonShapesStrokeColorDefault: Color = Color(0x4d000000)
+    override val seslShowButtonShapesStrokeColorDisabled: Color = Color(0x66000000)
+    override val seslSpinnerDropdownItemCheckmark: Color = Color(0xff0072de)
+    override val seslSwitchThumbOffColor: Color = Color(0xfffafafa)
+    override val seslSwitchThumbOffDisabledColor: Color = Color(0xfffafafa)
+    override val seslSwitchThumbOffDisabledStrokeColor: Color = Color(0x668c8c8c)
+    override val seslSwitchThumbOffStrokeColor: Color = Color(0xff8c8c8c)
+    override val seslSwitchThumbOnColor: Color = Color(0xfffafafa)
+    override val seslSwitchThumbOnDisabledColor: Color = Color(0xfffafafa)
+    override val seslSwitchTrackOffColor: Color = Color(0xff999999)
+    override val seslSwitchTrackOffDisabledColor: Color = Color(0x66999999)
+    override val seslThumbControlColorActivated: Color = Color(0xff0381fe)
+    override val seslThumbTintColorDisabled: Color = Color(0xffe7e7e7)
+    override val seslAppPickerListActionIconTintColor: Color = Color(0xff9c9c9c)
+    override val notificationTemplateIconBg: Color = Color(0x3333B5E5)
+    override val notificationTemplateIconLowBg: Color = Color(0x0cffffff)
+    override val notificationActionColorFilter: Color = Color(0xffffffff)
+    override val notificationIconBgColor: Color = Color(0xff9e9e9e)
+    override val seslIndexScrollPreviewTextColor: Color = Color(0xfffafafa)
+    override val seslNumberPickerTextColor: Color = Color(0xff252525)
+    override val seslNumberPickerTextHighlightColor: Color = Color(0x0d000000)
+    override val seslDatePickerWeekdayNumberTextColor: Color = Color(0xff454545)
+    override val seslColorPickerCursorStrokeColor: Color = Color(0xffffffff)
+    override val seslColorPickerDivider: Color = Color(0xff979797)
+    override val seslColorPickerPercentTextColor: Color = Color(0xff252525)
+    override val seslColorPickerSeekbarCursorBackgroundColor: Color = Color(0xfffafafa)
+    override val seslColorPickerSeekbarCursorStrokeColor: Color = Color(0x33000000)
+    override val seslColorPickerShadow: Color = Color(0x66000000)
+    override val seslColorPickerStrokeColorSpectrumview: Color = Color(0xffd6d6d6)
+    override val seslColorPickerStrokeColorSwatchview: Color = Color(0xffd1d0d0)
+    override val seslColorPickerSwatchCursorColor: Color = Color(0x4dffffff)
+    override val seslColorPickerSwatchCursorColorForWhite: Color = Color(0x48000000)
+    override val seslColorPickerTabUnselected: Color = Color(0xff909090)
+    override val seslColorPickerTransparent: Color = Color(0x00000000)
+    override val preferenceFallbackAccentColor: Color = Color(0xff008577)
+    override val seslSwipeRefreshColor1: Color = Color(0xff00d694)
+    override val seslSwipeRefreshColor2: Color = Color(0xff0381fe)
+    override val materialGrey900: Color = Color(0xff212121)
+    override val materialGrey850: Color = Color(0xff303030)
+    override val materialGrey800: Color = Color(0xff424242)
+    override val materialGrey600: Color = Color(0xff757575)
+    override val materialGrey300: Color = Color(0xffe0e0e0)
+    override val materialGrey100: Color = Color(0xfff5f5f5)
+    override val materialGrey50: Color = Color(0xfffafafa)
+    override val materialDeepTeal200: Color = Color(0xff80cbc4)
+    override val materialDeepTeal500: Color = Color(0xff008577)
+    override val materialBlueGrey800: Color = Color(0xff37474f)
+    override val materialBlueGrey900: Color = Color(0xff263238)
+    override val materialBlueGrey950: Color = Color(0xff21272b)
+    override val seslNavigationBarBackground: Color = Color(0xfff2f2f2)
+    override val seslNavigationBarIcon: Color = Color(0xff454545)
+    override val seslNavigationBarRipple: Color = Color(0x08000000)
+    override val seslNavigationBarText: Color = Color(0xff636363)
+    override val seslNavigationBarTextDisable: Color = Color(0x660072de)
+    override val seslNavigationBarTextText: Color = Color(0xff0072de)
+    override val seslTablayoutMainTabIndicatorColor: Color = Color(0xff252525)
+    override val seslTablayoutSubtabIndicatorBackground: Color = Color(0x0d000000)
+    override val seslTablayoutSubtabSubTextColorDefault: Color = Color(0xff909090)
+    override val seslTablayoutSubtabSubTextColorDisabled: Color = Color(0x66858585)
+    override val seslTablayoutSubtabSubTextColorSelected: Color = Color(0xff0072de)
+    override val seslTablayoutSubtabTextColorDefault: Color = Color(0xff8c8c8c)
+    override val seslTablayoutSubtabTextColorDisabled: Color = Color(0x668c8c8c)
+    override val seslTablayoutSubtabTextColorSelected: Color = Color(0xff252525)
+    override val seslTablayoutTextColorDefault: Color = Color(0xff8c8c8c)
+    override val seslTablayoutTextColorDisabled: Color = Color(0x668c8c8c)
+    override val seslTablayoutTextColorSelected: Color = Color(0xff010101)
+    override val seslTablayoutSubtabBackgroundStrokeColor: Color = Color(0xff000000)
+    override val seslPreferenceRelativeCardBackground: Color = Color(0x0f0381fe)
+    override val ouiTipsCardPreferenceBackground: Color = Color(0xfffcfcfc)
+    override val drawerScrim = Color(0x33000000)
+    override val drawerHeaderIcon = Color(0xff999999)
+    override val drawerItemLabel= Color(0xff010101)
+    override val drawerItemLabelSelected= Color(0xff010101)
+    override val drawerItemEndLabel= Color(0xff8c8c8c)
+    override val buttonDefaultBackground = Color(0x14000000)
+}
