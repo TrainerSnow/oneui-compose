@@ -11,7 +11,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            OneUITheme {
+            OneUITheme(
+                dynamicColors = true
+            ) {
                 ExampleApp(
                     modifier = Modifier
                         .fillMaxSize()
