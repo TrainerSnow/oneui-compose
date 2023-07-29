@@ -34,7 +34,7 @@ import kotlin.math.sin
  */
 @Composable
 internal fun CircularDeterminateProgressIndicator(
-    size: CircularProgressIndicatorSize = CircularProgressIndicatorSize.Medium,
+    size: CircularProgressIndicatorSize = CircularProgressIndicatorSize.Companion.Medium,
     @FloatRange(
         from = 0.0,
         to = 1.0,
@@ -167,11 +167,21 @@ private fun CircularDeterminateProgressIndicatorPreview() =
                 .spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            CircularProgressIndicatorSize.values().forEach {
-                CircularDeterminateProgressIndicator(
-                    size = it,
-                    progress = 0.8F
-                )
-            }
+            CircularDeterminateProgressIndicator(
+                size = CircularProgressIndicatorSize.Companion.Small,
+                progress = 0.8F
+            )
+            CircularDeterminateProgressIndicator(
+                size = CircularProgressIndicatorSize.Companion.Medium,
+                progress = 0.8F
+            )
+            CircularDeterminateProgressIndicator(
+                size = CircularProgressIndicatorSize.Companion.Large,
+                progress = 0.8F
+            )
+            CircularDeterminateProgressIndicator(
+                size = CircularProgressIndicatorSize.Companion.XLarge,
+                progress = 0.8F
+            )
         }
     }
