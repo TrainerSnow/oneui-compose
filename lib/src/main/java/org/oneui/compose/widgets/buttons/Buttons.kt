@@ -21,6 +21,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 /**
  * Stores the colors that are needed to define a button
@@ -310,7 +311,7 @@ internal fun BaseButton(
             text = label,
             style = textStyle.copy(
                 color = textColor
-            ),
+            ).enabledAlpha(enabled),
             overflow = textOverflow,
             maxLines = maxLines
         )

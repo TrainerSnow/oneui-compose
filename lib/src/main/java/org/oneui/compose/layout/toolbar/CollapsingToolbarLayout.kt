@@ -208,8 +208,7 @@ fun CollapsingToolbarLayout(
     val mod = if (expandable) Modifier
         .anchoredDraggable(
             state = state.draggableState,
-            orientation = Orientation.Vertical,
-            enabled = false
+            orientation = Orientation.Vertical
         )
         .nestedScroll(
             state.draggableState.NestedScrollConnection

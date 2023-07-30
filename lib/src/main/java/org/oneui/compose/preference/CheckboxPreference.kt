@@ -28,6 +28,7 @@ fun CheckboxPreference(
     summary: String? = null,
     checked: Boolean = false,
     onCheckedChange: ((Boolean) -> Unit)? = null,
+    enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     BasePreference(
@@ -46,10 +47,12 @@ fun CheckboxPreference(
             }
         },
         onClick = { onCheckedChange?.let { it(!checked) } },
+        enabled = enabled,
         interactionSource = interactionSource
     ) {
         Checkbox(
             checked = checked,
+            enabled = enabled,
             onCheckedChange = { onCheckedChange?.let { it(!checked) } }
         )
     }

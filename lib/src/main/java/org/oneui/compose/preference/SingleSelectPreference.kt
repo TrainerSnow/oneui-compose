@@ -15,6 +15,7 @@ import org.oneui.compose.R
 import org.oneui.compose.base.Icon
 import org.oneui.compose.dialog.AlertDialog
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 import org.oneui.compose.widgets.buttons.radio.ListRadioButton
 import org.oneui.compose.widgets.buttons.radio.VerticalRadioGroup
 
@@ -41,7 +42,8 @@ fun <T> SingleSelectPreference(
     value: T,
     values: List<T>,
     onValueChange: (T) -> Unit,
-    nameFor: ((T) -> String) = { it.toString() }
+    nameFor: ((T) -> String) = { it.toString() },
+    enabled: Boolean = true
 ) {
     assert(value in values) { "The provided value must be present in the provided values" }
     var showDialog by remember {
@@ -61,10 +63,11 @@ fun <T> SingleSelectPreference(
                 text = nameFor(value),
                 style = OneUITheme.types.preferenceSummary.copy(
                     color = OneUITheme.colors.seslPrimaryColor
-                )
+                ).enabledAlpha(enabled)
             )
         },
         onClick = { showDialog = true },
+        enabled = enabled,
         interactionSource = interactionSource
     )
 

@@ -17,10 +17,10 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import org.oneui.compose.base.Icon
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.widgets.buttons.Switch
-import kotlinx.coroutines.launch
 
 
 /**
@@ -51,7 +51,8 @@ fun SwitchPreferenceScreen(
     onClick: () -> Unit,
     onSwitch: (Boolean) -> Unit,
     switched: Boolean = false,
-    colors: SwitchPreferenceScreenColors = switchPreferenceScreenColors()
+    colors: SwitchPreferenceScreenColors = switchPreferenceScreenColors(),
+    enabled: Boolean = true
 ) {
     val scope = rememberCoroutineScope()
 
@@ -71,6 +72,7 @@ fun SwitchPreferenceScreen(
             }
         },
         interactionSource = clickInteractionSource,
+        enabled = enabled,
         onClick = onClick
     ) {
         Box(

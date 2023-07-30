@@ -26,6 +26,7 @@ import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.base.iconColors
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 /**
  * Composable for a oneui-style bottom navigation bar. This is basically just a wrapper for a [Row], and acts as a primary or secondary navigation component
@@ -68,7 +69,8 @@ fun BottomNavigationBarItem(
     icon: Icon,
     onClick: () -> Unit,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: BottomNavigationBarColors = bottomNavigationBarColors()
+    colors: BottomNavigationBarColors = bottomNavigationBarColors(),
+    enabled: Boolean = true
 ) {
     Column(
         modifier = modifier
@@ -85,9 +87,11 @@ fun BottomNavigationBarItem(
                     color = colors.ripple
                 ),
                 role = Role.Tab,
-                onClick = onClick
+                onClick = onClick,
+                enabled = enabled
             )
-            .padding(BottomNavigationBarDefaults.itemPadding),
+            .padding(BottomNavigationBarDefaults.itemPadding)
+            .enabledAlpha(enabled),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         IconView(

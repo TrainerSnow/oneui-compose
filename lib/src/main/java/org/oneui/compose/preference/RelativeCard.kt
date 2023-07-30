@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.preference.internal.RelativeCardLink
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 
 /**
@@ -33,19 +34,20 @@ fun RelativeCard(
     modifier: Modifier = Modifier,
     title: @Composable () -> Unit,
     colors: RelativeCardColors = relativeCardColors(),
+    enabled: Boolean = true,
     links: @Composable ColumnScope.() -> Unit
 ) {
     Box(
         modifier = modifier
             .background(
-                color = colors.background,
+                color = colors.background.enabledAlpha(enabled),
                 shape = RelativeCardDefaults.shape
             )
             .clip(RelativeCardDefaults.shape)
             .padding(RelativeCardDefaults.padding)
     ) {
         Column {
-            ProvideTextStyle(OneUITheme.types.relativeCardTitle) {
+            ProvideTextStyle(OneUITheme.types.relativeCardTitle.enabledAlpha(enabled)) {
                 title()
             }
             Spacer(

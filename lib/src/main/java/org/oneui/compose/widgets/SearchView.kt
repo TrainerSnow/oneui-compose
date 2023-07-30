@@ -33,6 +33,7 @@ import org.oneui.compose.base.IconView
 import org.oneui.compose.base.iconColors
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.OneUIPreview
+import org.oneui.compose.util.enabledAlpha
 
 
 /**
@@ -53,6 +54,7 @@ fun SearchView(
     query: String,
     hint: String = stringResource(R.string.sesl_search_view_hint),
     onQueryChange: (String) -> Unit,
+    enabled: Boolean = true,
     backButton: (@Composable () -> Unit)? = null,
     closeButton: (@Composable () -> Unit)? = null,
     voiceButton: (@Composable () -> Unit)? = null,
@@ -63,6 +65,7 @@ fun SearchView(
             .height(SearchViewDefaults.height)
             .padding(SearchViewDefaults.margin)
             .fillMaxWidth()
+            .enabledAlpha(enabled)
     ) {
         Row(
             modifier = Modifier
@@ -94,7 +97,8 @@ fun SearchView(
                     value = query,
                     hint = hint,
                     onValueChange = onQueryChange,
-                    singleLine = true
+                    singleLine = true,
+                    enabled = enabled
                 )
             }
 
@@ -150,6 +154,7 @@ fun SearchView(
     modifier: Modifier = Modifier,
     query: String,
     hint: String = stringResource(R.string.sesl_search_view_hint),
+    enabled: Boolean = true,
     onQueryChange: (String) -> Unit,
     onBackClick: () -> Unit,
     onVoiceClick: () -> Unit,
@@ -160,6 +165,7 @@ fun SearchView(
         query = query,
         hint = hint,
         onQueryChange = onQueryChange,
+        enabled = enabled,
         backButton = {
             SearchViewButton(
                 icon = Icon.Resource(dev.oneuiproject.oneui.R.drawable.ic_oui_back),

@@ -16,6 +16,7 @@ import org.oneui.compose.R
 import org.oneui.compose.base.Icon
 import org.oneui.compose.dialog.AlertDialog
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 import org.oneui.compose.widgets.UnderlinedEditText
 
 
@@ -36,7 +37,8 @@ fun EditTextPreference(
     title: String,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     value: String = "",
-    onValueChange: (String) -> Unit
+    onValueChange: (String) -> Unit,
+    enabled: Boolean = true
 ) {
     var showDialog by remember {
         mutableStateOf(false)
@@ -57,10 +59,11 @@ fun EditTextPreference(
                 text = value,
                 style = OneUITheme.types.preferenceSummary.copy(
                     color = OneUITheme.colors.seslPrimaryColor
-                )
+                ).enabledAlpha(enabled)
             )
         },
         onClick = { showDialog = true },
+        enabled = enabled,
         interactionSource = interactionSource
     )
 

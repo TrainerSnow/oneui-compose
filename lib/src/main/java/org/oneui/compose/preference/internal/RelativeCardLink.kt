@@ -17,6 +17,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.preference.RelativeCard
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 
 /**
@@ -33,6 +34,7 @@ fun RelativeCardLink(
     modifier: Modifier = Modifier,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: RelativeCardLinkColors = relativeCardLinkColors(),
+    enabled: Boolean = true,
     onClick: () -> Unit,
     text: @Composable () -> Unit
 ) {
@@ -45,11 +47,12 @@ fun RelativeCardLink(
                     color = colors.ripple
                 ),
                 role = Role.Button,
-                onClick = onClick
+                onClick = onClick,
+                enabled = enabled
             )
             .padding(RelativeCardLinkDefaults.padding)
     ) {
-        ProvideTextStyle(OneUITheme.types.relativeCardLink) {
+        ProvideTextStyle(OneUITheme.types.relativeCardLink.enabledAlpha(enabled)) {
             text()
         }
     }

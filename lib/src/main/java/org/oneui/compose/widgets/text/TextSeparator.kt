@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 /**
  * Contains default values for a [TextSeparator]
@@ -37,11 +38,13 @@ fun TextSeparator(
     modifier: Modifier = Modifier,
     text: String,
     textStyle: TextStyle = OneUITheme.types.textSeparator,
+    enabled: Boolean = true,
     padding: PaddingValues = TextSeparatorDefaults.padding
 ) {
     Text(
         modifier = modifier
-            .padding(padding),
+            .padding(padding)
+            .enabledAlpha(enabled),
         text = text,
         style = textStyle
     )

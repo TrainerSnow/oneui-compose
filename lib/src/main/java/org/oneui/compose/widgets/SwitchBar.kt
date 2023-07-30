@@ -23,6 +23,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.R
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 import org.oneui.compose.widgets.buttons.Switch
 
 
@@ -76,7 +77,11 @@ fun SwitchBar(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        ProvideTextStyle(with(OneUITheme.types) { if (switched) switchBarLabel else switchBarLabelOff }) {
+        ProvideTextStyle(
+            with(OneUITheme.types) {
+                if (switched) switchBarLabel else switchBarLabelOff
+            }.enabledAlpha(enabled)
+        ) {
             Text(
                 text = label
             )

@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 
 /**
@@ -47,6 +48,7 @@ fun BasePreference(
     onClick: (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: BasePreferenceColors = basePreferenceColors(),
+    enabled: Boolean = true,
     contentLocation: ContentLocation = ContentLocation.End,
     content: (@Composable () -> Unit)? = null
 ) {
@@ -54,7 +56,7 @@ fun BasePreference(
         modifier = modifier
             .clickable(
                 interactionSource = interactionSource,
-                enabled = onClick != null,
+                enabled = enabled,
                 onClick = { onClick?.let { it() } },
                 indication = rememberRipple(
                     color = colors.ripple
@@ -76,10 +78,10 @@ fun BasePreference(
             modifier = Modifier
                 .weight(1F)
         ) {
-            ProvideTextStyle(OneUITheme.types.preferenceTitle) {
+            ProvideTextStyle(OneUITheme.types.preferenceTitle.enabledAlpha(enabled)) {
                 title(this)
             }
-            ProvideTextStyle(OneUITheme.types.preferenceSummary) {
+            ProvideTextStyle(OneUITheme.types.preferenceSummary.enabledAlpha(enabled)) {
                 summary?.let {
                     it(this)
                 }
