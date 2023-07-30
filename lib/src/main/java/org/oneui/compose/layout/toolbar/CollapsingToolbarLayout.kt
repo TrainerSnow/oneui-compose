@@ -24,13 +24,139 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.layout.internal.modifier.NestedScrollConnection
+import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.mapRange
 import org.oneui.compose.widgets.buttons.IconButton
 
-object CollapsingToolbarLayoutDefaults {
+/**
+ * Composable for a oneui-style Collapsing toolbar layout
+ *
+ * TODO: Add preview picture
+ *
+ * @param modifier The modifier to be applied to the container
+ * @param state The [CollapsingToolbarState] for controlling the layout
+ * @param toolbarTitle The title
+ * @param toolbarSubtitle The subtitle
+ * @param toolbarHeight The height of the toolbar when expanded
+ * @param appbarActions The actions shown on the appbar. Expected to be [IconButton]s, other could lead to undefined behaviour.
+ * @param appbarNavAction The navigation action shown at the start of the appbar
+ * @param content The content to be put inside the layout, arranged in a vertically in a [Column]
+ */
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun CollapsingToolbarLayout(
+    modifier: Modifier = Modifier,
+    state: CollapsingToolbarState = rememberCollapsingToolbarState(
+        CollapsingToolbarCollapsedState.EXTENDED,
+        with(LocalDensity.current) { 100.dp.toPx() }
+    ),
+    expandable: Boolean = true,
+    toolbarTitle: String,
+    toolbarSubtitle: String? = null,
+    toolbarHeight: Dp = 280.dp,
+    appbarActions: (@Composable () -> Unit)? = null,
+    appbarNavAction: (@Composable () -> Unit)? = null,
+    content: @Composable ColumnScope.() -> Unit
+) {
+    val density = LocalDensity.current
 
-    const val snapThreshold: Float = 0.5F
+    state.setAnchors(
+        mapOf(
+            CollapsingToolbarCollapsedState.COLLAPSED to 0F,
+            CollapsingToolbarCollapsedState.EXTENDED to with(density) { toolbarHeight.toPx() }
+        )
+    )
 
+    val offsetDp = state.pixelProgress.let {
+        if (it.isNaN()) 0F.dp else with(density) { it.toDp() }
+    }
+    val progress = offsetDp / toolbarHeight
+
+    val appbarAlpha = if (progress > 0.5) 0F else 1 - progress * 2
+    val toolbarAlpha = if (progress < 0.5) 0F else mapRange(
+        value = progress,
+        origStart = 0.5F,
+        origEnd = 1F,
+        targetStart = 0F,
+        targetEnd = 1F
+    )
+
+    val scrollstate = rememberScrollState()
+
+    val mod = if (expandable) Modifier
+        .anchoredDraggable(
+            state = state.draggableState,
+            orientation = Orientation.Vertical
+        )
+        .nestedScroll(
+            state.draggableState.NestedScrollConnection
+        ) else Modifier
+
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .then(mod)
+    ) {
+        CollapsingToolbarTitle(
+            modifier = Modifier
+                .height(
+                    height = offsetDp
+                ),
+            title = {
+                Text(
+                    text = toolbarTitle,
+                    style = OneUITheme.types.appbarTitleExtended.copy(
+                        color = OneUITheme.types.appbarTitleExtended.color.copy(
+                            toolbarAlpha.coerceIn(0F, 1F)
+                        )
+                    )
+                )
+            },
+            subtitle = toolbarSubtitle?.let {
+                {
+                    Text(
+                        text = it,
+                        style = OneUITheme.types.appbarTitleExtended.copy(
+                            color = OneUITheme.types.appbarSubtitle.color.copy(
+                                toolbarAlpha.coerceIn(0F, 1F)
+                            )
+                        )
+                    )
+                }
+            }
+        )
+
+        OUIAppBar(
+            title = {
+                Text(
+                    text = toolbarTitle,
+                    style = OneUITheme.types.appbarTitleCollapsed.copy(
+                        color = OneUITheme.types.appbarTitleCollapsed.color.copy(
+                            alpha = appbarAlpha.coerceIn(0F, 1F)
+                        )
+                    )
+                )
+            },
+            startAction = appbarNavAction?.let {
+                {
+                    it()
+                }
+            },
+            actions = appbarActions?.let {
+                {
+                    it()
+                }
+            }
+        )
+
+        Column(
+            modifier = Modifier
+                .verticalScroll(scrollstate)
+                .fillMaxWidth()
+        ) {
+            content(this)
+        }
+    }
 }
 
 enum class CollapsingToolbarCollapsedState {
@@ -147,123 +273,4 @@ fun rememberCollapsingToolbarState(
         initial = initial,
         velocityThreshold = velocityThreshold
     )
-}
-
-/**
- * Composable for a oneui-style Collapsing toolbar layout
- *
- * TODO: Add preview picture
- *
- * @param modifier The modifier to be applied to the container
- * @param state The [CollapsingToolbarState] for controlling the layout
- * @param toolbarTitle The title
- * @param toolbarSubtitle The subtitle
- * @param toolbarHeight The height of the toolbar when expanded
- * @param appbarActions The actions shown on the appbar. Expected to be [IconButton]s, other could lead to undefined behaviour.
- * @param appbarNavAction The navigation action shown at the start of the appbar
- * @param content The content to be put inside the layout, arranged in a vertically in a [Column]
- */
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun CollapsingToolbarLayout(
-    modifier: Modifier = Modifier,
-    velocityThreshold: Float = with(LocalDensity.current) { 100.dp.toPx() },
-    state: CollapsingToolbarState = rememberCollapsingToolbarState(
-        CollapsingToolbarCollapsedState.EXTENDED,
-        velocityThreshold
-    ),
-    expandable: Boolean = true,
-    toolbarTitle: String,
-    toolbarSubtitle: String? = null,
-    toolbarHeight: Dp = 280.dp,
-    appbarActions: (@Composable () -> Unit)? = null,
-    appbarNavAction: (@Composable () -> Unit)? = null,
-    content: @Composable ColumnScope.() -> Unit
-) {
-    val density = LocalDensity.current
-
-    state.setAnchors(
-        mapOf(
-            CollapsingToolbarCollapsedState.COLLAPSED to 0F,
-            CollapsingToolbarCollapsedState.EXTENDED to with(density) { toolbarHeight.toPx() }
-        )
-    )
-
-    val offsetDp = state.pixelProgress.let {
-        if (it.isNaN()) 0F.dp else with(density) { it.toDp() }
-    }
-    val progress = offsetDp / toolbarHeight
-
-    val appbarAlpha = if (progress > 0.5) 0F else 1 - progress * 2
-    val toolbarAlpha = if (progress < 0.5) 0F else mapRange(
-        value = progress,
-        origStart = 0.5F,
-        origEnd = 1F,
-        targetStart = 0F,
-        targetEnd = 1F
-    )
-
-    val scrollstate = rememberScrollState()
-
-    val mod = if (expandable) Modifier
-        .anchoredDraggable(
-            state = state.draggableState,
-            orientation = Orientation.Vertical
-        )
-        .nestedScroll(
-            state.draggableState.NestedScrollConnection
-        ) else Modifier
-
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .then(mod)
-    ) {
-        CollapsingToolbarTitle(
-            modifier = Modifier
-                .height(
-                    height = offsetDp
-                ),
-            title = {
-                Text(
-                    text = toolbarTitle
-                )
-            },
-            subtitle = toolbarSubtitle?.let {
-                {
-                    Text(
-                        text = it
-                    )
-                }
-            },
-            textAlpha = toolbarAlpha.coerceIn(0F, 1F)
-        )
-
-        OUIAppBar(
-            title = {
-                Text(
-                    text = toolbarTitle
-                )
-            },
-            startAction = appbarNavAction?.let {
-                {
-                    it()
-                }
-            },
-            actions = appbarActions?.let {
-                {
-                    it()
-                }
-            },
-            titleTextAlpha = appbarAlpha.coerceIn(0F, 1F)
-        )
-
-        Column(
-            modifier = Modifier
-                .verticalScroll(scrollstate)
-                .fillMaxWidth()
-        ) {
-            content(this)
-        }
-    }
 }

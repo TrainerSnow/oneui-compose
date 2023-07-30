@@ -15,36 +15,36 @@ This library is still, as of July 17 2023, WIP and unfinished. The following tab
 
 | Component                              | Alpha  | Stable |
 |----------------------------------------|:------:|:------:|
-| Buttons                                |  Yes   |   No   |
-| Preferences                            |  Yes   |   No   |
-| Checkbox                               |  Yes   |   No   |
-| Radio Button                           |  Yes   |   No   |
-| Spinners                               |  Yes   |   No   |
-| Menus                                  |  Yes   |   No   |
-| Searchview                             |  Yes   |   No   |
-| Drawer Layout                          |  Yes   |   No   |
-| Collapsing Toolbar Layout              |  Yes   |   No   |
-| Normal Seekbar                         |  Yes   |   No   |
-| Expanding Seekbar                      |  Yes   |   No   |
+| Buttons                                |  Yes   |  Yes   |
+| Preferences                            |  Yes   |  Yes   |
+| Checkbox                               |  Yes   |  Yes   |
+| Radio Button                           |  Yes   |  Yes   |
+| Spinners                               |   No   |   No   |
+| Menus                                  |  Yes   |  Yes   |
+| Searchview                             |  Yes   |  Yes   |
+| Drawer Layout                          |  Yes   |  Yes   |
+| Collapsing Toolbar Layout              |  Yes   |  Yes   |
+| Normal Seekbar                         |  Yes   |  Yes   |
+| Expanding Seekbar                      |  Yes   |  Yes   |
 | Split Seekbar                          |   No   |   No   |
-| Danger Seekbar                         |  Yes   |   No   |
+| Danger Seekbar                         |  Yes   |  Yes   |
 | Haptic Seekbar                         |   No   |   No   |
-| Progress Bar (circular, determinate)   |  Yes   |   No   |
-| Progress Bar (circular, indeterminate) |  Yes   |   No   |
-| Progress Bar (normal, determinate)     |  Yes   |   No   |
-| Progress Bar (normal, indeterminate)   |  Yes   |   No   |
-| Swipe Refresh Layout                   |  Yes   |   No   |
-| Navigation Bar                         |  Yes   |   No   |
-| Navigation Bar Tabs                    |  Yes   |   No   |
-| Navigation Bar Subtabs                 |  Yes   |   No   |
+| Progress Bar (circular, determinate)   |  Yes   |  Yes   |
+| Progress Bar (circular, indeterminate) |  Yes   |  Yes   |
+| Progress Bar (normal, determinate)     |  Yes   |  Yes   |
+| Progress Bar (normal, indeterminate)   |  Yes   |  Yes   |
+| Swipe Refresh Layout                   |  Yes   |  Yes   |
+| Navigation Bar                         |  Yes   |  Yes   |
+| Navigation Bar Tabs                    |  Yes   |  Yes   |
+| Navigation Bar Subtabs                 |  Yes   |  Yes   |
 | App Picker View                        |   No   |   No   |
 | Index Scroll                           |   No   |   No   |
-| Number Picker                          |  Yes   |   No   |
-| Time Picker                            |  Yes   |   No   |
-| Date Picker                            |  Yes   |   No   |
+| Number Picker                          |  Yes   |  Yes   |
+| Time Picker                            |  Yes   |  Yes   |
+| Date Picker                            |  Yes   |  Yes   |
 | Spinning Date Picker                   |   No   |   No   |
-| Date Picker Dialog                     |  Yes   |   No   |
-| Time Picker Dialog                     |  Yes   |   No   |
+| Date Picker Dialog                     |  Yes   |  Yes   |
+| Time Picker Dialog                     |  Yes   |  Yes   |
 | Start End Time Picker Dialog           |   No   |   No   |
 | Color Picker                           | Partly |   No   |
 
@@ -67,11 +67,13 @@ Implementation of smaller components, such as Buttons, Checkboxes etc. will have
 ### Composable structure
 Certain parameters are prevalent in all, or most, composables, be they layouts, buttons or dialogs. Such include:
 
-- `modifier: Modifier`, to customize basic attributes like `background`, `border`or `clickable`. Every composable should have and use this parameter.
-- `colors: [ColorClass]`, to customize the colors used in the composable. This should be default initialized with the color composable.
+- `modifier: Modifier` to customize basic attributes like `background`, `border`or `clickable`. Every composable should have and use this parameter.
+- `colors: [ColorClass]` to customize the colors used in the composable. This should be default initialized with the color composable.
 - `onClick: () -> Unit` to handle click events.
-- `interactionSource: MutableInteractionSource`, to automate interacting with the component. Every composable that's clickable should have and use this parameter.
-- `content: @Composable () -> Unit`, when the composable has content to be put inside.
+- `enabled: Boolean` to set the component enabled/disabled.
+- [Component specific parameters]
+- `interactionSource: MutableInteractionSource` to programmatically interact with this component. Every composable that's clickable should have and use this parameter.
+- `content: @Composable () -> Unit` when the composable has content to be put inside.
 
 Every composable should use these parameters, if applicable, in the presented order.
 

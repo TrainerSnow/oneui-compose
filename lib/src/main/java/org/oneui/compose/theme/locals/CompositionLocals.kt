@@ -8,16 +8,26 @@ import androidx.compose.ui.graphics.Color
 import org.oneui.compose.theme.color.LightColorTheme
 import org.oneui.compose.theme.color.OneUIColorTheme
 import org.oneui.compose.theme.dimensions.IDynamicDimensions
+import org.oneui.compose.theme.type.OneUITypographyTheme
 import org.oneui.compose.theme.type.RobotoTypographyTheme
 
+/**
+ * Contains the currently applicable [OneUIColorTheme]
+ */
 internal val LocalColors: ProvidableCompositionLocal<OneUIColorTheme> =
     staticCompositionLocalOf { LightColorTheme }
 
+/**
+ * Contains the currently applicable [IDynamicDimensions]
+ */
 internal val LocalDynamicDimensions: ProvidableCompositionLocal<IDynamicDimensions> =
     staticCompositionLocalOf {
         IDynamicDimensions.Default
     }
 
+/**
+ * Contains the currently applicable [OneUITypographyTheme]
+ */
 internal val LocalTypography = staticCompositionLocalOf {
     RobotoTypographyTheme.create(
         LightColorTheme,
@@ -26,7 +36,7 @@ internal val LocalTypography = staticCompositionLocalOf {
 }
 
 /**
- * CompositionLocal which holds the current background color.
+ * Contains the currently applicable background [Color]. Updated depending on the currently composed component.
  */
 val LocalBackgroundColor = staticCompositionLocalOf {
     Color.Transparent

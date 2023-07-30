@@ -37,15 +37,15 @@ import org.oneui.compose.widgets.buttons.radio.VerticalRadioGroup
 @Composable
 fun <T> MultiSelectPreference(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     icon: Icon? = null,
     title: String,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     selectedValues: List<T>,
     values: List<T>,
     onValuesChange: (List<T>) -> Unit,
     nameFor: ((T) -> String) = { it.toString() },
     summary: String? = null,
-    enabled: Boolean = true
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     assert(values.containsAll(selectedValues)) { "All of the selected values must be present in the provided values" }
     var showDialog by remember {
@@ -53,8 +53,10 @@ fun <T> MultiSelectPreference(
     }
 
     BasePreference(
-        modifier,
-        icon,
+        modifier = modifier,
+        onClick = { showDialog = true },
+        enabled = enabled,
+        icon = icon,
         title = {
             Text(
                 text = title
@@ -67,8 +69,6 @@ fun <T> MultiSelectPreference(
                 )
             }
         },
-        onClick = { showDialog = true },
-        enabled = enabled,
         interactionSource = interactionSource
     )
 

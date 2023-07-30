@@ -37,75 +37,12 @@ import org.oneui.compose.widgets.buttons.IconButton
 import org.oneui.compose.widgets.buttons.iconButtonColors
 
 /**
- * Stores default values for the button specs
- */
-object DrawerDefaults {
-
-    /**
-     * Radius of the drawers corners
-     */
-    val cornerRadius: Dp = 15.dp
-
-    val layoutPadding = PaddingValues(
-        top = 16.dp
-    )
-
-    val drawerPadding = PaddingValues(
-        horizontal = 8.dp
-    )
-
-    val headerIconMargin = PaddingValues(
-        top = 8.dp,
-        end = 8.dp
-    )
-
-    val maxWidthCompact = 320.dp
-
-    val minWidthCompact = 0.dp
-}
-
-/**
- * Stores the colors that are needed to define a drawer layout
- */
-data class DrawerColors(
-
-    /**
-     * The color to aim for when applying scrim to the main content
-     */
-    val scrim: Color,
-
-    /**
-     * The background of the drawer itself
-     */
-    val drawerBackground: Color,
-
-    /**
-     * The background of the layout behind the drawer
-     */
-    val background: Color
-
-)
-
-/**
- * Constructs the default layout colors
- */
-@Composable
-fun drawerColors(
-    scrim: Color = OneUITheme.colors.drawerScrim,
-    drawerBackground: Color = OneUITheme.colors.seslBackgroundColor,
-    background: Color = OneUITheme.colors.seslRoundAndBgcolor
-) = DrawerColors(
-    scrim = scrim,
-    drawerBackground = drawerBackground,
-    background = background
-)
-
-/**
  * Composable for a oui-style drawer layout
  *
  * @param modifier The modifier to be applied to the layout
- * @param shape The shape the drawer is made of
  * @param colors The colors to apply to the drawer
+ * @param state The [SlidingDrawerState] to control the drawer
+ * @param shape The shape the drawer is made of
  * @param layoutPadding The padding to be applied to the whole layout
  * @param drawerPadding The padding to apply to the drawer itself
  * @param headerIconMargin The margin of the header icon
@@ -119,12 +56,12 @@ fun drawerColors(
 @Composable
 fun DrawerLayout(
     modifier: Modifier = Modifier,
+    colors: DrawerColors = drawerColors(),
+    state: SlidingDrawerState = rememberSlidingDrawerState(),
     shape: Shape = RoundedCornerShape(
         topEnd = DrawerDefaults.cornerRadius,
         bottomEnd = DrawerDefaults.cornerRadius
     ),
-    colors: DrawerColors = drawerColors(),
-    state: SlidingDrawerState = rememberSlidingDrawerState(),
     layoutPadding: PaddingValues = DrawerDefaults.layoutPadding,
     drawerPadding: PaddingValues = DrawerDefaults.drawerPadding,
     headerIconMargin: PaddingValues = DrawerDefaults.headerIconMargin,
@@ -254,4 +191,60 @@ fun DrawerLayout(
             }
         }
     }
+}
+
+/**
+ * Stores the colors that are needed to define a drawer layout
+ */
+data class DrawerColors(
+
+    val scrim: Color,
+
+    val drawerBackground: Color,
+
+    val background: Color
+
+)
+
+/**
+ * Constructs the default layout colors
+ *
+ * @param scrim The color to aim for when applying scrim to the main content
+ * @param drawerBackground The background of the drawer itself
+ * @param background The background of the layout behind the drawer
+ */
+@Composable
+fun drawerColors(
+    scrim: Color = OneUITheme.colors.drawerScrim,
+    drawerBackground: Color = OneUITheme.colors.seslBackgroundColor,
+    background: Color = OneUITheme.colors.seslRoundAndBgcolor
+) = DrawerColors(
+    scrim = scrim,
+    drawerBackground = drawerBackground,
+    background = background
+)
+
+/**
+ * Stores default values for the button specs
+ */
+object DrawerDefaults {
+
+    val cornerRadius: Dp = 15.dp
+
+    val layoutPadding = PaddingValues(
+        top = 16.dp
+    )
+
+    val drawerPadding = PaddingValues(
+        horizontal = 8.dp
+    )
+
+    val headerIconMargin = PaddingValues(
+        top = 8.dp,
+        end = 8.dp
+    )
+
+    val maxWidthCompact = 320.dp
+
+    val minWidthCompact = 0.dp
 }

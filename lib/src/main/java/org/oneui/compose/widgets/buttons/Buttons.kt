@@ -24,6 +24,189 @@ import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.enabledAlpha
 
 /**
+ * Composable for a oui-style colored button
+ *
+ * @param modifier The [Modifier] to be applied to this button
+ * @param colors The buttons color config
+ * @param enabled Whether this button is enabled or not
+ * @param onClick The onclick callback
+ * @param label The string-label shown on this button
+ * @param padding The padding to be applied
+ * @param textOverflow The strategy on how to deal with overflowing text
+ * @param maxLines The maximum amount of lines of text on this button
+ * @param shape The buttons [Shape]
+ * @param textStyle The [TextStyle] of the string-label
+ * @param interactionSource
+ */
+@Composable
+fun ColoredButton(
+    modifier: Modifier = Modifier,
+    label: String,
+    padding: PaddingValues = ButtonDefaults.padding,
+    textOverflow: TextOverflow = ButtonDefaults.textOverflow,
+    maxLines: Int = ButtonDefaults.maxLines,
+    enabled: Boolean = true,
+    shape: Shape = ButtonDefaults.shape,
+    textStyle: TextStyle = OneUITheme.types.button,
+    onClick: (() -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    colors: ButtonColors = coloredButtonColors(),
+) = BaseButton(
+    modifier = modifier,
+    label = label,
+    padding = padding,
+    textOverflow = textOverflow,
+    maxLines = maxLines,
+    enabled = enabled,
+    shape = shape,
+    textStyle = textStyle,
+    onClick = onClick,
+    interactionSource = interactionSource,
+    backgroundColor = colors.background,
+    disabledBackgroundColor = colors.backgroundDisabled,
+    rippleColor = colors.ripple,
+    textColor = colors.text
+)
+
+/**
+ * Composable for a oui-style colored button
+ *
+ * @param modifier The [Modifier] to be applied to this button
+ * @param colors The buttons color config
+ * @param enabled Whether this button is enabled or not
+ * @param onClick The onclick callback
+ * @param label The string-label shown on this button
+ * @param padding The padding to be applied
+ * @param textOverflow The strategy on how to deal with overflowing text
+ * @param maxLines The maximum amount of lines of text on this button
+ * @param shape The buttons [Shape]
+ * @param textStyle The [TextStyle] of the string-label
+ * @param interactionSource
+ */
+@Composable
+fun TransparentButton(
+    modifier: Modifier = Modifier,
+    label: String,
+    padding: PaddingValues = ButtonDefaults.padding,
+    textOverflow: TextOverflow = ButtonDefaults.textOverflow,
+    maxLines: Int = ButtonDefaults.maxLines,
+    enabled: Boolean = true,
+    shape: Shape = ButtonDefaults.shape,
+    textStyle: TextStyle = OneUITheme.types.button,
+    onClick: (() -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    colors: ButtonColors = transparentButtonColors()
+) = BaseButton(
+    modifier = modifier,
+    label = label,
+    padding = padding,
+    textOverflow = textOverflow,
+    maxLines = maxLines,
+    enabled = enabled,
+    shape = shape,
+    textStyle = textStyle,
+    onClick = onClick,
+    interactionSource = interactionSource,
+    backgroundColor = colors.background,
+    disabledBackgroundColor = colors.backgroundDisabled,
+    rippleColor = colors.ripple,
+    textColor = colors.text
+)
+
+/**
+ * Composable for a oui-style colored button
+ *
+ * @param modifier The [Modifier] to be applied to this button
+ * @param colors The buttons color config
+ * @param enabled Whether this button is enabled or not
+ * @param onClick The onclick callback
+ * @param label The string-label shown on this button
+ * @param padding The padding to be applied
+ * @param textOverflow The strategy on how to deal with overflowing text
+ * @param maxLines The maximum amount of lines of text on this button
+ * @param shape The buttons [Shape]
+ * @param textStyle The [TextStyle] of the string-label
+ * @param interactionSource
+ */
+@Composable
+fun Button(
+    modifier: Modifier = Modifier,
+    label: String,
+    padding: PaddingValues = ButtonDefaults.padding,
+    textOverflow: TextOverflow = ButtonDefaults.textOverflow,
+    maxLines: Int = ButtonDefaults.maxLines,
+    enabled: Boolean = true,
+    shape: Shape = ButtonDefaults.shape,
+    textStyle: TextStyle = OneUITheme.types.button,
+    onClick: (() -> Unit)? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    colors: ButtonColors = defaultButtonColors()
+) = BaseButton(
+    modifier = modifier,
+    label = label,
+    padding = padding,
+    textOverflow = textOverflow,
+    maxLines = maxLines,
+    enabled = enabled,
+    shape = shape,
+    textStyle = textStyle,
+    onClick = onClick,
+    interactionSource = interactionSource,
+    backgroundColor = colors.background,
+    disabledBackgroundColor = colors.backgroundDisabled,
+    rippleColor = colors.ripple,
+    textColor = colors.text
+)
+
+@Composable
+internal fun BaseButton(
+    modifier: Modifier,
+    label: String,
+    padding: PaddingValues,
+    textOverflow: TextOverflow,
+    maxLines: Int,
+    enabled: Boolean,
+    shape: Shape,
+    textStyle: TextStyle,
+    onClick: (() -> Unit)?,
+    interactionSource: MutableInteractionSource,
+    backgroundColor: Color,
+    disabledBackgroundColor: Color,
+    rippleColor: Color,
+    textColor: Color
+) {
+    Box(
+        modifier = modifier
+            .background(
+                color = if (enabled) backgroundColor else disabledBackgroundColor,
+                shape = shape
+            )
+            .clip(
+                shape = shape
+            )
+            .clickable(
+                enabled = enabled,
+                indication = rememberRipple(
+                    color = rippleColor
+                ),
+                interactionSource = interactionSource,
+                role = Role.Button
+            ) { onClick?.let { it() } }
+            .padding(padding),
+        contentAlignment = Alignment.Center
+    ) {
+        BasicText(
+            text = label,
+            style = textStyle.copy(
+                color = textColor
+            ).enabledAlpha(enabled),
+            overflow = textOverflow,
+            maxLines = maxLines
+        )
+    }
+}
+
+/**
  * Stores the colors that are needed to define a button
  */
 data class ButtonColors(
@@ -133,187 +316,4 @@ object ButtonDefaults {
      * The alpha value for the background of disabled buttons
      */
     const val disabledAlpha: Float = 0.4F
-}
-
-/**
- * Composable for a oui-style colored button
- *
- * @param modifier The [Modifier] to be applied to this button
- * @param label The string-label shown on this button
- * @param padding The padding to be applied
- * @param textOverflow The strategy on how to deal with overflowing text
- * @param maxLines The maximum amount of lines of text on this button
- * @param enabled Whether this button is enabled or not
- * @param shape The buttons [Shape]
- * @param textStyle The [TextStyle] of the string-label
- * @param onClick The onclick callback
- * @param interactionSource
- * @param colors The buttons color config
- */
-@Composable
-fun ColoredButton(
-    modifier: Modifier = Modifier,
-    label: String,
-    padding: PaddingValues = ButtonDefaults.padding,
-    textOverflow: TextOverflow = ButtonDefaults.textOverflow,
-    maxLines: Int = ButtonDefaults.maxLines,
-    enabled: Boolean = true,
-    shape: Shape = ButtonDefaults.shape,
-    textStyle: TextStyle = OneUITheme.types.button,
-    onClick: (() -> Unit)? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: ButtonColors = coloredButtonColors(),
-) = BaseButton(
-    modifier = modifier,
-    label = label,
-    padding = padding,
-    textOverflow = textOverflow,
-    maxLines = maxLines,
-    enabled = enabled,
-    shape = shape,
-    textStyle = textStyle,
-    onClick = onClick,
-    interactionSource = interactionSource,
-    backgroundColor = colors.background,
-    disabledBackgroundColor = colors.backgroundDisabled,
-    rippleColor = colors.ripple,
-    textColor = colors.text
-)
-
-/**
- * Composable for a oui-style transparent button
- *
- * @param modifier The [Modifier] to be applied to this button
- * @param label The string-label shown on this button
- * @param padding The padding to be applied
- * @param textOverflow The strategy on how to deal with overflowing text
- * @param maxLines The maximum amount of lines of text on this button
- * @param enabled Whether this button is enabled or not
- * @param shape The buttons [Shape]
- * @param textStyle The [TextStyle] of the string-label
- * @param onClick The onclick callback
- * @param interactionSource
- * @param colors The buttons color config
- */
-@Composable
-fun TransparentButton(
-    modifier: Modifier = Modifier,
-    label: String,
-    padding: PaddingValues = ButtonDefaults.padding,
-    textOverflow: TextOverflow = ButtonDefaults.textOverflow,
-    maxLines: Int = ButtonDefaults.maxLines,
-    enabled: Boolean = true,
-    shape: Shape = ButtonDefaults.shape,
-    textStyle: TextStyle = OneUITheme.types.button,
-    onClick: (() -> Unit)? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: ButtonColors = transparentButtonColors()
-) = BaseButton(
-    modifier = modifier,
-    label = label,
-    padding = padding,
-    textOverflow = textOverflow,
-    maxLines = maxLines,
-    enabled = enabled,
-    shape = shape,
-    textStyle = textStyle,
-    onClick = onClick,
-    interactionSource = interactionSource,
-    backgroundColor = colors.background,
-    disabledBackgroundColor = colors.backgroundDisabled,
-    rippleColor = colors.ripple,
-    textColor = colors.text
-)
-
-/**
- * Composable for a oui-style default button
- *
- * @param modifier The [Modifier] to be applied to this button
- * @param label The string-label shown on this button
- * @param padding The padding to be applied
- * @param textOverflow The strategy on how to deal with overflowing text
- * @param maxLines The maximum amount of lines of text on this button
- * @param enabled Whether this button is enabled or not
- * @param shape The buttons [Shape]
- * @param textStyle The [TextStyle] of the string-label
- * @param onClick The onclick callback
- * @param interactionSource
- * @param colors The buttons color config
- */
-@Composable
-fun Button(
-    modifier: Modifier = Modifier,
-    label: String,
-    padding: PaddingValues = ButtonDefaults.padding,
-    textOverflow: TextOverflow = ButtonDefaults.textOverflow,
-    maxLines: Int = ButtonDefaults.maxLines,
-    enabled: Boolean = true,
-    shape: Shape = ButtonDefaults.shape,
-    textStyle: TextStyle = OneUITheme.types.button,
-    onClick: (() -> Unit)? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: ButtonColors = defaultButtonColors()
-) = BaseButton(
-    modifier = modifier,
-    label = label,
-    padding = padding,
-    textOverflow = textOverflow,
-    maxLines = maxLines,
-    enabled = enabled,
-    shape = shape,
-    textStyle = textStyle,
-    onClick = onClick,
-    interactionSource = interactionSource,
-    backgroundColor = colors.background,
-    disabledBackgroundColor = colors.backgroundDisabled,
-    rippleColor = colors.ripple,
-    textColor = colors.text
-)
-
-@Composable
-internal fun BaseButton(
-    modifier: Modifier,
-    label: String,
-    padding: PaddingValues,
-    textOverflow: TextOverflow,
-    maxLines: Int,
-    enabled: Boolean,
-    shape: Shape,
-    textStyle: TextStyle,
-    onClick: (() -> Unit)?,
-    interactionSource: MutableInteractionSource,
-    backgroundColor: Color,
-    disabledBackgroundColor: Color,
-    rippleColor: Color,
-    textColor: Color
-) {
-    Box(
-        modifier = modifier
-            .background(
-                color = if (enabled) backgroundColor else disabledBackgroundColor,
-                shape = shape
-            )
-            .clip(
-                shape = shape
-            )
-            .clickable(
-                enabled = enabled,
-                indication = rememberRipple(
-                    color = rippleColor
-                ),
-                interactionSource = interactionSource,
-                role = Role.Button
-            ) { onClick?.let { it() } }
-            .padding(padding),
-        contentAlignment = Alignment.Center
-    ) {
-        BasicText(
-            text = label,
-            style = textStyle.copy(
-                color = textColor
-            ).enabledAlpha(enabled),
-            overflow = textOverflow,
-            maxLines = maxLines
-        )
-    }
 }

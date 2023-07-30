@@ -28,74 +28,32 @@ import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.enabledAlpha
 
 /**
- * Stores default values for the button specs
- */
-object DrawerItemDefaults {
-
-    val margin = PaddingValues(
-        horizontal = 12.dp
-    )
-
-    val padding = PaddingValues(
-        vertical = 13.dp,
-        horizontal = 18.dp
-    )
-
-    val iconTextSpacing = 15.dp
-
-    const val labelMaxLines = 5
-
-    const val labelEndMaxLines = 1
-
-    val shape = RoundedCornerShape(8.dp)
-
-}
-
-/**
- * Stores the colors that are needed to define a drawer layout
- */
-data class DrawerItemColors(
-
-    val ripple: Color
-
-)
-
-/**
- * Constructs the default layout colors
- */
-@Composable
-fun drawerItemColors(
-    ripple: Color = OneUITheme.colors.seslRippleColor
-): DrawerItemColors = DrawerItemColors(
-    ripple = ripple
-)
-
-/**
  * Composable for a oui-style drawer list item
  *
  * @param modifier The modifier to be applied to the item
+ * @param colors The colors to apply to the item
+ * @param onClick The callback called when the tem is clicked
+ * @param enabled Whether this component is enabled or not
  * @param icon The icon at the start of the item
  * @param label The title of the item
  * @param labelEnd The title at the end of the item
- * @param onClick The callback called when the tem is clicked
- * @param colors The colors to apply to the item
- * @param interactionSource The used [MutableInteractionSource]
  * @param textStyleLabel The [TextStyle] for the title
  * @param shape The overall shape of the item
+ * @param interactionSource The used [MutableInteractionSource]
  */
 @Composable
 fun DrawerItem(
     modifier: Modifier = Modifier,
+    colors: DrawerItemColors = drawerItemColors(),
+    onClick: (() -> Unit)? = null,
+    enabled: Boolean = true,
     icon: @Composable () -> Unit,
     label: String,
     labelEnd: String? = null,
     selected: Boolean = false,
-    onClick: (() -> Unit)? = null,
-    colors: DrawerItemColors = drawerItemColors(),
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textStyleLabel: TextStyle = with(OneUITheme.types) { if (selected) drawerItemLabelSelected else drawerItemLabel },
-    shape: Shape = DrawerItemDefaults.shape
+    shape: Shape = DrawerItemDefaults.shape,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) = Box(
     modifier = modifier
         .fillMaxWidth()
@@ -151,4 +109,47 @@ fun DrawerItem(
             )
         }
     }
+}
+
+/**
+ * Stores the colors that are needed to define a drawer layout
+ */
+data class DrawerItemColors(
+
+    val ripple: Color
+
+)
+
+/**
+ * Constructs the default layout colors
+ */
+@Composable
+fun drawerItemColors(
+    ripple: Color = OneUITheme.colors.seslRippleColor
+): DrawerItemColors = DrawerItemColors(
+    ripple = ripple
+)
+
+/**
+ * Stores default values for the button specs
+ */
+object DrawerItemDefaults {
+
+    val margin = PaddingValues(
+        horizontal = 12.dp
+    )
+
+    val padding = PaddingValues(
+        vertical = 13.dp,
+        horizontal = 18.dp
+    )
+
+    val iconTextSpacing = 15.dp
+
+    const val labelMaxLines = 5
+
+    const val labelEndMaxLines = 1
+
+    val shape = RoundedCornerShape(8.dp)
+
 }

@@ -40,11 +40,11 @@ import org.oneui.compose.theme.locals.ProvideBackgroundColor
 @Composable
 fun BaseDialog(
     modifier: Modifier = Modifier,
+    colors: BaseDialogColors = baseDialogColors(),
     properties: DialogProperties = DialogProperties(
         usePlatformDefaultWidth = false
     ),
     onDismissRequest: () -> Unit,
-    colors: BaseDialogColors = baseDialogColors(),
     padding: PaddingValues = BaseDialogDefaults.padding,
     width: Dp = (OneUITheme.dimensions.dialogMinWidth * LocalConfiguration.current.screenWidthDp).dp,
     content: @Composable () -> Unit

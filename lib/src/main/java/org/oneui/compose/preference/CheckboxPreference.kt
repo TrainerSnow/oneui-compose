@@ -23,12 +23,12 @@ import org.oneui.compose.widgets.buttons.Checkbox
 @Composable
 fun CheckboxPreference(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     icon: Icon? = null,
     title: String,
     summary: String? = null,
     checked: Boolean = false,
     onCheckedChange: ((Boolean) -> Unit)? = null,
-    enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     BasePreference(

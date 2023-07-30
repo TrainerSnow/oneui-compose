@@ -1,14 +1,13 @@
 package org.oneui.compose.picker.scroll
 
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
-
+/**
+ * Contains default values for aan [ItemScroll] and [RepeatingItemScroll]
+ */
 object ItemScrollDefaults {
 
     val textSpacing = 20.dp
-
-    val fontSize = 40.sp
 
     const val overlayAlphaScroll = 0.6F
 

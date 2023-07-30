@@ -23,13 +23,13 @@ import org.oneui.compose.widgets.buttons.Switch
 @Composable
 fun SwitchPreference(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     icon: Icon? = null,
     title: String,
     summary: String? = null,
     switched: Boolean = false,
     onSwitchedChange: ((Boolean) -> Unit)? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    enabled: Boolean = true
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     BasePreference(
         modifier = modifier,

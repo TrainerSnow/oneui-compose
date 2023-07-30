@@ -26,6 +26,7 @@ import org.oneui.compose.theme.OneUITheme
  * TODO: There is a lot of repeating in this composable. Should be redone. Same for StringPicker
  *
  * @param modifier The [Modifier] to apply to the container
+ * @param colors The [NumberPickerColors] to apply
  * @param values The possible values to show on the [RepeatingItemScroll]
  * @param startValue The value to be selected at begin
  * @param onValueChange The callback invoked when the value is changed
@@ -36,12 +37,12 @@ import org.oneui.compose.theme.OneUITheme
 @Composable
 fun NumberPicker(
     modifier: Modifier = Modifier,
+    colors: NumberPickerColors = numberPickerColors(),
     values: List<Int>,
     startValue: Int = values.first(),
     onValueChange: (Int) -> Unit,
     infiniteScroll: Boolean = true,
     fillUpWithZeros: Boolean = false,
-    colors: NumberPickerColors = numberPickerColors(),
     textStyle: TextStyle = OneUITheme.types.numberPicker
 ) {
     val scope = rememberCoroutineScope()

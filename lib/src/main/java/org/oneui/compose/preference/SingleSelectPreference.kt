@@ -36,14 +36,14 @@ import org.oneui.compose.widgets.buttons.radio.VerticalRadioGroup
 @Composable
 fun <T> SingleSelectPreference(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     icon: Icon? = null,
     title: String,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     value: T,
     values: List<T>,
     onValueChange: (T) -> Unit,
     nameFor: ((T) -> String) = { it.toString() },
-    enabled: Boolean = true
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     assert(value in values) { "The provided value must be present in the provided values" }
     var showDialog by remember {
@@ -51,8 +51,8 @@ fun <T> SingleSelectPreference(
     }
 
     BasePreference(
-        modifier,
-        icon,
+        modifier = modifier,
+        icon = icon,
         title = {
             Text(
                 text = title

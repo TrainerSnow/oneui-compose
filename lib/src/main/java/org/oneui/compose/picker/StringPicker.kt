@@ -24,6 +24,7 @@ import org.oneui.compose.theme.OneUITheme
  * A oneui-style number picker to select a string from a given selection of strings. Only recommended for a fixed and static amount of strings.
  *
  * @param modifier The [Modifier] to apply to the container
+ * @param colors The [StringPickerColors] to apply
  * @param values The possible values to show on the [RepeatingItemScroll]
  * @param startValue The value to be selected at begin
  * @param onValueChange The callback invoked when the value is changed
@@ -34,11 +35,11 @@ import org.oneui.compose.theme.OneUITheme
 @Composable
 fun StringPicker(
     modifier: Modifier = Modifier,
+    colors: StringPickerColors = stringPickerColors(),
     values: List<String>,
     startValue: String = values.first(),
     onValueChange: (String) -> Unit,
     infiniteScroll: Boolean = true,
-    colors: StringPickerColors = stringPickerColors(),
     textStyle: TextStyle = OneUITheme.types.numberPicker
 ) {
     val scope = rememberCoroutineScope()
@@ -159,7 +160,6 @@ fun StringPicker(
 /**
  * Contains the colors used for a [NumberPicker]
  */
-
 data class StringPickerColors(
 
     val textScrolling: Color,
@@ -174,7 +174,6 @@ data class StringPickerColors(
  * @param textScrolling The color of the text while scrolling
  * @param text The color of the text while not scrolling
  */
-
 @Composable
 fun stringPickerColors(
     textScrolling: Color = OneUITheme.colors.seslNumberPickerTextHighlightColor,

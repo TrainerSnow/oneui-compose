@@ -10,7 +10,6 @@ import org.oneui.compose.R
 /**
  * Implementation of [IDynamicDimensions] using the raw height and width values of the window.
  * Gets the values from the res folders.
- *
  */
 class DynamicDimensionsImpl(
     val context: Context

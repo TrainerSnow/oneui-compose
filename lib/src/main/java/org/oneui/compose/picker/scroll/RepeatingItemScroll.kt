@@ -45,8 +45,6 @@ fun RepeatingItemScroll(
     item: @Composable (index: Int) -> Unit,
     activeItem: @Composable (index: Int) -> Unit
 ) {
-    val density = LocalDensity.current
-
     fun normalizeIndex(index: Int): Int = index % state.itemAmount
     fun middleIndexForFirst(firstVisibleItemIndex: Int): Int =
         normalizeIndex(firstVisibleItemIndex + state.visibleItemsCount / 2)
@@ -110,6 +108,13 @@ fun RepeatingItemScroll(
 }
 
 
+/**
+ * A state to control and receive updates about a [RepeatingItemScroll]
+ *
+ * @property itemAmount The total amount of items to show
+ * @property initialIndex The index that is initially selected/shown
+ * @property visibleItemsCount The amount of items that are shown simultaneously
+ */
 data class RepeatingItemScrollState(
     val itemAmount: Int,
     val initialIndex: Int = 0,

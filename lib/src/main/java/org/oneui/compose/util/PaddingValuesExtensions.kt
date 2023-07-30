@@ -8,6 +8,9 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * Adds the given padding values to [this]
+ */
 @Composable
 fun PaddingValues.plus(
     start: Dp = 0.dp,

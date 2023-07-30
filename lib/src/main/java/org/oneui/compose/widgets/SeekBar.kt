@@ -26,6 +26,14 @@ import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.enabledAlpha
 
+/**
+ * Composable for a seekbar to select a float value in the range of [0;1]
+ *
+ * @param modifier The [Modifier] to apply to the container
+ * @param value The currently selected value
+ * @param onValueChange The callback invoked when the value changes
+ * @param colors The [SeekBarColors] to apply
+ */
 @Composable
 fun HorizontalSeekbar(
     modifier: Modifier = Modifier,
@@ -87,6 +95,14 @@ fun HorizontalSeekbar(
     }
 }
 
+/**
+ * Composable for a vertical seekbar to select a float value in the range of [0;1]
+ *
+ * @param modifier The [Modifier] to apply to the container
+ * @param value The currently selected value
+ * @param onValueChange The callback invoked when the value changes
+ * @param colors The [SeekBarColors] to apply
+ */
 @Composable
 fun VerticalSeekbar(
     modifier: Modifier = Modifier,
@@ -148,6 +164,14 @@ fun VerticalSeekbar(
     }
 }
 
+/**
+ * Composable for a vertical expanding seekbar to select a float value in the range of [0;1]
+ *
+ * @param modifier The [Modifier] to apply to the container
+ * @param value The currently selected value
+ * @param onValueChange The callback invoked when the value changes
+ * @param colors The [SeekBarColors] to apply
+ */
 @Composable
 fun VerticalSeekbarExpanding(
     modifier: Modifier = Modifier,
@@ -205,7 +229,14 @@ fun VerticalSeekbarExpanding(
     }
 }
 
-
+/**
+ * Composable for a expanding seekbar to select a float value in the range of [0;1]
+ *
+ * @param modifier The [Modifier] to apply to the container
+ * @param value The currently selected value
+ * @param onValueChange The callback invoked when the value changes
+ * @param colors The [SeekBarColors] to apply
+ */
 @Composable
 fun HorizontalSeekbarExpanding(
     modifier: Modifier = Modifier,
@@ -263,7 +294,15 @@ fun HorizontalSeekbarExpanding(
     }
 }
 
-
+/**
+ * Composable for a seekbar with warning effect to select a float value in the range of [0;1]
+ *
+ * @param modifier The [Modifier] to apply to the container
+ * @param value The currently selected value
+ * @param warningAt Where the seekbar should change its colo to warning
+ * @param onValueChange The callback invoked when the value changes
+ * @param colors The [SeekBarColors] to apply
+ */
 @Composable
 fun HorizontalSeekbarWarning(
     modifier: Modifier = Modifier,
@@ -533,6 +572,10 @@ private fun DrawScope.verticalTrack(
     )
 }
 
+/**
+ * Contains colors needed for a [HorizontalSeekbar] and its variants
+
+ */
 data class SeekBarColors(
 
     val color: Color,
@@ -547,6 +590,15 @@ data class SeekBarColors(
 
 )
 
+/**
+ * Constructs the default [SeekBarColors]
+ *
+ * @param color The color of the progress and its handle
+ * @param ripple The color of the drag animation
+ * @param trackColor The color of the track
+ * @param warningColor The color when warning mode is enabled
+ * @param trackWarningColor The color of the track when warning mode is enabled
+ */
 @Composable
 fun seekBarColors(
     color: Color = OneUITheme.colors.seslSeekbarControlColorActivated,
@@ -562,6 +614,9 @@ fun seekBarColors(
     trackWarningColor = trackWarningColor
 )
 
+/**
+ * Contains default values for the seekbar variants
+ */
 object SeekBarDefaults {
 
     val thumbRadius = 10.dp

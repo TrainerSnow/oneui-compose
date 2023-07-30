@@ -61,19 +61,19 @@ import java.util.Locale
  * Composable for a oneui-date picker that allows the user to select a [LocalDate]
  *
  * @param modifier The [Modifier] to appply to the container
+ * @param colors The [DatePickerColors] to apply
  * @param startDate The first possible month to show (day property is ignored)
  * @param endDate The last possible month to show (day property is ignored)
  * @param state The [DatePickerState] to receive updates about the users selection
- * @param colors The [DatePickerColors] to apply
  */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun DatePicker(
     modifier: Modifier = Modifier,
+    colors: DatePickerColors = datePickerColors(),
     startDate: LocalDate = DatePickerDefaults.startDate,
     endDate: LocalDate = DatePickerDefaults.endDate,
-    state: DatePickerState,
-    colors: DatePickerColors = datePickerColors()
+    state: DatePickerState
 ) {
     val scope = rememberCoroutineScope()
 
@@ -250,7 +250,7 @@ internal fun DatePickerWeek(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun DatePickerCalendar(
+internal fun DatePickerCalendar(
     modifier: Modifier = Modifier,
     startDate: LocalDate,
     endDate: LocalDate,
@@ -413,6 +413,11 @@ private fun DatePickerIconButton(
     }
 }
 
+/**
+ * State to receive updates about the user selection of a [DatePicker]
+ *
+ * @property initial
+ */
 data class DatePickerState(
     val initial: LocalDate
 ) {
@@ -435,6 +440,9 @@ fun rememberDatePickerState(
     )
 }
 
+/**
+ * Contains default values for a [DatePicker]
+ */
 object DatePickerDefaults {
 
     val calendarPadding = 15.dp
@@ -442,8 +450,6 @@ object DatePickerDefaults {
     val headerTextPadding = PaddingValues(
         horizontal = 8.dp
     )
-
-    val calendarWidth = 328.dp
 
     const val monthNumberDisabledAlphaLight = 120F / 255F
     const val monthNumberDisabledAlphaDark = 120F / 255F
@@ -455,6 +461,9 @@ object DatePickerDefaults {
 
 }
 
+/**
+ * Contains the colors needed for a [DatePicker]
+ */
 data class DatePickerColors(
 
     val ripple: Color,
@@ -465,6 +474,13 @@ data class DatePickerColors(
 
 )
 
+/**
+ * Constructs the default [DatePickerColors]
+ *
+ * @param ripple The ripple color used for the onclick animation of several components
+ * @param selectedDayCircleColor The color of the circle which highlights the selected date
+ * @param selectedDayNumberText The text color of the selected day
+ */
 @Composable
 fun datePickerColors(
     ripple: Color = OneUITheme.colors.seslRippleColor,

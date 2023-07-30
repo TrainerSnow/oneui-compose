@@ -33,12 +33,12 @@ import org.oneui.compose.widgets.UnderlinedEditText
 @Composable
 fun EditTextPreference(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     icon: Icon? = null,
     title: String,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     value: String = "",
     onValueChange: (String) -> Unit,
-    enabled: Boolean = true
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     var showDialog by remember {
         mutableStateOf(false)
@@ -47,8 +47,10 @@ fun EditTextPreference(
     val focusRequester = remember { FocusRequester() }
 
     BasePreference(
-        modifier,
-        icon,
+        modifier = modifier,
+        enabled = enabled,
+        onClick = { showDialog = true },
+        icon = icon,
         title = {
             Text(
                 text = title
@@ -62,8 +64,6 @@ fun EditTextPreference(
                 ).enabledAlpha(enabled)
             )
         },
-        onClick = { showDialog = true },
-        enabled = enabled,
         interactionSource = interactionSource
     )
 

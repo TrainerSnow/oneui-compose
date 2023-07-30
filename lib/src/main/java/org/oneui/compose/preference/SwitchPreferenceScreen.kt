@@ -43,16 +43,16 @@ import org.oneui.compose.widgets.buttons.Switch
 @Composable
 fun SwitchPreferenceScreen(
     modifier: Modifier = Modifier,
+    colors: SwitchPreferenceScreenColors = switchPreferenceScreenColors(),
+    onClick: () -> Unit,
+    enabled: Boolean = true,
     title: String,
     icon: Icon? = null,
     summary: String? = null,
-    clickInteractionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    switchInteractionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
     onSwitch: (Boolean) -> Unit,
     switched: Boolean = false,
-    colors: SwitchPreferenceScreenColors = switchPreferenceScreenColors(),
-    enabled: Boolean = true
+    clickInteractionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    switchInteractionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val scope = rememberCoroutineScope()
 
@@ -78,7 +78,7 @@ fun SwitchPreferenceScreen(
         Box(
             modifier = Modifier
                 .clickable(
-                    interactionSource = MutableInteractionSource(),
+                    interactionSource = remember { MutableInteractionSource() },
                     indication = null,
                     role = Role.Switch,
                     onClick = {

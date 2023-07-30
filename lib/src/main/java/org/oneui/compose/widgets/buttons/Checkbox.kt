@@ -47,20 +47,20 @@ import kotlin.math.abs
  * Composable for a oneui-style checkbox
  *
  * @param modifier The [Modifier] to apply to the container
+ * @param colors The [CheckboxColors] to apply
+ * @param onCheckedChange The callback for when the checkbox is checked/unchecked
  * @param enabled Whether the checkbox is enabled
  * @param checked Whether the checkbox is checked
- * @param onCheckedChange The callback for when the checkbox is checked/unchecked
- * @param colors The [CheckboxColors] to apply
  * @param interactionSource The [MutableInteractionSource]
  * @param label The composable for the label, preferably a [Text]
  */
 @Composable
 fun Checkbox(
     modifier: Modifier = Modifier,
+    colors: CheckboxColors = checkboxColors(),
+    onCheckedChange: ((Boolean) -> Unit)? = null,
     enabled: Boolean = true,
     checked: Boolean = false,
-    onCheckedChange: ((Boolean) -> Unit)? = null,
-    colors: CheckboxColors = checkboxColors(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     labelSpacing: Dp = CheckboxDefaults.spacing,
     label: (@Composable () -> Unit)? = null
@@ -158,20 +158,20 @@ fun Checkbox(
  *  *     Used in dialogs where the Checkboxes are the primary actions.
  *
  * @param modifier The [Modifier] to apply to the container
+ * @param colors The [CheckboxColors] to apply
+ * @param onCheckedChange The callback for when the checkbox is checked/unchecked
  * @param enabled Whether the checkbox is enabled
  * @param checked Whether the checkbox is checked
- * @param onCheckedChange The callback for when the checkbox is checked/unchecked
- * @param colors The [CheckboxColors] to apply
  * @param interactionSource The [MutableInteractionSource]
  * @param label The composable for the label, preferably a [Text]
  */
 @Composable
 fun ListCheckbox(
     modifier: Modifier = Modifier,
+    colors: CheckboxColors = checkboxColors(),
+    onCheckedChange: ((Boolean) -> Unit)? = null,
     enabled: Boolean = true,
     checked: Boolean = false,
-    onCheckedChange: ((Boolean) -> Unit)? = null,
-    colors: CheckboxColors = checkboxColors(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     label: (@Composable () -> Unit)? = null
 ) {
@@ -329,7 +329,6 @@ data class CheckboxColors(
  * @param disabledUnselectedColor the color to use for the [Checkbox] when disabled and not
  * selected.
  * @return the resulting [CheckboxColors] used for the [Checkbox]
- * TODO: Create variables for colors referenced in the theme
  */
 @Composable
 fun checkboxColors(
