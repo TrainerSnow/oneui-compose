@@ -94,7 +94,7 @@ fun PopupMenu(
                 .width(IntrinsicSize.Max)
                 .padding(MenuDefaults.margin)
                 .shadow(
-                    elevation = MenuDefaults.elevation,
+                    elevation = MenuDefaults.elevation * alpha,
                     shape = MenuDefaults.shape
                 )
                 .background(
@@ -166,7 +166,7 @@ data class MenuColors(
  */
 @Composable
 fun menuColors(
-    background: Color = OneUITheme.colors.seslPopupMenuBlurBackground,
+    background: Color = OneUITheme.colors.seslMenuPopupBackgroundColor,
     stroke: Color = OneUITheme.colors.seslMenuPopupBackgroundStrokeColor
 ): MenuColors = MenuColors(
     background = background,
