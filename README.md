@@ -67,11 +67,13 @@ Implementation of smaller components, such as Buttons, Checkboxes etc. will have
 ### Composable structure
 Certain parameters are prevalent in all, or most, composables, be they layouts, buttons or dialogs. Such include:
 
-- `modifier: Modifier`, to customize basic attributes like `background`, `border`or `clickable`. Every composable should have and use this parameter.
-- `colors: [ColorClass]`, to customize the colors used in the composable. This should be default initialized with the color composable.
+- `modifier: Modifier` to customize basic attributes like `background`, `border`or `clickable`. Every composable should have and use this parameter.
+- `colors: [ColorClass]` to customize the colors used in the composable. This should be default initialized with the color composable.
 - `onClick: () -> Unit` to handle click events.
-- `interactionSource: MutableInteractionSource`, to automate interacting with the component. Every composable that's clickable should have and use this parameter.
-- `content: @Composable () -> Unit`, when the composable has content to be put inside.
+- `enabled: Boolean` to set the component enabled/disabled.
+- [Component specific parameters]
+- `interactionSource: MutableInteractionSource` to programmatically interact with this component. Every composable that's clickable should have and use this parameter.
+- `content: @Composable () -> Unit` when the composable has content to be put inside.
 
 Every composable should use these parameters, if applicable, in the presented order.
 
