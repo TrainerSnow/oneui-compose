@@ -6,27 +6,22 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.distinctUntilChanged
 import org.oneui.compose.theme.locals.LocalBackgroundColor
 import org.oneui.compose.util.isEven
@@ -34,8 +29,6 @@ import org.oneui.compose.util.isEven
 /**
  * Composable that arranges its' children vertically, and animates their scroll behaviour.
  *
- * TODO: Max-width calculation is **very** inefficient and should be handled differently.
- * TODO: Scrolling is not smooth, somehow the items lick in shortly before going to the next position. May be debug-mode related
  * TODO: Setting the first index doesn't currently work
  *
  * @param modifier The [Modifier] to be applied to the container
@@ -54,8 +47,6 @@ fun ItemScroll(
     item: @Composable (index: Int) -> Unit,
     activeItem: @Composable (index: Int) -> Unit
 ) {
-    val density = LocalDensity.current
-
     val flingBehavior = rememberSnapFlingBehavior(lazyListState = state.listState)
 
     val itemHeightPixels = remember { mutableIntStateOf(0) }
@@ -76,34 +67,12 @@ fun ItemScroll(
             alpha = overlayAlpha
         )
 
-        var maxWidth by remember {
-            mutableStateOf(0.dp)
-        }
-
-        //We render all the items ontop of each other, in order to calculate the maximum width
-        Box(
-            modifier = modifier
-                .wrapContentWidth()
-                .onGloballyPositioned {
-                    with(density) {
-                        maxWidth = it.size.width.toDp()
-                    }
-                }
-                .graphicsLayer {
-                    alpha = 0F
-                }
-        ) {
-            (0 until state.itemAmount).forEach {
-                item(it)
-            }
-        }
-
         LazyColumn(
             state = state.listState,
             flingBehavior = flingBehavior,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .width(maxWidth)
+                .fillMaxWidth()
                 .height(itemHeightDp * state.visibleItemsCount)
         ) {
             d("ItemScroll", "First visible item = ${state.listState.firstVisibleItemIndex}")
@@ -135,7 +104,7 @@ fun ItemScroll(
 
         ItemScrollOverlay(
             modifier = Modifier
-                .width(maxWidth)
+                .fillMaxWidth()
                 .height(itemHeightDp * state.visibleItemsCount),
             color = overlayColor,
             windowHeight = itemHeightDp + ItemScrollDefaults.textSpacing / 2

@@ -4,6 +4,7 @@ import android.text.format.DateFormat
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -60,6 +61,8 @@ fun TimePicker(
                 contentAlignment = Alignment.Center
             ) {
                 NumberPicker(
+                    modifier = Modifier
+                        .fillMaxWidth(),
                     textStyle = textStyle,
                     values = config.hourRange.toList(),
                     startValue = Time.of(state.time)
@@ -94,6 +97,8 @@ fun TimePicker(
                 contentAlignment = Alignment.Center
             ) {
                 NumberPicker(
+                    modifier = Modifier
+                        .fillMaxWidth(),
                     textStyle = textStyle,
                     values = (0).steppedRangeTo(
                         other = 59,
@@ -123,6 +128,8 @@ fun TimePicker(
                 contentAlignment = Alignment.Center
             ) {
                 StringPicker(
+                    modifier = Modifier
+                        .fillMaxWidth(),
                     textStyle = textStyle,
                     values = TimeFormatUtil.getAmPmStrings().toList(),
                     startValue = TimeFormatUtil.getAmPmStrings().first,
