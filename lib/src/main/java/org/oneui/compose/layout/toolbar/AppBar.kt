@@ -1,8 +1,9 @@
 package org.oneui.compose.layout.toolbar
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
@@ -11,9 +12,13 @@ import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Constraints
+import androidx.compose.ui.unit.LayoutDirection
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.theme.locals.ProvideBackgroundColor
+import org.oneui.compose.widgets.buttons.IconButtonDefaults
 
 /**
  * Contains the colors that define a [OUIAppBar]
@@ -61,7 +66,7 @@ fun OUIAppBar(
     ),
     colors: AppBarColors = appBarColors(),
     startAction: (@Composable () -> Unit)? = null,
-    actions: (@Composable RowScope.() -> Unit)? = null
+    actions: (@Composable () -> Unit)? = null
 ) = TopAppBar(
     modifier = modifier
         .fillMaxWidth()
@@ -78,7 +83,14 @@ fun OUIAppBar(
     navigationIcon = {
         startAction?.let { it() }
     },
-    actions = { actions?.let { it(this) } },
+    actions = {
+        AppBarIconsRow(
+            modifier = Modifier
+                .wrapContentWidth()
+        ) {
+            actions?.let { it() }
+        }
+    },
     colors = topAppBarColors(
         containerColor = colors.background,
         scrolledContainerColor = colors.background,
@@ -87,3 +99,38 @@ fun OUIAppBar(
         actionIconContentColor = titleTextStyle.color
     )
 )
+
+/*
+Overlaps its children by the padding amount of the Icon button.
+ */
+@Composable
+private fun AppBarIconsRow(
+    modifier: Modifier = Modifier,
+    children: @Composable () -> Unit
+) {
+    Layout(
+        modifier = modifier,
+        content = children
+    ) { measurables, constraints ->
+        val overlap = IconButtonDefaults.padding.calculateStartPadding(LayoutDirection.Ltr).toPx().toInt()
+
+        val childConstraints = Constraints(maxHeight = constraints.maxHeight)
+
+        val placeables = measurables.map { measurable ->
+            measurable.measure(childConstraints)
+        }
+
+        val rowHeight = placeables.maxOfOrNull { it.height } ?: 0
+
+        val width = placeables.sumOf { it.width - overlap}
+
+        layout(width + overlap, rowHeight) {
+            var xPosition = 0
+
+            for (placeable in placeables) {
+                placeable.placeRelative(x = xPosition, y = 0)
+                xPosition += placeable.width - overlap
+            }
+        }
+    }
+}

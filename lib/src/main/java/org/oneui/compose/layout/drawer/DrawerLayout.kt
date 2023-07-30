@@ -62,8 +62,6 @@ object DrawerDefaults {
     val maxWidthCompact = 320.dp
 
     val minWidthCompact = 0.dp
-
-    const val scrimAlphaTarget: Float = 0.19F
 }
 
 /**
@@ -105,11 +103,6 @@ fun drawerColors(
 /**
  * Composable for a oui-style drawer layout
  *
- * TODO: Preview picture
- * TODO: The velocity is too high
- * TODO: Scrim color in darkmode is not dark enough
- * TODO: User can still interact with [content] when drawer is opened
- *
  * @param modifier The modifier to be applied to the layout
  * @param shape The shape the drawer is made of
  * @param colors The colors to apply to the drawer
@@ -120,7 +113,6 @@ fun drawerColors(
  * @param headerIcon The header icon itself
  * @param maxWidth The width of the drawer at opened state
  * @param minWidth The width of the drawer at closed state
- * @param scrimAlphaTarget The alpha value of scrim to apply when the drawer is opened
  * @param drawerContent The content to put inside the drawer, preferably [DrawerItem]'s
  * @param content The content to put besides the drawer
  */
@@ -140,7 +132,6 @@ fun DrawerLayout(
     headerIcon: Icon? = null,
     maxWidth: Dp = DrawerDefaults.maxWidthCompact,
     minWidth: Dp = DrawerDefaults.minWidthCompact,
-    scrimAlphaTarget: Float = DrawerDefaults.scrimAlphaTarget,
     onHeaderIconClick: (() -> Unit)? = null,
     drawerContent: @Composable ColumnScope.() -> Unit,
     content: @Composable () -> Unit
@@ -164,7 +155,7 @@ fun DrawerLayout(
             origStart = 0F,
             origEnd = 1F,
             targetStart = 0F,
-            targetEnd = scrimAlphaTarget
+            targetEnd = colors.scrim.alpha * progress
         )
     )
     val darkenedBackground = scrim.compositeOver(
@@ -219,7 +210,19 @@ fun DrawerLayout(
                     }
                 }
             },
-            contentOverlay = { },
+            contentOverlay = {
+                if (it == 0F) return@SlidingOutDrawerLayout
+                Box(
+                    //Empty click listener to catch click events and disallow from interacting with children
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clickable(
+                            onClick = { },
+                            indication = null,
+                            interactionSource = remember { MutableInteractionSource() }
+                        )
+                )
+            },
             maxWidth = maxWidth,
             minWidth = minWidth,
             state = state

@@ -61,9 +61,6 @@ fun Tabs(
  * Composable for a one-ui style [TabItem], to be used in a [Tabs] row.
  * Note: For proper usage, every [TabItem] should have a weight of 1, to be applied via [Modifier.weight()]
  *
- * TODO: The ripple animation used is the normal ripple animation, in ONEUI it's a custom made one. Should be adapted to.
- * TODO: While one tab is selected, another one can be pressed. This should behave in such a way, that pressing an unselected tab will unselect the currently selected tab.
- *
  * @param modifier The [Modifier] to be applied to the container
  * @param text The text to be shown on the tab
  * @param selected Whether this tab is selected or not
@@ -145,8 +142,6 @@ fun TabItem(
  * Composable for a one-ui style [SubTabItem], to be used in a [Tabs] row. Unlike [TabItem], this is smaller and meant for secondary navigation.
  * Note: For proper usage, every [SubTabItem] should have a weight of 1, to be applied via [Modifier.weight()]
  *
- * TODO: The ripple animation used is the normal ripple animation, in ONEUI it's a custom made one. Should be adapted to.
- * TODO: While one subtab is selected, another one can be pressed. This should behave in such a way, that pressing an unselected tab will unselect the currently selected tab.
  *
  * @param modifier The [Modifier] to be applied to the container
  * @param text The text to be shown on the tab
@@ -192,8 +187,6 @@ fun SubTabItem(
 /**
  * Composable for a custom tab item, that could contain e.g. an Icon to open an additional menu
  * Note: For proper usage, every [TabItem] should have a weight of 1, to be applied via [Modifier.weight()]
- *
- * TODO: The ripple animation used is the normal ripple animation, in ONEUI it's a custom made one. Should be adapted to.
  *
  * @param modifier The [Modifier] to apply to the container
  * @param interactionSource The [MutableInteractionSource]

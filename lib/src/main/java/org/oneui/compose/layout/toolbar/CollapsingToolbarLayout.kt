@@ -10,7 +10,6 @@ import androidx.compose.foundation.gestures.animateTo
 import androidx.compose.foundation.gestures.snapTo
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -154,14 +153,13 @@ fun rememberCollapsingToolbarState(
  * Composable for a oneui-style Collapsing toolbar layout
  *
  * TODO: Add preview picture
- * TODO: When the [appbarActions] are [IconButton]'s, the spacing between them is too big. In normal OUI, the hitboxes overlap, here they act as margin.
  *
  * @param modifier The modifier to be applied to the container
  * @param state The [CollapsingToolbarState] for controlling the layout
  * @param toolbarTitle The title
  * @param toolbarSubtitle The subtitle
  * @param toolbarHeight The height of the toolbar when expanded
- * @param appbarActions The actions shown on the appbar
+ * @param appbarActions The actions shown on the appbar. Expected to be [IconButton]s, other could lead to undefined behaviour.
  * @param appbarNavAction The navigation action shown at the start of the appbar
  * @param content The content to be put inside the layout, arranged in a vertically in a [Column]
  */
@@ -178,7 +176,7 @@ fun CollapsingToolbarLayout(
     toolbarTitle: String,
     toolbarSubtitle: String? = null,
     toolbarHeight: Dp = 280.dp,
-    appbarActions: (@Composable RowScope.() -> Unit)? = null,
+    appbarActions: (@Composable () -> Unit)? = null,
     appbarNavAction: (@Composable () -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
@@ -255,7 +253,7 @@ fun CollapsingToolbarLayout(
             },
             actions = appbarActions?.let {
                 {
-                    it(this)
+                    it()
                 }
             },
             titleTextAlpha = appbarAlpha.coerceIn(0F, 1F)

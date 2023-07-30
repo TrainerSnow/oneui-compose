@@ -12,7 +12,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
@@ -20,8 +19,6 @@ import org.oneui.compose.base.iconColors
 import org.oneui.compose.theme.OneUITheme
 
 object IconButtonDefaults {
-
-    val rippleRadius = 640.dp
 
     val padding = PaddingValues(
         horizontal = 12.dp,
@@ -50,7 +47,6 @@ fun iconButtonColors(
 @Composable
 fun IconButton(
     modifier: Modifier = Modifier,
-    rippleRadius: Dp = IconButtonDefaults.rippleRadius,
     padding: PaddingValues = IconButtonDefaults.padding,
     colors: IconButtonColors = iconButtonColors(),
     onClick: (() -> Unit)? = null,
@@ -66,7 +62,6 @@ fun IconButton(
                 onClick = { onClick?.let { it() } },
                 indication = rememberRipple(
                     color = colors.ripple,
-                    radius = rippleRadius,
                     bounded = false
                 )
             )

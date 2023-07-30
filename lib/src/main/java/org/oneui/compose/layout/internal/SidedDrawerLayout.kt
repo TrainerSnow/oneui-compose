@@ -35,6 +35,7 @@ enum class SlidingDrawerOpenedState {
  */
 @OptIn(ExperimentalFoundationApi::class)
 data class SlidingDrawerState(
+    val animDuration: Int = 600,
     val initial: SlidingDrawerOpenedState,
     val velocityThreshold: Float
 ) {
@@ -50,7 +51,9 @@ data class SlidingDrawerState(
         velocityThreshold = {
             velocityThreshold
         },
-        animationSpec = tween()
+        animationSpec = tween(
+            durationMillis = animDuration
+        )
     )
 
     fun setAnchors(
@@ -153,7 +156,7 @@ fun SlidingOutDrawerLayout(
     velocityThreshold: Float = with(LocalDensity.current) { 100.dp.toPx() },
     state : SlidingDrawerState = remember {
         SlidingDrawerState(
-            SlidingDrawerOpenedState.CLOSED,
+            initial = SlidingDrawerOpenedState.CLOSED,
             velocityThreshold = velocityThreshold
         )
     },
