@@ -33,6 +33,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 
 /**
@@ -75,6 +76,7 @@ fun TabItem(
     selected: Boolean,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: TabsColors = tabsColors(),
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     Column(
@@ -86,9 +88,11 @@ fun TabItem(
                     color = colors.itemRipple
                 ),
                 role = Role.Tab,
-                onClick = onClick
+                onClick = onClick,
+                enabled = enabled
             )
-            .padding(TabsDefaults.itemPadding),
+            .padding(TabsDefaults.itemPadding)
+            .enabledAlpha(enabled),
         verticalArrangement = Arrangement
             .spacedBy(
                 TabsDefaults.itemIndicatorSpacing,
@@ -157,6 +161,7 @@ fun SubTabItem(
     selected: Boolean,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: TabsColors = tabsColors(),
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     Box(
@@ -168,12 +173,14 @@ fun SubTabItem(
                     color = colors.itemSubRipple
                 ),
                 role = Role.Tab,
-                onClick = onClick
+                onClick = onClick,
+                enabled = enabled
             )
             .background(
                 color = if (selected) colors.itemSubIndicator else Color.Transparent
             )
-            .padding(TabsDefaults.itemSubPadding),
+            .padding(TabsDefaults.itemSubPadding)
+            .enabledAlpha(enabled),
         contentAlignment = Alignment.Center
     ) {
         Text(
@@ -199,6 +206,7 @@ fun CustomTabItem(
     modifier: Modifier = Modifier,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: TabsColors = tabsColors(),
+    enabled: Boolean = true,
     onClick: () -> Unit,
     content: @Composable () -> Unit
 ) {
@@ -212,8 +220,10 @@ fun CustomTabItem(
                     color = colors.itemRipple
                 ),
                 role = Role.Tab,
-                onClick = onClick
-            ),
+                onClick = onClick,
+                enabled = enabled
+            )
+            .enabledAlpha(enabled),
         contentAlignment = Alignment.Center
     ) {
         content()

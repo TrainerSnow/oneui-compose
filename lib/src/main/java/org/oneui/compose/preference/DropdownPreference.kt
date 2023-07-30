@@ -11,6 +11,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import org.oneui.compose.base.Icon
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 import org.oneui.compose.widgets.menu.PopupMenu
 import org.oneui.compose.widgets.menu.SelectableMenuItem
 
@@ -40,7 +41,8 @@ fun <T> DropdownPreference(
     item: T,
     items: List<T>,
     nameFor: (T) -> String,
-    onItemSelected: (T) -> Unit
+    onItemSelected: (T) -> Unit,
+    enabled: Boolean = true
 ) {
     assert(item in items) { "The selected item must be in the possible items" }
 
@@ -62,11 +64,12 @@ fun <T> DropdownPreference(
                     text = nameFor(item),
                     style = OneUITheme.types.preferenceSummary.copy(
                         color = OneUITheme.colors.seslPrimaryColor
-                    )
+                    ).enabledAlpha(enabled)
                 )
             },
             icon = icon,
             onClick = { showDropdown = true },
+            enabled = enabled,
             interactionSource = interactionSource
         )
 

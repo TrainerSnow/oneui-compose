@@ -28,7 +28,8 @@ fun SeekbarPreference(
     summary: String? = null,
     icon: Icon? = null,
     value: Float = 0.5F,
-    onValueChange: ((Float) -> Unit)? = null
+    onValueChange: ((Float) -> Unit)? = null,
+    enabled: Boolean = true,
 ) {
     BasePreference(
         modifier = modifier,
@@ -45,6 +46,7 @@ fun SeekbarPreference(
                 )
             }
         },
+        enabled = enabled,
         contentLocation = ContentLocation.Bottom
     ) {
         HorizontalSeekbar(
@@ -52,6 +54,7 @@ fun SeekbarPreference(
                 .fillMaxWidth()
                 .padding(SeekbarPreferenceDefaults.seekbarPadding),
             value = value,
+            enabled = enabled,
             onValueChange = { value -> onValueChange?.let { it(value) } }
         )
     }

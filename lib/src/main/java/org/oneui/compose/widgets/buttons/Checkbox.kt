@@ -36,9 +36,10 @@ import androidx.compose.ui.input.pointer.PointerIcon.Companion.Text
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.OneUITheme
-import org.oneui.compose.widgets.buttons.radio.RadioButtonDefaults
 import kotlinx.coroutines.launch
+import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
+import org.oneui.compose.widgets.buttons.radio.RadioButtonDefaults
 import kotlin.math.abs
 
 
@@ -144,7 +145,7 @@ fun Checkbox(
                 .width(labelSpacing)
         )
         label?.let {
-            ProvideTextStyle(value = OneUITheme.types.checkboxLabel) {
+            ProvideTextStyle(value = OneUITheme.types.checkboxLabel.enabledAlpha(enabled)) {
                 it()
             }
         }

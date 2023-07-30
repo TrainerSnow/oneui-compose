@@ -23,10 +23,9 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
-import org.oneui.compose.theme.color.OneUIColorTheme
+import org.oneui.compose.util.enabledAlpha
 
 /**
  * Stores default values for the button specs
@@ -93,6 +92,7 @@ fun DrawerItem(
     selected: Boolean = false,
     onClick: (() -> Unit)? = null,
     colors: DrawerItemColors = drawerItemColors(),
+    enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textStyleLabel: TextStyle = with(OneUITheme.types) { if (selected) drawerItemLabelSelected else drawerItemLabel },
     shape: Shape = DrawerItemDefaults.shape
@@ -107,13 +107,14 @@ fun DrawerItem(
             indication = rememberRipple(
                 color = colors.ripple
             ),
-            enabled = true,
+            enabled = enabled,
             role = Role.Button,
             onClick = { onClick?.let { it() } }
         )
         .background(
             color = if (selected) colors.ripple else Color.Transparent //When selected, we add ripple color as background
         )
+        .enabledAlpha(enabled)
         .padding(DrawerItemDefaults.margin),
 ) {
     Row(

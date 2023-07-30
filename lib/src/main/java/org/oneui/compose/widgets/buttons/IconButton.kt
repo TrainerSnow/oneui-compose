@@ -17,6 +17,7 @@ import org.oneui.compose.base.Icon
 import org.oneui.compose.base.IconView
 import org.oneui.compose.base.iconColors
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 object IconButtonDefaults {
 
@@ -49,6 +50,7 @@ fun IconButton(
     modifier: Modifier = Modifier,
     padding: PaddingValues = IconButtonDefaults.padding,
     colors: IconButtonColors = iconButtonColors(),
+    enabled: Boolean = true,
     onClick: (() -> Unit)? = null,
     icon: Icon,
     contentDescription: String? = null,
@@ -63,9 +65,11 @@ fun IconButton(
                 indication = rememberRipple(
                     color = colors.ripple,
                     bounded = false
-                )
+                ),
+                enabled = enabled
             )
             .padding(padding)
+            .enabledAlpha(enabled)
     ) {
         IconView(
             icon = icon,

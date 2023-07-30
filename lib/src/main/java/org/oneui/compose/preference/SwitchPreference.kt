@@ -29,6 +29,7 @@ fun SwitchPreference(
     switched: Boolean = false,
     onSwitchedChange: ((Boolean) -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    enabled: Boolean = true
 ) {
     BasePreference(
         modifier = modifier,
@@ -46,10 +47,12 @@ fun SwitchPreference(
             }
         },
         onClick = { onSwitchedChange?.let { it(!switched) } },
+        enabled = enabled,
         interactionSource = interactionSource
     ) {
         Switch(
             switched = switched,
+            enabled = enabled,
             onSwitchedChange = { onSwitchedChange?.let { it(!switched) } }
         )
     }

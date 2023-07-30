@@ -44,7 +44,8 @@ fun <T> MultiSelectPreference(
     values: List<T>,
     onValuesChange: (List<T>) -> Unit,
     nameFor: ((T) -> String) = { it.toString() },
-    summary: String? = null
+    summary: String? = null,
+    enabled: Boolean = true
 ) {
     assert(values.containsAll(selectedValues)) { "All of the selected values must be present in the provided values" }
     var showDialog by remember {
@@ -67,6 +68,7 @@ fun <T> MultiSelectPreference(
             }
         },
         onClick = { showDialog = true },
+        enabled = enabled,
         interactionSource = interactionSource
     )
 

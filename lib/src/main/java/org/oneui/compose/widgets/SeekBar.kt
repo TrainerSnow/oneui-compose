@@ -24,13 +24,15 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 @Composable
 fun HorizontalSeekbar(
     modifier: Modifier = Modifier,
     value: Float,
     onValueChange: (Float) -> Unit,
-    colors: SeekBarColors = seekBarColors()
+    colors: SeekBarColors = seekBarColors(),
+    enabled: Boolean = true
 ) {
     var isDragging by remember { mutableStateOf(false) }
     val rippleAlphaFactor by animateFloatAsState(
@@ -49,18 +51,21 @@ fun HorizontalSeekbar(
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(8.dp)
+            .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                detectDragGestures(
-                    onDragStart = {
-                        isDragging = true
-                    },
-                    onDragEnd = {
-                        isDragging = false
+                if(enabled) {
+                    detectDragGestures(
+                        onDragStart = {
+                            isDragging = true
+                        },
+                        onDragEnd = {
+                            isDragging = false
+                        }
+                    ) { change, _ ->
+                        val newValue = change.position.x / size.width
+                        onValueChange(newValue.coerceIn(0f, 1f))
+                        change.consume()
                     }
-                ) { change, _ ->
-                    val newValue = change.position.x / size.width
-                    onValueChange(newValue.coerceIn(0f, 1f))
-                    change.consume()
                 }
             }
     ) {
@@ -87,7 +92,8 @@ fun VerticalSeekbar(
     modifier: Modifier = Modifier,
     value: Float,
     onValueChange: (Float) -> Unit,
-    colors: SeekBarColors = seekBarColors()
+    colors: SeekBarColors = seekBarColors(),
+    enabled: Boolean = true
 ) {
     var isDragging by remember { mutableStateOf(false) }
     val rippleAlphaFactor by animateFloatAsState(
@@ -106,18 +112,21 @@ fun VerticalSeekbar(
             .fillMaxHeight()
             .wrapContentWidth()
             .padding(8.dp)
+            .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                detectDragGestures(
-                    onDragStart = {
-                        isDragging = true
-                    },
-                    onDragEnd = {
-                        isDragging = false
+                if(enabled) {
+                    detectDragGestures(
+                        onDragStart = {
+                            isDragging = true
+                        },
+                        onDragEnd = {
+                            isDragging = false
+                        }
+                    ) { change, _ ->
+                        val newValue = (size.height - change.position.y) / size.height
+                        onValueChange(newValue.coerceIn(0f, 1f))
+                        change.consume()
                     }
-                ) { change, _ ->
-                    val newValue = (size.height - change.position.y) / size.height
-                    onValueChange(newValue.coerceIn(0f, 1f))
-                    change.consume()
                 }
             }
     ) {
@@ -144,7 +153,8 @@ fun VerticalSeekbarExpanding(
     modifier: Modifier = Modifier,
     value: Float,
     onValueChange: (Float) -> Unit,
-    colors: SeekBarColors = seekBarColors()
+    colors: SeekBarColors = seekBarColors(),
+    enabled: Boolean = true
 ) {
     var isDragging by remember { mutableStateOf(false) }
     val thumbRadius by animateDpAsState(
@@ -163,18 +173,21 @@ fun VerticalSeekbarExpanding(
             .fillMaxHeight()
             .wrapContentWidth()
             .padding(8.dp)
+            .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                detectDragGestures(
-                    onDragStart = {
-                        isDragging = true
-                    },
-                    onDragEnd = {
-                        isDragging = false
+                if(enabled) {
+                    detectDragGestures(
+                        onDragStart = {
+                            isDragging = true
+                        },
+                        onDragEnd = {
+                            isDragging = false
+                        }
+                    ) { change, _ ->
+                        val newValue = (size.height - change.position.y) / size.height
+                        onValueChange(newValue.coerceIn(0f, 1f))
+                        change.consume()
                     }
-                ) { change, _ ->
-                    val newValue = (size.height - change.position.y) / size.height
-                    onValueChange(newValue.coerceIn(0f, 1f))
-                    change.consume()
                 }
             }
     ) {
@@ -198,7 +211,8 @@ fun HorizontalSeekbarExpanding(
     modifier: Modifier = Modifier,
     value: Float,
     onValueChange: (Float) -> Unit,
-    colors: SeekBarColors = seekBarColors()
+    colors: SeekBarColors = seekBarColors(),
+    enabled: Boolean = true
 ) {
     var isDragging by remember { mutableStateOf(false) }
     val thumbRadius by animateDpAsState(
@@ -217,18 +231,21 @@ fun HorizontalSeekbarExpanding(
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(8.dp)
+            .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                detectDragGestures(
-                    onDragStart = {
-                        isDragging = true
-                    },
-                    onDragEnd = {
-                        isDragging = false
+                if(enabled) {
+                    detectDragGestures(
+                        onDragStart = {
+                            isDragging = true
+                        },
+                        onDragEnd = {
+                            isDragging = false
+                        }
+                    ) { change, _ ->
+                        val newValue = change.position.x / size.width
+                        onValueChange(newValue.coerceIn(0f, 1f))
+                        change.consume()
                     }
-                ) { change, _ ->
-                    val newValue = change.position.x / size.width
-                    onValueChange(newValue.coerceIn(0f, 1f))
-                    change.consume()
                 }
             }
     ) {
@@ -253,7 +270,8 @@ fun HorizontalSeekbarWarning(
     value: Float,
     warningAt: Float = 0.5F,
     onValueChange: (Float) -> Unit,
-    colors: SeekBarColors = seekBarColors()
+    colors: SeekBarColors = seekBarColors(),
+    enabled: Boolean = true
 ) {
     var isDragging by remember { mutableStateOf(false) }
     val rippleAlphaFactor by animateFloatAsState(
@@ -272,18 +290,21 @@ fun HorizontalSeekbarWarning(
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(8.dp)
+            .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                detectDragGestures(
-                    onDragStart = {
-                        isDragging = true
-                    },
-                    onDragEnd = {
-                        isDragging = false
+                if(enabled) {
+                    detectDragGestures(
+                        onDragStart = {
+                            isDragging = true
+                        },
+                        onDragEnd = {
+                            isDragging = false
+                        }
+                    ) { change, _ ->
+                        val newValue = change.position.x / size.width
+                        onValueChange(newValue.coerceIn(0f, 1f))
+                        change.consume()
                     }
-                ) { change, _ ->
-                    val newValue = change.position.x / size.width
-                    onValueChange(newValue.coerceIn(0f, 1f))
-                    change.consume()
                 }
             }
     ) {

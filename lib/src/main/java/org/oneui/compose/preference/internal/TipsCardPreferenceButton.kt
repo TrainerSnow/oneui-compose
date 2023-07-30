@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 
 @Composable
 fun TipsCardPreferenceButton(
@@ -42,7 +43,7 @@ fun TipsCardPreferenceButton(
             )
             .padding(TipsCardPreferenceButtonDefaults.padding)
     ) {
-        ProvideTextStyle(OneUITheme.types.tipsCardPreferenceButtonLabel) {
+        ProvideTextStyle(OneUITheme.types.tipsCardPreferenceButtonLabel.enabledAlpha(enabled)) {
             label()
         }
     }

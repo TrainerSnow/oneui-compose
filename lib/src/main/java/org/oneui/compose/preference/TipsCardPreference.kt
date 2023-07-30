@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.preference.internal.TipsCardPreferenceButton
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.enabledAlpha
 import org.oneui.compose.widgets.box.RoundedCornerBox
 import org.oneui.compose.widgets.box.roundedCornerBoxColors
 
@@ -24,6 +25,7 @@ import org.oneui.compose.widgets.box.roundedCornerBoxColors
 fun TipsCardPreference(
     modifier: Modifier = Modifier,
     colors: TipsCardPreferenceColors = tipsCardPreferenceColors(),
+    enabled: Boolean = true,
     title: @Composable () -> Unit,
     summary: (@Composable () -> Unit)? = null,
     buttonLabel: @Composable () -> Unit,
@@ -43,7 +45,7 @@ fun TipsCardPreference(
                 modifier = Modifier
                     .padding(TipsCardPreferenceDefaults.titleBoxMargin)
             ) {
-                ProvideTextStyle(OneUITheme.types.tipsCardPreferenceTitle) {
+                ProvideTextStyle(OneUITheme.types.tipsCardPreferenceTitle.enabledAlpha(enabled)) {
                     title()
                 }
                 Spacer(
@@ -60,7 +62,7 @@ fun TipsCardPreference(
                 modifier = Modifier
                     .padding(TipsCardPreferenceDefaults.summaryMargin)
             ) {
-                ProvideTextStyle(OneUITheme.types.tipsCardPreferenceSummary) {
+                ProvideTextStyle(OneUITheme.types.tipsCardPreferenceSummary.enabledAlpha(enabled)) {
                     summary?.let { it() }
                 }
             }
@@ -75,7 +77,8 @@ fun TipsCardPreference(
                 horizontalArrangement = Arrangement.End
             ) {
                 TipsCardPreferenceButton(
-                    onClick = onButtonClick
+                    onClick = onButtonClick,
+                    enabled = enabled
                 ) {
                     buttonLabel()
                 }
