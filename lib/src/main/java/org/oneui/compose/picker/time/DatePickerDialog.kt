@@ -30,7 +30,6 @@ import java.time.LocalDate
  * @param endDate The last possible month to show (day property is ignored)
  * @param colors The [DatePickerColors] to apply
  */
-
 @Composable
 fun DatePickerDialog(
     modifier: Modifier = Modifier,

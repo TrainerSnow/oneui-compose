@@ -24,12 +24,12 @@ import org.oneui.compose.widgets.HorizontalSeekbar
 @Composable
 fun SeekbarPreference(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     title: String,
     summary: String? = null,
     icon: Icon? = null,
     value: Float = 0.5F,
-    onValueChange: ((Float) -> Unit)? = null,
-    enabled: Boolean = true,
+    onValueChange: ((Float) -> Unit)? = null
 ) {
     BasePreference(
         modifier = modifier,

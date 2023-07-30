@@ -24,18 +24,18 @@ sealed class Icon {
 
 
 /**
- * Composable for displaying an [IconView]
+ * Composable for displaying an [Icon]
  *
  * @param modifier The modifier to apply to the container
- * @param icon The [IconView] to display
  * @param colors The [IconColors]
+ * @param icon The [IconView] to display
  * @param contentDescription The content-description for accessibility
  */
 @Composable
 fun IconView(
     modifier: Modifier = Modifier,
-    icon: Icon,
     colors: IconColors = iconColors(),
+    icon: Icon,
     contentDescription: String? = null
 ) {
     when (icon) {

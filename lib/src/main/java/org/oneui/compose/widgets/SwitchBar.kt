@@ -32,16 +32,18 @@ import org.oneui.compose.widgets.buttons.Switch
  *     of a screen, and toggles a major function on or off, e.g. Wifi.
  *
  * @param modifier The [Modifier] applied to the container
+ * @param colors The [SwitchBarColors] to apply
+ * @param onSwitchedChange The callback invoked when the [switched] state is changed
  * @param enabled Whether this [SwitchBar] is enabled and interactable
  * @param switched Whether this switchbar is switched on
  * @param label The string label. Has platform default values
- * @param onSwitchedChange The callback invoked when the [switched] state is changed
- * @param colors The [SwitchBarColors] to apply
  * @param interactionSource The [MutableInteractionSource] to apply
  */
 @Composable
 fun SwitchBar(
     modifier: Modifier = Modifier,
+    colors: SwitchBarColors = switchBarColors(),
+    onSwitchedChange: ((Boolean) -> Unit)? = null,
     enabled: Boolean = true,
     switched: Boolean = false,
     label: String = stringResource(
@@ -50,8 +52,6 @@ fun SwitchBar(
         else
             R.string.sesl_switchbar_label_off
     ),
-    onSwitchedChange: ((Boolean) -> Unit)? = null,
-    colors: SwitchBarColors = switchBarColors(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     Row(
@@ -108,10 +108,6 @@ object SwitchBarDefaults {
 
 /**
  * Contains the colors that a [SwitchBar] utilizes
- *
- * @property ripple
- * @property background
- * @property backgroundOff
  */
 data class SwitchBarColors(
 

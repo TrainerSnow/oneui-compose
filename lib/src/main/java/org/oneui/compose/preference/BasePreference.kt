@@ -30,26 +30,26 @@ import org.oneui.compose.util.enabledAlpha
  *     but rather as a base for other preferences.
  *
  * @param modifier The [Modifier] to be applied to the container
+ * @param colors The [BasePreferenceColors] that are used
+ * @param onClick The callback invoked when this preference is clicked
  * @param icon The icon to be displayed in front of the preference
  * @param title The title of the preference, preferably a Text-composable
  * @param summary The summary of the preference, preferably a Text-composable
- * @param onClick The callback invoked when this preference is clicked
+ * @param contentLocation Changes where the [content] is placed
  * @param interactionSource The [MutableInteractionSource] that is used
- * @param colors The [BasePreferenceColors] that are used
- * @param contentLocation Changes where the [content] is placed.
  * @param content The content put at the end of the preference
  */
 @Composable
 fun BasePreference(
     modifier: Modifier = Modifier,
+    colors: BasePreferenceColors = basePreferenceColors(),
+    onClick: (() -> Unit)? = null,
+    enabled: Boolean = true,
     icon: Icon? = null,
     title: @Composable ColumnScope.() -> Unit,
     summary: (@Composable ColumnScope.() -> Unit)? = null,
-    onClick: (() -> Unit)? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: BasePreferenceColors = basePreferenceColors(),
-    enabled: Boolean = true,
     contentLocation: ContentLocation = ContentLocation.End,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: (@Composable () -> Unit)? = null
 ) {
     Row(

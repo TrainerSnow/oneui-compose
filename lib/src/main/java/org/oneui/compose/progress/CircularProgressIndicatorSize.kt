@@ -5,7 +5,6 @@ import androidx.compose.ui.unit.dp
 
 /**
  * Different sizes of the circular progress bars
- *
  */
 open class CircularProgressIndicatorSize(
     val size: Dp,

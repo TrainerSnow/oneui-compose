@@ -9,7 +9,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
 import org.oneui.compose.theme.OneUITheme
 
 /**
@@ -19,44 +18,25 @@ import org.oneui.compose.theme.OneUITheme
  * @param modifier The modifier to be applied to the Contained
  * @param title The title composable, preferably a [Text]
  * @param subtitle The subtitle composable, preferably a [Text]
- * @param titleStyle The style for the title
- * @param subtitleStyle The style for the subtitle
  */
 @Composable
 fun CollapsingToolbarTitle(
     modifier: Modifier = Modifier,
     title: @Composable () -> Unit,
-    subtitle: (@Composable () -> Unit)? = null,
-    titleStyle: TextStyle = OneUITheme.types.appbarTitleExtended,
-    subtitleStyle: TextStyle = OneUITheme.types.appbarSubtitle,
-    textAlpha: Float = 1F
+    subtitle: (@Composable () -> Unit)? = null
 ) {
     Box(
-        modifier = modifier
-            .fillMaxWidth(),
-        contentAlignment = Alignment.Center
+        modifier = modifier.fillMaxWidth(), contentAlignment = Alignment.Center
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            ProvideTextStyle(
-                titleStyle.copy(
-                    color = titleStyle.color.copy(
-                        alpha = textAlpha
-                    )
-                )
-            ) {
+            ProvideTextStyle(OneUITheme.types.appbarTitleExtended) {
                 title()
             }
             subtitle?.let {
-                ProvideTextStyle(
-                    subtitleStyle.copy(
-                        color = titleStyle.color.copy(
-                            alpha = textAlpha
-                        )
-                    )
-                ) {
+                ProvideTextStyle(OneUITheme.types.appbarSubtitle) {
                     it()
                 }
             }

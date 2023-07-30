@@ -35,14 +35,14 @@ import org.oneui.compose.widgets.menu.SelectableMenuItem
 @Composable
 fun <T> DropdownPreference(
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     title: String,
     icon: Icon? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     item: T,
     items: List<T>,
     nameFor: (T) -> String,
     onItemSelected: (T) -> Unit,
-    enabled: Boolean = true
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     assert(item in items) { "The selected item must be in the possible items" }
 

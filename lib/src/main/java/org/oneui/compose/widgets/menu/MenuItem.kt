@@ -30,27 +30,26 @@ import org.oneui.compose.theme.OneUITheme
  * TODO: Add support for start-icons
  *
  * @param modifier The modifier to apply
+ * @param colors The [MenuItemColors] to apply
+ * @param onSelect The callback for when an item is selected/clicked
  * @param label The string-label
  * @param selected Whether the item is selected. Only for spinners
- * @param onSelect The callback for when an item is selected/clicked
  * @param labelStyle The [TextStyle] of the string-label
  * @param interactionSource The [MutableInteractionSource]
- * @param colors The [MenuItemColors] to apply
  * @param padding The [PaddingValues] to apply
  */
 @Composable
 fun SelectableMenuItem(
     modifier: Modifier = Modifier,
+    colors: MenuItemColors = menuItemColors(),
+    onSelect: (() -> Unit)? = null,
+    enabled: Boolean = true,
     label: String,
     selected: Boolean = false,
-    enabled: Boolean = true,
-    onSelect: (() -> Unit)? = null,
     labelStyle: TextStyle = with(OneUITheme.types) {
         if (!enabled) menuLabelDisabled else if (selected) menuLabelSelected else menuLabel
     },
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: MenuItemColors = menuItemColors(),
-    padding: PaddingValues = MenuItemDefaults.padding
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     Row(
         modifier = modifier
@@ -64,7 +63,7 @@ fun SelectableMenuItem(
                 onClick = { onSelect?.let { it() } },
                 enabled = enabled
             )
-            .padding(padding),
+            .padding(MenuItemDefaults.padding),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
@@ -104,15 +103,14 @@ fun SelectableMenuItem(
 @Composable
 fun MenuItem(
     modifier: Modifier = Modifier,
-    label: String,
-    enabled: Boolean = true,
+    colors: MenuItemColors = menuItemColors(),
     onClick: (() -> Unit)? = null,
+    enabled: Boolean = true,
+    label: String,
     labelStyle: TextStyle = with(OneUITheme.types) {
         if (!enabled) menuLabelDisabled else menuLabel
     },
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: MenuItemColors = menuItemColors(),
-    padding: PaddingValues = MenuItemDefaults.padding
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     Row(
         modifier = modifier
@@ -126,7 +124,7 @@ fun MenuItem(
                 onClick = { onClick?.let { it() } },
                 enabled = enabled
             )
-            .padding(padding),
+            .padding(MenuItemDefaults.padding),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
@@ -135,22 +133,6 @@ fun MenuItem(
             style = labelStyle
         )
     }
-}
-
-/**
- * Contains default values for a [SelectableMenuItem]
- */
-object MenuItemDefaults {
-
-    val padding = PaddingValues(
-        top = 13.dp,
-        end = 24.dp,
-        bottom = 13.dp,
-        start = 24.dp
-    )
-
-    val iconSpacing = 8.dp
-
 }
 
 /**
@@ -174,3 +156,19 @@ fun menuItemColors(
 ): MenuItemColors = MenuItemColors(
     ripple = ripple
 )
+
+/**
+ * Contains default values for a [SelectableMenuItem]
+ */
+object MenuItemDefaults {
+
+    val padding = PaddingValues(
+        top = 13.dp,
+        end = 24.dp,
+        bottom = 13.dp,
+        start = 24.dp
+    )
+
+    val iconSpacing = 8.dp
+
+}

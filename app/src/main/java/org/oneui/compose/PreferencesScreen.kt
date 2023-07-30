@@ -24,12 +24,12 @@ import org.oneui.compose.preference.DropdownPreference
 import org.oneui.compose.preference.EditTextPreference
 import org.oneui.compose.preference.MultiSelectPreference
 import org.oneui.compose.preference.RelativeCard
+import org.oneui.compose.preference.RelativeCardLink
 import org.oneui.compose.preference.SeekbarPreference
 import org.oneui.compose.preference.SingleSelectPreference
 import org.oneui.compose.preference.SwitchPreference
 import org.oneui.compose.preference.SwitchPreferenceScreen
 import org.oneui.compose.preference.TipsCardPreference
-import org.oneui.compose.preference.internal.RelativeCardLink
 import org.oneui.compose.preference.misc.PreferenceCategory
 import org.oneui.compose.widgets.SwitchBar
 import org.oneui.compose.widgets.text.TextSeparator

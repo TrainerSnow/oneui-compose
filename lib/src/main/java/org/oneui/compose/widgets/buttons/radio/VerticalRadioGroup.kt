@@ -15,20 +15,20 @@ import androidx.compose.ui.unit.dp
  *
  * @param T The value associated with the group and its' buttons
  * @param modifier The [Modifier] to be applied to the container
+ * @param onClick The callback invoked when a [RadioButton] is clicked with the clicked value and its' index
  * @param groupValue The [T] value that is currently selected
  * @param values The [T] values to construct [RadioButton]s for
  * @param labels The [String] labels to label each of the [values] button with
  * @param spacing The spacing to be applied between each [RadioButton]
- * @param onClick The callback invoked when a [RadioButton] is clicked with the clicked value and its' index
  */
 @Composable
 fun <T> VerticalRadioGroup(
     modifier: Modifier = Modifier,
+    onClick: ((value: T, index: Int) -> Unit)? = null,
     groupValue: T,
     values: List<T>,
     labels: List<String>,
     spacing: Dp = VerticalRadioGroupDefaults.spacing,
-    onClick: ((value: T, index: Int) -> Unit)? = null
 ) {
     assert(values.size == labels.size) {
         "The amount of labels is unequal to the amount of values."
@@ -81,6 +81,11 @@ fun VerticalRadioGroup(
     }
 }
 
+/**
+ * Contains default values for a [VerticalRadioGroup]
+ *
+ * @constructor Create empty Vertical radio group defaults
+ */
 object VerticalRadioGroupDefaults {
 
     val spacing = 8.dp

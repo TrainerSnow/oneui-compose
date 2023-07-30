@@ -300,7 +300,7 @@ object SearchViewDefaults {
  */
 @Preview
 @Composable
-private fun `SearchView_Hint`() = OneUIPreview("SearchView") {
+private fun SearchView_Hint() = OneUIPreview("SearchView") {
     SearchView(
         query = "",
         onQueryChange = { },
@@ -331,7 +331,7 @@ private fun `SearchView_Hint`() = OneUIPreview("SearchView") {
  */
 @Preview
 @Composable
-private fun `SearchView_NoHint`() = OneUIPreview("SearchView") {
+private fun SearchView_NoHint() = OneUIPreview("SearchView") {
     SearchView(
         query = "SearchQuery",
         onQueryChange = { },

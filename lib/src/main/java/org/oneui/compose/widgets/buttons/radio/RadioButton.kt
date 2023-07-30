@@ -52,8 +52,8 @@ import androidx.compose.ui.input.pointer.PointerIcon.Companion.Text
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.theme.OneUITheme
 import kotlinx.coroutines.launch
+import org.oneui.compose.theme.OneUITheme
 import kotlin.math.abs
 
 /*
@@ -80,12 +80,12 @@ import kotlin.math.abs
  * Composable for a oneui-style radio button
  *
  * @param T The type the radio button is associated with
+ * @param colors The [RadioButtonColors]
+ * @param onClick The callback invoked when the [RadioButton] is clicked, together with its' value
+ * @param enabled Whether this [RadioButton] is enabled
  * @param modifier The [Modifier] to be applied to the container
  * @param value The [T] value of this radio button
  * @param groupValue The [T] value that is associated with a group of [RadioButton]s
- * @param onClick The callback invoked when the [RadioButton] is clicked, together with its' value
- * @param enabled Whether this [RadioButton] is enabled
- * @param colors The [RadioButtonColors]
  * @param animDurationMillis The duration of the click-animation
  * @param interactionSource The [MutableInteractionSource]
  * @param label The label, preferably a [Text]
@@ -93,11 +93,11 @@ import kotlin.math.abs
 @Composable
 fun <T> RadioButton(
     modifier: Modifier = Modifier,
-    value: T,
-    groupValue: T = value,
+    colors: RadioButtonColors = radioButtonColors(),
     onClick: ((T) -> Unit)? = null,
     enabled: Boolean = true,
-    colors: RadioButtonColors = radioButtonColors(),
+    value: T,
+    groupValue: T = value,
     animDurationMillis: Int = RadioButtonDefaults.animDurationMillis,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     labelSpacing: Dp = RadioButtonDefaults.labelSpacing,
@@ -200,12 +200,12 @@ fun <T> RadioButton(
  *     Used in dialogs where the RadioButtons are the primary actions.
  *
  * @param T The type the radio button is associated with
+ * @param colors The [RadioButtonColors]
+ * @param onClick The callback invoked when the [RadioButton] is clicked, together with its' value
+ * @param enabled Whether this [RadioButton] is enabled
  * @param modifier The [Modifier] to be applied to the container
  * @param value The [T] value of this radio button
  * @param groupValue The [T] value that is associated with a group of [RadioButton]s
- * @param onClick The callback invoked when the [RadioButton] is clicked, together with its' value
- * @param enabled Whether this [RadioButton] is enabled
- * @param colors The [RadioButtonColors]
  * @param animDurationMillis The duration of the click-animation
  * @param interactionSource The [MutableInteractionSource]
  * @param label The label, preferably a [Text]
@@ -213,11 +213,11 @@ fun <T> RadioButton(
 @Composable
 fun <T> ListRadioButton(
     modifier: Modifier = Modifier,
-    value: T,
-    groupValue: T = value,
+    colors: RadioButtonColors = radioButtonColors(),
     onClick: ((T) -> Unit)? = null,
     enabled: Boolean = true,
-    colors: RadioButtonColors = radioButtonColors(),
+    value: T,
+    groupValue: T = value,
     animDurationMillis: Int = RadioButtonDefaults.animDurationMillis,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     label: (@Composable () -> Unit)? = null
@@ -336,8 +336,6 @@ data class RadioButtonColors(
  * @param disabledColor the color to use for the [RadioButton] when disabled.
  * @param disabledUnselectedColor the color to use for the RadioButton when disabled and not
  * selected.
- * @return the resulting [RadioButtonColors] used for the RadioButton
- * TODO: Create variables for colors referenced in the theme
  */
 @Composable
 fun radioButtonColors(

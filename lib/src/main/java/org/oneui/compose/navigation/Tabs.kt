@@ -40,8 +40,8 @@ import org.oneui.compose.util.enabledAlpha
  * Base composable for a group of multiple tabs, to be used as primary or secondary navigation utility.
  * Is actually only a wrapped [Row]
  *
- * @param modifier
- * @param tabs
+ * @param modifier The [Modifier] to apply to the container
+ * @param tabs The content, preferably multiple [TabItem]s or [CustomTabItem]s
  */
 @Composable
 fun Tabs(
@@ -63,21 +63,21 @@ fun Tabs(
  * Note: For proper usage, every [TabItem] should have a weight of 1, to be applied via [Modifier.weight()]
  *
  * @param modifier The [Modifier] to be applied to the container
+ * @param colors The [TabsColors] to apply
+ * @param onClick The callback invoked when the [TabItem] is clicked
  * @param text The text to be shown on the tab
  * @param selected Whether this tab is selected or not
  * @param interactionSource The [MutableInteractionSource]
- * @param colors The [TabsColors] to apply
- * @param onClick The callback invoked when the [TabItem] is clicked
  */
 @Composable
 fun TabItem(
     modifier: Modifier = Modifier,
+    colors: TabsColors = tabsColors(),
+    onClick: () -> Unit,
+    enabled: Boolean = true,
     text: String,
     selected: Boolean,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: TabsColors = tabsColors(),
-    enabled: Boolean = true,
-    onClick: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -148,21 +148,21 @@ fun TabItem(
  *
  *
  * @param modifier The [Modifier] to be applied to the container
+ * @param colors The [TabsColors] to apply
+ * @param onClick The callback invoked when the [TabItem] is clicked
  * @param text The text to be shown on the tab
  * @param selected Whether this tab is selected or not
  * @param interactionSource The [MutableInteractionSource]
- * @param colors The [TabsColors] to apply
- * @param onClick The callback invoked when the [TabItem] is clicked
  */
 @Composable
 fun SubTabItem(
     modifier: Modifier = Modifier,
+    colors: TabsColors = tabsColors(),
+    onClick: () -> Unit,
     text: String,
     selected: Boolean,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: TabsColors = tabsColors(),
     enabled: Boolean = true,
-    onClick: () -> Unit
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     Box(
         modifier = modifier
@@ -196,19 +196,19 @@ fun SubTabItem(
  * Note: For proper usage, every [TabItem] should have a weight of 1, to be applied via [Modifier.weight()]
  *
  * @param modifier The [Modifier] to apply to the container
- * @param interactionSource The [MutableInteractionSource]
  * @param colors The [TabsColors] to apply
  * @param onClick The callback invoked when the item is clicked
+ * @param interactionSource The [MutableInteractionSource]
  * @param content The content to be put inside the item
  */
 @Composable
 fun CustomTabItem(
     modifier: Modifier = Modifier,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: TabsColors = tabsColors(),
-    enabled: Boolean = true,
     onClick: () -> Unit,
-    content: @Composable () -> Unit
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    content: @Composable () -> Unit,
 ) {
     Box(
         modifier = modifier

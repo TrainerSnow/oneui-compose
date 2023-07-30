@@ -19,32 +19,6 @@ import org.oneui.compose.base.iconColors
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.enabledAlpha
 
-object IconButtonDefaults {
-
-    val padding = PaddingValues(
-        horizontal = 12.dp,
-        vertical = 12.dp
-    )
-
-}
-
-data class IconButtonColors(
-
-    val tint: Color,
-
-    val ripple: Color
-
-)
-
-@Composable
-fun iconButtonColors(
-    tint: Color = OneUITheme.colors.seslPrimaryTextColor,
-    ripple: Color = OneUITheme.colors.seslRippleColor
-): IconButtonColors = IconButtonColors(
-    tint = tint,
-    ripple = ripple
-)
-
 @Composable
 fun IconButton(
     modifier: Modifier = Modifier,
@@ -79,4 +53,42 @@ fun IconButton(
             contentDescription = contentDescription
         )
     }
+}
+
+/**
+ * Contains the colors needed for a [IconButton]
+ */
+data class IconButtonColors(
+
+    val tint: Color,
+
+    val ripple: Color
+
+)
+
+/**
+ * Constructs the default [IconButtonColors]
+ *
+ * @param tint The color of the icon
+ * @param ripple The color for the onclick-animation
+ */
+@Composable
+fun iconButtonColors(
+    tint: Color = OneUITheme.colors.seslPrimaryTextColor,
+    ripple: Color = OneUITheme.colors.seslRippleColor
+): IconButtonColors = IconButtonColors(
+    tint = tint,
+    ripple = ripple
+)
+
+/**
+ * Contains default values for a [IconButton]
+ */
+object IconButtonDefaults {
+
+    val padding = PaddingValues(
+        horizontal = 12.dp,
+        vertical = 12.dp
+    )
+
 }

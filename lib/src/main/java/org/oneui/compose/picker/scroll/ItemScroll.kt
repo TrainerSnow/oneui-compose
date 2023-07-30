@@ -1,7 +1,6 @@
 package org.oneui.compose.picker.scroll
 
 import android.annotation.SuppressLint
-import android.util.Log.d
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
@@ -75,7 +74,6 @@ fun ItemScroll(
                 .fillMaxWidth()
                 .height(itemHeightDp * state.visibleItemsCount)
         ) {
-            d("ItemScroll", "First visible item = ${state.listState.firstVisibleItemIndex}")
             items(state.listSize + state.visibleItemsCount - 1) { index ->
                 if (index < state.visibleItemsCount / 2 || index >= state.listSize + state.visibleItemsCount / 2) {
                     Spacer(
@@ -113,6 +111,13 @@ fun ItemScroll(
 }
 
 
+/**
+ * A state to control and receive updates about an [ItemScroll]
+ *
+ * @property itemAmount The total amount of items to show
+ * @property initialIndex The index that is initially selected/shown
+ * @property visibleItemsCount The amount of items that are shown simultaneously
+ */
 data class SimpleItemScrollState(
     val itemAmount: Int,
     val initialIndex: Int = 0,

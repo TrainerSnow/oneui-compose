@@ -45,7 +45,7 @@ fun BottomNavigationBar(
         horizontalArrangement = Arrangement
             .spacedBy(
                 space = BottomNavigationBarDefaults.spacing,
-                alignment = Alignment.Start
+                alignment = Alignment.CenterHorizontally
             )
     ) {
         items()
@@ -56,21 +56,21 @@ fun BottomNavigationBar(
  * Composable for a oneui-style item to be used inside a [BottomNavigationBar]
  *
  * @param modifier The [Modifier] to apply to the container
+ * @param colors The [BottomNavigationBarColors] to apply
+ * @param onClick The callback invoked when the item is clicked
  * @param label The string label to apply
  * @param icon The icon to apply
- * @param onClick The callback invoked when the item is clicked
  * @param interactionSource The [MutableInteractionSource]
- * @param colors The [BottomNavigationBarColors] to apply
  */
 @Composable
 fun BottomNavigationBarItem(
     modifier: Modifier = Modifier,
+    colors: BottomNavigationBarColors = bottomNavigationBarColors(),
+    onClick: () -> Unit,
+    enabled: Boolean = true,
     label: String,
     icon: Icon,
-    onClick: () -> Unit,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    colors: BottomNavigationBarColors = bottomNavigationBarColors(),
-    enabled: Boolean = true
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     Column(
         modifier = modifier

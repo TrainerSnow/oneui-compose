@@ -40,21 +40,21 @@ import org.oneui.compose.theme.locals.ProvideBackgroundColor
  * TODO: Exit animation is not playing due to implementation struggles
  *
  * @param modifier The [Modifier] to apply to the container
+ * @param colors The [MenuColors] to apply
  * @param visible Whether the menu is currently visible
  * @param onDismissRequest Callback for when the menu is dismissed
  * @param properties The [PopupProperties] to apply
- * @param colors The [MenuColors] to apply
  * @param content The content to put inside the Menu. Preferably [SelectableMenuItem]s. Arranged along the y-Axis
  */
 @Composable
 fun PopupMenu(
     modifier: Modifier = Modifier,
+    colors: MenuColors = menuColors(),
     visible: Boolean = true,
     onDismissRequest: () -> Unit,
     properties: PopupProperties = PopupProperties(
         focusable = true
     ),
-    colors: MenuColors = menuColors(),
     content: @Composable ColumnScope.() -> Unit
 ) {
     val expandedState = remember { MutableTransitionState(false) }
@@ -126,27 +126,6 @@ fun PopupMenu(
 }
 
 /**
- * Contains default values for a [PopupMenu]
- */
-object MenuDefaults {
-
-    val shape = RoundedCornerShape(
-        size = 26.dp
-    )
-
-    val elevation = 5.dp
-
-    val margin = 16.dp
-
-    const val animDuration = 500
-
-    const val animSizeMin = 0.75F
-
-    const val strokeWidthPx = 2
-
-}
-
-/**
  * Contains the colors that define a [PopupMenu]
  */
 data class MenuColors(
@@ -172,3 +151,24 @@ fun menuColors(
     background = background,
     stroke = stroke
 )
+
+/**
+ * Contains default values for a [PopupMenu]
+ */
+object MenuDefaults {
+
+    val shape = RoundedCornerShape(
+        size = 26.dp
+    )
+
+    val elevation = 5.dp
+
+    val margin = 16.dp
+
+    const val animDuration = 500
+
+    const val animSizeMin = 0.75F
+
+    const val strokeWidthPx = 2
+
+}

@@ -1,4 +1,4 @@
-package org.oneui.compose.preference.internal
+package org.oneui.compose.preference
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -15,7 +15,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
-import org.oneui.compose.preference.RelativeCard
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.enabledAlpha
 
@@ -24,18 +23,18 @@ import org.oneui.compose.util.enabledAlpha
  * Composable for a oneui-style link-button, to be used inside a [RelativeCard]
  *
  * @param modifier The [Modifier] applied to the container
- * @param interactionSource The [MutableInteractionSource] used
  * @param colors The [RelativeCardLinkColors] to apply
  * @param onClick The callback invoked when the link is clicked
+ * @param interactionSource The [MutableInteractionSource] used
  * @param text The label to be shown inside the button, preferably a [Text]
  */
 @Composable
 fun RelativeCardLink(
     modifier: Modifier = Modifier,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: RelativeCardLinkColors = relativeCardLinkColors(),
-    enabled: Boolean = true,
     onClick: () -> Unit,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     text: @Composable () -> Unit
 ) {
     Box(

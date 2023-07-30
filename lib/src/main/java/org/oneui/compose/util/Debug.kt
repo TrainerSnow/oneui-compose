@@ -6,6 +6,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import kotlin.random.Random
 
+/**
+ * Surrounds a composable with a randomly colored border
+ *
+ */
 fun Modifier.debugBorder() = this.then(
     border(
         width = 0.5.dp,
@@ -17,4 +21,4 @@ fun Modifier.debugBorder() = this.then(
     )
 )
 
-val rand = Random(1)
+private val rand = Random(1)

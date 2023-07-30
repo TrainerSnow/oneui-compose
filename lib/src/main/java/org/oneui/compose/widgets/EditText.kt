@@ -30,6 +30,9 @@ import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.allIn
 
+/**
+ * Wrapper to configure a [BasicTextField] for use in oneui-styling.
+ */
 @Composable
 fun EditText(
     modifier: Modifier = Modifier,
@@ -92,6 +95,10 @@ fun EditText(
     }
 }
 
+
+/**
+ * Wrapper to configure a [BasicTextField] for use in oneui-styling.
+ */
 @Composable
 fun EditText(
     modifier: Modifier = Modifier,
@@ -154,6 +161,9 @@ fun EditText(
     }
 }
 
+/**
+ * Variant for an [EditText] that adds an underline.
+ */
 @Composable
 fun UnderlinedEditText(
     modifier: Modifier = Modifier,
@@ -230,6 +240,9 @@ fun UnderlinedEditText(
     )
 }
 
+/**
+ * Variant for an [EditText] that configures it for use with integers, with included input validation.
+ */
 @Composable
 fun NumberEditText(
     modifier: Modifier = Modifier,
@@ -295,16 +308,13 @@ fun NumberEditText(
     )
 }
 
-object EditTextDefaults {
-
-    const val underlineThicknessFocused = 5F
-
-    const val underlineThickness = 2F
-
-    val underlineSpacing = 6.dp
-
-}
-
+/**
+ * Contains colors needed for the [EditText] variants
+ *
+ * @property cursor
+ * @property underlineFocused
+ * @property underline
+ */
 data class EditTextColors(
 
     val cursor: Color,
@@ -315,6 +325,13 @@ data class EditTextColors(
 
 )
 
+/**
+ * Constructs the default [EditTextColors]
+ *
+ * @param cursor The color of the cursor
+ * @param underlineFocused The color of the underline when focused
+ * @param underline The color of the underline when not focused
+ */
 @Composable
 fun editTextColors(
     cursor: Color = OneUITheme.colors.seslPrimaryColor,
@@ -325,3 +342,16 @@ fun editTextColors(
     underlineFocused = underlineFocused,
     underline = underline
 )
+
+/**
+ * Contains default values for the [BasicTextField] variants
+ */
+object EditTextDefaults {
+
+    const val underlineThicknessFocused = 5F
+
+    const val underlineThickness = 2F
+
+    val underlineSpacing = 6.dp
+
+}

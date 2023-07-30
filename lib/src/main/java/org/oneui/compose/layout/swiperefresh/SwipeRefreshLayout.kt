@@ -164,27 +164,6 @@ internal fun SwipeRefreshProgressIndicator(
 }
 
 /**
- * Contains default colors for the [SwipeRefreshLayout]
- */
-object SwipeRefreshLayoutDefaults {
-
-    val elevation = 8.dp
-
-    val pullThreshold = 100.dp
-
-    val circleOffset = 50.dp
-
-    const val shrinkingAnimationStart = 0.25F
-
-    val progressIndicatorSize = CircularProgressIndicatorSize(30.dp)
-
-    val minimumCircleSize = 8.dp
-
-    val padding = 6.dp
-
-}
-
-/**
  * Contains the colors needed for a [SwipeRefreshLayout]
  */
 data class SwipeRefreshLayoutColors(
@@ -210,3 +189,24 @@ fun swipeRefreshColors(
     secondaryProgress = secondaryProgress,
     circle = circle
 )
+
+/**
+ * Contains default colors for the [SwipeRefreshLayout]
+ */
+object SwipeRefreshLayoutDefaults {
+
+    val elevation = 8.dp
+
+    val pullThreshold = 100.dp
+
+    val circleOffset = 50.dp
+
+    const val shrinkingAnimationStart = 0.25F
+
+    val progressIndicatorSize = CircularProgressIndicatorSize(30.dp)
+
+    val minimumCircleSize = 8.dp
+
+    val padding = 6.dp
+
+}

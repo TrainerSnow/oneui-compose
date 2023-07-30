@@ -27,20 +27,29 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.mapRange
 import org.oneui.compose.widgets.buttons.ActualSwitchColors.Companion.forConfig
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
-
+/**
+ * Composable for a oneui-style switch to toggle an option or on or off
+ *
+ * @param modifier The [Modifier] to apply to the container
+ * @param colors The [SwitchColors] to apply
+ * @param onSwitchedChange The callback invoked when the state changes
+ * @param enabled Whether the switch is enabled
+ * @param switched The state of the switch
+ * @param interactionSource The [MutableInteractionSource]
+ */
 @Composable
 fun Switch(
     modifier: Modifier = Modifier,
+    colors: SwitchColors = switchColors(),
+    onSwitchedChange: (Boolean) -> Unit = { },
     enabled: Boolean = true,
     switched: Boolean = false,
-    onSwitchedChange: (Boolean) -> Unit = { },
-    colors: SwitchColors = switchColors(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     var isAnimating by remember {
@@ -264,10 +273,6 @@ data class SwitchColors(
 
 /**
  * Contains only the colors for a [Switch] that are needed, decided upon its configuration
- *
- * @property thumb
- * @property track
- * @property stroke
  */
 data class ActualSwitchColors(
 
@@ -358,11 +363,7 @@ object SwitchDefaults {
         width = 22.dp,
         height = 22.dp
     )
-    val thumbTouchSize = 35.dp
 
-    /**
-     * The amount of dp that the thumb goes farther than the track, left and right
-     */
     val thumbOvershoot = 2.dp
 
     val trackSize = DpSize(

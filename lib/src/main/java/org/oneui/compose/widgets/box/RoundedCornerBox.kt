@@ -21,37 +21,6 @@ import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.theme.locals.ProvideBackgroundColor
 
 /**
- * Contains the colors that define a [RoundedCornerBox]
- *
- * @property background
- * @property ripple
- */
-data class RoundedCornerBoxColors(
-
-    val background: Color,
-
-    val ripple: Color
-
-)
-
-
-/**
- * Constructs the default [RoundedCornerBoxColors]
- *
- * @param background The background color of the box
- * @param ripple The animation color for the click animation
- * @return
- */
-@Composable
-fun roundedCornerBoxColors(
-    background: Color = OneUITheme.colors.seslBackgroundColor,
-    ripple: Color = OneUITheme.colors.seslRippleColor
-): RoundedCornerBoxColors = RoundedCornerBoxColors(
-    background = background,
-    ripple = ripple
-)
-
-/**
  * Contains default values to define a [RoundedCornerBox]
  *
  * @constructor Create empty Rounded corner box defaults
@@ -72,9 +41,9 @@ object RoundedCornerBoxDefaults {
  * Composable for a oneui-style rounded corner surface
  *
  * @param modifier The modifier to be applied to the container
- * @param cornerRadius The radius of the corners
  * @param colors The [RoundedCornerBoxColors] to use
- * @param onClick The callback to invoke when clicked. Also triggers the animation.
+ * @param onClick The callback to invoke when clicked.
+ * @param cornerRadius The radius of the corners
  * @param interactionSource The [MutableInteractionSource] to use
  * @param contentAlignment The [Alignment] to align the content by
  * @param padding The padding to use
@@ -83,9 +52,9 @@ object RoundedCornerBoxDefaults {
 @Composable
 fun RoundedCornerBox(
     modifier: Modifier = Modifier,
-    cornerRadius: Dp = RoundedCornerBoxDefaults.radius,
     colors: RoundedCornerBoxColors = roundedCornerBoxColors(),
     onClick: (() -> Unit)? = null,
+    cornerRadius: Dp = RoundedCornerBoxDefaults.radius,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     contentAlignment: Alignment = Alignment.Center,
     padding: PaddingValues = RoundedCornerBoxDefaults.padding,
@@ -121,3 +90,31 @@ fun RoundedCornerBox(
         }
     }
 }
+
+/**
+ * Contains the colors that define a [RoundedCornerBox]
+ */
+data class RoundedCornerBoxColors(
+
+    val background: Color,
+
+    val ripple: Color
+
+)
+
+
+/**
+ * Constructs the default [RoundedCornerBoxColors]
+ *
+ * @param background The background color of the box
+ * @param ripple The animation color for the click animation
+ * @return
+ */
+@Composable
+fun roundedCornerBoxColors(
+    background: Color = OneUITheme.colors.seslBackgroundColor,
+    ripple: Color = OneUITheme.colors.seslRippleColor
+): RoundedCornerBoxColors = RoundedCornerBoxColors(
+    background = background,
+    ripple = ripple
+)

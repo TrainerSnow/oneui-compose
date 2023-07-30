@@ -27,21 +27,21 @@ import org.oneui.compose.util.enabledAlpha
  * Composable for a button on a oneui-style dialog.
  *
  * @param modifier The [Modifier] to be applied to the container
- * @param label The text-composable to be used as a label
- * @param onClick The callback invoked on click
  * @param colors The [DialogButtonColors] to apply
- * @param interactionSource The [MutableInteractionSource] to use
+ * @param onClick The callback invoked on click
+ * @param label The text-composable to be used as a label
  * @param threeButton Whether the button is in three button configuration. Affects the padding and font size
+ * @param interactionSource The [MutableInteractionSource] to use
  */
 @Composable
 fun DialogButton(
     modifier: Modifier = Modifier,
-    label: @Composable () -> Unit,
-    onClick: (() -> Unit)? = null,
     colors: DialogButtonColors = dialogButtonColors(),
+    onClick: (() -> Unit)? = null,
+    label: @Composable () -> Unit,
     enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    threeButton: Boolean = false
+    threeButton: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     Box(
         modifier = modifier
@@ -96,55 +96,27 @@ fun DialogButton(
 @Composable
 fun DialogButton(
     modifier: Modifier = Modifier,
-    label: String,
-    onClick: (() -> Unit)? = null,
     colors: DialogButtonColors = dialogButtonColors(),
+    onClick: (() -> Unit)? = null,
+    label: String,
     enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    threeButton: Boolean = false
+    threeButton: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     DialogButton(
         modifier = modifier,
+        colors = colors,
+        onClick = onClick,
         label = {
             Text(
                 text = label,
                 overflow = TextOverflow.Ellipsis
             )
         },
-        onClick = onClick,
-        colors = colors,
         enabled = enabled,
-        interactionSource = interactionSource,
-        threeButton
+        threeButton = threeButton,
+        interactionSource = interactionSource
     )
-}
-
-
-/**
- * COntains default values to construct a [DialogButton]
- */
-object DialogButtonDefaults {
-
-    val shape = RoundedCornerShape(
-        size = 26.dp
-    )
-
-    val midWidth = 42.dp
-
-    val minHeight = 36.dp
-
-    val padding = PaddingValues(
-        horizontal = 18.dp,
-        vertical = 4.dp
-    )
-
-    val paddingThreeButtons = PaddingValues(
-        horizontal = 15.dp,
-        vertical = 4.dp
-    )
-
-    const val disabledAlpha = 0.4F
-
 }
 
 
@@ -169,3 +141,29 @@ fun dialogButtonColors(
 ): DialogButtonColors = DialogButtonColors(
     ripple = ripple
 )
+
+
+/**
+ * Contains default values to construct a [DialogButton]
+ */
+object DialogButtonDefaults {
+
+    val shape = RoundedCornerShape(
+        size = 26.dp
+    )
+
+    val midWidth = 42.dp
+
+    val minHeight = 36.dp
+
+    val padding = PaddingValues(
+        horizontal = 18.dp,
+        vertical = 4.dp
+    )
+
+    val paddingThreeButtons = PaddingValues(
+        horizontal = 15.dp,
+        vertical = 4.dp
+    )
+
+}

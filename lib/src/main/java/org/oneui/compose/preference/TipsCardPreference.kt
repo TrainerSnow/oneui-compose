@@ -21,6 +21,17 @@ import org.oneui.compose.util.enabledAlpha
 import org.oneui.compose.widgets.box.RoundedCornerBox
 import org.oneui.compose.widgets.box.roundedCornerBoxColors
 
+/**
+ * Composable for a oneui-style tips card. This is supposed to be shown at the bottom of a preferences screen and give userful
+ *      tips to the user.
+ * @param modifier The [Modifier] to apply to the container
+ * @param colors The [TipsCardPreferenceColors] to apply
+ * @param title The title to show at the top of the card
+ * @param summary The summary, stating the tip
+ * @param buttonLabel The label of the button
+ * @param closeIcon The icon to show together with the button
+ * @param onButtonClick The callback invoked when the button is clicked
+ */
 @Composable
 fun TipsCardPreference(
     modifier: Modifier = Modifier,
@@ -87,6 +98,9 @@ fun TipsCardPreference(
     }
 }
 
+/**
+ * Contains default values for a [TipsCardPreference]
+ */
 object TipsCardPreferenceDefaults {
 
     val padding = PaddingValues(
@@ -120,12 +134,20 @@ object TipsCardPreferenceDefaults {
 
 }
 
+/**
+ * Contains colors needed for a [TipsCardPreference]
+ */
 data class TipsCardPreferenceColors(
 
     val background: Color
 
 )
 
+/**
+ * Constructs the default [TipsCardPreferenceColors]
+ *
+ * @param background The background color of the card
+ */
 @Composable
 fun tipsCardPreferenceColors(
     background: Color = OneUITheme.colors.ouiTipsCardPreferenceBackground
