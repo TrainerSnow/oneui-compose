@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
@@ -38,6 +39,7 @@ fun DialogButton(
     label: @Composable () -> Unit,
     onClick: (() -> Unit)? = null,
     colors: DialogButtonColors = dialogButtonColors(),
+    enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     threeButton: Boolean = false
 ) {
@@ -51,7 +53,7 @@ fun DialogButton(
                 shape = DialogButtonDefaults.shape
             )
             .clickable(
-                enabled = onClick != null,
+                enabled = enabled,
                 indication = rememberRipple(
                     color = colors.ripple
                 ),
@@ -59,6 +61,7 @@ fun DialogButton(
                 role = Role.Button,
                 onClick = { onClick?.let { it() } }
             )
+            .alpha(if(enabled) 1F else DialogButtonDefaults.disabledAlpha)
             .padding(
                 if (threeButton)
                     DialogButtonDefaults.paddingThreeButtons
@@ -96,6 +99,7 @@ fun DialogButton(
     label: String,
     onClick: (() -> Unit)? = null,
     colors: DialogButtonColors = dialogButtonColors(),
+    enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     threeButton: Boolean = false
 ) {
@@ -109,6 +113,7 @@ fun DialogButton(
         },
         onClick = onClick,
         colors = colors,
+        enabled = enabled,
         interactionSource = interactionSource,
         threeButton
     )
@@ -137,6 +142,8 @@ object DialogButtonDefaults {
         horizontal = 15.dp,
         vertical = 4.dp
     )
+
+    const val disabledAlpha = 0.4F
 
 }
 
