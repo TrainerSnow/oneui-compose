@@ -8,10 +8,6 @@
     <string name="sesl_switchbar_label_on">On</string>
     <string name="sesl_switchbar_label_off">Off</string>
 
-    <string name="sesl_picker_color_hex">Hex</string>
-    <string name="sesl_picker_color_red">Red</string>
-    <string name="sesl_picker_color_green">Green</string>
-    <string name="sesl_picker_color_blue">Blue</string>
     <string name="sesl_picker_tab_spectrum">Spectrum</string>
     <string name="sesl_picker_tab_swatch">Swatches</string>
     <string name="sesl_picker_seekbar_saturation">Saturation</string>

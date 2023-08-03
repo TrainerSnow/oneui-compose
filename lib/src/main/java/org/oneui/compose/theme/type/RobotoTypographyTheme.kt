@@ -40,15 +40,6 @@ internal class RobotoTypographyTheme private constructor(
     override val tipsCardPreferenceSummary: TextStyle,
     override val relativeCardTitle: TextStyle,
     override val relativeCardLink: TextStyle,
-    override val colorPickerHexSectionEdit: TextStyle,
-    override val colorPickerHexSectionTitle: TextStyle,
-    override val colorPickerRgbSectionTitle: TextStyle,
-    override val colorPickerRgbSectionEdit: TextStyle,
-    override val coloPickerSeekbarTitle: TextStyle,
-    override val colorPickerSeekbarProgressEdit: TextStyle,
-    override val colorPickerSeekbarProgressLabel: TextStyle,
-    override val colorPickerTab: TextStyle,
-    override val colorPickerTabSelected: TextStyle,
     override val tabItem: TextStyle,
     override val tabItemSelected: TextStyle,
     override val bnbLabel: TextStyle,
@@ -231,62 +222,6 @@ internal class RobotoTypographyTheme private constructor(
                     fontWeight = FontWeight.Bold,
                     color = colorTheme.seslPrimaryColor,
                     fontFamily = robotoFamily
-                ),
-                colorPickerHexSectionEdit = TextStyle(
-                    fontSize = 14.sp,
-                    color = colorTheme.seslPrimaryTextColor,
-                    fontFamily = robotoFamily,
-                    textAlign = TextAlign.Center
-                ),
-                colorPickerHexSectionTitle = TextStyle(
-                    fontSize = 12.sp,
-                    color = colorTheme.seslSecondaryTextColor,
-                    fontWeight = FontWeight.Bold,
-                    fontFamily = robotoFamily,
-                    textAlign = TextAlign.Center
-                ),
-                colorPickerRgbSectionEdit = TextStyle(
-                    fontSize = 14.sp,
-                    color = colorTheme.seslPrimaryTextColor,
-                    fontFamily = robotoFamily,
-                    textAlign = TextAlign.Center
-                ),
-                colorPickerRgbSectionTitle = TextStyle(
-                    fontSize = 12.sp,
-                    color = colorTheme.seslSecondaryTextColor,
-                    fontWeight = FontWeight.Bold,
-                    fontFamily = robotoFamily,
-                    textAlign = TextAlign.Center
-                ),
-                coloPickerSeekbarTitle = TextStyle(
-                    fontSize = 14.sp,
-                    color = colorTheme.seslSecondaryTextColor,
-                    fontWeight = FontWeight.Bold,
-                    fontFamily = robotoFamily
-                ),
-                //Font size is 14 dp, but we cant declare this here. Conversion from dp -> sp needs @Composable scope. To be declared on-site
-                colorPickerSeekbarProgressEdit = TextStyle(
-                    color = colorTheme.seslPrimaryTextColor,
-                    fontFamily = robotoFamily,
-                    textAlign = TextAlign.End
-                ),
-                //Font size is 14 dp, but we cant declare this here. Conversion from dp -> sp needs @Composable scope. To be declared on-site
-                colorPickerSeekbarProgressLabel = TextStyle(
-                    color = colorTheme.seslSecondaryTextColor,
-                    fontFamily = robotoFamily,
-                    textAlign = TextAlign.End
-                ),
-                //Font size is 15 dp, but we cant declare this here. Conversion from dp -> sp needs @Composable scope. To be declared on-site
-                colorPickerTab = TextStyle(
-                    color = colorTheme.seslSecondaryTextColor,
-                    textAlign = TextAlign.Center,
-                    fontFamily = robotoFamily
-                ),
-                colorPickerTabSelected = TextStyle(
-                    color = colorTheme.seslDialogBodyTextColor,
-                    textAlign = TextAlign.Center,
-                    fontFamily = robotoFamily,
-                    fontWeight = FontWeight.Bold
                 ),
                 tabItem = TextStyle(
                     color = colorTheme.seslTablayoutTextColorDefault,

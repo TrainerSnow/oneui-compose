@@ -61,24 +61,6 @@ interface OneUITypographyTheme {
 
     val relativeCardLink: TextStyle
 
-    val colorPickerHexSectionEdit: TextStyle
-
-    val colorPickerHexSectionTitle: TextStyle
-
-    val colorPickerRgbSectionTitle: TextStyle
-
-    val colorPickerRgbSectionEdit: TextStyle
-
-    val coloPickerSeekbarTitle: TextStyle
-
-    val colorPickerSeekbarProgressEdit: TextStyle
-
-    val colorPickerSeekbarProgressLabel: TextStyle
-
-    val colorPickerTab: TextStyle
-
-    val colorPickerTabSelected: TextStyle
-
     val tabItem: TextStyle
 
     val tabItemSelected: TextStyle

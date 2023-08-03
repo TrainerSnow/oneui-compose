@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="sesl_picker_color_spectrum_width" format="float" type="dimen">292.0</dimen>
-    <dimen name="sesl_picker_color_selected_hex_section_margin" format="float" type="dimen">8.0
-    </dimen>
-    <dimen name="sesl_picker_color_selected_rgb_section_margin" format="float" type="dimen">8.0
-    </dimen>
-    <dimen name="sesl_picker_color_swatches_height" format="float" type="dimen">280.0</dimen>
-    <dimen name="sesl_picker_color_swatches_width" format="float" type="dimen">295.0</dimen>
-
     <dimen name="sesl_picker_date_header_height" format="float" type="dimen">36</dimen>
     <dimen name="sesl_picker_date_header_week_spacing" format="float" type="dimen">10</dimen>
     <dimen name="sesl_picker_date_week_height" format="float" type="dimen">32</dimen>
