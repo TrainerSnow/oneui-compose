@@ -69,7 +69,7 @@ dependencies {
 afterEvaluate {
     android.libraryVariants.forEach { variant ->
         publishing.publications.create(variant.name, MavenPublication::class.java) {
-            groupId = "com.github.trainersnow"
+            groupId = "com.github.TrainerSnow"
             artifactId = "oneui-compose"
             version = "0.0.1"
         }
