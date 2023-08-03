@@ -220,4 +220,5 @@ internal val LightColorTheme = object : OneUIColorTheme {
     override val drawerItemLabelSelected= Color(0xff010101)
     override val drawerItemEndLabel= Color(0xff8c8c8c)
     override val buttonDefaultBackground = Color(0x14000000)
+    override val simpleColorPickerSelectedStroke = Color(0xffde9992)
 }

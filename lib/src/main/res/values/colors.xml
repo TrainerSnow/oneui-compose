@@ -448,4 +448,6 @@
     <color name="sesl_drawer_item_end_label_dark">#ff999999</color>
     <color name="sesl_button_default_background_light">#14000000</color>
     <color name="sesl_button_default_background_dark">#4dffffff</color>
+    <color name="sesl_picker_color_simple_selected_stroke_light">#ffde9992</color>
+    <color name="sesl_picker_color_simple_selected_stroke_dark">#ffde9992</color>
 </resources>
