@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    id("maven-publish")
 }
 
 android {
@@ -10,6 +11,7 @@ android {
 
     defaultConfig {
         minSdk = 21
+        version = 1
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -62,4 +64,14 @@ dependencies {
     implementation(libs.material)
     implementation(libs.material3.windowsizeclass)
     implementation(libs.oneui.icons)
+}
+
+afterEvaluate {
+    android.libraryVariants.forEach { variant ->
+        publishing.publications.create(variant.name, MavenPublication::class.java) {
+            groupId = "com.github.trainersnow"
+            artifactId = "oneui-compose"
+            version = "1.0.0"
+        }
+    }
 }
