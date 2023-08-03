@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -43,7 +41,6 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.R
 import org.oneui.compose.theme.OneUITheme
-import org.oneui.compose.util.debugBorder
 import org.oneui.compose.util.mapRange
 import org.oneui.compose.widgets.NumberEditText
 import kotlin.math.roundToInt
@@ -72,7 +69,6 @@ fun ColorPickerSeekbar(
 ) {
     val margin = PaddingValues(
         bottom = OneUITheme.dimensions.colorPickerSeekbarMarginBottom,
-        start = OneUITheme.dimensions.colorPickerSeekbarMarginHorizontal,
         end = OneUITheme.dimensions.colorPickerSeekbarMarginHorizontal
     )
 
@@ -83,8 +79,6 @@ fun ColorPickerSeekbar(
     ) {
         Column {
             TitleSection(
-                modifier = Modifier
-                    .debugBorder(),
                 title = title
             )
             Row(
@@ -95,8 +89,6 @@ fun ColorPickerSeekbar(
                     .spacedBy(OneUITheme.dimensions.colorPickerSeekbarLabelSpacing)
             ) {
                 SliderSection(
-                    modifier = Modifier
-                        .debugBorder(),
                     progress = value,
                     onProgressChange = onValueChange,
                     colorStart = colorStart,
@@ -106,9 +98,6 @@ fun ColorPickerSeekbar(
                     rippleColor = colors.ripple
                 )
                 LabelSection(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .debugBorder(),
                     value = (value * 100).roundToInt(),
                     onValueChange = { onValueChange(it / 100F) }
                 )
@@ -256,8 +245,6 @@ private fun LabelSection(
             .wrapContentHeight()
     ) {
         NumberEditText(
-            modifier = Modifier
-                .fillMaxSize(),
             value = value,
             onValueChange = onValueChange,
             style = OneUITheme.types.colorPickerSeekbarProgressEdit.copy(

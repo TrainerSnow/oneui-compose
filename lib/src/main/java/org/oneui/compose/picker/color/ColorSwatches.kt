@@ -14,6 +14,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
@@ -42,6 +46,13 @@ fun ColorSwatches(
     onSelectedColorChange: (Color) -> Unit,
     swatchColors: ColorSwatchesColors = colorSwatchesColors()
 ) {
+    var color by remember {
+        mutableStateOf(selectedColor)
+    }
+    if (selectedColor != null && selectedColor in colors.flatten()) {
+        color = selectedColor
+    }
+
     BoxWithConstraints(
         modifier = modifier
             .clip(ColorSwatchesDefaults.shape)
@@ -84,11 +95,11 @@ fun ColorSwatches(
                 }
             }
         }
-        if (selectedColor != null) {
+        if (color != null) {
             colors.forEachIndexed { index, colorColumn ->
-                if (selectedColor in colorColumn) {
+                if (color in colorColumn) {
                     val rowIndex = index
-                    val columnIndex = colorColumn.indexOf(selectedColor)
+                    val columnIndex = colorColumn.indexOf(color)
 
                     val cellHeight = height / colorColumn.size
 
@@ -109,7 +120,7 @@ fun ColorSwatches(
                             )
                     ) {
                         ColorSwatchCell(
-                            color = selectedColor,
+                            color = color!!,
                             selected = true,
                             modifier = Modifier
                                 .width(columnWidth + extraSize * 2)
