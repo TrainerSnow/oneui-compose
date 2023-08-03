@@ -363,4 +363,5 @@ internal val DynamicDarkColorTheme: OneUIColorTheme
         override val drawerItemLabel = color(R.color.sesl_drawer_item_label_dark)
         override val drawerItemLabelSelected = color(R.color.sesl_drawer_item_label_selected_dark)
         override val buttonDefaultBackground = color(R.color.sesl_button_default_background_dark)
+        override val simpleColorPickerSelectedStroke = color(R.color.sesl_picker_color_simple_selected_stroke_dark)
     }

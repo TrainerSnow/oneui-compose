@@ -364,4 +364,5 @@ internal val DynamicLightColorTheme: OneUIColorTheme
         override val drawerItemLabel = color(R.color.sesl_drawer_item_label_light)
         override val drawerItemLabelSelected = color(R.color.sesl_drawer_item_label_selected_light)
         override val buttonDefaultBackground = color(R.color.sesl_button_default_background_light)
+        override val simpleColorPickerSelectedStroke = color(R.color.sesl_picker_color_simple_selected_stroke_light)
     }
