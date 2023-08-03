@@ -8,98 +8,22 @@ of the Samsung apps. Still, by decompiling those, we can scrape core information
 has done a big part of this work, making a great contribution towards this project.
 
 ## Work in Progress
-This library is still, as of July 17 2023, WIP and unfinished. The following table can give a glimpse at the current progress.
+This library is still, as of August 3 2023, work in progress.
 
-- **Alpha**: Component is available with loose colors and dimensions. Certain errors in UX are prevalent and yet to be fixed. These components do not yet comply with the lower mentioned structure. Issues should be annotated at the core composable using one "TODO" comment per issue 
-- **Stable**: Component is available with exact colors and dimensions (as exact as possible). 
+Future aims include but are not limited to:
 
-| Component                              | Alpha  | Stable |
-|----------------------------------------|:------:|:------:|
-| Buttons                                |  Yes   |  Yes   |
-| Preferences                            |  Yes   |  Yes   |
-| Checkbox                               |  Yes   |  Yes   |
-| Radio Button                           |  Yes   |  Yes   |
-| Spinners                               |   No   |   No   |
-| Menus                                  |  Yes   |  Yes   |
-| Searchview                             |  Yes   |  Yes   |
-| Drawer Layout                          |  Yes   |  Yes   |
-| Collapsing Toolbar Layout              |  Yes   |  Yes   |
-| Normal Seekbar                         |  Yes   |  Yes   |
-| Expanding Seekbar                      |  Yes   |  Yes   |
-| Split Seekbar                          |   No   |   No   |
-| Danger Seekbar                         |  Yes   |  Yes   |
-| Haptic Seekbar                         |   No   |   No   |
-| Progress Bar (circular, determinate)   |  Yes   |  Yes   |
-| Progress Bar (circular, indeterminate) |  Yes   |  Yes   |
-| Progress Bar (normal, determinate)     |  Yes   |  Yes   |
-| Progress Bar (normal, indeterminate)   |  Yes   |  Yes   |
-| Swipe Refresh Layout                   |  Yes   |  Yes   |
-| Navigation Bar                         |  Yes   |  Yes   |
-| Navigation Bar Tabs                    |  Yes   |  Yes   |
-| Navigation Bar Subtabs                 |  Yes   |  Yes   |
-| App Picker View                        |   No   |   No   |
-| Index Scroll                           |   No   |   No   |
-| Number Picker                          |  Yes   |  Yes   |
-| Time Picker                            |  Yes   |  Yes   |
-| Date Picker                            |  Yes   |  Yes   |
-| Spinning Date Picker                   |   No   |   No   |
-| Date Picker Dialog                     |  Yes   |  Yes   |
-| Time Picker Dialog                     |  Yes   |  Yes   |
-| Start End Time Picker Dialog           |   No   |   No   |
-| Color Picker                           | Partly |   No   |
+- Markup documentation for every component with preview images
+- Support for dynamic theming (OneUI-capable devices only)
+- Color Picker dialog
+- About-App screen preset
 
-## Composable structure
-Implementation of smaller components, such as Buttons, Checkboxes etc. will have uniformed implementation.
+Further problems are noted as TODO-comments at the core composable of a component.
 
-### File structure
-(Same order as in the file itself)
-- Core composable: This is the main composable that will construct the component. This is the main composable to be called by library user.
-- Core overloads: These are optional overloads for the Core composable, for either a) variations or b) simplicity. Examples are a) Vertical/Horizontal Seekbars, and b)
-  multiple overloads for AlertDialog(), taking string values instead of composables for the title and buttons.
-- Helper composables/DrawScope functions: These are optional functions to help construct the Core composable. They should be kept `ìnternal`, or preferably `private`.  
-- Defaults object: This singleton `object` contains dimension values, such as height, width, padding or margin. These values are hardcoded and obtained
-  [as mentioned](#note). Could also contain e.g. animation durations. Values should generally be kept in `dp`, if not possible in`px`.
-- Color class: This is a `data class`, containing color fields for all the colors used in the component, such as background, scrim or stroke.
-- Color composable: This composable takes all the colors mentioned in the Color class as parameters, and sets the default values as default parameters using the
-  `OneUITheme.colors` object. It then returns a constructed instance of the Color class.
-- Preview composable: If necessary/wanted, a preview composable can help with developing a single composable.
+## Contributing
+Please refer to the [contributing-guide](CONTRIBUTING.md)
 
-### Composable structure
-Certain parameters are prevalent in all, or most, composables, be they layouts, buttons or dialogs. Such include:
-
-- `modifier: Modifier` to customize basic attributes like `background`, `border`or `clickable`. Every composable should have and use this parameter.
-- `colors: [ColorClass]` to customize the colors used in the composable. This should be default initialized with the color composable.
-- `onClick: () -> Unit` to handle click events.
-- `enabled: Boolean` to set the component enabled/disabled.
-- [Component specific parameters]
-- `interactionSource: MutableInteractionSource` to programmatically interact with this component. Every composable that's clickable should have and use this parameter.
-- `content: @Composable () -> Unit` when the composable has content to be put inside.
-
-Every composable should use these parameters, if applicable, in the presented order.
-
-## Theme
-
-The theme system was copied/adapted from the material3 library for Jetpack Compose.
-To access theme values, your app should be surrounded by the `OneUITheme` composable, with optional configuration:
-```kotlin
-OneUITheme {
-  //Your app here
-}
-```
-
-This gives you access to the `OneUITheme`singleton object, which contains several fields:
-
-- `colors`: This holds access to an `IColorTheme`, which is by default initialized depending on the dark/light mode setting.
-  Some of the fields have been scraped from the `colors.xml` file from the [OneUI Library for Android XML](https://github.com/OneUIProject), some have been manually added.
-  In the future, all fields should have been reviewed and manually added.
-- `types`: This holds access to an `ITypographyTheme`, which is initialized to a default. It contains fields for all `TextStyle`s, used by different
-  composables in the library.
-- `dimensions`: This holds access to an `IDynamicDimensions`, which contains dimensions values such as margins, padding, widths and heights, that depend on
-  the device's width, height and orientation. These values are stored in the `res`folder, using android resource classifiers, and are parsed and selected at runtime.
-
-The `Theme` composable takes parameters for all of these objects, so they can be customized.
-
-To only have a part of the app customized, you can provide custom values using the according [CompositionLocal](https://developer.android.com/jetpack/compose/compositionlocal)
+## Getting started
+Please refer to [getting started](GETTING_STARTED.md)
 
 ## Design Library
 
