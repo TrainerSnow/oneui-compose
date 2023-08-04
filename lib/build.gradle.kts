@@ -10,7 +10,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 21
+        minSdk = 23
         version = 1
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -43,35 +43,41 @@ android {
 
 dependencies {
 
-    implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.activity.compose)
-    implementation(libs.compose.util)
-    implementation(libs.compose.foundation)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
-    implementation(libs.material3)
-    implementation(libs.material)
-    implementation(libs.material3.windowsizeclass)
-    implementation(libs.oneui.icons)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.material3)
+    debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.io.github.oneuiproject.icons)
+
+    api(libs.androidx.compose.foundation)
+    api(libs.androidx.compose.foundation.layout)
+
+    api(libs.androidx.compose.runtime)
+    api(libs.androidx.compose.ui)
+    api(libs.androidx.compose.ui.graphics)
+    api(libs.androidx.compose.ui.text)
+    implementation(libs.androidx.annotation)
+    implementation(libs.androidx.compose.animation)
+    implementation(libs.androidx.compose.animation.core)
+    implementation(libs.androidx.compose.material.ripple)
+    implementation(libs.androidx.compose.ui.geometry)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.ui.unit)
+    implementation(libs.androidx.core)
+    implementation(libs.jetbrains.kotlinx.coroutines.core)
 }
 
 afterEvaluate {
-    android.libraryVariants.forEach { variant ->
-        publishing.publications.create(variant.name, MavenPublication::class.java) {
-            groupId = "com.github.TrainerSnow"
-            artifactId = "oneui-compose"
-            version = "0.0.3"
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                groupId = "com.github.TrainerSnow"
+                artifactId = "oneui-compose"
+                version = "0.0.4"
+
+                artifact(tasks.getByName("bundleReleaseAar"))
+            }
         }
     }
 }
