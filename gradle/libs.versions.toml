@@ -13,7 +13,7 @@ annotation = "1.6.0"
 material = "1.4.3"
 material3 = "1.1.1"
 lifecycle = "2.6.1"
-oneui = "0.4.0"
+oneui = "0.0.4"
 coroutines = "1.6.4"
 
 [libraries]
