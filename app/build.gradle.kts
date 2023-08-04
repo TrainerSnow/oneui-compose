@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "org.oneui.compose"
+    namespace = "org.oneui.example"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "org.oneui.compose"
+        applicationId = "org.oneui.example"
         minSdk = 30
         targetSdk = 34
         versionCode = 1
@@ -52,22 +52,26 @@ android {
 
 dependencies {
 
-    implementation(libs.oneui.icons)
-    implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.activity.compose)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
-    implementation(libs.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
+    implementation(libs.io.github.oneuiproject.icons)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.material3)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
 
-    implementation(project(":lib"))
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.foundation.layout)
+
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.text)
+    implementation(libs.androidx.compose.ui.unit)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.lifecycle.common)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.jetbrains.kotlinx.coroutines.core)
+
+    implementation(libs.trainersnow.oneui.compose)
 }

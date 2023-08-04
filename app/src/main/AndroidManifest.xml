@@ -18,7 +18,7 @@
             android:value="theming_data_app" />
 
         <activity
-            android:name="org.oneui.compose.MainActivity"
+            android:name="org.oneui.example.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.OneUICompose">
             <intent-filter>

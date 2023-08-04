@@ -60,8 +60,6 @@ I
 NOTICE,f/e/fe71871083ca490e6bc0da33fb48ce231f820a94
 7
 LICENSE,0/3/0398ccd0f49298b10a3d76a47800d2ebecd49859
-D
-lib/build.gradle.kts,e/8/e833d5b57ccb63cb2f1f8a0d0e773ede158fc8d1
 q
 Alib/src/main/java/org/oneui/compose/theme/color/DarkColorTheme.kt,5/0/502e79ea612d917f4039cf1ba1bc97a8f9c4d081
 y
@@ -70,8 +68,6 @@ x
 Hlib/src/main/java/org/oneui/compose/theme/color/DynamicDarkColorTheme.kt,c/a/ca47c992269b00a13123b20709f2859a87b067dd
 a
 1app/src/main/java/org/oneui/compose/ExampleApp.kt,e/d/edd66b8192f37874b7578f948a2f104041bfd793
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 c
 3app/src/main/java/org/oneui/compose/MainActivity.kt,6/3/63a37f61543b09362f6626aed84d2bebd587d1d0
 x
@@ -86,8 +82,6 @@ g
 7app/src/main/java/org/oneui/compose/ui/WidgetsScreen.kt,f/b/fbfe439c6972db633a1e8f391e27668ba55cd635
 @
 build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
-D
-app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
 C
 settings.gradle.kts,7/4/749edfcc96398253e5b3416184e95c46621da850
 9

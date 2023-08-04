@@ -1,4 +1,4 @@
-package org.oneui.compose
+package org.oneui.example
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Spacer
