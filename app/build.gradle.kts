@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "org.oneui.compose"
+    namespace = "org.oneui.example"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "org.oneui.compose"
+        applicationId = "org.oneui.example"
         minSdk = 30
         targetSdk = 34
         versionCode = 1

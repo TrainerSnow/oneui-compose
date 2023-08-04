@@ -1,4 +1,4 @@
-package org.oneui.compose.ui
+package org.oneui.example.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

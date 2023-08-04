@@ -1,4 +1,4 @@
-package org.oneui.compose
+package org.oneui.example
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -14,10 +14,10 @@ import org.oneui.compose.base.IconView
 import org.oneui.compose.layout.drawer.DrawerItem
 import org.oneui.compose.layout.drawer.DrawerLayout
 import org.oneui.compose.layout.internal.rememberSlidingDrawerState
-import org.oneui.compose.nav.NavDestinations
-import org.oneui.compose.ui.NavScreen
-import org.oneui.compose.ui.ProgressIndicatorScreen
-import org.oneui.compose.ui.WidgetsScreen
+import org.oneui.example.nav.NavDestinations
+import org.oneui.example.ui.NavScreen
+import org.oneui.example.ui.ProgressIndicatorScreen
+import org.oneui.example.ui.WidgetsScreen
 
 @Composable
 fun ExampleApp(

@@ -1,4 +1,4 @@
-package org.oneui.compose.nav
+package org.oneui.example.nav
 
 import org.oneui.compose.base.Icon
 

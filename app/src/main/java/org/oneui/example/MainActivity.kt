@@ -1,4 +1,4 @@
-package org.oneui.compose
+package org.oneui.example
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
