@@ -10,7 +10,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 23
+        minSdk = 26
         version = 1
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.compose.material)
     implementation(libs.compose.foundation)
     implementation(libs.compose.ui)
+    implementation(libs.compose.ui.preview)
     implementation(libs.compose.animation)
 
     debugRuntimeOnly(libs.compose.ui.test.manifest)
@@ -64,7 +65,7 @@ afterEvaluate {
             create<MavenPublication>("maven") {
                 groupId = "com.github.TrainerSnow"
                 artifactId = "oneui-compose"
-                version = "0.1.1-hf4"
+                version = "0.1.1-hf5"
 
                 artifact(tasks.getByName("bundleReleaseAar"))
             }

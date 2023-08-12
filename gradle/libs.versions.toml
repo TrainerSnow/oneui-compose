@@ -1,8 +1,10 @@
 [versions]
+compose-bom = "2023.06.01"
+foundation = "1.6.0-alpha03"
+
 agp = "8.2.0-alpha12"
 kotlin = "1.9.0"
 core-ktx = "1.10.1"
-compose-bom = "2023.08.0"
 oneui-icons = "1.1.0"
 annotation = "1.6.0"
 coroutines = "1.7.3"
@@ -13,19 +15,12 @@ compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = 
 
 compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 compose-material = { group = "androidx.compose.material", name = "material" }
-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
-compose-ui = { group = "androidx.compose.ui", name = "ui-android" }
-compose-animation = { group = "androidx.compose.animation", name = "animation-android" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-animation = { group = "androidx.compose.animation", name = "animation" }
 
 compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-compose-material-ripple = { group = "androidx.compose.material", name = "material-ripple" }
-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout-android" }
-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics-android" }
-compose-ui-text = { group = "androidx.compose.ui", name = "ui-text-android" }
-compose-ui-unit = { group = "androidx.compose.ui", name = "ui-unit-android" }
-compose-ui-geometry = { group = "androidx.compose.ui", name = "ui-geometry-android" }
-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview-android" }
-compose-animation-core = { group = "androidx.compose.animation", name = "animation-core-android" }
 androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 jetbrains-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
