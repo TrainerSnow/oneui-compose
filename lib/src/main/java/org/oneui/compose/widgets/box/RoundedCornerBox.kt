@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
@@ -27,7 +28,7 @@ import org.oneui.compose.theme.locals.ProvideBackgroundColor
  */
 object RoundedCornerBoxDefaults {
 
-    val radius: Dp = 26.dp
+    val shape = RoundedCornerShape(26.dp)
 
     val padding: PaddingValues = PaddingValues(
         horizontal = 24.dp,
@@ -43,7 +44,7 @@ object RoundedCornerBoxDefaults {
  * @param modifier The modifier to be applied to the container
  * @param colors The [RoundedCornerBoxColors] to use
  * @param onClick The callback to invoke when clicked.
- * @param cornerRadius The radius of the corners
+ * @param shape The shape to cut the box in
  * @param interactionSource The [MutableInteractionSource] to use
  * @param contentAlignment The [Alignment] to align the content by
  * @param padding The padding to use
@@ -54,7 +55,7 @@ fun RoundedCornerBox(
     modifier: Modifier = Modifier,
     colors: RoundedCornerBoxColors = roundedCornerBoxColors(),
     onClick: (() -> Unit)? = null,
-    cornerRadius: Dp = RoundedCornerBoxDefaults.radius,
+    shape: Shape = RoundedCornerBoxDefaults.shape,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     contentAlignment: Alignment = Alignment.Center,
     padding: PaddingValues = RoundedCornerBoxDefaults.padding,
@@ -73,11 +74,7 @@ fun RoundedCornerBox(
 
     Box(
         modifier = modifier
-            .clip(
-                shape = RoundedCornerShape(
-                    size = cornerRadius
-                )
-            )
+            .clip(shape)
             .background(
                 color = colors.background
             )
