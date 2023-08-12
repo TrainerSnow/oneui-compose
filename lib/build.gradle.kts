@@ -42,27 +42,18 @@ android {
 }
 
 dependencies {
+    implementation(platform(libs.compose.bom))
 
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.material3)
-    debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.material)
+    implementation(libs.compose.material3)
+    implementation(libs.compose.material)
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.animation)
+
+    debugRuntimeOnly(libs.compose.ui.test.manifest)
     implementation(libs.io.github.oneuiproject.icons)
 
-    api(libs.androidx.compose.foundation)
-    api(libs.androidx.compose.foundation.layout)
-
-    api(libs.androidx.compose.ui)
-    api(libs.androidx.compose.ui.graphics)
-    api(libs.androidx.compose.ui.text)
     implementation(libs.androidx.annotation)
-    implementation(libs.androidx.compose.animation)
-    implementation(libs.androidx.compose.animation.core)
-    implementation(libs.androidx.compose.material.ripple)
-    implementation(libs.androidx.compose.ui.geometry)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.ui.unit)
     implementation(libs.androidx.core)
     implementation(libs.jetbrains.kotlinx.coroutines.core)
 }
@@ -73,7 +64,7 @@ afterEvaluate {
             create<MavenPublication>("maven") {
                 groupId = "com.github.TrainerSnow"
                 artifactId = "oneui-compose"
-                version = "0.1.1-hf1"
+                version = "0.1.1-hf3"
 
                 artifact(tasks.getByName("bundleReleaseAar"))
             }

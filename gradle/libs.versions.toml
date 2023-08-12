@@ -2,44 +2,33 @@
 agp = "8.2.0-alpha12"
 kotlin = "1.9.0"
 core-ktx = "1.10.1"
-activity-compose = "1.7.2"
-compose-bom = "2023.06.01"
-compose_foundation = "1.6.0-alpha01"
-compose_runtime = "1.6.0-alpha01"
-compose_ui = "1.6.0-alpha01"
-compose_animation = "1.6.0-alpha01"
+compose-bom = "2023.08.0"
 oneui-icons = "1.1.0"
 annotation = "1.6.0"
-material = "1.4.3"
-material3 = "1.1.1"
-lifecycle = "2.6.1"
-oneui = "0.0.4"
-coroutines = "1.6.4"
+coroutines = "1.7.3"
 
 [libraries]
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
-androidx-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "material" }
-androidx-compose-material-ripple = { group = "androidx.compose.material", name = "material-ripple", version.ref = "material" }
-androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation-android", version.ref = "compose_foundation" }
-androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout-android", version.ref = "compose_foundation" }
-androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime-android", version.ref = "compose_runtime" }
-androidx-compose-ui = { group = "androidx.compose.ui", name = "ui-android", version.ref = "compose_ui" }
-androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics-android", version.ref = "compose_ui" }
-androidx-compose-ui-text = { group = "androidx.compose.ui", name = "ui-text-android", version.ref = "compose_ui" }
-androidx-compose-ui-unit = { group = "androidx.compose.ui", name = "ui-unit-android", version.ref = "compose_ui" }
-androidx-compose-ui-geometry = { group = "androidx.compose.ui", name = "ui-geometry-android", version.ref = "compose_ui" }
-androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview-android", version.ref = "compose_ui" }
-androidx-compose-animation = { group = "androidx.compose.animation", name = "animation-android", version.ref = "compose_animation" }
-androidx-compose-animation-core = { group = "androidx.compose.animation", name = "animation-core-android", version.ref = "compose_animation" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+
+
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-material = { group = "androidx.compose.material", name = "material" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+compose-ui = { group = "androidx.compose.ui", name = "ui-android" }
+compose-animation = { group = "androidx.compose.animation", name = "animation-android" }
+
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+compose-material-ripple = { group = "androidx.compose.material", name = "material-ripple" }
+compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout-android" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics-android" }
+compose-ui-text = { group = "androidx.compose.ui", name = "ui-text-android" }
+compose-ui-unit = { group = "androidx.compose.ui", name = "ui-unit-android" }
+compose-ui-geometry = { group = "androidx.compose.ui", name = "ui-geometry-android" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview-android" }
+compose-animation-core = { group = "androidx.compose.animation", name = "animation-core-android" }
 androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-androidx-lifecycle-common = { group = "androidx.lifecycle", name = "lifecycle-common", version.ref = "lifecycle" }
-androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 jetbrains-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
-trainersnow-oneui-compose = { group = "com.github.TrainerSnow", name = "oneui-compose", version.ref = "oneui" }
 io-github-oneuiproject-icons = {group = "io.github.oneuiproject", name = "icons", version.ref = "oneui-icons" }
 
 [plugins]
