@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -45,7 +46,7 @@ fun TipsCardPreference(
 ) {
     RoundedCornerBox(
         modifier = modifier,
-        cornerRadius = TipsCardPreferenceDefaults.cornerRadius,
+        shape = TipsCardPreferenceDefaults.shape,
         colors = roundedCornerBoxColors(
             background = colors.background
         ),
@@ -123,7 +124,7 @@ object TipsCardPreferenceDefaults {
 
     val summaryButtonSpacing = 16.dp
 
-    val cornerRadius = 26.dp
+    val shape = RoundedCornerShape(26.dp)
 
     val buttonSectionMargin = PaddingValues(
         bottom = 14.dp,
