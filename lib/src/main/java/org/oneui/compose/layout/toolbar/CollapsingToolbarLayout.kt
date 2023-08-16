@@ -81,8 +81,6 @@ fun CollapsingToolbarLayout(
         targetEnd = 1F
     )
 
-    val scrollstate = rememberScrollState()
-
     val mod = if (expandable) Modifier
         .anchoredDraggable(
             state = state.draggableState,
@@ -151,7 +149,6 @@ fun CollapsingToolbarLayout(
 
         Column(
             modifier = Modifier
-                .verticalScroll(scrollstate)
                 .fillMaxWidth()
         ) {
             content(this)
