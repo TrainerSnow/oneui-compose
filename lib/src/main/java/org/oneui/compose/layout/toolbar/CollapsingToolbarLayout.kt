@@ -92,7 +92,6 @@ fun CollapsingToolbarLayout(
 
     Column(
         modifier = modifier
-            .fillMaxSize()
             .then(mod)
     ) {
         CollapsingToolbarTitle(
