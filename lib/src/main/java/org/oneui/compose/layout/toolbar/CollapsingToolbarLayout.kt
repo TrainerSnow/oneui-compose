@@ -113,7 +113,7 @@ fun CollapsingToolbarLayout(
                 {
                     Text(
                         text = it,
-                        style = OneUITheme.types.appbarTitleExtended.copy(
+                        style = OneUITheme.types.appbarSubtitle.copy(
                             color = OneUITheme.types.appbarSubtitle.color.copy(
                                 toolbarAlpha.coerceIn(0F, 1F)
                             )
