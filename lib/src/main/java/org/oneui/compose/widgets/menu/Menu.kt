@@ -113,8 +113,6 @@ fun PopupMenu(
             contentAlignment = Alignment.TopStart
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize(),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.Start
             ) {
