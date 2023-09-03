@@ -29,6 +29,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
+import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.theme.locals.ProvideBackgroundColor
@@ -58,6 +59,69 @@ fun PopupMenu(
     ),
     content: @Composable ColumnScope.() -> Unit
 ) {
+    Popup(
+        onDismissRequest = onDismissRequest,
+        properties = properties
+    ) {
+        PopupContent(
+            modifier = modifier,
+            visible = visible,
+            colors = colors
+        ) {
+            content()
+        }
+    }
+}
+
+
+/**
+ * Overload that takes in a [PopupPositionProvider]
+ * Can be used in spinners or other menus
+ *
+ * TODO: Exit animation is not playing due to implementation struggles
+ *
+ * @param modifier The [Modifier] to apply to the container
+ * @param colors The [MenuColors] to apply
+ * @param visible Whether the menu is currently visible
+ * @param onDismissRequest Callback for when the menu is dismissed
+ * @param properties The [PopupProperties] to apply
+ * @param popupPositionProvider The [PopupPositionProvider] to position the popup
+ * @param content The content to put inside the Menu. Preferably [SelectableMenuItem]s. Arranged along the y-Axis
+ */
+@Composable
+fun PopupMenu(
+    modifier: Modifier = Modifier,
+    colors: MenuColors = menuColors(),
+    visible: Boolean = true,
+    onDismissRequest: () -> Unit,
+    properties: PopupProperties = PopupProperties(
+        focusable = true
+    ),
+    popupPositionProvider: PopupPositionProvider,
+    content: @Composable ColumnScope.() -> Unit
+) {
+    Popup(
+        onDismissRequest = onDismissRequest,
+        properties = properties,
+        popupPositionProvider = popupPositionProvider
+    ) {
+        PopupContent(
+            modifier = modifier,
+            visible = visible,
+            colors = colors
+        ) {
+            content()
+        }
+    }
+}
+
+@Composable
+private fun PopupContent(
+    modifier: Modifier = Modifier,
+    visible: Boolean,
+    colors: MenuColors,
+    content: @Composable ColumnScope.() -> Unit
+) {
     val expandedState = remember { MutableTransitionState(false) }
     expandedState.targetState = visible
 
@@ -81,44 +145,39 @@ fun PopupMenu(
         if (it) 1F else 0F
     }
 
-    Popup(
-        onDismissRequest = onDismissRequest,
-        properties = properties
+    Box(
+        modifier = modifier
+            .alpha(alpha)
+            .graphicsLayer {
+                scaleX = size
+                scaleY = size
+            }
+            .width(IntrinsicSize.Max)
+            .padding(MenuDefaults.margin)
+            .shadow(
+                elevation = MenuDefaults.elevation * alpha,
+                shape = MenuDefaults.shape
+            )
+            .background(
+                colors.background,
+                shape = MenuDefaults.shape
+            )
+            .clip(
+                shape = MenuDefaults.shape
+            )
+            .border(
+                width = with(LocalDensity.current) { MenuDefaults.strokeWidthPx.toDp() },
+                color = colors.stroke,
+                shape = MenuDefaults.shape
+            ),
+        contentAlignment = Alignment.TopStart
     ) {
-        Box(
-            modifier = modifier
-                .alpha(alpha)
-                .graphicsLayer {
-                    scaleX = size
-                    scaleY = size
-                }
-                .width(IntrinsicSize.Max)
-                .padding(MenuDefaults.margin)
-                .shadow(
-                    elevation = MenuDefaults.elevation * alpha,
-                    shape = MenuDefaults.shape
-                )
-                .background(
-                    colors.background,
-                    shape = MenuDefaults.shape
-                )
-                .clip(
-                    shape = MenuDefaults.shape
-                )
-                .border(
-                    width = with(LocalDensity.current) { MenuDefaults.strokeWidthPx.toDp() },
-                    color = colors.stroke,
-                    shape = MenuDefaults.shape
-                ),
-            contentAlignment = Alignment.TopStart
+        Column(
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start
         ) {
-            Column(
-                verticalArrangement = Arrangement.Top,
-                horizontalAlignment = Alignment.Start
-            ) {
-                ProvideBackgroundColor(colors.background) {
-                    content(this)
-                }
+            ProvideBackgroundColor(colors.background) {
+                content(this)
             }
         }
     }
