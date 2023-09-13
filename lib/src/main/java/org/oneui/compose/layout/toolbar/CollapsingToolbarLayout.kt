@@ -2,31 +2,44 @@ package org.oneui.compose.layout.toolbar
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.AnchoredDraggableState
 import androidx.compose.foundation.gestures.DraggableAnchors
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.anchoredDraggable
 import androidx.compose.foundation.gestures.animateTo
 import androidx.compose.foundation.gestures.snapTo
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import org.oneui.compose.base.Icon
 import org.oneui.compose.layout.internal.modifier.NestedScrollConnection
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.OneUIPreview
 import org.oneui.compose.util.mapRange
+import org.oneui.compose.widgets.box.RoundedCornerBox
 import org.oneui.compose.widgets.buttons.IconButton
+import org.oneui.compose.widgets.menu.MenuItem
+import org.oneui.compose.widgets.menu.PopupMenu
 
 /**
  * Composable for a oneui-style Collapsing toolbar layout
@@ -54,6 +67,7 @@ fun CollapsingToolbarLayout(
     toolbarHeight: Dp = 280.dp,
     appbarActions: (@Composable () -> Unit)? = null,
     appbarNavAction: (@Composable () -> Unit)? = null,
+    menu: (@Composable () -> Unit)? = null,
     contentPadding: PaddingValues = CollapsingToolbarLayoutDefaults.contentPadding,
     content: @Composable ColumnScope.() -> Unit
 ) {
@@ -140,6 +154,7 @@ fun CollapsingToolbarLayout(
             actions = appbarActions?.let {
                 {
                     it()
+                    menu?.let { it() }
                 }
             }
         )
@@ -180,6 +195,7 @@ fun CollapsingToolbarLayout(
     toolbarHeight: Dp = 280.dp,
     appbarActions: (@Composable () -> Unit)? = null,
     appbarNavAction: (@Composable () -> Unit)? = null,
+    menu: (@Composable () -> Unit)? = null,
     contentPadding: PaddingValues = CollapsingToolbarLayoutDefaults.contentPadding,
     content: @Composable ColumnScope.() -> Unit
 ) = CollapsingToolbarLayout(
@@ -197,6 +213,7 @@ fun CollapsingToolbarLayout(
     toolbarHeight,
     appbarActions,
     appbarNavAction,
+    menu,
     contentPadding,
     content
 )
@@ -321,4 +338,32 @@ object CollapsingToolbarLayoutDefaults {
 
     val contentPadding = PaddingValues()
 
+}
+
+
+@Preview
+@Composable
+fun CollapsingToolbarLayoutPreview() = RoundedCornerBox {
+    CollapsingToolbarLayout(
+        modifier = Modifier
+            .fillMaxSize(),
+        toolbarTitle = "Title",
+        toolbarSubtitle = "Subtitle",
+        menu = {
+            PopupMenu(
+                onDismissRequest = { }
+            ) {
+                (1..3).forEach {
+                    MenuItem(
+                        label = "Item nr. $it"
+                    )
+                }
+            }
+        },
+        appbarActions = {
+            IconButton(icon = Icon.Vector(Icons.Default.MoreVert))
+        }
+    ) {
+
+    }
 }
