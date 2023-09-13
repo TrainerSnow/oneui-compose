@@ -11,12 +11,10 @@ import androidx.compose.foundation.gestures.snapTo
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -37,8 +35,8 @@ import org.oneui.compose.widgets.buttons.IconButton
  *
  * @param modifier The modifier to be applied to the container
  * @param state The [CollapsingToolbarState] for controlling the layout
- * @param toolbarTitle The title
- * @param toolbarSubtitle The subtitle
+ * @param toolbarTitle The composable drawing the title of the layout. Preferably a [Text]
+ * @param toolbarSubtitle The composable drawing the title of the layout. Preferably a [Text]
  * @param toolbarHeight The height of the toolbar when expanded
  * @param appbarActions The actions shown on the appbar. Expected to be [IconButton]s, other could lead to undefined behaviour.
  * @param appbarNavAction The navigation action shown at the start of the appbar
@@ -51,8 +49,8 @@ fun CollapsingToolbarLayout(
     modifier: Modifier = Modifier,
     state: CollapsingToolbarState = rememberCollapsingToolbarState(),
     expandable: Boolean = true,
-    toolbarTitle: String,
-    toolbarSubtitle: String? = null,
+    toolbarTitle: (@Composable (CollapsingToolbarCollapsedState) -> Unit)? = null,
+    toolbarSubtitle: (@Composable () -> Unit)? = null,
     toolbarHeight: Dp = 280.dp,
     appbarActions: (@Composable () -> Unit)? = null,
     appbarNavAction: (@Composable () -> Unit)? = null,
@@ -91,6 +89,22 @@ fun CollapsingToolbarLayout(
             state.draggableState.NestedScrollConnection
         ) else Modifier
 
+    val titleTextStyle = OneUITheme.types.appbarTitleExtended.copy(
+        color = OneUITheme.types.appbarTitleExtended.color.copy(
+            toolbarAlpha.coerceIn(0F, 1F)
+        )
+    )
+    val titleCollapsedTextStyle = OneUITheme.types.appbarTitleCollapsed.copy(
+        color = OneUITheme.types.appbarTitleCollapsed.color.copy(
+            alpha = appbarAlpha.coerceIn(0F, 1F)
+        )
+    )
+    val subtitleTextStyle = OneUITheme.types.appbarSubtitle.copy(
+        color = OneUITheme.types.appbarSubtitle.color.copy(
+            toolbarAlpha.coerceIn(0F, 1F)
+        )
+    )
+
     Column(
         modifier = modifier
             .then(mod)
@@ -101,39 +115,22 @@ fun CollapsingToolbarLayout(
                     height = offsetDp
                 ),
             title = {
-                Text(
-                    text = toolbarTitle,
-                    style = OneUITheme.types.appbarTitleExtended.copy(
-                        color = OneUITheme.types.appbarTitleExtended.color.copy(
-                            toolbarAlpha.coerceIn(0F, 1F)
-                        )
-                    )
-                )
+                ProvideTextStyle(titleTextStyle) {
+                    toolbarTitle?.let { it(CollapsingToolbarCollapsedState.EXTENDED) }
+                }
             },
-            subtitle = toolbarSubtitle?.let {
-                {
-                    Text(
-                        text = it,
-                        style = OneUITheme.types.appbarSubtitle.copy(
-                            color = OneUITheme.types.appbarSubtitle.color.copy(
-                                toolbarAlpha.coerceIn(0F, 1F)
-                            )
-                        )
-                    )
+            subtitle = {
+                ProvideTextStyle(subtitleTextStyle) {
+                    toolbarSubtitle?.let { it() }
                 }
             }
         )
 
         OUIAppBar(
             title = {
-                Text(
-                    text = toolbarTitle,
-                    style = OneUITheme.types.appbarTitleCollapsed.copy(
-                        color = OneUITheme.types.appbarTitleCollapsed.color.copy(
-                            alpha = appbarAlpha.coerceIn(0F, 1F)
-                        )
-                    )
-                )
+                ProvideTextStyle(titleCollapsedTextStyle) {
+                    toolbarTitle?.let { it(CollapsingToolbarCollapsedState.EXTENDED) }
+                }
             },
             startAction = appbarNavAction?.let {
                 {
@@ -156,6 +153,53 @@ fun CollapsingToolbarLayout(
         }
     }
 }
+
+
+/**
+ * Overload for [CollapsingToolbarLayout] that takes in raw strings
+ *
+ * TODO: Add preview picture
+ *
+ * @param modifier The modifier to be applied to the container
+ * @param state The [CollapsingToolbarState] for controlling the layout
+ * @param toolbarTitle The composable drawing the title of the layout. Preferably a [Text]
+ * @param toolbarSubtitle The composable drawing the title of the layout. Preferably a [Text]
+ * @param toolbarHeight The height of the toolbar when expanded
+ * @param appbarActions The actions shown on the appbar. Expected to be [IconButton]s, other could lead to undefined behaviour.
+ * @param appbarNavAction The navigation action shown at the start of the appbar
+ * @param contentPadding The padding to apply between the [content] and the layout
+ * @param content The content to be put inside the layout, arranged in a vertically in a [Column]
+ */
+@Composable
+fun CollapsingToolbarLayout(
+    modifier: Modifier = Modifier,
+    state: CollapsingToolbarState = rememberCollapsingToolbarState(),
+    expandable: Boolean = true,
+    toolbarTitle: String? = null,
+    toolbarSubtitle: String? = null,
+    toolbarHeight: Dp = 280.dp,
+    appbarActions: (@Composable () -> Unit)? = null,
+    appbarNavAction: (@Composable () -> Unit)? = null,
+    contentPadding: PaddingValues = CollapsingToolbarLayoutDefaults.contentPadding,
+    content: @Composable ColumnScope.() -> Unit
+) = CollapsingToolbarLayout(
+    modifier, state, expandable,
+    toolbarTitle = {
+        toolbarTitle?.let {
+            Text(it)
+        }
+    },
+    toolbarSubtitle = {
+        toolbarSubtitle?.let {
+            Text(it)
+        }
+    },
+    toolbarHeight,
+    appbarActions,
+    appbarNavAction,
+    contentPadding,
+    content
+)
 
 enum class CollapsingToolbarCollapsedState {
 
