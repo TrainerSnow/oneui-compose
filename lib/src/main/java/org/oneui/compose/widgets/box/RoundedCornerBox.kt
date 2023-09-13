@@ -5,12 +5,15 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -21,6 +24,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
@@ -40,6 +44,8 @@ object RoundedCornerBoxDefaults {
         horizontal = 24.dp,
         vertical = 12.dp
     )
+
+    val listItemSeparatorStrokeWidth = 4F
 
 }
 
@@ -120,7 +126,7 @@ fun RoundedCornerListItem(
 ) {
     val ld = LocalLayoutDirection.current
     val strokeColor = OneUITheme.colors.seslListDividerColor
-    RoundedCornerBox (
+    RoundedCornerBox(
         modifier = modifier
             .drawWithContent {
                 drawContent()
@@ -135,7 +141,7 @@ fun RoundedCornerListItem(
                             x = size.width - padding.calculateEndPadding(ld).toPx(),
                             y = size.height
                         ),
-                        strokeWidth = 0.4F
+                        strokeWidth = RoundedCornerBoxDefaults.listItemSeparatorStrokeWidth
                     )
                 }
             },
@@ -152,18 +158,21 @@ fun RoundedCornerListItem(
     )
 }
 
-private fun roundedCornerShape(dp: Dp = 26.dp, listPosition: ListPosition): Shape = when (listPosition) {
-    ListPosition.First -> RoundedCornerShape(
-        topStart = dp, topEnd = dp
-    )
-    ListPosition.Middle -> RoundedCornerShape(size = 0.dp)
-    ListPosition.Last -> RoundedCornerShape(
-        bottomStart = dp, bottomEnd = dp
-    )
-    ListPosition.Single -> RoundedCornerShape(
-        dp
-    )
-}
+private fun roundedCornerShape(dp: Dp = 26.dp, listPosition: ListPosition): Shape =
+    when (listPosition) {
+        ListPosition.First -> RoundedCornerShape(
+            topStart = dp, topEnd = dp
+        )
+
+        ListPosition.Middle -> RoundedCornerShape(size = 0.dp)
+        ListPosition.Last -> RoundedCornerShape(
+            bottomStart = dp, bottomEnd = dp
+        )
+
+        ListPosition.Single -> RoundedCornerShape(
+            dp
+        )
+    }
 
 /**
  * Contains the colors that define a [RoundedCornerBox]
@@ -192,3 +201,23 @@ fun roundedCornerBoxColors(
     background = background,
     ripple = ripple
 )
+
+@Preview
+@Composable
+fun RoundedCornerListPreview() = Column {
+    (1..5).forEach { int ->
+        RoundedCornerListItem(
+            modifier = Modifier
+                .width(150.dp),
+            listPosition = when (int) {
+                1 -> ListPosition.First
+                5 -> ListPosition.Last
+                else -> ListPosition.Middle
+            }
+        ) {
+            Text(
+                text = "Test text nr. $int"
+            )
+        }
+    }
+}
