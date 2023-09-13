@@ -2,6 +2,7 @@ package org.oneui.compose.layout.internal
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.AnchoredDraggableState
 import androidx.compose.foundation.gestures.DraggableAnchors
 import androidx.compose.foundation.gestures.Orientation
@@ -15,7 +16,9 @@ import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -144,7 +147,6 @@ fun rememberSlidingDrawerState(
  * @param state The [SlidingDrawerState] to control the drawer
  * @param maxWidth The width the drawer has when opened
  * @param minWidth The width the drawer has when it is closed
- * @param snapThreshold When to snap to the side (right or left)
  * @param content The content to be put besides the drawer
  */
 @OptIn(ExperimentalFoundationApi::class)
@@ -177,10 +179,6 @@ fun SlidingOutDrawerLayout(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .anchoredDraggable(
-                state = state.draggableState,
-                orientation = Orientation.Horizontal
-            )
     ) {
         //We don't want any "overpull" and no negative offset, so we restrict it
         val offset = state.draggableState.offset.coerceIn(
@@ -199,6 +197,10 @@ fun SlidingOutDrawerLayout(
                         (rightmost - offset).toDp()
                     }
                 )
+                .anchoredDraggable(
+                    state = state.draggableState,
+                    orientation = Orientation.Horizontal
+                )
         ) {
             drawerContent()
         }
@@ -214,4 +216,21 @@ fun SlidingOutDrawerLayout(
             }
         }
     }
+}
+
+
+@Preview
+@Composable
+fun SidedDrawerLayoutPreview() {
+    SlidingOutDrawerLayout(
+        drawerContent = {
+            Box(modifier = Modifier.fillMaxSize().background(Color.Blue))
+        },
+        content = {
+            Box(modifier = Modifier.fillMaxSize().background(Color.Red))
+        },
+        contentOverlay = { },
+        maxWidth = 200.dp,
+        minWidth = 30.dp
+    )
 }
