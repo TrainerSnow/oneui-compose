@@ -8,6 +8,7 @@ core-ktx = "1.10.1"
 oneui-icons = "1.1.0"
 annotation = "1.6.0"
 coroutines = "1.7.3"
+ui-tooling = "1.5.1"
 
 [libraries]
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
@@ -25,6 +26,7 @@ androidx-annotation = { group = "androidx.annotation", name = "annotation", vers
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 jetbrains-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 io-github-oneuiproject-icons = {group = "io.github.oneuiproject", name = "icons", version.ref = "oneui-icons" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui-tooling" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

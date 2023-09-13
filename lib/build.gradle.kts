@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.preview)
     implementation(libs.compose.animation)
+    debugImplementation(libs.androidx.ui.tooling)
 
     debugRuntimeOnly(libs.compose.ui.test.manifest)
     implementation(libs.io.github.oneuiproject.icons)
