@@ -5,10 +5,15 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.runtime.Composable
@@ -22,8 +27,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
+import org.oneui.compose.util.OneUIPreview
 import org.oneui.compose.util.enabledAlpha
 
 /**
@@ -57,11 +64,11 @@ fun HorizontalSeekbar(
     Canvas(
         modifier = modifier
             .fillMaxWidth()
-            .wrapContentHeight()
+            .height(SeekBarDefaults.thumbRadius * 2)
             .padding(8.dp)
             .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                if(enabled) {
+                if (enabled) {
                     detectDragGestures(
                         onDragStart = {
                             isDragging = true
@@ -126,11 +133,11 @@ fun VerticalSeekbar(
     Canvas(
         modifier = modifier
             .fillMaxHeight()
-            .wrapContentWidth()
+            .width(SeekBarDefaults.thumbRadius * 2)
             .padding(8.dp)
             .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                if(enabled) {
+                if (enabled) {
                     detectDragGestures(
                         onDragStart = {
                             isDragging = true
@@ -199,7 +206,7 @@ fun VerticalSeekbarExpanding(
             .padding(8.dp)
             .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                if(enabled) {
+                if (enabled) {
                     detectDragGestures(
                         onDragStart = {
                             isDragging = true
@@ -264,7 +271,7 @@ fun HorizontalSeekbarExpanding(
             .padding(8.dp)
             .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                if(enabled) {
+                if (enabled) {
                     detectDragGestures(
                         onDragStart = {
                             isDragging = true
@@ -331,7 +338,7 @@ fun HorizontalSeekbarWarning(
             .padding(8.dp)
             .enabledAlpha(enabled)
             .pointerInput(Unit) {
-                if(enabled) {
+                if (enabled) {
                     detectDragGestures(
                         onDragStart = {
                             isDragging = true
@@ -377,13 +384,14 @@ private fun DrawScope.drawThumbHorizontal(
     progress: Float
 ) {
     val yCenter = size.height / 2
-    val measuredX = progress * size.width
+    val actualWidth = size.width - radius
+    val measuredX = progress * actualWidth
 
     drawCircle(
         color = color,
         radius = radius,
         center = Offset(
-            x = measuredX,
+            x = measuredX + (radius / 2),
             y = yCenter
         )
     )
@@ -392,7 +400,7 @@ private fun DrawScope.drawThumbHorizontal(
             color = rippleColor,
             radius = rippleRadius,
             center = Offset(
-                x = measuredX,
+                x = measuredX + (radius / 2),
                 y = yCenter
             )
         )
@@ -407,14 +415,15 @@ private fun DrawScope.drawThumbVertical(
     progress: Float
 ) {
     val xCenter = size.width / 2
-    val measuredY = (1 - progress) * size.height
+    val actualHeight = size.height - radius
+    val measuredY = (1 - progress) * actualHeight
 
     drawCircle(
         color = color,
         radius = radius,
         center = Offset(
             x = xCenter,
-            y = measuredY
+            y = measuredY + (radius / 2)
         )
     )
     if (rippleColor != null && rippleRadius != null) {
@@ -423,7 +432,7 @@ private fun DrawScope.drawThumbVertical(
             radius = rippleRadius,
             center = Offset(
                 x = xCenter,
-                y = measuredY
+                y = measuredY + (radius / 2)
             )
         )
     }
@@ -635,4 +644,45 @@ object SeekBarDefaults {
 
     const val animDuration = 200
 
+}
+
+@Preview
+@Composable
+private fun HorizontalSeekbarPReview() = OneUIPreview(title = "Horizontal Seekbar") {
+    Column(
+        verticalArrangement = Arrangement
+            .spacedBy(8.dp)
+    ) {
+        HorizontalSeekbar(value = 0.0F, onValueChange = { })
+        HorizontalSeekbar(value = 0.5F, onValueChange = { })
+        HorizontalSeekbar(value = 1F, onValueChange = { })
+    }
+}
+
+@Preview
+@Composable
+private fun VerticalSeekbarPReview() = OneUIPreview(title = "Horizontal Seekbar") {
+    Row(
+        horizontalArrangement = Arrangement
+            .spacedBy(8.dp),
+        modifier = Modifier
+            .height(250.dp)
+    ) {
+        VerticalSeekbar(value = 0.0F, onValueChange = { })
+        VerticalSeekbar(value = 0.5F, onValueChange = { })
+        VerticalSeekbar(value = 1F, onValueChange = { })
+    }
+}
+
+@Preview
+@Composable
+private fun HorizontalSeekbarWarningPReview() = OneUIPreview(title = "Horizontal Seekbar") {
+    Column(
+        verticalArrangement = Arrangement
+            .spacedBy(8.dp)
+    ) {
+        HorizontalSeekbarWarning(value = 0.0F, onValueChange = { })
+        HorizontalSeekbarWarning(value = 0.4F, onValueChange = { })
+        HorizontalSeekbarWarning(value = 1F, onValueChange = { })
+    }
 }
