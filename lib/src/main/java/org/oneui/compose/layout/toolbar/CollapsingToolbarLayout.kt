@@ -10,9 +10,11 @@ import androidx.compose.foundation.gestures.animateTo
 import androidx.compose.foundation.gestures.snapTo
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
@@ -40,6 +42,7 @@ import org.oneui.compose.widgets.buttons.IconButton
  * @param toolbarHeight The height of the toolbar when expanded
  * @param appbarActions The actions shown on the appbar. Expected to be [IconButton]s, other could lead to undefined behaviour.
  * @param appbarNavAction The navigation action shown at the start of the appbar
+ * @param contentPadding The padding to apply between the [content] and the layout
  * @param content The content to be put inside the layout, arranged in a vertically in a [Column]
  */
 @OptIn(ExperimentalFoundationApi::class)
@@ -56,6 +59,7 @@ fun CollapsingToolbarLayout(
     toolbarHeight: Dp = 280.dp,
     appbarActions: (@Composable () -> Unit)? = null,
     appbarNavAction: (@Composable () -> Unit)? = null,
+    contentPadding: PaddingValues = CollapsingToolbarLayoutDefaults.contentPadding,
     content: @Composable ColumnScope.() -> Unit
 ) {
     val density = LocalDensity.current
@@ -149,6 +153,7 @@ fun CollapsingToolbarLayout(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
+                .padding(contentPadding)
         ) {
             content(this)
         }
@@ -269,4 +274,10 @@ fun rememberCollapsingToolbarState(
         initial = initial,
         velocityThreshold = velocityThreshold
     )
+}
+
+object CollapsingToolbarLayoutDefaults {
+
+    val contentPadding = PaddingValues()
+
 }
