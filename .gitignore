@@ -4,6 +4,8 @@
 /.idea/caches
 /.idea/libraries
 /.idea/sonarlint
+/.idea/sonarlint/issuestore/
+/.idea/sonarlint/securityhotspotstore/
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
