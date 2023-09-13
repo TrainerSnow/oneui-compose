@@ -49,10 +49,7 @@ import org.oneui.compose.widgets.buttons.IconButton
 @Composable
 fun CollapsingToolbarLayout(
     modifier: Modifier = Modifier,
-    state: CollapsingToolbarState = rememberCollapsingToolbarState(
-        CollapsingToolbarCollapsedState.EXTENDED,
-        with(LocalDensity.current) { 100.dp.toPx() }
-    ),
+    state: CollapsingToolbarState = rememberCollapsingToolbarState(),
     expandable: Boolean = true,
     toolbarTitle: String,
     toolbarSubtitle: String? = null,
@@ -267,8 +264,8 @@ data class CollapsingToolbarState(
 
 @Composable
 fun rememberCollapsingToolbarState(
-    initial: CollapsingToolbarCollapsedState,
-    velocityThreshold: Float
+    initial: CollapsingToolbarCollapsedState = CollapsingToolbarCollapsedState.EXTENDED,
+    velocityThreshold: Float = with(LocalDensity.current) { 100.dp.toPx() }
 ): CollapsingToolbarState = remember {
     CollapsingToolbarState(
         initial = initial,
