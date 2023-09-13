@@ -43,13 +43,10 @@ import org.oneui.compose.widgets.buttons.iconButtonColors
  * @param colors The colors to apply to the drawer
  * @param state The [SlidingDrawerState] to control the drawer
  * @param shape The shape the drawer is made of
- * @param layoutPadding The padding to be applied to the whole layout
- * @param drawerPadding The padding to apply to the drawer itself
- * @param headerIconMargin The margin of the header icon
- * @param headerIconTint The tint of the header icon
- * @param headerIcon The header icon itself
+ * @param layoutPadding The padding to be applied to the layout behind the drawer
+ * @param drawerPadding The padding to apply to the drawer content
+ * @param headerIcon The header icon to be shown in the top right hand part of the drawer
  * @param maxWidth The width of the drawer at opened state
- * @param minWidth The width of the drawer at closed state
  * @param drawerContent The content to put inside the drawer, preferably [DrawerItem]'s
  * @param content The content to put besides the drawer
  */
@@ -64,18 +61,14 @@ fun DrawerLayout(
     ),
     layoutPadding: PaddingValues = DrawerDefaults.layoutPadding,
     drawerPadding: PaddingValues = DrawerDefaults.drawerPadding,
-    headerIconMargin: PaddingValues = DrawerDefaults.headerIconMargin,
-    headerIconTint: Color = OneUITheme.colors.drawerHeaderIcon,
-    headerIcon: Icon? = null,
+    headerIcon: (@Composable () -> Unit)? = null,
     maxWidth: Dp = DrawerDefaults.maxWidthCompact,
-    minWidth: Dp = DrawerDefaults.minWidthCompact,
-    onHeaderIconClick: (() -> Unit)? = null,
     drawerContent: @Composable ColumnScope.() -> Unit,
     content: @Composable () -> Unit
 ) {
     val scope = rememberCoroutineScope()
 
-    val leftmost = with(LocalDensity.current) { minWidth.toPx() }
+    val leftmost = 0F
     val rightmost = with(LocalDensity.current) { maxWidth.toPx() }
 
     val offset = state.pixelProgress.coerceIn(
@@ -130,15 +123,7 @@ fun DrawerLayout(
                                 .fillMaxWidth(),
                             horizontalArrangement = Arrangement.End
                         ) {
-                            IconButton(
-                                modifier = Modifier
-                                    .padding(headerIconMargin),
-                                icon = headerIcon,
-                                onClick = onHeaderIconClick,
-                                colors = iconButtonColors(
-                                    tint = headerIconTint
-                                )
-                            )
+                            it()
                         }
                     }
 
@@ -161,7 +146,7 @@ fun DrawerLayout(
                 )
             },
             maxWidth = maxWidth,
-            minWidth = minWidth,
+            minWidth = 0.dp,
             state = state
         ) {
             Box(
@@ -239,12 +224,5 @@ object DrawerDefaults {
         horizontal = 8.dp
     )
 
-    val headerIconMargin = PaddingValues(
-        top = 8.dp,
-        end = 8.dp
-    )
-
     val maxWidthCompact = 320.dp
-
-    val minWidthCompact = 0.dp
 }
