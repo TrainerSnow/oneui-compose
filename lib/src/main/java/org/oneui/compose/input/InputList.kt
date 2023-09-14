@@ -2,11 +2,11 @@ package org.oneui.compose.input
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
@@ -26,6 +26,7 @@ import dev.oneuiproject.oneui.R
 import org.oneui.compose.base.Icon
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.util.ListPosition
+import org.oneui.compose.widgets.box.RoundedCornerListItem
 import org.oneui.compose.widgets.buttons.IconButton
 import org.oneui.compose.widgets.buttons.iconButtonColors
 import org.oneui.compose.widgets.menu.MenuItem
@@ -164,13 +165,14 @@ fun <T> InputList(
             }
         }
 
-        selectedItems.forEach { item ->
+        selectedItems.forEachIndexed { index, item ->
             InputListItem(
                 modifier = Modifier
                     .fillMaxWidth(),
                 item = item,
                 nameOf = nameOf,
-                onRemoveClick = onItemRemove
+                onRemoveClick = onItemRemove,
+                listPosition = if (index == 0) ListPosition.First else ListPosition.Middle
             )
         }
         Box {
@@ -178,7 +180,8 @@ fun <T> InputList(
                 modifier = Modifier
                     .fillMaxWidth(),
                 value = searchQuery,
-                onValueChange = onSearchQueryChange
+                onValueChange = onSearchQueryChange,
+                listPosition = if (selectedItems.isEmpty()) ListPosition.Single else ListPosition.Last
             )
 
             if (showPopup) {
@@ -212,38 +215,40 @@ private fun <T> InputListItem(
     modifier: Modifier = Modifier,
     item: T,
     nameOf: (T) -> String,
-    onRemoveClick: (T) -> Unit
+    onRemoveClick: (T) -> Unit,
+    listPosition: ListPosition
 ) {
     val nameStyle = TextStyle(
-        fontSize = 13.sp
+        fontSize = 17.sp
     )
 
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
+    RoundedCornerListItem(
+        padding = InputListDefaults.itemPadding,
+        listPosition = listPosition
     ) {
-        Spacer(
-            modifier = Modifier
-                .width(InputListDefaults.extraStartPadding)
-        )
+        Row(
+            modifier = modifier,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
 
-        Text(
-            style = nameStyle,
-            text = nameOf(item)
-        )
+            Text(
+                style = nameStyle,
+                text = nameOf(item)
+            )
 
-        Spacer(
-            modifier = Modifier
-                .weight(1F)
-        )
+            Spacer(
+                modifier = Modifier
+                    .weight(1F)
+            )
 
-        IconButton(
-            icon = Icon.Resource(R.drawable.ic_oui_minus),
-            colors = iconButtonColors(
-                tint = OneUITheme.colors.seslFunctionalRed
-            ),
-            onClick = { onRemoveClick(item) }
-        )
+            IconButton(
+                icon = Icon.Resource(R.drawable.ic_oui_minus),
+                colors = iconButtonColors(
+                    tint = OneUITheme.colors.seslFunctionalRed
+                ),
+                onClick = { onRemoveClick(item) }
+            )
+        }
     }
 }
 
@@ -268,18 +273,23 @@ private fun MenuListTextInput(
     modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,
-    icon: Icon? = null
+    icon: Icon? = null,
+    listPosition: ListPosition
 ) {
     InputFormField(
         modifier = modifier,
         value = value,
         onValueChange = onValueChange,
-        leadingIcon = icon
+        leadingIcon = icon,
+        listPosition = listPosition
     )
 }
 
 object InputListDefaults {
 
-    val extraStartPadding = 18.dp
+    val itemPadding = PaddingValues(
+        horizontal = 24.dp,
+        vertical = 6.dp
+    )
 
 }
