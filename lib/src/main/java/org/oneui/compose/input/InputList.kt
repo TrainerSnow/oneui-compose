@@ -138,7 +138,9 @@ fun <T> InputList(
     onItemRemove: (T) -> Unit,
     onItemAdd: (T) -> Unit,
     searchQuery: String,
-    onSearchQueryChange: (String) -> Unit
+    onSearchQueryChange: (String) -> Unit,
+    hint: String? = null,
+    icon: Icon? = null
 ) {
     Column(
         modifier = modifier
@@ -180,6 +182,8 @@ fun <T> InputList(
                 modifier = Modifier
                     .fillMaxWidth(),
                 value = searchQuery,
+                icon = icon,
+                hint = hint,
                 onValueChange = onSearchQueryChange,
                 listPosition = if (selectedItems.isEmpty()) ListPosition.Single else ListPosition.Last
             )
@@ -274,6 +278,7 @@ private fun MenuListTextInput(
     value: String,
     onValueChange: (String) -> Unit,
     icon: Icon? = null,
+    hint: String? = null,
     listPosition: ListPosition
 ) {
     InputFormField(
@@ -281,6 +286,7 @@ private fun MenuListTextInput(
         value = value,
         onValueChange = onValueChange,
         leadingIcon = icon,
+        hint = hint,
         listPosition = listPosition
     )
 }
