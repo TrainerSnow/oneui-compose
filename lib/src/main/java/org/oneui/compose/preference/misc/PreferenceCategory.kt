@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import org.oneui.compose.widgets.Divider
 import org.oneui.compose.widgets.box.RoundedCornerBox
 import org.oneui.compose.widgets.text.TextSeparator
 
@@ -40,7 +41,7 @@ fun PreferenceCategory(
 
                 composable()
                 if (doDivider) {
-                    PreferenceListDivider()
+                    Divider()
                 }
             }
         }
