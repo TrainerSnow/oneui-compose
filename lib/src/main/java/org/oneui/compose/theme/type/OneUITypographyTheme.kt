@@ -84,4 +84,6 @@ interface OneUITypographyTheme {
     val datePickerNumberSaturday: TextStyle
     val datePickerNumberSunday: TextStyle
     val datePickerNumberNormalDay: TextStyle
+
+    val fullscreenDialogButtonLabel: TextStyle
 }
