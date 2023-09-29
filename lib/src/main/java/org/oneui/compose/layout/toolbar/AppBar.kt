@@ -1,8 +1,10 @@
 package org.oneui.compose.layout.toolbar
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ProvideTextStyle
@@ -24,8 +26,9 @@ import org.oneui.compose.widgets.buttons.IconButtonDefaults
  * TODO: Add preview image
  *
  * @param modifier The modifier to be applied to the container
- * @param title The title of the appbar, preferably a [Text]
  * @param colors The [AppBarColors]
+ * @param windowInsets The [WindowInsets] to apply to the layout
+ * @param title The title of the appbar, preferably a [Text]
  * @param startAction The action icon on the start side
  * @param actions The other actions on the end side
  */
@@ -34,6 +37,7 @@ import org.oneui.compose.widgets.buttons.IconButtonDefaults
 fun OUIAppBar(
     modifier: Modifier = Modifier,
     colors: AppBarColors = appBarColors(),
+    windowInsets: WindowInsets = WindowInsets.statusBars,
     title: @Composable () -> Unit,
     startAction: (@Composable () -> Unit)? = null,
     actions: (@Composable () -> Unit)? = null
@@ -46,6 +50,7 @@ fun OUIAppBar(
             .background(
                 color = colors.background
             ),
+        windowInsets = windowInsets,
         title = {
             ProvideTextStyle(textStyle) {
                 ProvideBackgroundColor(colors.background) {

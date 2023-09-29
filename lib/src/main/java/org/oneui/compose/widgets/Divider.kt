@@ -1,4 +1,4 @@
-package org.oneui.compose.preference.misc
+package org.oneui.compose.widgets
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.PaddingValues
@@ -8,31 +8,34 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
 
 
 /**
- * Composable for a oneui-style divider for a list of preferences
+ * Composable for a oneui-style divider, to be used e.g. in lists of any kind
  *
  * @param modifier The [Modifier] to be applied to the container
- * @param colors The [PreferenceListDividerColors] to apply
+ * @param colors The [DividerColors] to apply
  */
 @Composable
-fun PreferenceListDivider(
+fun Divider(
     modifier: Modifier = Modifier,
-    colors: PreferenceListDividerColors = preferenceListDividerColors()
+    padding: PaddingValues = DividerDefaults.padding,
+    strokeWidth: Dp = DividerDefaults.strokeWidth,
+    colors: DividerColors = dividerColors()
 ) {
     Canvas(
         modifier = modifier
             .fillMaxSize()
-            .padding(PreferenceListDividerDefaults.padding)
+            .padding(padding)
     ) {
         val yCenter = size.height / 2
 
         drawLine(
             color = colors.stroke,
-            strokeWidth = PreferenceListDividerDefaults.strokeWidth.toPx(),
+            strokeWidth = strokeWidth.toPx(),
             start = Offset(
                 x = 0F,
                 y = yCenter
@@ -47,9 +50,9 @@ fun PreferenceListDivider(
 
 
 /**
- * Contains default values for a [PreferenceListDivider]
+ * Contains default values for a [Divider]
  */
-object PreferenceListDividerDefaults {
+object DividerDefaults {
 
     val strokeWidth = 1.dp
 
@@ -61,9 +64,9 @@ object PreferenceListDividerDefaults {
 
 
 /**
- * Contains the colors used for a [PreferenceListDivider]
+ * Contains the colors used for a [Divider]
  */
-data class PreferenceListDividerColors(
+data class DividerColors(
 
     val stroke: Color
 
@@ -71,13 +74,13 @@ data class PreferenceListDividerColors(
 
 
 /**
- * Constructs the default [PreferenceListDividerColors]
+ * Constructs the default [DividerColors]
  *
  * @param stroke The color used for the stroke itself
  */
 @Composable
-fun preferenceListDividerColors(
+fun dividerColors(
     stroke: Color = OneUITheme.colors.seslListDividerColor
-): PreferenceListDividerColors = PreferenceListDividerColors(
+): DividerColors = DividerColors(
     stroke = stroke
 )

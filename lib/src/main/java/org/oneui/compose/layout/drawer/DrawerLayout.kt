@@ -9,9 +9,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -25,7 +28,6 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
-import org.oneui.compose.base.Icon
 import org.oneui.compose.layout.internal.SlidingDrawerState
 import org.oneui.compose.layout.internal.SlidingOutDrawerLayout
 import org.oneui.compose.layout.internal.modifier.overlay
@@ -33,8 +35,7 @@ import org.oneui.compose.layout.internal.rememberSlidingDrawerState
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.theme.locals.ProvideBackgroundColor
 import org.oneui.compose.util.mapRange
-import org.oneui.compose.widgets.buttons.IconButton
-import org.oneui.compose.widgets.buttons.iconButtonColors
+import org.oneui.compose.util.plus
 
 /**
  * Composable for a oui-style drawer layout
@@ -55,6 +56,7 @@ fun DrawerLayout(
     modifier: Modifier = Modifier,
     colors: DrawerColors = drawerColors(),
     state: SlidingDrawerState = rememberSlidingDrawerState(),
+    windowInsets: WindowInsets = WindowInsets.systemBars,
     shape: Shape = RoundedCornerShape(
         topEnd = DrawerDefaults.cornerRadius,
         bottomEnd = DrawerDefaults.cornerRadius
@@ -98,7 +100,7 @@ fun DrawerLayout(
                 color = darkenedBackground
             )
             .padding(
-                layoutPadding
+                layoutPadding + windowInsets.asPaddingValues()
             )
     ) {
         SlidingOutDrawerLayout(

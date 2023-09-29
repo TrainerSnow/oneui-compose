@@ -2,22 +2,22 @@ package org.oneui.compose.layout.toolbar
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.AnchoredDraggableState
 import androidx.compose.foundation.gestures.DraggableAnchors
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.anchoredDraggable
 import androidx.compose.foundation.gestures.animateTo
 import androidx.compose.foundation.gestures.snapTo
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.ProvideTextStyle
@@ -25,7 +25,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,7 +33,6 @@ import androidx.compose.ui.unit.dp
 import org.oneui.compose.base.Icon
 import org.oneui.compose.layout.internal.modifier.NestedScrollConnection
 import org.oneui.compose.theme.OneUITheme
-import org.oneui.compose.util.OneUIPreview
 import org.oneui.compose.util.mapRange
 import org.oneui.compose.widgets.box.RoundedCornerBox
 import org.oneui.compose.widgets.buttons.IconButton
@@ -62,6 +60,7 @@ fun CollapsingToolbarLayout(
     modifier: Modifier = Modifier,
     state: CollapsingToolbarState = rememberCollapsingToolbarState(),
     expandable: Boolean = true,
+    windowInsets: WindowInsets = WindowInsets.systemBars,
     toolbarTitle: (@Composable (CollapsingToolbarCollapsedState) -> Unit)? = null,
     toolbarSubtitle: (@Composable () -> Unit)? = null,
     toolbarHeight: Dp = 280.dp,
@@ -122,6 +121,7 @@ fun CollapsingToolbarLayout(
     Column(
         modifier = modifier
             .then(mod)
+            .padding(windowInsets.asPaddingValues())
     ) {
         CollapsingToolbarTitle(
             modifier = Modifier
@@ -141,6 +141,7 @@ fun CollapsingToolbarLayout(
         )
 
         OUIAppBar(
+            windowInsets = WindowInsets(0, 0, 0, 0), //Are applied via parent
             title = {
                 ProvideTextStyle(titleCollapsedTextStyle) {
                     toolbarTitle?.let { it(CollapsingToolbarCollapsedState.EXTENDED) }
@@ -190,6 +191,7 @@ fun CollapsingToolbarLayout(
     modifier: Modifier = Modifier,
     state: CollapsingToolbarState = rememberCollapsingToolbarState(),
     expandable: Boolean = true,
+    windowInsets: WindowInsets = WindowInsets.systemBars,
     toolbarTitle: String? = null,
     toolbarSubtitle: String? = null,
     toolbarHeight: Dp = 280.dp,
@@ -199,7 +201,7 @@ fun CollapsingToolbarLayout(
     contentPadding: PaddingValues = CollapsingToolbarLayoutDefaults.contentPadding,
     content: @Composable ColumnScope.() -> Unit
 ) = CollapsingToolbarLayout(
-    modifier, state, expandable,
+    modifier, state, expandable, windowInsets,
     toolbarTitle = {
         toolbarTitle?.let {
             Text(it)
@@ -242,7 +244,7 @@ data class CollapsingToolbarState(
 ) {
 
     /**
-     * State for controling the swipeable modifier
+     * State for controlling the swipeable modifier
      */
     internal val draggableState = AnchoredDraggableState(
         initialValue = initial,
