@@ -23,3 +23,13 @@ fun PaddingValues.plus(
     end = calculateEndPadding(LocalLayoutDirection.current) + end,
     start = calculateStartPadding(LocalLayoutDirection.current) + start
 )
+
+@Composable
+operator fun PaddingValues.plus(
+    other: PaddingValues
+): PaddingValues = plus(
+    start = other.calculateStartPadding(LocalLayoutDirection.current),
+    bottom = other.calculateBottomPadding(),
+    end = other.calculateEndPadding(LocalLayoutDirection.current),
+    top = other.calculateTopPadding()
+)
