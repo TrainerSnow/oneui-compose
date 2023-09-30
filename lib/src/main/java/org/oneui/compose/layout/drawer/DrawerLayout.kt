@@ -56,7 +56,7 @@ fun DrawerLayout(
     modifier: Modifier = Modifier,
     colors: DrawerColors = drawerColors(),
     state: SlidingDrawerState = rememberSlidingDrawerState(),
-    windowInsets: WindowInsets = WindowInsets.systemBars,
+    windowInsets: WindowInsets = WindowInsets(0, 0, 0, 0),
     shape: Shape = RoundedCornerShape(
         topEnd = DrawerDefaults.cornerRadius,
         bottomEnd = DrawerDefaults.cornerRadius
