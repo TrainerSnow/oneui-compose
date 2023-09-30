@@ -151,6 +151,17 @@ fun DrawerLayout(
             minWidth = 0.dp,
             state = state
         ) {
+            val clickMod = if(state.isOpened) Modifier
+                .clickable(
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                    enabled = state.isOpened
+                ) {
+                    scope.launch {
+                        state.closeAnimate()
+                    }
+                } else Modifier
+
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -162,15 +173,7 @@ fun DrawerLayout(
                             color = scrim
                         )
                     }
-                    .clickable(
-                        indication = null,
-                        interactionSource = remember { MutableInteractionSource() },
-                        enabled = state.isOpened
-                    ) {
-                        scope.launch {
-                            state.closeAnimate()
-                        }
-                    }
+                    .then(clickMod)
             ) {
                 ProvideBackgroundColor(colors.background) {
                     content()
