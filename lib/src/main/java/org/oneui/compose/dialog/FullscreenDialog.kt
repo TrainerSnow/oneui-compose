@@ -18,6 +18,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Text
+import androidx.compose.material3.windowsizeclass.WindowHeightSizeClass
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -53,20 +56,27 @@ enum class FullscreenDialogLayout {
      */
     Floating
 
+    ;
+
+    companion object {
+
+        fun fromSizeClass(sizeClass: WindowSizeClass): FullscreenDialogLayout =
+            when (sizeClass.widthSizeClass) {
+                WindowWidthSizeClass.Compact -> Normal
+                WindowWidthSizeClass.Medium,
+                WindowWidthSizeClass.Expanded -> when (sizeClass.heightSizeClass) {
+                    WindowHeightSizeClass.Compact -> Landscape
+                    else -> Floating
+                }
+
+                else -> Normal
+            }
+
+    }
+
 }
 
 typealias FullscreenDialogPositionProvider = PopupPositionProvider
-
-@Composable
-private fun fullscreenDialogLayout(): FullscreenDialogLayout {
-    val config = LocalConfiguration.current
-    val width = config.screenWidthDp.dp
-    val isLandscape = config.orientation == ORIENTATION_LANDSCAPE
-
-    return if (width > 600.dp) FullscreenDialogLayout.Floating
-    else if (isLandscape) FullscreenDialogLayout.Landscape
-    else FullscreenDialogLayout.Normal
-}
 
 
 /**
@@ -87,7 +97,7 @@ private fun fullscreenDialogLayout(): FullscreenDialogLayout {
 fun FullscreenDialog(
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
-    layout: FullscreenDialogLayout = fullscreenDialogLayout(),
+    layout: FullscreenDialogLayout = FullscreenDialogLayout.Normal,
     floatingPositionProvider: FullscreenDialogPositionProvider? = null,
     positiveLabel: String,
     onPositiveClick: () -> Unit,
@@ -95,17 +105,17 @@ fun FullscreenDialog(
     onNegativeClick: (() -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
-val dialogContent = @Composable {
-    FullscreenDialogContent(
-        modifier = modifier,
-        layout = layout,
-        positiveLabel = positiveLabel,
-        onPositiveClick = onPositiveClick,
-        negativeLabel = negativeLabel,
-        onNegativeClick = onNegativeClick,
-        content = content
-    )
-}
+    val dialogContent = @Composable {
+        FullscreenDialogContent(
+            modifier = modifier,
+            layout = layout,
+            positiveLabel = positiveLabel,
+            onPositiveClick = onPositiveClick,
+            negativeLabel = negativeLabel,
+            onNegativeClick = onNegativeClick,
+            content = content
+        )
+    }
 
     if (floatingPositionProvider != null) {
         Popup(
@@ -149,7 +159,7 @@ val dialogContent = @Composable {
 @Composable
 fun FullscreenDialogContent(
     modifier: Modifier = Modifier,
-    layout: FullscreenDialogLayout = fullscreenDialogLayout(),
+    layout: FullscreenDialogLayout = FullscreenDialogLayout.Normal,
     positiveLabel: String,
     onPositiveClick: () -> Unit,
     negativeLabel: String? = null,
