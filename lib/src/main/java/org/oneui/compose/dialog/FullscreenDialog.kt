@@ -95,33 +95,17 @@ fun FullscreenDialog(
     onNegativeClick: (() -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
-    val mod = modifier
-        .then(
-            if (layout == FullscreenDialogLayout.Floating)
-                Modifier
-                    .size(FullscreenDialogDefaults.floatingSize)
-                    .clip(FullscreenDialogDefaults.floatingShape)
-                    .border(
-                        width = FullscreenDialogDefaults.floatingBorderWidth,
-                        color = OneUITheme.colors.seslListDividerColor,
-                        shape = FullscreenDialogDefaults.floatingShape
-                    )
-            else Modifier.fillMaxSize()
-        )
-
-    val dialogContent = @Composable {
-        Box(
-            modifier = mod
-                .background(OneUITheme.colors.seslBackgroundColor)
-        ) {
-            FullscreenDialogContent(
-                modifier = Modifier
-                    .fillMaxSize(),
-                horizontalMode = layout == FullscreenDialogLayout.Landscape,
-                positiveLabel, onPositiveClick, negativeLabel, onNegativeClick, content
-            )
-        }
-    }
+val dialogContent = @Composable {
+    FullscreenDialogContent(
+        modifier = modifier,
+        layout = layout,
+        positiveLabel = positiveLabel,
+        onPositiveClick = onPositiveClick,
+        negativeLabel = negativeLabel,
+        onNegativeClick = onNegativeClick,
+        content = content
+    )
+}
 
     if (floatingPositionProvider != null) {
         Popup(
@@ -151,9 +135,57 @@ fun FullscreenDialog(
     }
 }
 
+/**
+ * Composable for the content of a fullscreen dialog. This constructs the visuals of a fullscreen dialog but does not display it as a dialog, only as a normal composable
+ *
+ * @param modifier The [Modifier] to apply to the content
+ * @param layout The [FullscreenDialogLayout]. This dictates the way the content is shown.
+ * @param positiveLabel The label for the positive button of the dialog
+ * @param onPositiveClick The callback invoked when the positive button is clicked
+ * @param negativeLabel TheThe label for the negative button of the dialog
+ * @param onNegativeClick The callback invoked when the negative button is clicked
+ * @param content The content to be put into the dialog.
+ */
+@Composable
+fun FullscreenDialogContent(
+    modifier: Modifier = Modifier,
+    layout: FullscreenDialogLayout = fullscreenDialogLayout(),
+    positiveLabel: String,
+    onPositiveClick: () -> Unit,
+    negativeLabel: String? = null,
+    onNegativeClick: (() -> Unit)? = null,
+    content: @Composable () -> Unit
+) {
+    val mod = modifier
+        .then(
+            if (layout == FullscreenDialogLayout.Floating)
+                Modifier
+                    .size(FullscreenDialogDefaults.floatingSize)
+                    .clip(FullscreenDialogDefaults.floatingShape)
+                    .border(
+                        width = FullscreenDialogDefaults.floatingBorderWidth,
+                        color = OneUITheme.colors.seslListDividerColor,
+                        shape = FullscreenDialogDefaults.floatingShape
+                    )
+            else Modifier.fillMaxSize()
+        )
+
+    Box(
+        modifier = mod
+            .background(OneUITheme.colors.seslBackgroundColor)
+    ) {
+        FullscreenDialogLayout(
+            modifier = Modifier
+                .fillMaxSize(),
+            horizontalMode = layout == FullscreenDialogLayout.Landscape,
+            positiveLabel, onPositiveClick, negativeLabel, onNegativeClick, content
+        )
+    }
+}
+
 
 @Composable
-private fun FullscreenDialogContent(
+private fun FullscreenDialogLayout(
     modifier: Modifier = Modifier,
     horizontalMode: Boolean = false,
     positiveLabel: String,
