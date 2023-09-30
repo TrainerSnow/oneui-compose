@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
+import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
 import org.oneui.compose.theme.OneUITheme
 
@@ -54,6 +55,8 @@ enum class FullscreenDialogLayout {
 
 }
 
+typealias FullscreenDialogPositionProvider = PopupPositionProvider
+
 @Composable
 private fun fullscreenDialogLayout(): FullscreenDialogLayout {
     val config = LocalConfiguration.current
@@ -72,6 +75,7 @@ private fun fullscreenDialogLayout(): FullscreenDialogLayout {
  * @param modifier The [Modifier] to apply to the content of the dialog
  * @param onDismissRequest The callback invoked when the dialog should be removed from the screen
  * @param layout The [FullscreenDialogLayout]. This dictates the way the dialog is shown.
+ * @param floatingPositionProvider This is used to calculate the position of the Fullscreen dialog *only* when in [FullscreenDialogLayout.Floating] mode. If none is passed, the dialog aligns to the start of the window
  * @param positiveLabel The label for the positive button of the dialog
  * @param onPositiveClick The callback invoked when the positive button is clicked
  * @param negativeLabel TheThe label for the negative button of the dialog
@@ -84,6 +88,7 @@ fun FullscreenDialog(
     modifier: Modifier = Modifier,
     onDismissRequest: () -> Unit,
     layout: FullscreenDialogLayout = fullscreenDialogLayout(),
+    floatingPositionProvider: FullscreenDialogPositionProvider? = null,
     positiveLabel: String,
     onPositiveClick: () -> Unit,
     negativeLabel: String? = null,
@@ -118,17 +123,32 @@ fun FullscreenDialog(
         }
     }
 
-    Popup(
-        onDismissRequest = onDismissRequest,
-        content = dialogContent,
-        properties = PopupProperties(
-            dismissOnBackPress = true,
-            dismissOnClickOutside = true,
-            usePlatformDefaultWidth = false,
-            focusable = true,
-            excludeFromSystemGesture = false
+    if (floatingPositionProvider != null) {
+        Popup(
+            onDismissRequest = onDismissRequest,
+            popupPositionProvider = floatingPositionProvider,
+            content = dialogContent,
+            properties = PopupProperties(
+                dismissOnBackPress = true,
+                dismissOnClickOutside = true,
+                usePlatformDefaultWidth = false,
+                focusable = true,
+                excludeFromSystemGesture = false
+            )
         )
-    )
+    } else {
+        Popup(
+            onDismissRequest = onDismissRequest,
+            content = dialogContent,
+            properties = PopupProperties(
+                dismissOnBackPress = true,
+                dismissOnClickOutside = true,
+                usePlatformDefaultWidth = false,
+                focusable = true,
+                excludeFromSystemGesture = false
+            )
+        )
+    }
 }
 
 
