@@ -37,7 +37,7 @@ import org.oneui.compose.widgets.buttons.IconButtonDefaults
 fun OUIAppBar(
     modifier: Modifier = Modifier,
     colors: AppBarColors = appBarColors(),
-    windowInsets: WindowInsets = WindowInsets.statusBars,
+    windowInsets: WindowInsets = WindowInsets(0, 0, 0, 0),
     title: @Composable () -> Unit,
     startAction: (@Composable () -> Unit)? = null,
     actions: (@Composable () -> Unit)? = null
