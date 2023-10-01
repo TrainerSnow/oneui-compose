@@ -450,4 +450,6 @@
     <color name="sesl_button_default_background_dark">#4dffffff</color>
     <color name="sesl_picker_color_simple_selected_stroke_light">#ffde9992</color>
     <color name="sesl_picker_color_simple_selected_stroke_dark">#ffde9992</color>
+    <color name="navigation_rail_background_light">#ffeeeeee</color>
+    <color name="navigation_rail_background_dark">#ff101010</color>
 </resources>

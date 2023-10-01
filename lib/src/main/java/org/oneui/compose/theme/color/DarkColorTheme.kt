@@ -221,4 +221,5 @@ internal val DarkColorTheme = object : OneUIColorTheme {
     override val drawerItemEndLabel: Color = Color(0xff999999)
     override val buttonDefaultBackground = Color(0x4dffffff)
     override val simpleColorPickerSelectedStroke = Color(0xffde9992)
+    override val navigationRailBackground = Color(0xff010101)
 }

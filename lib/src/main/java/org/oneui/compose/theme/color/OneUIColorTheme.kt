@@ -225,6 +225,7 @@ interface OneUIColorTheme {
     val drawerItemEndLabel: Color
     val buttonDefaultBackground: Color
     val simpleColorPickerSelectedStroke: Color
+    val navigationRailBackground: Color
 
     companion object {
 
