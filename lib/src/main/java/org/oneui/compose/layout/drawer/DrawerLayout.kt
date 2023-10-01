@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -28,8 +27,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
-import org.oneui.compose.layout.internal.SlidingDrawerState
-import org.oneui.compose.layout.internal.SlidingOutDrawerLayout
+import org.oneui.compose.layout.internal.DrawerState
+import org.oneui.compose.layout.internal.SlidingDrawerLayout
 import org.oneui.compose.layout.internal.modifier.overlay
 import org.oneui.compose.layout.internal.rememberSlidingDrawerState
 import org.oneui.compose.theme.OneUITheme
@@ -42,7 +41,7 @@ import org.oneui.compose.util.plus
  *
  * @param modifier The modifier to be applied to the layout
  * @param colors The colors to apply to the drawer
- * @param state The [SlidingDrawerState] to control the drawer
+ * @param state The [DrawerState] to control the drawer
  * @param shape The shape the drawer is made of
  * @param layoutPadding The padding to be applied to the layout behind the drawer
  * @param drawerPadding The padding to apply to the drawer content
@@ -55,7 +54,7 @@ import org.oneui.compose.util.plus
 fun DrawerLayout(
     modifier: Modifier = Modifier,
     colors: DrawerColors = drawerColors(),
-    state: SlidingDrawerState = rememberSlidingDrawerState(),
+    state: DrawerState = rememberSlidingDrawerState(),
     windowInsets: WindowInsets = WindowInsets(0, 0, 0, 0),
     shape: Shape = RoundedCornerShape(
         topEnd = DrawerDefaults.cornerRadius,
@@ -103,7 +102,7 @@ fun DrawerLayout(
                 layoutPadding + windowInsets.asPaddingValues()
             )
     ) {
-        SlidingOutDrawerLayout(
+        SlidingDrawerLayout(
             drawerContent = {
                 Column(
                     modifier = Modifier
@@ -135,7 +134,7 @@ fun DrawerLayout(
                 }
             },
             contentOverlay = {
-                if (it == 0F) return@SlidingOutDrawerLayout
+                if (it == 0F) return@SlidingDrawerLayout
                 Box(
                     //Empty click listener to catch click events and disallow from interacting with children
                     modifier = Modifier
