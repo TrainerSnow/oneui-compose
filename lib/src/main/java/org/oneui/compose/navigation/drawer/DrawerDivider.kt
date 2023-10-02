@@ -1,4 +1,4 @@
-package org.oneui.compose.layout.drawer
+package org.oneui.compose.navigation.drawer
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import org.oneui.compose.theme.OneUITheme
 
 /**
- * Composable for a oneui-style drawer divider, that separates content in a [DrawerLayout]
+ * Composable for a oneui-style drawer divider, that separates content in a [NavigationDrawer]
  *
  * @param modifier The [Modifier] to be applied to the container
  * @param colors The [DrawerDividerColors] to apply
