@@ -26,7 +26,7 @@ import org.oneui.compose.theme.locals.ProvideBackgroundColor
  *
  * @param modifier The [Modifier] to apply to the container
  * @param state The [DrawerState] to control the Rail
- * @param colors The [NavRailColors] to apply
+ * @param colors The [NavigationRailItemColors] to apply
  * @param shape The [Shape] of the rail
  * @param layoutPadding The padding to apply to the entire layout
  * @param railPadding The padding to apply to the rail
@@ -35,15 +35,15 @@ import org.oneui.compose.theme.locals.ProvideBackgroundColor
  * @param content The actual content to be put next to the rail.
  */
 @Composable
-fun NavRailLayout(
+fun NavigationRail(
     modifier: Modifier = Modifier,
     state: DrawerState = rememberSlidingDrawerState(),
-    colors: NavRailColors = navRailColors(),
-    shape: Shape = NavRailDefaults.shape,
-    layoutPadding: PaddingValues = NavRailDefaults.layoutPadding,
-    railPadding: PaddingValues = NavRailDefaults.railPadding,
+    colors: NavigationRailColors = navigationRailColors(),
+    shape: Shape = NavigationRailDefaults.shape,
+    layoutPadding: PaddingValues = NavigationRailDefaults.layoutPadding,
+    railPadding: PaddingValues = NavigationRailDefaults.railPadding,
     railHeader: @Composable ColumnScope.() -> Unit,
-    railContent: @Composable ColumnScope.() -> Unit,
+    railContent: @Composable ColumnScope.(progress: Float) -> Unit,
     content: @Composable () -> Unit
 ) {
     Box(
@@ -56,8 +56,8 @@ fun NavRailLayout(
             modifier = Modifier
                 .fillMaxSize(),
             state = state,
-            minWidth = NavRailDefaults.closedSize,
-            maxWidth = NavRailDefaults.openedSize,
+            minWidth = NavigationRailDefaults.closedSize,
+            maxWidth = NavigationRailDefaults.openedSize,
             railContent = {
                 Column(
                     modifier = Modifier
@@ -68,7 +68,7 @@ fun NavRailLayout(
                 ) {
                     ProvideBackgroundColor(colors.railBackground) {
                         railHeader()
-                        railContent()
+                        railContent(it)
                     }
                 }
             }
@@ -86,16 +86,16 @@ fun NavRailLayout(
 }
 
 /**
- * Contains default values for a [NavRailLayout]
+ * Contains default values for a [NavigationRail]
  */
-object NavRailDefaults {
+object NavigationRailDefaults {
 
     val layoutPadding = PaddingValues(
         top = 16.dp
     )
 
     val railPadding = PaddingValues(
-        horizontal = 8.dp
+        horizontal = 12.dp
     )
     
     val closedSize = 70.dp
@@ -110,9 +110,9 @@ object NavRailDefaults {
 }
 
 /**
- * Contains the colors used for a [NavRailLayout]
+ * Contains the colors used for a [NavigationRail]
  */
-data class NavRailColors(
+data class NavigationRailColors(
 
     val background: Color,
 
@@ -121,22 +121,22 @@ data class NavRailColors(
 )
 
 /**
- * Constructs the default [NavRailColors]
+ * Constructs the default [NavigationRailItemColors]
  *
  * @param background The color to be used as a background
  * @param railBackground The color to be used as a background for the actual rail
  */
 @Composable
-fun navRailColors(
+fun navigationRailColors(
     background: Color = OneUITheme.colors.seslRoundAndBgcolor,
     railBackground: Color = OneUITheme.colors.navigationRailBackground
-) = NavRailColors(background, railBackground)
+) = NavigationRailColors(background, railBackground)
 
 
 @Preview
 @Composable
 private fun NavigationRailPreview() {
-    NavRailLayout(
+    NavigationRail(
         modifier = Modifier.fillMaxSize(),
         railHeader = { },
         railContent = { },

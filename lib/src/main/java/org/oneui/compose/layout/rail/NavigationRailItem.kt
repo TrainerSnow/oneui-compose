@@ -43,7 +43,7 @@ import dev.oneuiproject.oneui.R as IconR
  * @param endLabel The label to optionally show at the end of the item
  * @param onClick The callback invoked when the item is selected
  * @param selected Whether the item is currently selected
- * @param progress The opening progress of the [NavRailLayout]
+ * @param progress The opening progress of the [NavigationRail]
  */
 @Composable
 fun NavigationRailItem(
@@ -65,7 +65,7 @@ fun NavigationRailItem(
 )
 
 /**
- * Composable for a oneui-style Navigation rail item, to be used a a child inside a [NavRailLayout].
+ * Composable for a oneui-style Navigation rail item, to be used a a child inside a [NavigationRail].
  *
  * @param modifier The [Modifier] to be applied to the container
  * @param icon The composable to show at the start of the item, preferably an [IconView]
@@ -73,7 +73,7 @@ fun NavigationRailItem(
  * @param endLabel The label to optionally show at the end of the item, preferably a [Text]
  * @param onClick The callback invoked when the item is selected
  * @param selected Whether the item is currently selected
- * @param progress The opening progress of the [NavRailLayout]
+ * @param progress The opening progress of the [NavigationRail]
  */
 @Composable
 fun NavigationRailItem(
@@ -227,21 +227,21 @@ private fun OpenedNavigationRailItem(
 /**
  * Contains the colors used in a [NavigationRailItem]
  */
-data class NavigationRailColors(
+data class NavigationRailItemColors(
 
     val ripple: Color
 
 )
 
 /**
- * Constructs the default [NavigationRailColors]
+ * Constructs the default [NavigationRailItemColors]
  *
  * @param ripple The color for the ripple animation
  */
 @Composable
 fun navigationRailItemColors(
     ripple: Color = OneUITheme.colors.seslRippleColor
-) = NavigationRailColors(ripple)
+) = NavigationRailItemColors(ripple)
 
 
 /**
@@ -257,7 +257,7 @@ object NavigationRailItemDefaults {
     val shape = RoundedCornerShape(8.dp)
 
     val openedSize = DpSize(
-        width = NavRailDefaults.openedSize - 24.dp,
+        width = NavigationRailDefaults.openedSize - 24.dp,
         height = 46.dp + 11.dp
     )
     val openedPadding = PaddingValues(
@@ -274,7 +274,7 @@ object NavigationRailItemDefaults {
 @Preview
 @Composable
 private fun NavigationRailPreview() {
-    NavRailLayout(
+    NavigationRail(
         modifier = Modifier.fillMaxSize(),
         railHeader = { },
         railContent = {
