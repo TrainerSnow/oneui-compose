@@ -1,4 +1,4 @@
-package org.oneui.compose.layout.rail
+package org.oneui.compose.navigation.rail
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
