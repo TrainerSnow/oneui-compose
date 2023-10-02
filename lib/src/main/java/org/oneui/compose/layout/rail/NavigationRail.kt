@@ -42,7 +42,7 @@ fun NavigationRail(
     shape: Shape = NavigationRailDefaults.shape,
     layoutPadding: PaddingValues = NavigationRailDefaults.layoutPadding,
     railPadding: PaddingValues = NavigationRailDefaults.railPadding,
-    railHeader: @Composable ColumnScope.() -> Unit,
+    railHeader: @Composable ColumnScope.(progress: Float) -> Unit,
     railContent: @Composable ColumnScope.(progress: Float) -> Unit,
     content: @Composable () -> Unit
 ) {
@@ -67,7 +67,7 @@ fun NavigationRail(
                         .padding(railPadding)
                 ) {
                     ProvideBackgroundColor(colors.railBackground) {
-                        railHeader()
+                        railHeader(it)
                         railContent(it)
                     }
                 }
