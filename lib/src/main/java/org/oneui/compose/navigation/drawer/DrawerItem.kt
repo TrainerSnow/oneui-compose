@@ -1,4 +1,4 @@
-package org.oneui.compose.layout.drawer
+package org.oneui.compose.navigation.drawer
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -112,7 +112,7 @@ fun DrawerItem(
 }
 
 /**
- * Stores the colors that are needed to define a drawer layout
+ * Stores the colors that are needed to define a drawer item
  */
 data class DrawerItemColors(
 
@@ -121,7 +121,7 @@ data class DrawerItemColors(
 )
 
 /**
- * Constructs the default layout colors
+ * Constructs the default item colors
  */
 @Composable
 fun drawerItemColors(

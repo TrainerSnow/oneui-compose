@@ -1,6 +1,5 @@
 package org.oneui.compose.dialog
 
-import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -27,7 +26,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -39,33 +37,39 @@ import org.oneui.compose.theme.OneUITheme
 /**
  * Different layout types that a [FullscreenDialog] can draw
  */
-enum class FullscreenDialogLayout {
+sealed class FullscreenDialogLayout {
 
     /**
      * Normal mode as shown on mobile phones. Dialog takes the full screen size and has buttons aligned at the bottom
      */
-    Normal,
+    data object Normal : FullscreenDialogLayout()
 
     /**
      * As shown on mobile phones when rotated. Dialog takes the full screen size and has buttons aligned in the top right corner
+     * @property allowButtonOverlapping Whether the buttons displayed in the top right hand corner should be able to overlap the given content
      */
-    Landscape,
+    data class Landscape(
+        val allowButtonOverlapping: Boolean = false
+    ) : FullscreenDialogLayout()
 
     /**
      * As shown on large devices like tablets. Dialog takes a phone-screen sized window and is shown as an actual dialog on top of the application
      */
-    Floating
+    data object Floating : FullscreenDialogLayout()
 
     ;
 
     companion object {
 
-        fun fromSizeClass(sizeClass: WindowSizeClass): FullscreenDialogLayout =
+        fun fromSizeClass(
+            sizeClass: WindowSizeClass,
+            allowButtonOverlapping: Boolean = false
+        ): FullscreenDialogLayout =
             when (sizeClass.widthSizeClass) {
                 WindowWidthSizeClass.Compact -> Normal
                 WindowWidthSizeClass.Medium,
                 WindowWidthSizeClass.Expanded -> when (sizeClass.heightSizeClass) {
-                    WindowHeightSizeClass.Compact -> Landscape
+                    WindowHeightSizeClass.Compact -> Landscape(allowButtonOverlapping)
                     else -> Floating
                 }
 
@@ -182,12 +186,13 @@ fun FullscreenDialogContent(
 
     Box(
         modifier = mod
-            .background(OneUITheme.colors.seslBackgroundColor)
+            .background(OneUITheme.colors.seslRoundAndBgcolor)
     ) {
         FullscreenDialogLayout(
             modifier = Modifier
                 .fillMaxSize(),
-            horizontalMode = layout == FullscreenDialogLayout.Landscape,
+            horizontalMode = layout is FullscreenDialogLayout.Landscape,
+            allowButtonOverlapping = (layout as? FullscreenDialogLayout.Landscape)?.allowButtonOverlapping == true,
             positiveLabel, onPositiveClick, negativeLabel, onNegativeClick, content
         )
     }
@@ -198,38 +203,51 @@ fun FullscreenDialogContent(
 private fun FullscreenDialogLayout(
     modifier: Modifier = Modifier,
     horizontalMode: Boolean = false,
+    allowButtonOverlapping: Boolean = false,
     positiveLabel: String,
     onPositiveClick: () -> Unit,
     negativeLabel: String? = null,
     onNegativeClick: (() -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
+    val horizontalButtonRow = @Composable {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(FullscreenDialogDefaults.buttonRowPadding),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.End
+        ) {
+            negativeLabel?.let { label ->
+                FullscreenDialogButton(
+                    label = label,
+                    onClick = { onNegativeClick?.let { it() } }
+                )
+            }
+            FullscreenDialogButton(
+                label = positiveLabel,
+                onClick = onPositiveClick
+            )
+        }
+    }
     Column(
         modifier = modifier
     ) {
-        if (horizontalMode) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(FullscreenDialogDefaults.buttonRowPadding),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.End
-            ) {
-                negativeLabel?.let { label ->
-                    FullscreenDialogButton(
-                        label = label,
-                        onClick = { onNegativeClick?.let { it() } }
-                    )
-                }
-                FullscreenDialogButton(
-                    label = positiveLabel,
-                    onClick = onPositiveClick
-                )
-            }
+        if (horizontalMode && !allowButtonOverlapping) {
+            horizontalButtonRow()
         }
         Box(
             modifier = Modifier.weight(1F)
         ) {
+            if(horizontalMode && allowButtonOverlapping) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+                    contentAlignment = Alignment.TopEnd
+                ) {
+                    horizontalButtonRow()
+                }
+            }
             content()
         }
         if (!horizontalMode) {
@@ -330,7 +348,7 @@ private fun FullscreenDialogPreviewHorizontal() {
         negativeLabel = "Cancel",
         onPositiveClick = { },
         onNegativeClick = { },
-        layout = FullscreenDialogLayout.Landscape
+        layout = FullscreenDialogLayout.Landscape(true)
     ) {
         Column {
             Text("Test text")
