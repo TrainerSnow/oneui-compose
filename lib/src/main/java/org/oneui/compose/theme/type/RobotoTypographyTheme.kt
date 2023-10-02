@@ -55,7 +55,10 @@ internal class RobotoTypographyTheme private constructor(
     override val datePickerNumberSaturday: TextStyle,
     override val datePickerNumberSunday: TextStyle,
     override val datePickerNumberNormalDay: TextStyle,
-    override val fullscreenDialogButtonLabel: TextStyle
+    override val fullscreenDialogButtonLabel: TextStyle,
+    override val navigationRailItemLabel: TextStyle,
+    override val navigationRailItemLabelSelected: TextStyle,
+    override val navigationRailItemEndLabel: TextStyle
 ) : OneUITypographyTheme {
 
     companion object {
@@ -312,7 +315,25 @@ internal class RobotoTypographyTheme private constructor(
                     fontWeight = FontWeight.SemiBold,
                     color = colorTheme.seslPrimaryTextColor,
                     textAlign = TextAlign.Center
-                )
+                ),
+                navigationRailItemLabel = TextStyle(
+                    fontSize = 18.sp,
+                    color = colorTheme.drawerItemLabel,
+                    fontFamily = robotoFamily,
+                    fontWeight = FontWeight.Normal
+                ),
+                navigationRailItemLabelSelected = TextStyle(
+                    fontSize = 18.sp,
+                    color = colorTheme.drawerItemLabelSelected,
+                    fontFamily = robotoFamily,
+                    fontWeight = FontWeight.Bold
+                ),
+                navigationRailItemEndLabel = TextStyle(
+                    fontSize = 13.sp,
+                    color = colorTheme.drawerItemEndLabel,
+                    fontFamily = robotoFamily,
+                    fontWeight = FontWeight.Normal
+                ),
             )
         }
     }

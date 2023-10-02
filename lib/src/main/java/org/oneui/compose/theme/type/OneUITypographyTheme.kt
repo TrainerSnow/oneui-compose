@@ -86,4 +86,10 @@ interface OneUITypographyTheme {
     val datePickerNumberNormalDay: TextStyle
 
     val fullscreenDialogButtonLabel: TextStyle
+
+    val navigationRailItemLabel: TextStyle
+
+    val navigationRailItemLabelSelected: TextStyle
+
+    val navigationRailItemEndLabel: TextStyle
 }
