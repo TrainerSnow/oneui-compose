@@ -1,10 +1,13 @@
 package org.oneui.compose.navigation.rail
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,6 +23,7 @@ import org.oneui.compose.layout.internal.DrawerState
 import org.oneui.compose.layout.internal.rememberSlidingDrawerState
 import org.oneui.compose.theme.OneUITheme
 import org.oneui.compose.theme.locals.ProvideBackgroundColor
+import org.oneui.compose.util.plus
 
 /**
  * Composable for a oneui-style Navigation rail. This acts as an alternative to a Drawer or a Bottom Navigation Bar on larger screens.
@@ -38,6 +42,7 @@ import org.oneui.compose.theme.locals.ProvideBackgroundColor
 fun NavigationRail(
     modifier: Modifier = Modifier,
     state: DrawerState = rememberSlidingDrawerState(),
+    windowInsets: WindowInsets = WindowInsets(0, 0, 0, 0),
     colors: NavigationRailColors = navigationRailColors(),
     shape: Shape = NavigationRailDefaults.shape,
     layoutPadding: PaddingValues = NavigationRailDefaults.layoutPadding,
@@ -50,7 +55,7 @@ fun NavigationRail(
         modifier = modifier
             .fillMaxSize()
             .background(colors.background)
-            .padding(layoutPadding)
+            .padding(layoutPadding + windowInsets.asPaddingValues())
     ) {
         BaseNavigationRail(
             modifier = Modifier
@@ -133,13 +138,15 @@ fun navigationRailColors(
 ) = NavigationRailColors(background, railBackground)
 
 
-@Preview
+@Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 private fun NavigationRailPreview() {
-    NavigationRail(
-        modifier = Modifier.fillMaxSize(),
-        railHeader = { },
-        railContent = { },
-        content = { }
-    )
+    OneUITheme {
+        NavigationRail(
+            modifier = Modifier.fillMaxSize(),
+            railHeader = { },
+            railContent = { },
+            content = { }
+        )
+    }
 }

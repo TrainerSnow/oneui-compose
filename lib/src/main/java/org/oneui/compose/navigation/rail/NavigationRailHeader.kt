@@ -38,14 +38,16 @@ fun NavigationRailHeader(
     navigationIconButton = {
         onNavigateClick?.let { click ->
             IconButton(
-                icon = Icon.Resource(IconR.drawable.ic_oui_drawer)
+                icon = Icon.Resource(IconR.drawable.ic_oui_drawer),
+                onClick = onNavigateClick
             )
         }
     },
     settingsIconButton = {
         onSettingsClick?.let { click ->
             IconButton(
-                icon = Icon.Resource(IconR.drawable.ic_oui_settings_outline)
+                icon = Icon.Resource(IconR.drawable.ic_oui_settings_outline),
+                onClick = onSettingsClick
             )
         }
     },
