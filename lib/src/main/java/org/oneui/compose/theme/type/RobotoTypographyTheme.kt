@@ -58,7 +58,11 @@ internal class RobotoTypographyTheme private constructor(
     override val fullscreenDialogButtonLabel: TextStyle,
     override val navigationRailItemLabel: TextStyle,
     override val navigationRailItemLabelSelected: TextStyle,
-    override val navigationRailItemEndLabel: TextStyle
+    override val navigationRailItemEndLabel: TextStyle,
+    override val appInfoLayoutButton: TextStyle,
+    override val appInfoLayoutAppNameText: TextStyle,
+    override val appInfoLayoutVersionText: TextStyle,
+    override val appInfoLayoutExtraText: TextStyle
 ) : OneUITypographyTheme {
 
     companion object {
@@ -334,6 +338,30 @@ internal class RobotoTypographyTheme private constructor(
                     fontFamily = robotoFamily,
                     fontWeight = FontWeight.Normal
                 ),
+                appInfoLayoutButton = TextStyle(
+                    fontSize = 17.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = colorTheme.appInfoLayoutButtonText,
+                    fontFamily = robotoFamily
+                ),
+                appInfoLayoutAppNameText = TextStyle(
+                    fontSize = 38.sp,
+                    color = colorTheme.seslPrimaryTextColor,
+                    textAlign = TextAlign.Center,
+                    fontFamily = robotoFamily
+                ),
+                appInfoLayoutVersionText = TextStyle(
+                    fontSize = 14.sp,
+                    color = colorTheme.appInfoLayoutInfoText,
+                    textAlign = TextAlign.Center,
+                    fontFamily = robotoFamily
+                ),
+                appInfoLayoutExtraText = TextStyle(
+                    fontSize = 14.sp,
+                    color = colorTheme.appInfoLayoutInfoText,
+                    textAlign = TextAlign.Center,
+                    fontFamily = robotoFamily
+                )
             )
         }
     }

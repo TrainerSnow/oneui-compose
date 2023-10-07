@@ -452,4 +452,10 @@
     <color name="sesl_picker_color_simple_selected_stroke_dark">#ffde9992</color>
     <color name="navigation_rail_background_light">#ffeeeeee</color>
     <color name="navigation_rail_background_dark">#ff101010</color>
+    <color name="app_info_layout_button_text_light">#ff252525</color>
+    <color name="app_info_layout_button_text_dark">#fffafafa</color>
+    <color name="app_info_layout_button_background_light">#ffebebeb</color>
+    <color name="app_info_layout_button_background_dark">#ff1f1f1f</color>
+    <color name="app_info_layout_info_text_light">#ff8c8c8c</color>
+    <color name="app_info_layout_info_text_dark">#ff999999</color>
 </resources>

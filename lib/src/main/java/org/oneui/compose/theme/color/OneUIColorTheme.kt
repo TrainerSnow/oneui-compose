@@ -227,6 +227,10 @@ interface OneUIColorTheme {
     val simpleColorPickerSelectedStroke: Color
     val navigationRailBackground: Color
 
+    val appInfoLayoutButtonText: Color
+    val appInfoLayoutButtonBackground: Color
+    val appInfoLayoutInfoText: Color
+
     companion object {
 
         @Composable
