@@ -92,4 +92,6 @@ interface OneUITypographyTheme {
     val navigationRailItemLabelSelected: TextStyle
 
     val navigationRailItemEndLabel: TextStyle
+
+    val appInfoLayoutButton: TextStyle
 }

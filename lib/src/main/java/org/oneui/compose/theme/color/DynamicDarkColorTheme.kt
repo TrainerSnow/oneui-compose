@@ -332,27 +332,44 @@ internal val DynamicDarkColorTheme: OneUIColorTheme
         override val materialBlueGrey800: Color = color(R.color.material_blue_grey_800_dark)
         override val materialBlueGrey900: Color = color(R.color.material_blue_grey_900_dark)
         override val materialBlueGrey950: Color = color(R.color.material_blue_grey_950_dark)
-        override val seslNavigationBarBackground: Color = color(R.color.sesl_navigation_bar_background_dark)
+        override val seslNavigationBarBackground: Color =
+            color(R.color.sesl_navigation_bar_background_dark)
         override val seslNavigationBarIcon: Color = color(R.color.sesl_navigation_bar_icon_dark)
         override val seslNavigationBarRipple: Color = color(R.color.sesl_navigation_bar_ripple_dark)
         override val seslNavigationBarText: Color = color(R.color.sesl_navigation_bar_text_dark)
-        override val seslNavigationBarTextDisable: Color = color(R.color.sesl_navigation_bar_text_disable_dark)
-        override val seslNavigationBarTextText: Color = color(R.color.sesl_navigation_bar_text_text_dark)
-        override val seslTablayoutMainTabIndicatorColor: Color = color(R.color.sesl_tablayout_main_tab_indicator_color_dark)
-        override val seslTablayoutSubtabIndicatorBackground: Color = color(R.color.sesl_tablayout_subtab_indicator_background_dark)
-        override val seslTablayoutSubtabSubTextColorDefault: Color = color(R.color.sesl_tablayout_subtab_sub_text_color_default_dark)
-        override val seslTablayoutSubtabSubTextColorDisabled: Color = color(R.color.sesl_tablayout_subtab_sub_text_color_disabled_dark)
-        override val seslTablayoutSubtabSubTextColorSelected: Color = color(R.color.sesl_tablayout_subtab_sub_text_color_selected_dark)
-        override val seslTablayoutSubtabTextColorDefault: Color = color(R.color.sesl_tablayout_subtab_text_color_default_dark)
-        override val seslTablayoutSubtabTextColorDisabled: Color = color(R.color.sesl_tablayout_subtab_text_color_disabled_dark)
-        override val seslTablayoutSubtabTextColorSelected: Color = color(R.color.sesl_tablayout_subtab_text_color_selected_dark)
-        override val seslTablayoutTextColorDefault: Color = color(R.color.sesl_tablayout_text_color_default_dark)
-        override val seslTablayoutTextColorDisabled: Color = color(R.color.sesl_tablayout_text_color_disabled_dark)
-        override val seslTablayoutTextColorSelected: Color = color(R.color.sesl_tablayout_text_color_selected_dark)
-        override val seslTablayoutSubtabBackgroundStrokeColor: Color = color(R.color.sesl_tablayout_subtab_background_stroke_color_dark)
+        override val seslNavigationBarTextDisable: Color =
+            color(R.color.sesl_navigation_bar_text_disable_dark)
+        override val seslNavigationBarTextText: Color =
+            color(R.color.sesl_navigation_bar_text_text_dark)
+        override val seslTablayoutMainTabIndicatorColor: Color =
+            color(R.color.sesl_tablayout_main_tab_indicator_color_dark)
+        override val seslTablayoutSubtabIndicatorBackground: Color =
+            color(R.color.sesl_tablayout_subtab_indicator_background_dark)
+        override val seslTablayoutSubtabSubTextColorDefault: Color =
+            color(R.color.sesl_tablayout_subtab_sub_text_color_default_dark)
+        override val seslTablayoutSubtabSubTextColorDisabled: Color =
+            color(R.color.sesl_tablayout_subtab_sub_text_color_disabled_dark)
+        override val seslTablayoutSubtabSubTextColorSelected: Color =
+            color(R.color.sesl_tablayout_subtab_sub_text_color_selected_dark)
+        override val seslTablayoutSubtabTextColorDefault: Color =
+            color(R.color.sesl_tablayout_subtab_text_color_default_dark)
+        override val seslTablayoutSubtabTextColorDisabled: Color =
+            color(R.color.sesl_tablayout_subtab_text_color_disabled_dark)
+        override val seslTablayoutSubtabTextColorSelected: Color =
+            color(R.color.sesl_tablayout_subtab_text_color_selected_dark)
+        override val seslTablayoutTextColorDefault: Color =
+            color(R.color.sesl_tablayout_text_color_default_dark)
+        override val seslTablayoutTextColorDisabled: Color =
+            color(R.color.sesl_tablayout_text_color_disabled_dark)
+        override val seslTablayoutTextColorSelected: Color =
+            color(R.color.sesl_tablayout_text_color_selected_dark)
+        override val seslTablayoutSubtabBackgroundStrokeColor: Color =
+            color(R.color.sesl_tablayout_subtab_background_stroke_color_dark)
 
-        override val seslPreferenceRelativeCardBackground = Color(R.color.sesl_preference_relative_card_background_dark)
-        override val ouiTipsCardPreferenceBackground = color(R.color.oui_tipscardpref_bg_color_light)
+        override val seslPreferenceRelativeCardBackground =
+            Color(R.color.sesl_preference_relative_card_background_dark)
+        override val ouiTipsCardPreferenceBackground =
+            color(R.color.oui_tipscardpref_bg_color_light)
 
         /*
         Colors that aren't found in the oui-libs colors.xml file, and therefore 'hardcoded'
@@ -363,6 +380,11 @@ internal val DynamicDarkColorTheme: OneUIColorTheme
         override val drawerItemLabel = color(R.color.sesl_drawer_item_label_dark)
         override val drawerItemLabelSelected = color(R.color.sesl_drawer_item_label_selected_dark)
         override val buttonDefaultBackground = color(R.color.sesl_button_default_background_dark)
-        override val simpleColorPickerSelectedStroke = color(R.color.sesl_picker_color_simple_selected_stroke_dark)
+        override val simpleColorPickerSelectedStroke =
+            color(R.color.sesl_picker_color_simple_selected_stroke_dark)
         override val navigationRailBackground = color(R.color.navigation_rail_background_dark)
+        override val appInfoLayoutButtonText = color(R.color.app_info_layout_button_text_dark)
+        override val appInfoLayoutButtonBackground =
+            color(R.color.app_info_layout_button_background_dark)
+        override val appInfoLayoutInfoText = color(R.color.app_info_layout_info_text_dark)
     }

@@ -366,4 +366,7 @@ internal val DynamicLightColorTheme: OneUIColorTheme
         override val buttonDefaultBackground = color(R.color.sesl_button_default_background_light)
         override val simpleColorPickerSelectedStroke = color(R.color.sesl_picker_color_simple_selected_stroke_light)
         override val navigationRailBackground = color(R.color.navigation_rail_background_light)
+        override val appInfoLayoutButtonText = color(R.color.app_info_layout_button_text_light)
+        override val appInfoLayoutButtonBackground = color(R.color.app_info_layout_button_background_light)
+        override val appInfoLayoutInfoText = color(R.color.app_info_layout_info_text_light)
     }
