@@ -84,9 +84,9 @@ fun EditTextPreference(
                     onValueChange = { editTextValue = it },
                 )
             },
-            positiveButtonLabel = stringResource(R.string.sesl_dialog_button_positive),
+            positiveButtonLabel = stringResource(R.string.sesl_picker_done),
             onPositiveButtonClick = { onValueChange(editTextValue); showDialog = false },
-            negativeButtonLabel = stringResource(R.string.sesl_dialog_button_negative),
+            negativeButtonLabel = stringResource(R.string.sesl_picker_cancel),
             onNegativeButtonClick = { showDialog = false }
         )
 

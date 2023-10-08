@@ -98,7 +98,7 @@ internal fun <T> SingleSelectPreferenceDialog(
         modifier = modifier,
         onDismissRequest = onDismissRequest,
         title = { Text(text = title) },
-        negativeButtonLabel = stringResource(R.string.sesl_dialog_button_negative),
+        negativeButtonLabel = stringResource(R.string.sesl_picker_cancel),
         onNegativeButtonClick = onDismissRequest,
         body = {
             VerticalRadioGroup(

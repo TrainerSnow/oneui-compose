@@ -76,13 +76,13 @@ fun DatePickerDialog(
                 DialogButton(
                     modifier = Modifier
                         .weight(1F),
-                    label = stringResource(id = R.string.sesl_dialog_picker_date_negative),
+                    label = stringResource(id = R.string.sesl_picker_cancel),
                     onClick = onDismissRequest
                 )
                 DialogButton(
                     modifier = Modifier
                         .weight(1F),
-                    label = stringResource(id = R.string.sesl_dialog_picker_date_positive),
+                    label = stringResource(id = R.string.sesl_picker_done),
                     onClick = {
                         onDateSelected(state.date)
                         onDismissRequest()

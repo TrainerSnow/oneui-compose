@@ -36,7 +36,6 @@ import org.oneui.compose.theme.OneUITheme
  * @param selected Whether the item is selected. Only for spinners
  * @param labelStyle The [TextStyle] of the string-label
  * @param interactionSource The [MutableInteractionSource]
- * @param padding The [PaddingValues] to apply
  */
 @Composable
 fun SelectableMenuItem(

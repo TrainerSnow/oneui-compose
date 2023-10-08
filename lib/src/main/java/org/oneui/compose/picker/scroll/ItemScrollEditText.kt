@@ -37,7 +37,6 @@ import org.oneui.compose.widgets.EditText
  * @param predicate The check whether the input matches the given criteria
  * @param keyboardOptions The [KeyboardOptions] to apply to the [EditText]
  */
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ItemScrollEditText(
     modifier: Modifier = Modifier,

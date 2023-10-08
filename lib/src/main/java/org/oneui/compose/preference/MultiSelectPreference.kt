@@ -112,11 +112,11 @@ internal fun <T> MultiSelectPreferenceDialog(
         modifier = modifier,
         onDismissRequest = onDismissRequest,
         title = { Text(text = title) },
-        positiveButtonLabel = stringResource(R.string.sesl_dialog_button_positive),
+        positiveButtonLabel = stringResource(R.string.sesl_picker_done),
         onPositiveButtonClick = {
             onValuesChange(selectedItemsChanged.map { it as T })
         },
-        negativeButtonLabel = stringResource(R.string.sesl_dialog_button_negative),
+        negativeButtonLabel = stringResource(R.string.sesl_picker_cancel),
         onNegativeButtonClick = onDismissRequest,
         body = {
             VerticalRadioGroup(
