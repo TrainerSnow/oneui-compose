@@ -144,7 +144,7 @@
     <string name="expand_button_title">Advanced</string>
     <string name="summary_collapsed_preference_list"><xliff:g id="current_items">%1$s</xliff:g>, <xliff:g id="added_items">%2$s</xliff:g></string>
     <string name="copy">Copy</string>
-    <string name="preference_copied">
+    <string name="preference_copied"></string>
     <string name="not_set">Not set</string>
     <string name="sesl_preference_on">ON</string>
     <string name="sesl_preference_off">OFF</string>

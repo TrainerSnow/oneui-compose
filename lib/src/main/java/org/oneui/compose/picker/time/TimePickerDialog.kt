@@ -26,7 +26,7 @@ fun TimePickerDialog(
     onTimeSelected: (LocalTime) -> Unit,
     initialTime: LocalTime = LocalTime.now(),
     config: TimePickerConfig = timePickerConfig(),
-    title: String = stringResource(R.string.sesl_dialog_picker_time_title)
+    title: String = stringResource(R.string.sesl_time_picker_set_title)
 ) {
     val state = remember {
         TimePickerState(
@@ -38,11 +38,11 @@ fun TimePickerDialog(
         modifier = modifier,
         onDismissRequest = onDismissRequest,
         title = { Text(text = title) },
-        positiveButtonLabel = stringResource(R.string.sesl_dialog_picker_time_positive),
+        positiveButtonLabel = stringResource(R.string.sesl_picker_done),
         onPositiveButtonClick = {
             onTimeSelected(state.time)
         },
-        negativeButtonLabel = stringResource(R.string.sesl_dialog_picker_time_negative),
+        negativeButtonLabel = stringResource(R.string.sesl_picker_cancel),
         onNegativeButtonClick = onDismissRequest,
         body = {
             TimePicker(

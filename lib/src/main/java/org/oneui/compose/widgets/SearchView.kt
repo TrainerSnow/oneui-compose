@@ -52,7 +52,7 @@ import org.oneui.compose.util.enabledAlpha
 fun SearchView(
     modifier: Modifier = Modifier,
     query: String,
-    hint: String = stringResource(R.string.sesl_search_view_hint),
+    hint: String = stringResource(R.string.abc_search_hint),
     onQueryChange: (String) -> Unit,
     enabled: Boolean = true,
     backButton: (@Composable () -> Unit)? = null,
@@ -153,7 +153,7 @@ fun SearchView(
 fun SearchView(
     modifier: Modifier = Modifier,
     query: String,
-    hint: String = stringResource(R.string.sesl_search_view_hint),
+    hint: String = stringResource(R.string.abc_search_hint),
     enabled: Boolean = true,
     onQueryChange: (String) -> Unit,
     onBackClick: () -> Unit,

@@ -48,9 +48,9 @@ fun SwitchBar(
     switched: Boolean = false,
     label: String = stringResource(
         id = if (switched)
-            R.string.sesl_switchbar_label_on
+            R.string.sesl_switchbar_on_text
         else
-            R.string.sesl_switchbar_label_off
+            R.string.sesl_switchbar_off_text
     ),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
