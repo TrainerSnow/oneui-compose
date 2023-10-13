@@ -1,6 +1,7 @@
 package org.oneui.compose.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
@@ -32,7 +33,8 @@ fun OneUITheme(
     CompositionLocalProvider(
         LocalColors provides colorTheme,
         LocalTypography provides typeTheme,
-        LocalDynamicDimensions provides dynamicDimensions
+        LocalDynamicDimensions provides dynamicDimensions,
+        LocalContentColor provides colorTheme.seslPrimaryTextColor
     ) {
         content()
     }
