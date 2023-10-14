@@ -18,11 +18,11 @@ Future aims include but are not limited to:
 
 Further problems are noted as TODO-comments at the core composable of a component.
 
-## Contributing
-Please refer to the [contributing-guide](CONTRIBUTING.md)
-
 ## Getting started
 Please refer to [getting started](GETTING_STARTED.md)
+
+## Contributing
+Please refer to the [contributing-guide](CONTRIBUTING.md)
 
 ## Design Library
 
