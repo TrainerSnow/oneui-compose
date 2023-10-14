@@ -10,6 +10,7 @@ annotation = "1.6.0"
 coroutines = "1.7.3"
 ui-tooling = "1.5.1"
 windowsizeclas = "1.1.2"
+desugar_android = "2.0.3"
 
 [libraries]
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
@@ -29,6 +30,8 @@ androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "cor
 jetbrains-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 io-github-oneuiproject-icons = {group = "io.github.oneuiproject", name = "icons", version.ref = "oneui-icons" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui-tooling" }
+
+coreLibDesugaring = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugar_android" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
