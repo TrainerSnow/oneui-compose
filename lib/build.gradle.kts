@@ -71,7 +71,7 @@ afterEvaluate {
             create<MavenPublication>("maven") {
                 groupId = "com.github.TrainerSnow"
                 artifactId = "oneui-compose"
-                version = "0.5.3"
+                version = "0.5.5"
 
                 artifact(tasks.getByName("bundleReleaseAar"))
             }
