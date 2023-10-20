@@ -93,3 +93,43 @@ Using it in your project is needed, as the oneui-compose library does not provid
 Whenever possible, the oneui-compose library names its components identical to the material3 components. This can lead to confusion and requires developers to check which version of e.g. a `Button` they are importing.
 
 Using material3 components like a `Button` or a `Checkbox` is not recommended, as this can cause issues with a uniform look.
+
+## Dynamic Colors
+The OneUI-Compose library supports dynamic colors. This is an android features which styles the colors of the users UI depending on their wallpaper.
+To enable dynamic colors for your app, do the following:
+
+1. Enable it in the `OneUITheme` composable
+   
+   ```kotlin
+   OneUITheme (
+     dynamicColors = true
+   ) {
+     //...
+   }
+   ```
+   or pass it when creating the OneUIColorTheme:
+   
+   ```kotlin
+   val colorTheme = OneUIColorTheme.getTheme(
+     dark = useDarkTheme,
+     dynamic = true
+   )
+   ```
+2. Paste the [`theming_meta.xml`](https://github.com/TrainerSnow/oneui-DreamDiary/blob/master/theming_meta.xml) file into the `res/xml` folder of your `:app` module.
+   Inside this file, change the lines containing `Name="<App name>"` and `TargetPackageName="<Package name>"` to your app's name and package. Example:
+   ```
+   Name="App name"
+   TargetPackageName="com.example"
+   ```
+3. Reference the `theming_meta.xml` file in your `AndroidManifest.xml` using these `<meta-data/>`s:
+
+   ```xml
+    <meta-data
+      android:name="theming-meta"
+      android:value="theming_meta_example" />
+
+    <meta-data
+      android:name="theming-meta-xml"
+      android:value="@xml/theming_meta" />
+   ```
+
