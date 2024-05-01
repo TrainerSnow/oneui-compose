@@ -1,16 +1,16 @@
 [versions]
-compose-bom = "2023.06.01"
-foundation = "1.6.0-alpha03"
+compose-bom = "2024.04.01"
+foundation = "1.6.6"
 
-agp = "8.3.0-alpha06"
+agp = "8.3.2"
 kotlin = "1.9.0"
-core-ktx = "1.10.1"
+core-ktx = "1.13.0"
 oneui-icons = "1.1.0"
-annotation = "1.6.0"
-coroutines = "1.7.3"
-ui-tooling = "1.5.1"
-windowsizeclas = "1.1.2"
-desugar_android = "2.0.3"
+annotation = "1.7.1"
+coroutines = "1.8.0"
+ui-tooling = "1.6.6"
+windowsizeclas = "1.2.1"
+desugar_android = "2.0.4"
 
 [libraries]
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
