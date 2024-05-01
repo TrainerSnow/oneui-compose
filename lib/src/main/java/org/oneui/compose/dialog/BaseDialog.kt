@@ -16,9 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalView
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
@@ -46,7 +44,6 @@ fun BaseDialog(
     ),
     onDismissRequest: () -> Unit,
     padding: PaddingValues = BaseDialogDefaults.padding,
-    width: Dp = (OneUITheme.dimensions.dialogMinWidth * LocalConfiguration.current.screenWidthDp).dp,
     content: @Composable () -> Unit
 ) {
     Dialog(
@@ -55,7 +52,7 @@ fun BaseDialog(
     ) {
         (LocalView.current.parent as? DialogWindowProvider)?.window?.run {
             setDimAmount(
-                BaseDialogDefaults.dimAmount
+                BaseDialogDefaults.DimAmount
             )
             setGravity(Gravity.BOTTOM)
         }
@@ -114,6 +111,7 @@ fun baseDialogColors(
 /**
  * Contains default values for a [BaseDialog]
  */
+@Suppress("ConstPropertyName")
 object BaseDialogDefaults {
 
     val padding = PaddingValues(
@@ -130,10 +128,8 @@ object BaseDialogDefaults {
         size = 26.dp
     )
 
-    const val dimAmount = 0.2F
+    const val DimAmount = 0.2F
 
     val elevation = 1.dp
-
-    const val animDuration = 150
 
 }
