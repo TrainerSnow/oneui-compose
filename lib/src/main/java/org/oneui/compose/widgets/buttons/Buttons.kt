@@ -34,7 +34,7 @@ fun Button(
     shape: Shape = ButtonDefaults.shape,
     onClick: (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    leadingIcon: (() -> Unit)? = null,
+    leadingIcon: (@Composable () -> Unit)? = null,
     colors: ButtonColors = defaultButtonColors()
 ) {
     Row(
@@ -78,7 +78,7 @@ fun Button(
     textStyle: TextStyle = OneUITheme.types.button,
     onClick: (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    leadingIcon: (() -> Unit)? = null,
+    leadingIcon: (@Composable () -> Unit)? = null,
     colors: ButtonColors = defaultButtonColors()
 ) = Button(
     modifier,
