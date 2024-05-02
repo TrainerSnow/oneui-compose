@@ -3,8 +3,10 @@ package org.oneui.compose.widgets.buttons
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
@@ -32,9 +34,10 @@ fun Button(
     shape: Shape = ButtonDefaults.shape,
     onClick: (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    leadingIcon: (() -> Unit)? = null,
     colors: ButtonColors = defaultButtonColors()
 ) {
-    Box(
+    Row(
         modifier = modifier
             .background(
                 color = if (enabled) colors.background else colors.backgroundDisabled,
@@ -52,8 +55,13 @@ fun Button(
                 role = Role.Button
             ) { onClick?.let { it() } }
             .padding(padding),
-        contentAlignment = Alignment.Center
+        horizontalArrangement = Arrangement
+            .spacedBy(ButtonDefaults.leadingIconSpacing, Alignment.CenterHorizontally),
+        verticalAlignment = Alignment.CenterVertically
     ) {
+        leadingIcon?.let {
+            leadingIcon()
+        }
         label()
     }
 }
@@ -70,6 +78,7 @@ fun Button(
     textStyle: TextStyle = OneUITheme.types.button,
     onClick: (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    leadingIcon: (() -> Unit)? = null,
     colors: ButtonColors = defaultButtonColors()
 ) = Button(
     modifier,
@@ -83,7 +92,7 @@ fun Button(
             maxLines = maxLines
         )
     },
-    padding, enabled, shape, onClick, interactionSource, colors
+    padding, enabled, shape, onClick, interactionSource, leadingIcon, colors
 )
 
 /**
@@ -176,6 +185,8 @@ object ButtonDefaults {
         horizontal = 16.dp,
         vertical = 8.dp
     )
+
+    val leadingIconSpacing = 16.dp
 
     /**
      * How text overflow should be handled
