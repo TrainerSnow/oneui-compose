@@ -88,7 +88,8 @@ fun RoundedCornerBox(
         modifier = modifier
             .clip(shape)
             .background(
-                color = colors.background
+                color = colors.background,
+                shape = shape
             )
             .then(clickMod)
             .padding(padding),
